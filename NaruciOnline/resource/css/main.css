@@ -1,0 +1,30 @@
+#header {
+	background-color: grey;
+	margin: 0px;
+	position: relative;
+	margin-left: -50vw;
+	left: 50%;
+	width: 100vw;
+	
+}
+
+#logo {
+	height: 30px;
+	width: 160px;
+	display: inline-block;
+	margin: 10px;
+	border-style: inset;
+	border-color: white;
+	margin-left: 20px;
+}
+
+.header-button {
+	border: none;
+	background-color: transparent;
+	font-size: 20px;
+	padding: 10px 30px;
+}
+
+.header-button:hover {
+	background-color: blue;
+}

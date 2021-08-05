@@ -5,9 +5,9 @@ Vue.component("NaruciOnline", {
         }
     },
     template:`  
-    <div>
-        <h1>rresi</h1>
-    </div>   
+    	<div>
+			<p>naruci online</p>
+		</div>
     `       
         ,
 
