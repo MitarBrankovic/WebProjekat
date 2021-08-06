@@ -1,18 +1,19 @@
 Vue.component("header-comp", {
     data: function() {
         return {
-
+			korisnik:null
         }
     },
     template:`  
-    <nav id="header">
-		<div>
-        	<h1 id="logo">NaruciOnline</h1>
-			<button class="header-button">Dugme2</button>
-        	<button class="header-button">Dugme1</button>
-			<button class="header-button">Dugme3</button>
-		</div>
-    </nav>   
+    <nav class="topnav">
+	  <a class="active" href="/#/">Home</a>
+	  <a href="#restorani">Restorani</a>
+	  <a href="#contact">Contact</a>
+		<div class="topnav-right">
+	    	<a href="/#/login">Prijavi se</a>
+	    	<a href="/#/register">Registruj se</a>
+  		</div>
+	</nav>
     `       
         ,
 
