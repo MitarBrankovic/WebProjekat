@@ -44,10 +44,12 @@ public class Main {
 			//printMap(mapa);
 			
 			Korisnik korisnik = new Korisnik(korisnickoIme, lozinka, ime, prezime, 
-					pol, null, null, null, null, null, 0, null);
+					pol, null);
 			Serialization serialization = new Serialization();
-			System.out.println(korisnik.ime);
-			serialization.create(korisnik);
+			if(!serialization.create(korisnik)) {
+				res.status(400);
+				return "Greska";
+			}
 
 			res.status(200);
 			return "OK";

@@ -9,12 +9,10 @@ public class Korisnik {
 	public String prezime;
 	public String pol;
 	public LocalDate datumRodjenja;
-	public enum Uloga{Administrator, Menadzer, Dostavljac, Kupac};
-	
+	//public enum Uloga{Administrator, Menadzer, Dostavljac, Kupac};
 	
 	public Korisnik(String korisnickoIme, String lozinka, String ime, String prezime, String pol,
-			LocalDate datumRodjenja, String svePorudzbine, Korpa korpa, Restoran restoran, String dostava,
-			int brojBodova, TipKupca tip) {
+			LocalDate datumRodjenja) {
 		super();
 		this.korisnickoIme = korisnickoIme;
 		this.lozinka = lozinka;
@@ -22,6 +20,12 @@ public class Korisnik {
 		this.prezime = prezime;
 		this.pol = pol;
 		this.datumRodjenja = datumRodjenja;
+	}
+
+
+
+	public Korisnik() {
+		super();
 	}
 	
 	

@@ -9,6 +9,7 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -31,22 +32,33 @@ public class Serialization {
 
 	}
 	
-	public void create(Korisnik korisnik) throws JsonGenerationException, JsonMappingException, IOException {
-		/*List<Korisnik> admins = getAll();
-		if(admins != null && getObj(korisnik.korisnickoIme) == null) {
-			admins.add(korisnik);
-			return saveAll(admins);
+	public boolean create(Korisnik korisnik){
+		List<Korisnik> korisnici = getAll();
+		if(korisnici != null && getObj(korisnik.korisnickoIme) == null) {
+			korisnici.add(korisnik);
+			return saveAll(korisnici);
 		}
-		return false;*/
-		try {
-			mapper.writerWithDefaultPrettyPrinter().writeValue(file, korisnik);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		return false;
+		
+//		try {
+//			mapper.writerWithDefaultPrettyPrinter().writeValue(file, korisnici);
+//			return true;
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//			return false;
+//		}
 	}
 
-
-	/*public boolean saveAll(List<Korisnik> objs){
+	public List<Korisnik> getAll(){
+		try {
+			return mapper.convertValue(mapper.readValue(file, List.class), new TypeReference<List<Korisnik>>() {});
+		} catch (IllegalArgumentException | IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public boolean saveAll(List<Korisnik> objs){
 		try {
 			mapper.writerWithDefaultPrettyPrinter().writeValue(file, objs);
 			return true;
@@ -57,15 +69,14 @@ public class Serialization {
 		
 	}
 	
-	public List<Korisnik> getAll() {
-		try {
-			return mapper.convertValue(mapper.readValue(file, List.class), new TypeReference<List<Korisnik>>() {});
-		} catch (IllegalArgumentException | IOException e) {
-			e.printStackTrace();
-			return null;
+	public Korisnik getObj(String id) {
+		List<Korisnik> korisnici = getAll();
+		for(Korisnik k : korisnici) {
+			if(k.korisnickoIme.equals(id)) {
+				return k;
+			}
 		}
-		
-	}*/
-	
+		return null;
+	}
 	
 }
