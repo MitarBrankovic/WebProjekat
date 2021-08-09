@@ -4,6 +4,7 @@ import static spark.Spark.*;
 import static spark.Spark.port;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -11,6 +12,7 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 
+import io.Serialization;
 import model.Korisnik;
 
 public class Main {
@@ -43,6 +45,10 @@ public class Main {
 			
 			Korisnik korisnik = new Korisnik(korisnickoIme, lozinka, ime, prezime, 
 					pol, null, null, null, null, null, 0, null);
+			Serialization serialization = new Serialization();
+			System.out.println(korisnik.ime);
+			serialization.create(korisnik);
+
 			res.status(200);
 			return "OK";
 		});

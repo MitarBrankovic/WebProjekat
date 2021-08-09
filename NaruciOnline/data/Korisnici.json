@@ -1,0 +1,14 @@
+{
+  "korisnickoIme" : "asdsadasdas",
+  "lozinka" : "dasfsadsadasd",
+  "ime" : "dadadasdsa",
+  "prezime" : "dsadsad",
+  "pol" : "muski",
+  "datumRodjenja" : null,
+  "svePorudzbine" : null,
+  "korpa" : null,
+  "restoran" : null,
+  "dostava" : null,
+  "brojBodova" : 0,
+  "tip" : null
+}
