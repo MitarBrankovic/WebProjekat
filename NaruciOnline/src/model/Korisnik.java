@@ -11,6 +11,7 @@ public class Korisnik {
 	public LocalDate datumRodjenja;
 	//public enum Uloga{Administrator, Menadzer, Dostavljac, Kupac};
 	
+	
 	public Korisnik(String korisnickoIme, String lozinka, String ime, String prezime, String pol,
 			LocalDate datumRodjenja) {
 		super();
