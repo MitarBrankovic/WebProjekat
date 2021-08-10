@@ -4,33 +4,54 @@
   "ime" : "sadsad",
   "prezime" : "sadasda",
   "pol" : "muski",
-  "datumRodjenja" : null
+  "datumRodjenja" : null,
+  "uloga" : null
 }, {
   "korisnickoIme" : "sadsad",
   "lozinka" : "dsadasdsa",
   "ime" : "sadsad",
   "prezime" : "sadasdsad",
   "pol" : "muski",
-  "datumRodjenja" : null
+  "datumRodjenja" : null,
+  "uloga" : null
 }, {
   "korisnickoIme" : "asdsad",
   "lozinka" : "asdasdasd",
   "ime" : "aaaa",
   "prezime" : "aaaa",
   "pol" : "muski",
-  "datumRodjenja" : null
+  "datumRodjenja" : null,
+  "uloga" : null
 }, {
   "korisnickoIme" : "sssssss",
   "lozinka" : "sssssss",
   "ime" : "sssssss",
   "prezime" : "sssssss",
   "pol" : "zenski",
-  "datumRodjenja" : null
+  "datumRodjenja" : null,
+  "uloga" : null
 }, {
   "korisnickoIme" : "sssssssd",
   "lozinka" : "sssssss",
   "ime" : "sssssss",
   "prezime" : "sssssss",
   "pol" : "muski",
-  "datumRodjenja" : null
+  "datumRodjenja" : null,
+  "uloga" : null
+}, {
+  "korisnickoIme" : "opa",
+  "lozinka" : "opa",
+  "ime" : "opa",
+  "prezime" : "opa",
+  "pol" : "muski",
+  "datumRodjenja" : null,
+  "uloga" : null
+}, {
+  "korisnickoIme" : "a",
+  "lozinka" : "a",
+  "ime" : "a",
+  "prezime" : "a",
+  "pol" : "muski",
+  "datumRodjenja" : null,
+  "uloga" : null
 } ]

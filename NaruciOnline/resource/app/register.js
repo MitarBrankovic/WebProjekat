@@ -7,7 +7,8 @@ Vue.component("register", {
 			prezime:"",
 			pol:"",
 			datumRodjenja:"",
-			tip:""
+			tip:"",
+			uloga:""
         }
     },
     template:`  
