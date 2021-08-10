@@ -75,6 +75,12 @@ Vue.component("register", {
             .then(response=>{
                 this.$router.push('/')
             })
+			/*.catch(error=>{
+				console.log("Greska.")	
+				alert("Vec postoji korisnik sa tim korisnickim imenom.")
+				window.location.reload()
+
+			})*/
         }
     }
 

@@ -30,6 +30,7 @@ public class Main {
 //		get("/naruciOnline", (req, res) -> {
 //			return true;
 //		});
+		Serialization serialization = new Serialization();
 		
 		post("/register", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
@@ -42,10 +43,8 @@ public class Main {
 			String lozinka = mapa.get("lozinka");
 			
 			//printMap(mapa);
-			
 			Korisnik korisnik = new Korisnik(korisnickoIme, lozinka, ime, prezime, 
 					pol, null);
-			Serialization serialization = new Serialization();
 			if(!serialization.create(korisnik)) {
 				res.status(400);
 				return "Greska";
@@ -56,6 +55,23 @@ public class Main {
 		});
 		
 		
+		post("/login", (req, res) -> {
+			try {
+				HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+				if (serialization.LoginValidation(mapa.get("korisnickoIme"), mapa.get("lozinka"))) {
+					Korisnik k = serialization.getObj(mapa.get("korisnickoIme"));
+					res.status(200);
+					return g.toJson(k);
+				} else {
+					res.status(404);
+					return "Greska";
+				}
+
+			} catch (Exception e) {
+
+			}
+			return "Success";
+		});		
 	}
 	
 	// Sluzi za ispisiavnje hashmape - nebitno

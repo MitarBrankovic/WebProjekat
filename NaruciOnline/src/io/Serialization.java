@@ -79,4 +79,14 @@ public class Serialization {
 		return null;
 	}
 	
+	public boolean LoginValidation(String username, String password) {
+		Korisnik korisnik = getObj(username);
+		if(korisnik != null) {
+			if(korisnik.lozinka.equals(password)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 }
