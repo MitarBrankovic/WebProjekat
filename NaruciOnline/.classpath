@@ -27,8 +27,8 @@
 	<classpathentry kind="lib" path="lib/websocket-common-9.3.6.v20151106.jar"/>
 	<classpathentry kind="lib" path="lib/websocket-server-9.3.6.v20151106.jar"/>
 	<classpathentry kind="lib" path="lib/websocket-servlet-9.3.6.v20151106.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Beric/Downloads/jackson-databind-2.9.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Beric/Downloads/jackson-core-2.9.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Beric/Downloads/jackson-annotations-2.9.5.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-annotations-2.9.5.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-core-2.9.5.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-databind-2.9.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
