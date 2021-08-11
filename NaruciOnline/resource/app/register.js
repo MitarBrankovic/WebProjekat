@@ -7,8 +7,7 @@ Vue.component("register", {
 			prezime:"",
 			pol:"",
 			datumRodjenja:"",
-			tip:"",
-			uloga:""
+			tip:""
         }
     },
     template:`  
@@ -34,7 +33,7 @@ Vue.component("register", {
 				<br>
 				
 				<label for="datumRodjenja"><b>Datum rodjenja</b></label>
-			    <input type="text" v-model="datumRodjenja" required>
+			    <input type="date" v-model="datumRodjenja" required>
 				<br>
 				
 				<label for="korisnickoIme"><b>Korisnicko ime</b></label>
@@ -60,14 +59,17 @@ Vue.component("register", {
     `       
         ,
 	 methods:{
-        submitForm:function(){ 
+        submitForm:function(){
+			var ulog= "Kupac"
+			
             const user = {
                 ime:this.ime,
                 prezime:this.prezime,
                 pol: this.pol,
                 datumRodjenja: this.datumRodjenja,
                 korisnickoIme:this.korisnickoIme,
-                lozinka:this.lozinka
+                lozinka:this.lozinka,
+				uloga:ulog
             }
 			
             axios

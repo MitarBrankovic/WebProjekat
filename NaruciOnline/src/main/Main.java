@@ -41,10 +41,16 @@ public class Main {
 			String datumRodjenja = mapa.get("datumRodjenja");
 			String korisnickoIme = mapa.get("korisnickoIme");
 			String lozinka = mapa.get("lozinka");
+			String uloga = mapa.get("uloga");
 			
 			//printMap(mapa);
+			
+			//DateTimeFormatter formatiran = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
+			//LocalDate.parse(datumRodjenja, formatiran);
+			
 			Korisnik korisnik = new Korisnik(korisnickoIme, lozinka, ime, prezime, 
-					pol, null);
+					pol, datumRodjenja, uloga);
+			//Serialization serialization = new Serialization();
 			if(!serialization.create(korisnik)) {
 				res.status(400);
 				return "Greska";
@@ -53,6 +59,7 @@ public class Main {
 			res.status(200);
 			return "OK";
 		});
+		
 		
 		
 		post("/login", (req, res) -> {

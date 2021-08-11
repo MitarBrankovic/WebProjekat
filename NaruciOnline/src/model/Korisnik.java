@@ -8,13 +8,13 @@ public class Korisnik {
 	public String ime;
 	public String prezime;
 	public String pol;
-	public LocalDate datumRodjenja;
+	public String datumRodjenja;
 	public String uloga;
 	//public enum Uloga{Administrator, Menadzer, Dostavljac, Kupac};
 	
 	
 	public Korisnik(String korisnickoIme, String lozinka, String ime, String prezime, String pol,
-			LocalDate datumRodjenja, String uloga) {
+			String datumRodjenja, String uloga) {
 		super();
 		this.korisnickoIme = korisnickoIme;
 		this.lozinka = lozinka;
@@ -26,7 +26,7 @@ public class Korisnik {
 	}
 	
 	public Korisnik(String korisnickoIme, String lozinka, String ime, String prezime, String pol,
-			LocalDate datumRodjenja) {
+			String datumRodjenja) {
 		super();
 		this.korisnickoIme = korisnickoIme;
 		this.lozinka = lozinka;

@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Administrator extends Korisnik {
 	
-	public Administrator(String korisnickoIme, String lozinka, String ime, String prezime, String pol, LocalDate datumRodjenja) {
+	public Administrator(String korisnickoIme, String lozinka, String ime, String prezime, String pol, String datumRodjenja) {
 		super(korisnickoIme, lozinka, ime, prezime, pol, datumRodjenja);
 	}
 
@@ -17,10 +17,10 @@ public class Administrator extends Korisnik {
 		String prezime = tokeni[3];
 		String pol = tokeni[4];
 		String datumRodjenja = tokeni[5];
-		DateTimeFormatter formatiran = DateTimeFormatter.ofPattern(" dd.MM.yyyy.");
-		
+		//DateTimeFormatter formatiran = DateTimeFormatter.ofPattern(" dd.MM.yyyy.");
+		//LocalDate.parse(datumRodjenja, formatiran)
 
-		Administrator a = new Administrator(korisnickoIme, lozinka, ime, prezime, pol, LocalDate.parse(datumRodjenja, formatiran));
+		Administrator a = new Administrator(korisnickoIme, lozinka, ime, prezime, pol, datumRodjenja);
 		return a;
 	}
 
