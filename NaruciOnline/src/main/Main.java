@@ -1,7 +1,6 @@
 package main;
 
 import static spark.Spark.*;
-import static spark.Spark.port;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -79,6 +78,43 @@ public class Main {
 			}
 			return "Success";
 		});		
+		
+		
+		get("/logout", (req, res) -> {
+			return null;
+		});
+		
+		
+		post("/edit", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			if (serialization.LoginValidation(mapa.get("korisnickoIme"), mapa.get("lozinka"))) {
+				Korisnik k = serialization.getObj(mapa.get("korisnickoIme"));
+				//res.status(200);
+				//return g.toJson(k);
+			
+				Korisnik novi = new Korisnik();
+				
+				novi.korisnickoIme = mapa.get("korisnickoIme");
+				novi.lozinka = (mapa.get("lozinka"));
+				novi.ime = mapa.get("ime");
+				novi.prezime = (mapa.get("prezime"));
+			//String pol = mapa.get("pol");
+				novi.pol = mapa.get("pol");
+				novi.datumRodjenja = (mapa.get("datumRodjenja"));
+				novi.uloga = k.uloga;
+			//k.uloga = mapa.get("uloga");
+
+			if(!serialization.edit(k, novi)) {
+				res.status(400);
+				return "Greska";
+			}
+			
+
+			return "OK";
+			}
+			return "NOT OK";
+		});
+		
 	}
 	
 	// Sluzi za ispisiavnje hashmape - nebitno

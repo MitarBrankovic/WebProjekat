@@ -7,43 +7,11 @@
   "datumRodjenja" : null,
   "uloga" : null
 }, {
-  "korisnickoIme" : "w",
-  "lozinka" : "w",
-  "ime" : "w",
-  "prezime" : "w",
-  "pol" : "zenski",
-  "datumRodjenja" : null,
-  "uloga" : "Kupac"
-}, {
-  "korisnickoIme" : "as",
-  "lozinka" : "s",
-  "ime" : "a",
-  "prezime" : "a",
-  "pol" : "muski",
-  "datumRodjenja" : "2021-08-20",
-  "uloga" : "Kupac"
-}, {
   "korisnickoIme" : "g",
   "lozinka" : "g",
-  "ime" : "ggg",
+  "ime" : "VVVVV",
   "prezime" : "gg",
-  "pol" : "muski",
-  "datumRodjenja" : "2021-07-30",
-  "uloga" : "Kupac"
-}, {
-  "korisnickoIme" : "r",
-  "lozinka" : "r",
-  "ime" : "ttr",
-  "prezime" : "r",
-  "pol" : "muski",
-  "datumRodjenja" : "2021-08-04",
-  "uloga" : "Kupac"
-}, {
-  "korisnickoIme" : "c",
-  "lozinka" : "c",
-  "ime" : "c",
-  "prezime" : "c",
   "pol" : "zenski",
-  "datumRodjenja" : "2021-07-27",
+  "datumRodjenja" : "2021-07-30",
   "uloga" : "Kupac"
 } ]

@@ -7,6 +7,7 @@ Vue.component("NaruciOnline", {
     template:`  
     	<div>
 			<p>naruci online</p>
+            <a href="/#/login">Prijavi se</a>
 		</div>
     `       
         ,

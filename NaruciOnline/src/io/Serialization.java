@@ -48,6 +48,23 @@ public class Serialization {
 //			return false;
 //		}
 	}
+	
+	public boolean edit(Korisnik stari, Korisnik novi) {
+		List<Korisnik> korisnici = getAll();
+		if(korisnici != null && getObj(stari.korisnickoIme) != null) {
+			izbaci(stari);
+			korisnici.remove(stari);
+			korisnici.add(novi);
+			return saveAll(korisnici);
+		}
+		return false;		
+	}
+	
+	public void izbaci(Korisnik korisnik) {
+		List<Korisnik> korisnici = getAll();
+		korisnici.remove(korisnik);
+		
+	}
 
 	public List<Korisnik> getAll(){
 		try {
