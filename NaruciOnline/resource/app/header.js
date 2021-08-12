@@ -20,7 +20,7 @@ Vue.component("header-comp", {
 			<i class="fa fa-caret-down"></i>
 		  </button>
 		  <div class="dropdown-content" >
-		  	<div v-if="(korisnik.uloga==='Kupac') ||(korisnik.uloga==='Menadzer')||(korisnik.uloga==='Administrator')||(korisnik.uloga==='Dostavljac')">
+		  	<div v-if="(korisnik.uloga==='KUPAC') ||(korisnik.uloga==='MENADZER')||(korisnik.uloga==='ADMIN')||(korisnik.uloga==='DOSTAVLJAC')">
 			  <a href="/#/edit">Izmena podataka</a>
   			</div>
 			<a href="/#/logout">Logout</a>
@@ -39,10 +39,10 @@ Vue.component("header-comp", {
 		  <i class="fa fa-caret-down"></i>
 		</button>
 		<div class="dropdown-content" >
-			<div v-if="(korisnik.uloga==='Administrator')">
+			<div v-if="(korisnik.uloga==='ADMIN')">
 			<a class="nav-link" href="/#/kreiranjeNaloga">Kreiranje naloga</a>
 			</div>
-			<div v-if="(korisnik.uloga==='Administrator')">
+			<div v-if="(korisnik.uloga==='ADMIN')">
 			<a class="nav-link" href="/#/pregledKorisnika">Pregled korisnika</a>
 			</div>
 		</div>

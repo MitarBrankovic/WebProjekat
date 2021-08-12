@@ -1,33 +1,33 @@
 [ {
-  "korisnickoIme" : "g",
-  "lozinka" : "g",
-  "ime" : "XX",
-  "prezime" : "gg",
-  "pol" : "zenski",
-  "datumRodjenja" : "2021-07-30",
-  "uloga" : "Kupac"
+  "korisnickoIme" : "sadsadasdasd",
+  "lozinka" : "sadsadas",
+  "ime" : "sadasdasd",
+  "prezime" : "sadsadsad",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-07-29",
+  "uloga" : "KUPAC"
+}, {
+  "korisnickoIme" : "sad",
+  "lozinka" : "sad",
+  "ime" : "sad",
+  "prezime" : "sad",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-07-26",
+  "uloga" : "DOSTAVLJAC"
+}, {
+  "korisnickoIme" : "das",
+  "lozinka" : "das",
+  "ime" : "das",
+  "prezime" : "das",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-07-27",
+  "uloga" : "MENADZER"
 }, {
   "korisnickoIme" : "aa",
   "lozinka" : "aa",
-  "ime" : "aa",
+  "ime" : "aaa",
   "prezime" : "aa",
   "pol" : "muski",
   "datumRodjenja" : "2021-07-30",
-  "uloga" : "Administrator"
-}, {
-  "korisnickoIme" : "bb",
-  "lozinka" : "bb",
-  "ime" : "bb",
-  "prezime" : "bb",
-  "pol" : "muski",
-  "datumRodjenja" : "2021-05-30",
-  "uloga" : "Administrator"
-}, {
-  "korisnickoIme" : "x",
-  "lozinka" : "x",
-  "ime" : "x",
-  "prezime" : "x",
-  "pol" : "muski",
-  "datumRodjenja" : "2021-07-30",
-  "uloga" : "Dostavljac"
+  "uloga" : "ADMIN"
 } ]

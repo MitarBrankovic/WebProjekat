@@ -10,10 +10,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import com.google.gson.Gson;
-import io.Serialization;
+
+import io.DostavljacRepository;
+import io.KupacRepository;
+import io.MenadzerRepository;
+import io.KorisnikRepository;
 import model.Dostavljac;
+import model.ImeTipaKupca;
 import model.Korisnik;
+import model.Kupac;
 import model.Menadzer;
+import model.UlogaKorisnika;
 
 public class Main {
 	public static void main(String[] args) throws IOException{
@@ -30,7 +37,10 @@ public class Main {
 //		get("/naruciOnline", (req, res) -> {
 //			return true;
 //		});
-		Serialization serialization = new Serialization();
+		KorisnikRepository korisnikRepository = new KorisnikRepository();
+		KupacRepository kupacRepository = new KupacRepository();
+		MenadzerRepository menadzerRepository = new MenadzerRepository();
+		DostavljacRepository dostavljacRepository = new DostavljacRepository();
 		
 		post("/register", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
@@ -41,17 +51,19 @@ public class Main {
 			String datumRodjenja = mapa.get("datumRodjenja");
 			String korisnickoIme = mapa.get("korisnickoIme");
 			String lozinka = mapa.get("lozinka");
-			String uloga = mapa.get("uloga");
+			//String uloga = mapa.get("uloga");
 			
 			//printMap(mapa);
 			
 			//DateTimeFormatter formatiran = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
 			//LocalDate.parse(datumRodjenja, formatiran);
 			
-			Korisnik korisnik = new Korisnik(korisnickoIme, lozinka, ime, prezime, 
-					pol, datumRodjenja, uloga);
+			//Korisnik korisnik = new Korisnik(korisnickoIme, lozinka, ime, prezime, 
+			//		pol, datumRodjenja, );
 			//Serialization serialization = new Serialization();
-			if(!serialization.create(korisnik)) {
+			Korisnik korisnik = new Korisnik(korisnickoIme, lozinka, ime, prezime, pol, datumRodjenja, UlogaKorisnika.KUPAC);
+			Kupac kupac = new Kupac(korisnickoIme, lozinka, ime, prezime, pol, datumRodjenja, UlogaKorisnika.KUPAC);
+			if(!kupacRepository.create(kupac) || !korisnikRepository.create(korisnik)) {
 				res.status(400);
 				return "Greska";
 			}
@@ -65,8 +77,8 @@ public class Main {
 		post("/login", (req, res) -> {
 			try {
 				HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
-				if (serialization.LoginValidation(mapa.get("korisnickoIme"), mapa.get("lozinka"))) {
-					Korisnik k = serialization.getObj(mapa.get("korisnickoIme"));
+				if (korisnikRepository.LoginValidation(mapa.get("korisnickoIme"), mapa.get("lozinka"))) {
+					Korisnik k = korisnikRepository.getObj(mapa.get("korisnickoIme"));
 					res.status(200);
 					return g.toJson(k);
 				} else {
@@ -88,7 +100,7 @@ public class Main {
 		
 		post("/edit", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
-				Korisnik k = serialization.getObj(mapa.get("korisnickoIme"));
+				Korisnik k = korisnikRepository.getObj(mapa.get("korisnickoIme"));
 				//res.status(200);
 				//return g.toJson(k);		
 				Korisnik novi = new Korisnik();				
@@ -100,9 +112,11 @@ public class Main {
 				novi.datumRodjenja = mapa.get("datumRodjenja");
 				novi.uloga = k.uloga;
 
-			if(!serialization.edit(k, novi)) {
+			if(!korisnikRepository.edit(k, novi)) {
 				res.status(400);
 				return "Greska";
+			}else {
+				
 			}
 			return "OK";
 		});
@@ -120,24 +134,29 @@ public class Main {
 			
 			//Korisnik korisnik = new Korisnik(korisnickoIme, lozinka, ime, prezime, 
 					//pol, datumRodjenja, uloga);
-			
 			if(uloga.equals("Menadzer")) {
-				Menadzer korisnik = new Menadzer(korisnickoIme, lozinka, ime, prezime, 
-						pol, datumRodjenja, uloga);
+				Korisnik korisnik = new Korisnik(korisnickoIme, lozinka, ime, prezime, 
+						pol, datumRodjenja, UlogaKorisnika.MENADZER);
+				korisnikRepository.create(korisnik);
+				Menadzer menadzer = new Menadzer(korisnickoIme, lozinka, ime, prezime, 
+						pol, datumRodjenja, UlogaKorisnika.MENADZER);
 				
-				if(!serialization.create(korisnik)) {
+				if(!menadzerRepository.create(menadzer)) {
 					res.status(400);
 					return "Greska";
 				}
-			}/*else {
-				Dostavljac korisnik = new Dostavljac(korisnickoIme, lozinka, ime, prezime, 
-						pol, datumRodjenja, uloga);
+			}else {
+				Korisnik korisnik = new Korisnik(korisnickoIme, lozinka, ime, prezime, 
+						pol, datumRodjenja, UlogaKorisnika.DOSTAVLJAC);
+				korisnikRepository.create(korisnik);
+				Dostavljac dostavljac = new Dostavljac(korisnickoIme, lozinka, ime, prezime, 
+						pol, datumRodjenja, UlogaKorisnika.DOSTAVLJAC);
 				
-				if(!serialization.create(korisnik)) {
+				if(!dostavljacRepository.create(dostavljac)) {
 					res.status(400);
 					return "Greska";
 				}
-			}*/
+			}
 			
 			
 			/*if(!serialization.create(korisnik)) {
@@ -149,7 +168,7 @@ public class Main {
 		});
 		
 		get("/pregledKorisnika", (req, res) -> {
-			return g.toJson(serialization.getAll());
+			return g.toJson(korisnikRepository.getAll());
 		});
 		
 	}

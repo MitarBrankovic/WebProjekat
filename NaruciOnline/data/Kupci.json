@@ -1,0 +1,17 @@
+[ {
+  "korisnickoIme" : "sadsadasdasd",
+  "lozinka" : "sadsadas",
+  "ime" : "sadasdasd",
+  "prezime" : "sadsadsad",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-07-29",
+  "uloga" : "KUPAC",
+  "tipKupca" : {
+    "imeTipa" : "BRONZANI",
+    "popust" : 0.0,
+    "trazeniBrojBodova" : 0
+  },
+  "korpa" : null,
+  "brojBodova" : 0,
+  "svePorudzbine" : null
+} ]

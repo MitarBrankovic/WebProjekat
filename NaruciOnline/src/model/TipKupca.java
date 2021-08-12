@@ -1,16 +1,16 @@
 package model;
 
 public class TipKupca {
-	public String imeTipa;
+	public ImeTipaKupca imeTipa;
 	public double popust;
 	public int trazeniBrojBodova;
 	
 	
-	public TipKupca(String imeTipa, double popust, int trazeniBrojBodova) {
+	public TipKupca() {
 		super();
-		this.imeTipa = imeTipa;
-		this.popust = popust;
-		this.trazeniBrojBodova = trazeniBrojBodova;
+		this.imeTipa = ImeTipaKupca.BRONZANI;
+		this.popust = 0;
+		this.trazeniBrojBodova = 0;
 	}
 	
 	

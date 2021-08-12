@@ -11,9 +11,10 @@ public class Dostavljac extends Korisnik {
 	}
 
 	public Dostavljac(String korisnickoIme, String lozinka, String ime, String prezime, String pol,
-			String datumRodjenja, String uloga) {
+			String datumRodjenja, UlogaKorisnika uloga) {
 		super(korisnickoIme, lozinka, ime, prezime, pol, datumRodjenja, uloga);
 		// TODO Auto-generated constructor stub
+		porudzbineZaDostavu = new ArrayList<Porudzbina>();
 	}
 
 	public Dostavljac(String korisnickoIme, String lozinka, String ime, String prezime, String pol,

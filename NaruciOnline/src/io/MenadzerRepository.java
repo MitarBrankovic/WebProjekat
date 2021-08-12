@@ -1,27 +1,24 @@
 package io;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonIOException;
-import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import model.Korisnik;
+import model.Kupac;
+import model.Menadzer;
 
-public class Serialization {
+public class MenadzerRepository {
 	private ObjectMapper mapper;
-	private File file;;
+	private File file;
 
-	public Serialization() {
+	public MenadzerRepository() {
 		mapper = new ObjectMapper();
-		file = new File("data" + File.separator + "Korisnici.json");
+		file = new File("data" + File.separator + "Menadzeri.json");
 		if(!file.exists()) {
 			try {
 				file.createNewFile();
@@ -32,8 +29,8 @@ public class Serialization {
 
 	}
 	
-	public boolean create(Korisnik korisnik){
-		List<Korisnik> korisnici = getAll();
+	public boolean create(Menadzer korisnik){
+		List<Menadzer> korisnici = getAll();
 		if(korisnici != null && getObj(korisnik.korisnickoIme) == null) {
 			korisnici.add(korisnik);
 			return saveAll(korisnici);
@@ -49,12 +46,12 @@ public class Serialization {
 //		}
 	}
 	
-	public boolean edit(Korisnik stari, Korisnik novi) {
-		List<Korisnik> korisnici = getAll();
+	public boolean edit(Menadzer stari, Menadzer novi) {
+		List<Menadzer> korisnici = getAll();
 		if(korisnici != null && getObj(stari.korisnickoIme) != null) {
-			ArrayList<Korisnik> pomocna = new ArrayList<Korisnik>();
+			ArrayList<Menadzer> pomocna = new ArrayList<Menadzer>();
 			pomocna.addAll(korisnici);
-			for(Korisnik k: pomocna) {
+			for(Menadzer k: pomocna) {
 				if(k.korisnickoIme.equals(stari.korisnickoIme)) {
 					korisnici.remove(k);
 				}			
@@ -65,16 +62,16 @@ public class Serialization {
 		return false;
 	}
 
-	public List<Korisnik> getAll(){
+	public List<Menadzer> getAll(){
 		try {
-			return mapper.convertValue(mapper.readValue(file, List.class), new TypeReference<List<Korisnik>>() {});
+			return mapper.convertValue(mapper.readValue(file, List.class), new TypeReference<List<Menadzer>>() {});
 		} catch (IllegalArgumentException | IOException e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
 	
-	public boolean saveAll(List<Korisnik> objs){
+	public boolean saveAll(List<Menadzer> objs){
 		try {
 			mapper.writerWithDefaultPrettyPrinter().writeValue(file, objs);
 			return true;
@@ -85,9 +82,9 @@ public class Serialization {
 		
 	}
 	
-	public Korisnik getObj(String id) {
-		List<Korisnik> korisnici = getAll();
-		for(Korisnik k : korisnici) {
+	public Menadzer getObj(String id) {
+		List<Menadzer> korisnici = getAll();
+		for(Menadzer k : korisnici) {
 			if(k.korisnickoIme.equals(id)) {
 				return k;
 			}
@@ -96,7 +93,7 @@ public class Serialization {
 	}
 	
 	public boolean LoginValidation(String username, String password) {
-		Korisnik korisnik = getObj(username);
+		Menadzer korisnik = getObj(username);
 		if(korisnik != null) {
 			if(korisnik.lozinka.equals(password)) {
 				return true;
@@ -104,5 +101,4 @@ public class Serialization {
 		}
 		return false;
 	}
-	
 }

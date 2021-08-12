@@ -9,12 +9,12 @@ public class Korisnik {
 	public String prezime;
 	public String pol;
 	public String datumRodjenja;
-	public String uloga;
+	public UlogaKorisnika uloga;
 	//public enum Uloga{Administrator, Menadzer, Dostavljac, Kupac};
 	
 	
 	public Korisnik(String korisnickoIme, String lozinka, String ime, String prezime, String pol,
-			String datumRodjenja, String uloga) {
+			String datumRodjenja, UlogaKorisnika uloga) {
 		super();
 		this.korisnickoIme = korisnickoIme;
 		this.lozinka = lozinka;
