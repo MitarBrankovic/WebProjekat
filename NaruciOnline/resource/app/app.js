@@ -8,7 +8,7 @@ const Logout = {template:'<logout></logout>'}
 const Edit = {template:'<edit></edit>'}
 const KreiranjeNaloga = {template:'<kreiranjeNaloga></kreiranjeNaloga>'}
 const PregledKorisnika = {template:'<pregledKorisnika></pregledKorisnika>'}
-
+const KreiranjeRestorana = {template:'<kreiranjeRestorana></kreiranjeRestorana>'}
 
 const router = new VueRouter({
 	mode: 'hash',
@@ -19,7 +19,8 @@ const router = new VueRouter({
 		{path:'/logout',component: Logout},
 		{path:'/edit',component: Edit},
 		{path:'/kreiranjeNaloga',component: KreiranjeNaloga},
-		{path:'/pregledKorisnika',component: PregledKorisnika}
+		{path:'/pregledKorisnika',component: PregledKorisnika},
+		{path:'/kreiranjeRestorana',component: KreiranjeRestorana}
 
 	]
 });

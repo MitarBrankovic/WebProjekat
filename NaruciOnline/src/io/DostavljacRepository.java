@@ -46,17 +46,22 @@ public class DostavljacRepository {
 //		}
 	}
 	
-	public boolean edit(Dostavljac stari, Dostavljac novi) {
+	public boolean edit(Dostavljac dostavljac) {
 		List<Dostavljac> korisnici = getAll();
-		if(korisnici != null && getObj(stari.korisnickoIme) != null) {
+		if(korisnici != null && getObj(dostavljac.korisnickoIme) != null) {
 			ArrayList<Dostavljac> pomocna = new ArrayList<Dostavljac>();
 			pomocna.addAll(korisnici);
 			for(Dostavljac k: pomocna) {
-				if(k.korisnickoIme.equals(stari.korisnickoIme)) {
-					korisnici.remove(k);
+				if(k.korisnickoIme.equals(dostavljac.korisnickoIme)) {
+					k.ime = dostavljac.ime;
+					k.prezime = dostavljac.prezime;
+					k.datumRodjenja = dostavljac.datumRodjenja;
+					k.lozinka = dostavljac.lozinka;
+					k.pol = dostavljac.pol;
+					k.uloga = dostavljac.uloga;
 				}			
 			}
-			korisnici.add(novi);
+			korisnici.add(dostavljac);
 			return saveAll(korisnici);
 		}
 		return false;

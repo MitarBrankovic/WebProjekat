@@ -45,17 +45,21 @@ public class KupacRepository {
 //		}
 	}
 	
-	public boolean edit(Kupac stari, Kupac novi) {
+	public boolean edit(Kupac kupac) {
 		List<Kupac> korisnici = getAll();
-		if(korisnici != null && getObj(stari.korisnickoIme) != null) {
+		if(korisnici != null && getObj(kupac.korisnickoIme) != null) {
 			ArrayList<Kupac> pomocna = new ArrayList<Kupac>();
 			pomocna.addAll(korisnici);
 			for(Korisnik k: pomocna) {
-				if(k.korisnickoIme.equals(stari.korisnickoIme)) {
-					korisnici.remove(k);
+				if(k.korisnickoIme.equals(kupac.korisnickoIme)) {
+					k.ime = kupac.ime;
+					k.prezime = kupac.prezime;
+					k.datumRodjenja = kupac.datumRodjenja;
+					k.lozinka = kupac.lozinka;
+					k.pol = kupac.pol;
+					k.uloga = kupac.uloga;
 				}			
 			}
-			korisnici.add(novi);
 			return saveAll(korisnici);
 		}
 		return false;

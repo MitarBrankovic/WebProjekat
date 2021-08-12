@@ -25,9 +25,17 @@
 }, {
   "korisnickoIme" : "aa",
   "lozinka" : "aa",
-  "ime" : "aaa",
+  "ime" : "AA",
   "prezime" : "aa",
   "pol" : "muski",
   "datumRodjenja" : "2021-07-30",
   "uloga" : "ADMIN"
+}, {
+  "korisnickoIme" : "t",
+  "lozinka" : "t",
+  "ime" : "TTT",
+  "prezime" : "T",
+  "pol" : "zenski",
+  "datumRodjenja" : "2021-07-26",
+  "uloga" : "DOSTAVLJAC"
 } ]

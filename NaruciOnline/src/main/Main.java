@@ -5,21 +5,26 @@ import static spark.Spark.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
+
 import com.google.gson.Gson;
 
 import io.DostavljacRepository;
 import io.KupacRepository;
 import io.MenadzerRepository;
+import io.RestoranRepository;
 import io.KorisnikRepository;
 import model.Dostavljac;
 import model.ImeTipaKupca;
 import model.Korisnik;
 import model.Kupac;
 import model.Menadzer;
+import model.Restoran;
 import model.UlogaKorisnika;
 
 public class Main {
@@ -41,6 +46,7 @@ public class Main {
 		KupacRepository kupacRepository = new KupacRepository();
 		MenadzerRepository menadzerRepository = new MenadzerRepository();
 		DostavljacRepository dostavljacRepository = new DostavljacRepository();
+		RestoranRepository restoranRepository = new RestoranRepository();
 		
 		post("/register", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
@@ -112,7 +118,7 @@ public class Main {
 				novi.datumRodjenja = mapa.get("datumRodjenja");
 				novi.uloga = k.uloga;
 
-			if(!korisnikRepository.edit(k, novi)) {
+			if(!korisnikRepository.edit(novi)) {
 				res.status(400);
 				return "Greska";
 			}else {
@@ -157,12 +163,6 @@ public class Main {
 					return "Greska";
 				}
 			}
-			
-			
-			/*if(!serialization.create(korisnik)) {
-				res.status(400);
-				return "Greska";
-			}*/
 			res.status(200);
 			return "OK";
 		});
@@ -170,6 +170,40 @@ public class Main {
 		get("/pregledKorisnika", (req, res) -> {
 			return g.toJson(korisnikRepository.getAll());
 		});
+		
+		post("/kreiranjeRestorana", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			
+			String naziv = mapa.get("naziv");
+			String tip = mapa.get("tip");
+			String status1 = mapa.get("status");		
+			boolean status = (status1.equals("otvoren")) ? true : false;
+			String lokacija = mapa.get("lokacija");
+			String slika = mapa.get("slika");
+			//GENERATOR ZA ID		    		    
+		    String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		    StringBuilder sb = new StringBuilder();
+		    Random random = new Random();
+		    for(int i = 0; i < 5; i++) {
+		      int index = random.nextInt(alphabet.length());
+		      char randomChar = alphabet.charAt(index);
+		      sb.append(randomChar);
+		    }
+		    String generisanID = sb.toString();
+
+			Restoran restoran = new Restoran(naziv, tip, status, slika, 
+					generisanID);
+			
+			if(!restoranRepository.create(restoran)) {
+				res.status(400);
+				return "Greska";
+			}
+			
+			res.status(200);
+			return "OK";
+		});
+		
+		
 		
 	}
 	

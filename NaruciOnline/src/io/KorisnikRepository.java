@@ -49,17 +49,21 @@ public class KorisnikRepository {
 //		}
 	}
 	
-	public boolean edit(Korisnik stari, Korisnik novi) {
+	public boolean edit(Korisnik korisnik) {
 		List<Korisnik> korisnici = getAll();
-		if(korisnici != null && getObj(stari.korisnickoIme) != null) {
+		if(korisnici != null && getObj(korisnik.korisnickoIme) != null) {
 			ArrayList<Korisnik> pomocna = new ArrayList<Korisnik>();
 			pomocna.addAll(korisnici);
 			for(Korisnik k: pomocna) {
-				if(k.korisnickoIme.equals(stari.korisnickoIme)) {
-					korisnici.remove(k);
+				if(k.korisnickoIme.equals(korisnik.korisnickoIme)) {
+					k.ime = korisnik.ime;
+					k.prezime = korisnik.prezime;
+					k.datumRodjenja = korisnik.datumRodjenja;
+					k.lozinka = korisnik.lozinka;
+					k.pol = korisnik.pol;
+					k.uloga = korisnik.uloga;
 				}			
 			}
-			korisnici.add(novi);
 			return saveAll(korisnici);
 		}
 		return false;

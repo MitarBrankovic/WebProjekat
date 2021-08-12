@@ -46,17 +46,20 @@ public class MenadzerRepository {
 //		}
 	}
 	
-	public boolean edit(Menadzer stari, Menadzer novi) {
+	public boolean edit(Menadzer menadzer) {
 		List<Menadzer> korisnici = getAll();
-		if(korisnici != null && getObj(stari.korisnickoIme) != null) {
+		if(korisnici != null && getObj(menadzer.korisnickoIme) != null) {
 			ArrayList<Menadzer> pomocna = new ArrayList<Menadzer>();
 			pomocna.addAll(korisnici);
 			for(Menadzer k: pomocna) {
-				if(k.korisnickoIme.equals(stari.korisnickoIme)) {
-					korisnici.remove(k);
+				if(k.korisnickoIme.equals(menadzer.korisnickoIme)) {
+					k.ime = menadzer.ime;
+					k.prezime = menadzer.prezime;
+					k.datumRodjenja = menadzer.datumRodjenja;
+					k.lozinka = menadzer.lozinka;
+					k.pol = menadzer.pol;
 				}			
 			}
-			korisnici.add(novi);
 			return saveAll(korisnici);
 		}
 		return false;

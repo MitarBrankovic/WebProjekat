@@ -7,4 +7,13 @@
   "datumRodjenja" : "2021-07-26",
   "uloga" : "DOSTAVLJAC",
   "porudzbineZaDostavu" : [ ]
+}, {
+  "korisnickoIme" : "t",
+  "lozinka" : "t",
+  "ime" : "TTT",
+  "prezime" : "T",
+  "pol" : "zenski",
+  "datumRodjenja" : "2021-07-26",
+  "uloga" : "DOSTAVLJAC",
+  "porudzbineZaDostavu" : [ ]
 } ]

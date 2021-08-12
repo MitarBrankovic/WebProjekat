@@ -7,8 +7,28 @@ Vue.component("header-comp", {
     template:`  
     <nav class="topnav">
 	  <a class="active" href="/#/">Home</a>
-	  <a href="#restorani">Restorani</a>
+
+		<div v-if="(korisnik===null)">
+			<a href="#restorani">Restorani</a>
+		</div>
+
+	  <div class="topnav-right" v-if="(korisnik !== null)" class="dropdown">
+	  <button class="dropbtn">Restorani
+		<i class="fa fa-caret-down"></i>
+	  </button>
+	  <div class="dropdown-content" >
+		  <div v-if="(korisnik.uloga==='ADMIN')">
+		  <a class="nav-link" href="/#/kreiranjeRestorana">Kreiranje restorana</a>
+		  </div>
+		  <div v-if="(korisnik.uloga==='ADMIN')">
+		  <a href="#restorani">Restorani</a>
+		  </div>
+	  </div>
+		</div>
+
+
 	  <a href="#contact">Contact</a>
+
 		<div class="topnav-right" v-if="(korisnik===null)">
 	    	<a href="/#/login">Prijavi se</a>
 	    	<a href="/#/register">Registruj se</a>
