@@ -6,6 +6,8 @@ const Register = { template:'<register></register>' }
 const Login = { template:'<login></login>' }
 const Logout = {template:'<logout></logout>'}
 const Edit = {template:'<edit></edit>'}
+const KreiranjeNaloga = {template:'<kreiranjeNaloga></kreiranjeNaloga>'}
+const PregledKorisnika = {template:'<pregledKorisnika></pregledKorisnika>'}
 
 
 const router = new VueRouter({
@@ -15,7 +17,9 @@ const router = new VueRouter({
 		{path:'/register',component: Register},
 		{path:'/login',component: Login},
 		{path:'/logout',component: Logout},
-		{path:'/edit',component: Edit}
+		{path:'/edit',component: Edit},
+		{path:'/kreiranjeNaloga',component: KreiranjeNaloga},
+		{path:'/pregledKorisnika',component: PregledKorisnika}
 
 	]
 });

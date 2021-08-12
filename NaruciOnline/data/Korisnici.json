@@ -1,17 +1,33 @@
 [ {
-  "korisnickoIme" : "adasdaddsa",
-  "lozinka" : "saddasadsad",
-  "ime" : "sadsad",
-  "prezime" : "sadasda",
-  "pol" : "muski",
-  "datumRodjenja" : null,
-  "uloga" : null
-}, {
   "korisnickoIme" : "g",
   "lozinka" : "g",
-  "ime" : "CCCC",
+  "ime" : "XX",
   "prezime" : "gg",
   "pol" : "zenski",
   "datumRodjenja" : "2021-07-30",
   "uloga" : "Kupac"
+}, {
+  "korisnickoIme" : "aa",
+  "lozinka" : "aa",
+  "ime" : "aa",
+  "prezime" : "aa",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-07-30",
+  "uloga" : "Administrator"
+}, {
+  "korisnickoIme" : "bb",
+  "lozinka" : "bb",
+  "ime" : "bb",
+  "prezime" : "bb",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-05-30",
+  "uloga" : "Administrator"
+}, {
+  "korisnickoIme" : "x",
+  "lozinka" : "x",
+  "ime" : "x",
+  "prezime" : "x",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-07-30",
+  "uloga" : "Dostavljac"
 } ]

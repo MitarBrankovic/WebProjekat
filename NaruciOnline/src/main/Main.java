@@ -7,12 +7,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
-
 import com.google.gson.Gson;
-
 import io.Serialization;
+import model.Dostavljac;
 import model.Korisnik;
+import model.Menadzer;
 
 public class Main {
 	public static void main(String[] args) throws IOException{
@@ -87,32 +88,68 @@ public class Main {
 		
 		post("/edit", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
-			if (serialization.LoginValidation(mapa.get("korisnickoIme"), mapa.get("lozinka"))) {
 				Korisnik k = serialization.getObj(mapa.get("korisnickoIme"));
 				//res.status(200);
-				//return g.toJson(k);
-			
-				Korisnik novi = new Korisnik();
-				
+				//return g.toJson(k);		
+				Korisnik novi = new Korisnik();				
 				novi.korisnickoIme = mapa.get("korisnickoIme");
-				novi.lozinka = (mapa.get("lozinka"));
+				novi.lozinka = mapa.get("lozinka");
 				novi.ime = mapa.get("ime");
-				novi.prezime = (mapa.get("prezime"));
-			//String pol = mapa.get("pol");
+				novi.prezime = mapa.get("prezime");
 				novi.pol = mapa.get("pol");
-				novi.datumRodjenja = (mapa.get("datumRodjenja"));
+				novi.datumRodjenja = mapa.get("datumRodjenja");
 				novi.uloga = k.uloga;
-			//k.uloga = mapa.get("uloga");
 
 			if(!serialization.edit(k, novi)) {
 				res.status(400);
 				return "Greska";
 			}
-			
-
 			return "OK";
-			}
-			return "NOT OK";
+		});
+		
+		post("/kreiranjeNaloga", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			
+			String ime = mapa.get("ime");
+			String prezime = mapa.get("prezime");
+			String pol = mapa.get("pol");
+			String datumRodjenja = mapa.get("datumRodjenja");
+			String korisnickoIme = mapa.get("korisnickoIme");
+			String lozinka = mapa.get("lozinka");
+			String uloga = mapa.get("uloga");
+			
+			//Korisnik korisnik = new Korisnik(korisnickoIme, lozinka, ime, prezime, 
+					//pol, datumRodjenja, uloga);
+			
+			if(uloga.equals("Menadzer")) {
+				Menadzer korisnik = new Menadzer(korisnickoIme, lozinka, ime, prezime, 
+						pol, datumRodjenja, uloga);
+				
+				if(!serialization.create(korisnik)) {
+					res.status(400);
+					return "Greska";
+				}
+			}/*else {
+				Dostavljac korisnik = new Dostavljac(korisnickoIme, lozinka, ime, prezime, 
+						pol, datumRodjenja, uloga);
+				
+				if(!serialization.create(korisnik)) {
+					res.status(400);
+					return "Greska";
+				}
+			}*/
+			
+			
+			/*if(!serialization.create(korisnik)) {
+				res.status(400);
+				return "Greska";
+			}*/
+			res.status(200);
+			return "OK";
+		});
+		
+		get("/pregledKorisnika", (req, res) -> {
+			return g.toJson(serialization.getAll());
 		});
 		
 	}

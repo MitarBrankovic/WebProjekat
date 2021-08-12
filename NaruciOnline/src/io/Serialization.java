@@ -62,7 +62,7 @@ public class Serialization {
 			korisnici.add(novi);
 			return saveAll(korisnici);
 		}
-		return false;		
+		return false;
 	}
 
 	public List<Korisnik> getAll(){
