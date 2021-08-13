@@ -1,37 +1,26 @@
 [ {
-  "naziv" : "s",
-  "tip" : "s",
-  "artikal" : null,
-  "status" : false,
-  "lokacija" : null,
-  "slika" : "s",
-  "menadzer" : null,
-  "id" : "7S03R"
-}, {
-  "naziv" : "Z",
-  "tip" : "Z",
+  "naziv" : "Dva stapica",
+  "tip" : "kineska",
   "artikal" : null,
   "status" : true,
-  "lokacija" : null,
-  "slika" : "Z",
-  "menadzer" : null,
-  "id" : "1MV4F"
-}, {
-  "naziv" : "a",
-  "tip" : "a",
-  "artikal" : null,
-  "status" : true,
-  "lokacija" : null,
-  "slika" : "a",
+  "lokacija" : {
+    "geoDuzina" : 21.01101,
+    "geoSirina" : 23.21203,
+    "grad" : "Novi Sad",
+    "ulica" : "Bulevar Oslobodjenja",
+    "broj" : "25",
+    "postanskiBroj" : 21000
+  },
+  "slika" : "sadasdasd",
   "menadzer" : {
-    "korisnickoIme" : "n",
-    "lozinka" : "n",
-    "ime" : "novi",
-    "prezime" : "novi",
-    "pol" : "muski",
+    "korisnickoIme" : "m",
+    "lozinka" : "m",
+    "ime" : "m",
+    "prezime" : "matori",
+    "pol" : "zenski",
     "datumRodjenja" : "2021-07-28",
     "uloga" : "MENADZER",
-    "idRestorana" : "4IB0F"
+    "idRestorana" : "FLT87"
   },
-  "id" : "4IB0F"
+  "id" : "FLT87"
 } ]

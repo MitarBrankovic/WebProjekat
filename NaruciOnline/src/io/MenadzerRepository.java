@@ -58,7 +58,6 @@ public class MenadzerRepository {
 					k.datumRodjenja = menadzer.datumRodjenja;
 					k.lozinka = menadzer.lozinka;
 					k.pol = menadzer.pol;
-					k.idRestorana = menadzer.idRestorana;
 				}			
 			}
 			return saveAll(korisnici);
@@ -66,6 +65,22 @@ public class MenadzerRepository {
 		return false;
 	}
 
+	
+	public boolean dodavanjeRestorana(Menadzer menadzer) {
+		List<Menadzer> korisnici = getAll();
+		if(korisnici != null && getObj(menadzer.korisnickoIme) != null) {
+			ArrayList<Menadzer> pomocna = new ArrayList<Menadzer>();
+			pomocna.addAll(korisnici);
+			for(Menadzer k: pomocna) {
+				if(k.korisnickoIme.equals(menadzer.korisnickoIme)) {
+					k.idRestorana = menadzer.idRestorana;
+				}			
+			}
+			return saveAll(korisnici);
+		}
+		return false;
+	}
+	
 	public List<Menadzer> getAll(){
 		try {
 			return mapper.convertValue(mapper.readValue(file, List.class), new TypeReference<List<Menadzer>>() {});

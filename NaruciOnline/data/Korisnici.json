@@ -50,7 +50,7 @@
   "korisnickoIme" : "m",
   "lozinka" : "m",
   "ime" : "m",
-  "prezime" : "m",
+  "prezime" : "matori",
   "pol" : "zenski",
   "datumRodjenja" : "2021-07-28",
   "uloga" : "MENADZER"

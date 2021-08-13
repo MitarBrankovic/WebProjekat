@@ -4,7 +4,12 @@ Vue.component("kreiranjeRestorana", {
 			naziv:"",
 			tip:"",
 			status:"",
-			lokacija:"",
+			geografskaDuzina:"",
+			geografskaSirina:"",
+			grad:"",
+			ulica:"",
+			broj:"",
+			postanskiBroj:"",
 			slika:"",
 			menadzeri:null,
 			menadzer:""
@@ -32,10 +37,19 @@ Vue.component("kreiranjeRestorana", {
 				</select>
 				<br>
 				
+				<hr>
 				<label for="lokacija"><b>Lokacija</b></label>
-			    <input type="text" v-model="lokacija" required>
 				<br>
-				
+				<input type="text" placeholder="Geografska duzina" v-model="geografskaDuzina" required>
+				<input type="text" placeholder="Geografska sirina" v-model="geografskaSirina" required>
+				<br>
+			    <input type="text" placeholder="Grad" v-model="grad" required>
+				<input type="text" placeholder="Ulica" v-model="ulica" required>
+			    <input type="text" placeholder="Broj" v-model="broj" required>
+				<input type="text" placeholder="Postanski broj" v-model="postanskiBroj" required>
+
+				<br>
+				<hr>
 			    <label for="slika"><b>Slika</b></label>
 			    <input type="text" v-model="slika" required>
 				<br>
@@ -72,7 +86,12 @@ Vue.component("kreiranjeRestorana", {
                 naziv:this.naziv,
                 tip:this.tip,
                 status: this.status,
-                lokacija: this.lokacija,
+                geografskaDuzina:this.geografskaDuzina,
+				geografskaSirina:this.geografskaSirina,
+				grad:this.grad,
+				ulica:this.ulica,
+				broj:this.broj,
+				postanskiBroj:this.postanskiBroj,
                 slika:this.slika,
 				menadzer:this.menadzer
             }

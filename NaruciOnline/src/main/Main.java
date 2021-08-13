@@ -23,6 +23,7 @@ import model.Dostavljac;
 import model.ImeTipaKupca;
 import model.Korisnik;
 import model.Kupac;
+import model.Lokacija;
 import model.Menadzer;
 import model.Restoran;
 import model.UlogaKorisnika;
@@ -57,16 +58,7 @@ public class Main {
 			String datumRodjenja = mapa.get("datumRodjenja");
 			String korisnickoIme = mapa.get("korisnickoIme");
 			String lozinka = mapa.get("lozinka");
-			//String uloga = mapa.get("uloga");
-			
-			//printMap(mapa);
-			
-			//DateTimeFormatter formatiran = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
-			//LocalDate.parse(datumRodjenja, formatiran);
-			
-			//Korisnik korisnik = new Korisnik(korisnickoIme, lozinka, ime, prezime, 
-			//		pol, datumRodjenja, );
-			//Serialization serialization = new Serialization();
+
 			Korisnik korisnik = new Korisnik(korisnickoIme, lozinka, ime, prezime, pol, datumRodjenja, UlogaKorisnika.KUPAC);
 			Kupac kupac = new Kupac(korisnickoIme, lozinka, ime, prezime, pol, datumRodjenja, UlogaKorisnika.KUPAC);
 			if(!kupacRepository.create(kupac) || !korisnikRepository.create(korisnik)) {
@@ -107,8 +99,7 @@ public class Main {
 		post("/edit", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
 				Korisnik k = korisnikRepository.getObj(mapa.get("korisnickoIme"));
-				//res.status(200);
-				//return g.toJson(k);		
+		
 				Korisnik novi = new Korisnik();				
 				novi.korisnickoIme = mapa.get("korisnickoIme");
 				novi.lozinka = mapa.get("lozinka");
@@ -153,8 +144,6 @@ public class Main {
 			String lozinka = mapa.get("lozinka");
 			String uloga = mapa.get("uloga");
 			
-			//Korisnik korisnik = new Korisnik(korisnickoIme, lozinka, ime, prezime, 
-					//pol, datumRodjenja, uloga);
 			if(uloga.equals("Menadzer")) {
 				Korisnik korisnik = new Korisnik(korisnickoIme, lozinka, ime, prezime, 
 						pol, datumRodjenja, UlogaKorisnika.MENADZER);
@@ -194,23 +183,18 @@ public class Main {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
 			String status1 = mapa.get("status");		
 			boolean status = (status1.equals("otvoren")) ? true : false;
-			String lokacija = mapa.get("lokacija");
-			//GENERATOR ZA ID		    		    
-		    String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-		    StringBuilder sb = new StringBuilder();
-		    Random random = new Random();
-		    for(int i = 0; i < 5; i++) {
-		      int index = random.nextInt(alphabet.length());
-		      char randomChar = alphabet.charAt(index);
-		      sb.append(randomChar);
-		    }
+			
+			Lokacija lokacija = new Lokacija(Double.parseDouble(mapa.get("geografskaDuzina")), Double.parseDouble(mapa.get("geografskaSirina")),
+					mapa.get("grad"), mapa.get("ulica"), mapa.get("broj"), Integer.parseInt( mapa.get("postanskiBroj")));
+			
+			StringBuilder sb = IDgenerator();
 		    String generisanID = sb.toString();
 			Restoran restoran = new Restoran(mapa.get("naziv"), mapa.get("tip"), status, mapa.get("slika"), generisanID);
-			String neki = mapa.get("menadzer");
 			Menadzer menadzer = menadzerRepository.getObj(mapa.get("menadzer"));
 			restoran.menadzer = menadzer;
+			restoran.lokacija = lokacija;
 			menadzer.idRestorana = generisanID;
-			menadzerRepository.edit(menadzer);
+			menadzerRepository.dodavanjeRestorana(menadzer);
 			
 			if(!restoranRepository.create(restoran)) {
 				res.status(400);
@@ -222,6 +206,18 @@ public class Main {
 		
 		
 		
+	}
+
+	private static StringBuilder IDgenerator() {
+		String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		StringBuilder sb = new StringBuilder();
+		Random random = new Random();
+		for(int i = 0; i < 5; i++) {
+		  int index = random.nextInt(alphabet.length());
+		  char randomChar = alphabet.charAt(index);
+		  sb.append(randomChar);
+		}
+		return sb;
 	}
 	
 	// Sluzi za ispisiavnje hashmape - nebitno
