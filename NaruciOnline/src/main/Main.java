@@ -215,8 +215,7 @@ public class Main {
 			if(!restoranRepository.create(restoran)) {
 				res.status(400);
 				return "Greska";
-			}
-			
+			}			
 			res.status(200);
 			return "OK";
 		});
