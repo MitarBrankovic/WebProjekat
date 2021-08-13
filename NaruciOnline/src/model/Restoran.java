@@ -11,6 +11,8 @@ public class Restoran {
 	public String id;
 	
 
+	public Restoran() {}
+	
 	public Restoran(String naziv, String tip, Artikal artikal, boolean status, Lokacija lokacija, String slika,
 			Menadzer menadzer, String id) {
 		super();

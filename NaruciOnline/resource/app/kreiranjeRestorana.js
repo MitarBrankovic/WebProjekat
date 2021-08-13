@@ -6,6 +6,8 @@ Vue.component("kreiranjeRestorana", {
 			status:"",
 			lokacija:"",
 			slika:"",
+			menadzeri:null,
+			menadzer:""
         }
     },
     template:`  
@@ -37,6 +39,17 @@ Vue.component("kreiranjeRestorana", {
 			    <label for="slika"><b>Slika</b></label>
 			    <input type="text" v-model="slika" required>
 				<br>
+
+			    <label for="menadzer"><b>Menadzer</b></label>
+				<select v-model="menadzer">
+				<option disabled value="">Please select one</option>
+				<option v-for="m in menadzeri" :value="m.korisnickoIme">{{m.korisnickoIme}}</option>
+				</select>
+				<br>
+
+
+
+
                 
 			
 			    <button type="submit" class="kreiranjebtn">Kreiraj</button>
@@ -45,6 +58,13 @@ Vue.component("kreiranjeRestorana", {
 	</div>
     `       
         ,
+		mounted(){
+			axios
+			.get('/pregledMenadzera')
+			.then(response=>{this.menadzeri=response.data;})
+		},
+
+
 	 methods:{
         submitForm:function(){
 			
@@ -53,7 +73,8 @@ Vue.component("kreiranjeRestorana", {
                 tip:this.tip,
                 status: this.status,
                 lokacija: this.lokacija,
-                slika:this.slika
+                slika:this.slika,
+				menadzer:this.menadzer
             }
 			
             axios

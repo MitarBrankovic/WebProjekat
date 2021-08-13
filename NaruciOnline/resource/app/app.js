@@ -8,6 +8,7 @@ const Logout = {template:'<logout></logout>'}
 const Edit = {template:'<edit></edit>'}
 const KreiranjeNaloga = {template:'<kreiranjeNaloga></kreiranjeNaloga>'}
 const PregledKorisnika = {template:'<pregledKorisnika></pregledKorisnika>'}
+const PregledMenadzera = {template:'<pregledMenadzera></pregledMenadzera>'}
 const KreiranjeRestorana = {template:'<kreiranjeRestorana></kreiranjeRestorana>'}
 
 const router = new VueRouter({
@@ -20,6 +21,7 @@ const router = new VueRouter({
 		{path:'/edit',component: Edit},
 		{path:'/kreiranjeNaloga',component: KreiranjeNaloga},
 		{path:'/pregledKorisnika',component: PregledKorisnika},
+		{path:'/pregledMenadzera',component: PregledMenadzera},
 		{path:'/kreiranjeRestorana',component: KreiranjeRestorana}
 
 	]

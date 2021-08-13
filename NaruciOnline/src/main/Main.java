@@ -186,15 +186,15 @@ public class Main {
 			return g.toJson(korisnikRepository.getAll());
 		});
 		
+		get("/pregledMenadzera", (req, res) -> {
+			return g.toJson(menadzerRepository.vratiSlobodne());
+		});
+		
 		post("/kreiranjeRestorana", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
-			
-			String naziv = mapa.get("naziv");
-			String tip = mapa.get("tip");
 			String status1 = mapa.get("status");		
 			boolean status = (status1.equals("otvoren")) ? true : false;
 			String lokacija = mapa.get("lokacija");
-			String slika = mapa.get("slika");
 			//GENERATOR ZA ID		    		    
 		    String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 		    StringBuilder sb = new StringBuilder();
@@ -205,9 +205,12 @@ public class Main {
 		      sb.append(randomChar);
 		    }
 		    String generisanID = sb.toString();
-
-			Restoran restoran = new Restoran(naziv, tip, status, slika, 
-					generisanID);
+			Restoran restoran = new Restoran(mapa.get("naziv"), mapa.get("tip"), status, mapa.get("slika"), generisanID);
+			String neki = mapa.get("menadzer");
+			Menadzer menadzer = menadzerRepository.getObj(mapa.get("menadzer"));
+			restoran.menadzer = menadzer;
+			menadzer.idRestorana = generisanID;
+			menadzerRepository.edit(menadzer);
 			
 			if(!restoranRepository.create(restoran)) {
 				res.status(400);

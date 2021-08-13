@@ -1,7 +1,7 @@
 package model;
 
 public class Menadzer extends Korisnik{
-	public Restoran restoran;
+	public String idRestorana;
 	
 	public Menadzer() {}
 
@@ -16,4 +16,12 @@ public class Menadzer extends Korisnik{
 		super(korisnickoIme, lozinka, ime, prezime, pol, datumRodjenja);
 		// TODO Auto-generated constructor stub
 	}
+
+	public Menadzer(String korisnickoIme, String lozinka, String ime, String prezime, String pol, String datumRodjenja,
+			UlogaKorisnika uloga, String idRestorana) {
+		super(korisnickoIme, lozinka, ime, prezime, pol, datumRodjenja, uloga);
+		this.idRestorana = idRestorana;
+	}
+	
+	
 }

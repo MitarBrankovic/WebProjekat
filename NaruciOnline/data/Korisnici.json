@@ -38,4 +38,20 @@
   "pol" : "zenski",
   "datumRodjenja" : "2021-07-26",
   "uloga" : "DOSTAVLJAC"
+}, {
+  "korisnickoIme" : "n",
+  "lozinka" : "n",
+  "ime" : "novi",
+  "prezime" : "novi",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-07-28",
+  "uloga" : "MENADZER"
+}, {
+  "korisnickoIme" : "m",
+  "lozinka" : "m",
+  "ime" : "m",
+  "prezime" : "m",
+  "pol" : "zenski",
+  "datumRodjenja" : "2021-07-28",
+  "uloga" : "MENADZER"
 } ]

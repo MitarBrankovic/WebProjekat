@@ -5,5 +5,33 @@
   "status" : false,
   "lokacija" : null,
   "slika" : "s",
+  "menadzer" : null,
   "id" : "7S03R"
+}, {
+  "naziv" : "Z",
+  "tip" : "Z",
+  "artikal" : null,
+  "status" : true,
+  "lokacija" : null,
+  "slika" : "Z",
+  "menadzer" : null,
+  "id" : "1MV4F"
+}, {
+  "naziv" : "a",
+  "tip" : "a",
+  "artikal" : null,
+  "status" : true,
+  "lokacija" : null,
+  "slika" : "a",
+  "menadzer" : {
+    "korisnickoIme" : "n",
+    "lozinka" : "n",
+    "ime" : "novi",
+    "prezime" : "novi",
+    "pol" : "muski",
+    "datumRodjenja" : "2021-07-28",
+    "uloga" : "MENADZER",
+    "idRestorana" : "4IB0F"
+  },
+  "id" : "4IB0F"
 } ]
