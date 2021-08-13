@@ -61,7 +61,6 @@ public class DostavljacRepository {
 					k.uloga = dostavljac.uloga;
 				}			
 			}
-			korisnici.add(dostavljac);
 			return saveAll(korisnici);
 		}
 		return false;

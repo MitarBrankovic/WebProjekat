@@ -122,7 +122,22 @@ public class Main {
 				res.status(400);
 				return "Greska";
 			}else {
-				
+				switch(k.uloga) {
+				case KUPAC:
+					Kupac kupacNovi = new Kupac(novi.korisnickoIme, novi.lozinka, novi.ime, novi.prezime, novi.pol, novi.datumRodjenja, UlogaKorisnika.KUPAC);
+					kupacRepository.edit(kupacNovi);
+					break;
+				case DOSTAVLJAC:
+					Dostavljac DostavljacNovi = new Dostavljac(novi.korisnickoIme, novi.lozinka, novi.ime, novi.prezime, novi.pol, novi.datumRodjenja, UlogaKorisnika.DOSTAVLJAC);
+					dostavljacRepository.edit(DostavljacNovi);
+					break;
+				case MENADZER:
+					Menadzer MenadzerNovi = new Menadzer(novi.korisnickoIme, novi.lozinka, novi.ime, novi.prezime, novi.pol, novi.datumRodjenja, UlogaKorisnika.MENADZER);
+					menadzerRepository.edit(MenadzerNovi);
+					break;
+				default:
+					break;
+				}
 			}
 			return "OK";
 		});
