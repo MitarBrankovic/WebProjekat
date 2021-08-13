@@ -10,6 +10,7 @@ const KreiranjeNaloga = {template:'<kreiranjeNaloga></kreiranjeNaloga>'}
 const PregledKorisnika = {template:'<pregledKorisnika></pregledKorisnika>'}
 const PregledMenadzera = {template:'<pregledMenadzera></pregledMenadzera>'}
 const KreiranjeRestorana = {template:'<kreiranjeRestorana></kreiranjeRestorana>'}
+const PregledRestoranaMenadzer = {template:'<pregledRestoranaMenadzer></pregledRestoranaMenadzer>'}
 
 const router = new VueRouter({
 	mode: 'hash',
@@ -22,7 +23,9 @@ const router = new VueRouter({
 		{path:'/kreiranjeNaloga',component: KreiranjeNaloga},
 		{path:'/pregledKorisnika',component: PregledKorisnika},
 		{path:'/pregledMenadzera',component: PregledMenadzera},
-		{path:'/kreiranjeRestorana',component: KreiranjeRestorana}
+		{path:'/kreiranjeRestorana',component: KreiranjeRestorana},
+		{path:'/pregledRestoranaMenadzer',component: PregledRestoranaMenadzer}
+		
 
 	]
 });

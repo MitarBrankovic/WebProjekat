@@ -37,13 +37,6 @@ public class MenadzerRepository {
 		}
 		return false;
 		
-//		try {
-//			mapper.writerWithDefaultPrettyPrinter().writeValue(file, korisnici);
-//			return true;
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//			return false;
-//		}
 	}
 	
 	public boolean edit(Menadzer menadzer) {

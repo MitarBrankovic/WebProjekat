@@ -18,4 +18,8 @@ public class Lokacija {
 		this.broj = broj;
 		this.postanskiBroj = postanskiBroj;
 	}
+	
+	public Lokacija() {
+		
+	}
 }

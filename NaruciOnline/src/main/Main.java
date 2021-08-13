@@ -37,12 +37,6 @@ public class Main {
 		staticFiles.externalLocation(new File("./resource").getCanonicalPath());
         after((req,res) -> res.type("application/json"));
 		
-		get("/test", (req, res) -> {
-			return "Works";
-		});
-//		get("/naruciOnline", (req, res) -> {
-//			return true;
-//		});
 		KorisnikRepository korisnikRepository = new KorisnikRepository();
 		KupacRepository kupacRepository = new KupacRepository();
 		MenadzerRepository menadzerRepository = new MenadzerRepository();
@@ -205,7 +199,12 @@ public class Main {
 		});
 		
 		
-		
+		post("/pregledRestoranaMenadzer", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			Menadzer menadzer = menadzerRepository.getObj(mapa.get("korisnickoIme"));
+			Restoran restoran = restoranRepository.getObj(menadzer.idRestorana);
+			return g.toJson(restoran);
+		});
 	}
 
 	private static StringBuilder IDgenerator() {
