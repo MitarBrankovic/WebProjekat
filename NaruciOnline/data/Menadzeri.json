@@ -16,4 +16,31 @@
   "datumRodjenja" : "2021-07-28",
   "uloga" : "MENADZER",
   "idRestorana" : "FLT87"
+}, {
+  "korisnickoIme" : "w",
+  "lozinka" : "w",
+  "ime" : "WW",
+  "prezime" : "WW",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-07-27",
+  "uloga" : "MENADZER",
+  "idRestorana" : "BHKZI"
+}, {
+  "korisnickoIme" : "y",
+  "lozinka" : "y",
+  "ime" : "y",
+  "prezime" : "y",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-07-27",
+  "uloga" : "MENADZER",
+  "idRestorana" : "RWX99"
+}, {
+  "korisnickoIme" : "j",
+  "lozinka" : "j",
+  "ime" : "jjjjj",
+  "prezime" : "jjjj",
+  "pol" : "zenski",
+  "datumRodjenja" : "2021-07-26",
+  "uloga" : "MENADZER",
+  "idRestorana" : "BF0EQ"
 } ]

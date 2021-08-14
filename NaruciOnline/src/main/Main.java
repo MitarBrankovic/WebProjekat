@@ -248,11 +248,80 @@ public class Main {
 				restorani = restorani.stream().filter(m -> m.ocena.contains(ocena))
 						.collect(Collectors.toList());
 			}*/
-			
+				
+			boolean nazivRast = mapaBool.get("nazivRast");
+			boolean nazivOpad = mapaBool.get("nazivOpad");
+			boolean lokacRast = mapaBool.get("lokacRast");
+			boolean lokacOpad = mapaBool.get("lokacOpad");
+			boolean ocenaRast = mapaBool.get("ocenaRast");
+			boolean ocenaOpad = mapaBool.get("ocenaOpad");
 
+			if (nazivRast) {
+				int n = restorani.size();
+				Restoran temp = null;
+				for (int i = 0; i < n; i++) {
+					for (int j = 1; j < (n - i); j++) {
+						if (restorani.get(j - 1).naziv
+								.compareTo(restorani.get(j).naziv) > 0) {
+							// swap elements
+							temp = restorani.get(j - 1);
+							restorani.set(j - 1, restorani.get(j));
+							restorani.set(j, temp);
+						}
+
+					}
+				}
+			}			
+			if (nazivOpad) {
+				int n = restorani.size();
+				Restoran temp = null;
+				for (int i = 0; i < n; i++) {
+					for (int j = 1; j < (n - i); j++) {
+						if (restorani.get(j - 1).naziv
+								.compareTo(restorani.get(j).naziv) < 0) {
+							// swap elements
+							temp = restorani.get(j - 1);
+							restorani.set(j - 1, restorani.get(j));
+							restorani.set(j, temp);
+						}
+
+					}
+				}
+			}		
+			if (lokacRast) {
+				int n = restorani.size();
+				Restoran temp = null;
+				for (int i = 0; i < n; i++) {
+					for (int j = 1; j < (n - i); j++) {
+						if (restorani.get(j - 1).lokacija.grad
+								.compareTo(restorani.get(j).lokacija.grad) > 0) {
+							// swap elements
+							temp = restorani.get(j - 1);
+							restorani.set(j - 1, restorani.get(j));
+							restorani.set(j, temp);
+						}
+
+					}
+				}
+			}			
+			if (lokacOpad) {
+				int n = restorani.size();
+				Restoran temp = null;
+				for (int i = 0; i < n; i++) {
+					for (int j = 1; j < (n - i); j++) {
+						if (restorani.get(j - 1).lokacija.grad
+								.compareTo(restorani.get(j).lokacija.grad) < 0) {
+							// swap elements
+							temp = restorani.get(j - 1);
+							restorani.set(j - 1, restorani.get(j));
+							restorani.set(j, temp);
+						}
+
+					}
+				}
+			}
 			
-			
-			
+			//TODO: SORTIRANJE OCENA
 
 			//res.type("application/json");
 			return g.toJson(restorani);

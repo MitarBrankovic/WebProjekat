@@ -48,4 +48,79 @@
     "idRestorana" : "V9J1D"
   },
   "id" : "V9J1D"
+}, {
+  "naziv" : "wwww",
+  "tip" : "wwww",
+  "artikal" : null,
+  "status" : true,
+  "lokacija" : {
+    "geoDuzina" : 2.0,
+    "geoSirina" : 2.0,
+    "grad" : "w",
+    "ulica" : "w",
+    "broj" : "2",
+    "postanskiBroj" : 2
+  },
+  "slika" : "w",
+  "menadzer" : {
+    "korisnickoIme" : "w",
+    "lozinka" : "w",
+    "ime" : "WW",
+    "prezime" : "WW",
+    "pol" : "muski",
+    "datumRodjenja" : "2021-07-27",
+    "uloga" : "MENADZER",
+    "idRestorana" : "BHKZI"
+  },
+  "id" : "BHKZI"
+}, {
+  "naziv" : "gdsadsgds",
+  "tip" : "sdgsdg",
+  "artikal" : null,
+  "status" : true,
+  "lokacija" : {
+    "geoDuzina" : 232.0,
+    "geoSirina" : 232.0,
+    "grad" : "asdasd",
+    "ulica" : "asdasd",
+    "broj" : "232",
+    "postanskiBroj" : 22
+  },
+  "slika" : "asdasd",
+  "menadzer" : {
+    "korisnickoIme" : "y",
+    "lozinka" : "y",
+    "ime" : "y",
+    "prezime" : "y",
+    "pol" : "muski",
+    "datumRodjenja" : "2021-07-27",
+    "uloga" : "MENADZER",
+    "idRestorana" : "RWX99"
+  },
+  "id" : "RWX99"
+}, {
+  "naziv" : "j",
+  "tip" : "j",
+  "artikal" : null,
+  "status" : false,
+  "lokacija" : {
+    "geoDuzina" : 4.0,
+    "geoSirina" : 4.0,
+    "grad" : "j",
+    "ulica" : "j",
+    "broj" : "4",
+    "postanskiBroj" : 4
+  },
+  "slika" : "j",
+  "menadzer" : {
+    "korisnickoIme" : "j",
+    "lozinka" : "j",
+    "ime" : "jjjjj",
+    "prezime" : "jjjj",
+    "pol" : "zenski",
+    "datumRodjenja" : "2021-07-26",
+    "uloga" : "MENADZER",
+    "idRestorana" : "BF0EQ"
+  },
+  "id" : "BF0EQ"
 } ]

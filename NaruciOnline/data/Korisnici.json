@@ -54,4 +54,28 @@
   "pol" : "zenski",
   "datumRodjenja" : "2021-07-28",
   "uloga" : "MENADZER"
+}, {
+  "korisnickoIme" : "w",
+  "lozinka" : "w",
+  "ime" : "WW",
+  "prezime" : "WW",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-07-27",
+  "uloga" : "MENADZER"
+}, {
+  "korisnickoIme" : "y",
+  "lozinka" : "y",
+  "ime" : "y",
+  "prezime" : "y",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-07-27",
+  "uloga" : "MENADZER"
+}, {
+  "korisnickoIme" : "j",
+  "lozinka" : "j",
+  "ime" : "jjjjj",
+  "prezime" : "jjjj",
+  "pol" : "zenski",
+  "datumRodjenja" : "2021-07-26",
+  "uloga" : "MENADZER"
 } ]

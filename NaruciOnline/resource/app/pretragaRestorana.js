@@ -35,23 +35,83 @@ Vue.component("pretragaRestorana",{
             <br>
         
             <div>
-                <button type="button" v-on:click="nazivRast()">Naziv (Rastuce)</button>
-                <button type="button" v-on:click="nazivOpad()">Naziv (Opadajuce)</button>
-                <button type="button" v-on:click="lokacRast()">Lokacija Rastuce</button>
-                <button type="button" v-on:click="lokacOpad()">Lokacija Opadajuce</button>
-                <button type="button" v-on:click="ocenaRast()">Ocena Rastuce</button>
-                <button type="button" v-on:click="ocenaOpad()">Ocena Opadajuce</button>
+                <button type="button" v-on:click="nazivRastFun()">Naziv (Rastuce)</button>
+                <button type="button" v-on:click="nazivOpadFun()">Naziv (Opadajuce)</button>
+                <button type="button" v-on:click="lokacRastFun()">Lokacija Rastuce</button>
+                <button type="button" v-on:click="lokacOpadFun()">Lokacija Opadajuce</button>
+                <button type="button" v-on:click="ocenaRastFun()">Ocena Rastuce</button>
+                <button type="button" v-on:click="ocenaOpadFun()">Ocena Opadajuce</button>
                 
             </div>
         
         
         
         
-        </div>
+        </div>                
     `,
     methods:{
         pretrazi:function(){
             this.$emit('clicked',this.search)
+        },
+        nazivRastFun: function(){
+            this.search.nazivRast = true
+            this.search.nazivOpad = false
+            this.search.lokacRast = false
+            this.search.lokacOpad = false
+            this.search.ocenaRast = false
+            this.search.ocenaOpad = false
+            console.log("Klik!")
+            this.$emit('clicked', this.search)
+        },
+        nazivOpadFun: function(){
+            this.search.nazivRast = false
+            this.search.nazivOpad = true
+            this.search.lokacRast = false
+            this.search.lokacOpad = false
+            this.search.ocenaRast = false
+            this.search.ocenaOpad = false
+            console.log("Klik!")
+            this.$emit('clicked', this.search)
+        },
+        lokacRastFun: function(){
+            this.search.nazivRast = false
+            this.search.nazivOpad = false
+            this.search.lokacRast = true
+            this.search.lokacOpad = false
+            this.search.ocenaRast = false
+            this.search.ocenaOpad = false
+            console.log("Klik!")
+            this.$emit('clicked', this.search)
+        },
+        lokacOpadFun: function(){
+            this.search.nazivRast = false
+            this.search.nazivOpad = false
+            this.search.lokacRast = false
+            this.search.lokacOpad = true
+            this.search.ocenaRast = false
+            this.search.ocenaOpad = false
+            console.log("Klik!")
+            this.$emit('clicked', this.search)
+        },
+        ocenaRastFun: function(){
+            this.search.nazivRast = false
+            this.search.nazivOpad = false
+            this.search.lokacRast = false
+            this.search.lokacOpad = false
+            this.search.ocenaRast = true
+            this.search.ocenaOpad = false
+            console.log("Klik!")
+            this.$emit('clicked', this.search)
+        },
+        ocenaOpadFun: function(){
+            this.search.nazivRast = false
+            this.search.nazivOpad = false
+            this.search.lokacRast = false
+            this.search.lokacOpad = false
+            this.search.ocenaRast = false
+            this.search.ocenaOpad = true
+            console.log("Klik!")
+            this.$emit('clicked', this.search)
         }
     }
 })
