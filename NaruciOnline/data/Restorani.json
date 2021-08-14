@@ -2,7 +2,7 @@
   "naziv" : "Dva stapica",
   "tip" : "kineska",
   "artikal" : null,
-  "status" : true,
+  "status" : false,
   "lokacija" : {
     "geoDuzina" : 21.01101,
     "geoSirina" : 23.21203,
@@ -23,4 +23,29 @@
     "idRestorana" : "FLT87"
   },
   "id" : "FLT87"
+}, {
+  "naziv" : "Novi",
+  "tip" : "novi",
+  "artikal" : null,
+  "status" : true,
+  "lokacija" : {
+    "geoDuzina" : 21.0,
+    "geoSirina" : 21.0,
+    "grad" : "ns",
+    "ulica" : "ns",
+    "broj" : "2",
+    "postanskiBroj" : 21000
+  },
+  "slika" : "a",
+  "menadzer" : {
+    "korisnickoIme" : "n",
+    "lozinka" : "n",
+    "ime" : "novi",
+    "prezime" : "novi",
+    "pol" : "muski",
+    "datumRodjenja" : "2021-07-28",
+    "uloga" : "MENADZER",
+    "idRestorana" : "V9J1D"
+  },
+  "id" : "V9J1D"
 } ]

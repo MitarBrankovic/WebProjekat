@@ -11,6 +11,8 @@ const PregledKorisnika = {template:'<pregledKorisnika></pregledKorisnika>'}
 const PregledMenadzera = {template:'<pregledMenadzera></pregledMenadzera>'}
 const KreiranjeRestorana = {template:'<kreiranjeRestorana></kreiranjeRestorana>'}
 const PregledRestoranaMenadzer = {template:'<pregledRestoranaMenadzer></pregledRestoranaMenadzer>'}
+const PretragaRestorana = {template:'<pretragaRestorana></pretragaRestorana>'}
+
 
 const router = new VueRouter({
 	mode: 'hash',
@@ -24,8 +26,9 @@ const router = new VueRouter({
 		{path:'/pregledKorisnika',component: PregledKorisnika},
 		{path:'/pregledMenadzera',component: PregledMenadzera},
 		{path:'/kreiranjeRestorana',component: KreiranjeRestorana},
-		{path:'/pregledRestoranaMenadzer',component: PregledRestoranaMenadzer}
-		
+		{path:'/pregledRestoranaMenadzer',component: PregledRestoranaMenadzer},	
+		{path:'/pretragaRestorana',component: PretragaRestorana},
+		{path:'/kreiranjeRestorana',component: KreiranjeRestorana}
 
 	]
 });

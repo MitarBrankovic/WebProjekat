@@ -6,14 +6,17 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-
+import java.util.stream.Collectors;
 import com.google.gson.Gson;
-
 import io.DostavljacRepository;
 import io.KupacRepository;
 import io.MenadzerRepository;
@@ -173,6 +176,10 @@ public class Main {
 			return g.toJson(menadzerRepository.vratiSlobodne());
 		});
 		
+		get("/pregledRestorana", (req, res) -> {
+			return g.toJson(restoranRepository.getAll());
+		});
+		
 		post("/kreiranjeRestorana", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
 			String status1 = mapa.get("status");		
@@ -205,6 +212,52 @@ public class Main {
 			Restoran restoran = restoranRepository.getObj(menadzer.idRestorana);
 			return g.toJson(restoran);
 		});
+		post("/pretragaRestor", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			HashMap<String, Boolean> mapaBool = g.fromJson(req.body(), HashMap.class);
+
+			String naziv = mapa.get("naziv");
+			String tip = mapa.get("tip");
+			String lokacija = mapa.get("lokacija");
+			String ocena = mapa.get("ocena");
+			boolean checkOtvoreno = mapaBool.get("checkOtvoren");
+
+			List<Restoran> restorani = restoranRepository.getAll();
+
+			if (naziv.equals("") && tip.equals("") && lokacija.equals("") && ocena.equals(""))
+				restorani = restoranRepository.getAll();
+				//return g.toJson(restoranRepository.getAll());
+			
+			if (!naziv.equals("")) {
+				restorani =  restorani.stream().filter(m -> m.naziv.toLowerCase().contains(naziv.toLowerCase()))
+						.collect(Collectors.toList());
+			}
+			if (!tip.equals("")) {
+				restorani = restorani.stream().filter(m -> m.tip.toLowerCase().contains(tip.toLowerCase()))
+						.collect(Collectors.toList());
+			}
+			if (!lokacija.equals("")) {
+				restorani = restorani.stream().filter(m -> m.lokacija.grad.toLowerCase().contains(lokacija.toLowerCase()))
+						.collect(Collectors.toList());
+			}
+			if (checkOtvoreno) {
+				restorani = restorani.stream().filter(m -> m.status == true)
+						.collect(Collectors.toList());
+			}
+			/*if (!ocena.equals("")) {
+				restorani = restorani.stream().filter(m -> m.ocena.contains(ocena))
+						.collect(Collectors.toList());
+			}*/
+			
+
+			
+			
+			
+
+			//res.type("application/json");
+			return g.toJson(restorani);
+		});
+		
 	}
 
 	private static StringBuilder IDgenerator() {

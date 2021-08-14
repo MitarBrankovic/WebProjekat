@@ -9,6 +9,8 @@ public class Lokacija {
 	public Integer postanskiBroj;
 	
 	
+	public Lokacija() {}
+	
 	public Lokacija(double geoDuzina, double geoSirina, String grad, String ulica, String broj, Integer postanskiBroj) {
 		super();
 		this.geoDuzina = geoDuzina;
@@ -19,7 +21,4 @@ public class Lokacija {
 		this.postanskiBroj = postanskiBroj;
 	}
 	
-	public Lokacija() {
-		
-	}
 }
