@@ -9,6 +9,7 @@ Vue.component("pregledKorisnika",{
     template:`
         <div>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" style="margin-left: 50px" >
+                <pretragaKorisnika id="search" @clicked="onSearch2Click"></pretragaKorisnika>    
                 <div v-for = "m in korisnici">
                 
                     <div class="row" >
@@ -40,6 +41,12 @@ Vue.component("pregledKorisnika",{
     methods:{
         increment(){
             this.count += 1;
+        },
+        onSearch2Click:function(search){
+            console.log(search)
+            axios
+            .post('/pretragaKoris',search)
+            .then(response=>{this.korisnici= response.data})
         }
     }
 })

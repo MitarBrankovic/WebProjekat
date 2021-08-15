@@ -12,6 +12,7 @@ const PregledMenadzera = {template:'<pregledMenadzera></pregledMenadzera>'}
 const KreiranjeRestorana = {template:'<kreiranjeRestorana></kreiranjeRestorana>'}
 const PregledRestoranaMenadzer = {template:'<pregledRestoranaMenadzer></pregledRestoranaMenadzer>'}
 const PretragaRestorana = {template:'<pretragaRestorana></pretragaRestorana>'}
+const PretragaKorisnika = {template:'<pretragaKorisnika></pretragaKorisnika>'}
 
 
 const router = new VueRouter({
@@ -28,6 +29,7 @@ const router = new VueRouter({
 		{path:'/kreiranjeRestorana',component: KreiranjeRestorana},
 		{path:'/pregledRestoranaMenadzer',component: PregledRestoranaMenadzer},	
 		{path:'/pretragaRestorana',component: PretragaRestorana},
+		{path:'/pretragaKorisnika',component: PretragaKorisnika},
 		{path:'/kreiranjeRestorana',component: KreiranjeRestorana}
 
 	]

@@ -13,7 +13,7 @@ Vue.component("NaruciOnline", {
             <div v-for = "m in restorani" >
                 <div class="row" v-if="(m.status===true)">
                     <div class="card shadow-sm" id="manifest" style="width: 400px">
-                        <img :src="'../images/'+m.slika" width = "200px" heigth = "300">
+                        <img :src="'../images/'+m.slika+'.jpg'" width = "200px" heigth = "300">
                         <div class="card-body">
                             <p id="man"class="card-text">{{m.naziv}}, {{m.tip}} trenutno je
                             <div v-if="(m.status===true)">
@@ -46,7 +46,7 @@ Vue.component("NaruciOnline", {
             <div v-for = "m in restorani" >
             <div class="row" v-if="(m.status===false)">
                 <div class="card shadow-sm" id="manifest" style="width: 400px">
-                    <img :src="'../images/'+m.slika" width = "200px" heigth = "300">
+                    <img :src="'../images/'+m.slika+'.jpg'"  width = "200px" heigth = "300">
                     <div class="card-body">
                         <p id="man"class="card-text">{{m.naziv}}, {{m.tip}} trenutno je
                         <div v-if="(m.status===true)">

@@ -29,6 +29,7 @@ import model.Kupac;
 import model.Lokacija;
 import model.Menadzer;
 import model.Restoran;
+import model.TipKupca;
 import model.UlogaKorisnika;
 
 public class Main {
@@ -325,6 +326,196 @@ public class Main {
 
 			//res.type("application/json");
 			return g.toJson(restorani);
+		});
+		
+		
+		post("/pretragaKoris", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			HashMap<String, Boolean> mapaBool = g.fromJson(req.body(), HashMap.class);
+
+			String ime = mapa.get("ime");
+			String prezime = mapa.get("prezime");
+			String korisnickoIme = mapa.get("korisnickoIme");
+			String tip = mapa.get("tip");
+			String uloga = mapa.get("uloga");
+
+			List<Korisnik> korisnici = korisnikRepository.getAll();
+
+			if (ime.equals("") && prezime.equals("") && korisnickoIme.equals(""))
+				korisnici = korisnikRepository.getAll();
+				//return g.toJson(restoranRepository.getAll());
+			
+			if (!ime.equals("")) {
+				korisnici =  korisnici.stream().filter(m -> m.ime.toLowerCase().contains(ime.toLowerCase()))
+						.collect(Collectors.toList());
+			}
+			if (!prezime.equals("")) {
+				korisnici = korisnici.stream().filter(m -> m.prezime.toLowerCase().contains(prezime.toLowerCase()))
+						.collect(Collectors.toList());
+			}
+			if (!korisnickoIme.equals("")) {
+				korisnici = korisnici.stream().filter(m -> m.korisnickoIme.toLowerCase().contains(korisnickoIme.toLowerCase()))
+						.collect(Collectors.toList());
+			}
+
+			/*if (!ocena.equals("")) {
+				restorani = restorani.stream().filter(m -> m.ocena.contains(ocena))
+						.collect(Collectors.toList());
+			}*/
+			
+			if (uloga.equals("MENADZER")) {
+				korisnici = korisnici.stream().filter(m -> m.uloga.toString().equals("MENADZER"))
+						.collect(Collectors.toList());
+			}else if(uloga.equals("DOSTAVLJAC")) {
+				korisnici = korisnici.stream().filter(m -> m.uloga.toString().equals("DOSTAVLJAC"))
+						.collect(Collectors.toList());
+			}else if(uloga.equals("KUPAC")) {
+				korisnici = korisnici.stream().filter(m -> m.uloga.toString().equals("KUPAC"))
+						.collect(Collectors.toList());
+			}
+			
+			List<Kupac> kupci = kupacRepository.getAll();
+			List<Kupac> bronzani = new ArrayList<Kupac>();
+			List<Kupac> srebrni = new ArrayList<Kupac>();
+			List<Kupac> zlatni = new ArrayList<Kupac>();
+			for(Kupac k : kupci) {
+				if(k.tipKupca.imeTipa == ImeTipaKupca.BRONZANI) {
+					bronzani.add(k);				
+				}else if(k.tipKupca.imeTipa == ImeTipaKupca.SREBRNI) {
+					srebrni.add(k);				
+				}else if(k.tipKupca.imeTipa == ImeTipaKupca.ZLATNI) {
+					zlatni.add(k);				
+				}					
+			}			
+			if (tip.equals("BRONZANI")) {				
+				for(Kupac k : bronzani) {
+					korisnici = korisnici.stream().filter(m -> m.korisnickoIme.equals(k.korisnickoIme))
+							.collect(Collectors.toList());					
+				}
+			}else if(tip.equals("SREBRNI")) {
+				for(Kupac k : srebrni) {
+					korisnici = korisnici.stream().filter(m -> m.korisnickoIme.equals(k.korisnickoIme))
+							.collect(Collectors.toList());					
+				}
+			}else if(tip.equals("ZLATNI")) {
+				for(Kupac k : zlatni) {
+					korisnici = korisnici.stream().filter(m -> m.korisnickoIme.equals(k.korisnickoIme))
+							.collect(Collectors.toList());					
+				}
+			}
+			
+			
+			
+			
+			boolean imeRast = mapaBool.get("imeRast");
+			boolean imeOpad = mapaBool.get("imeOpad");
+			boolean prezimeRast = mapaBool.get("prezimeRast");
+			boolean prezimeOpad = mapaBool.get("prezimeOpad");
+			boolean korisnickoImeRast = mapaBool.get("korisnickoImeRast");
+			boolean korisnickoImeOpad = mapaBool.get("korisnickoImeOpad");
+
+			if (imeRast) {
+				int n = korisnici.size();
+				Korisnik temp = null;
+				for (int i = 0; i < n; i++) {
+					for (int j = 1; j < (n - i); j++) {
+						if (korisnici.get(j - 1).ime
+								.compareTo(korisnici.get(j).ime
+										) > 0) {
+							// swap elements
+							temp = korisnici.get(j - 1);
+							korisnici.set(j - 1, korisnici.get(j));
+							korisnici.set(j, temp);
+						}
+
+					}
+				}
+			}			
+			if (imeOpad) {
+				int n = korisnici.size();
+				Korisnik temp = null;
+				for (int i = 0; i < n; i++) {
+					for (int j = 1; j < (n - i); j++) {
+						if (korisnici.get(j - 1).ime
+								.compareTo(korisnici.get(j).ime) < 0) {
+							// swap elements
+							temp = korisnici.get(j - 1);
+							korisnici.set(j - 1, korisnici.get(j));
+							korisnici.set(j, temp);
+						}
+
+					}
+				}
+			}	
+			if (prezimeRast) {
+				int n = korisnici.size();
+				Korisnik temp = null;
+				for (int i = 0; i < n; i++) {
+					for (int j = 1; j < (n - i); j++) {
+						if (korisnici.get(j - 1).prezime
+								.compareTo(korisnici.get(j).prezime) > 0) {
+							// swap elements
+							temp = korisnici.get(j - 1);
+							korisnici.set(j - 1, korisnici.get(j));
+							korisnici.set(j, temp);
+						}
+
+					}
+				}
+			}			
+			if (prezimeOpad) {
+				int n = korisnici.size();
+				Korisnik temp = null;
+				for (int i = 0; i < n; i++) {
+					for (int j = 1; j < (n - i); j++) {
+						if (korisnici.get(j - 1).prezime
+								.compareTo(korisnici.get(j).prezime) < 0) {
+							// swap elements
+							temp = korisnici.get(j - 1);
+							korisnici.set(j - 1, korisnici.get(j));
+							korisnici.set(j, temp);
+						}
+
+					}
+				}
+			}	
+			if (korisnickoImeRast) {
+				int n = korisnici.size();
+				Korisnik temp = null;
+				for (int i = 0; i < n; i++) {
+					for (int j = 1; j < (n - i); j++) {
+						if (korisnici.get(j - 1).korisnickoIme
+								.compareTo(korisnici.get(j).korisnickoIme) > 0) {
+							// swap elements
+							temp = korisnici.get(j - 1);
+							korisnici.set(j - 1, korisnici.get(j));
+							korisnici.set(j, temp);
+						}
+
+					}
+				}
+			}			
+			if (korisnickoImeOpad) {
+				int n = korisnici.size();
+				Korisnik temp = null;
+				for (int i = 0; i < n; i++) {
+					for (int j = 1; j < (n - i); j++) {
+						if (korisnici.get(j - 1).korisnickoIme
+								.compareTo(korisnici.get(j).korisnickoIme) < 0) {
+							// swap elements
+							temp = korisnici.get(j - 1);
+							korisnici.set(j - 1, korisnici.get(j));
+							korisnici.set(j, temp);
+						}
+
+					}
+				}
+			}
+
+			//TODO: SORTIRANJE BODOVA
+
+			//res.type("application/json");
+			return g.toJson(korisnici);
 		});
 		
 	}

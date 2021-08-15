@@ -14,4 +14,20 @@
   "korpa" : null,
   "brojBodova" : 0,
   "svePorudzbine" : null
+}, {
+  "korisnickoIme" : "srebrni",
+  "lozinka" : "srebrni",
+  "ime" : "SREBRNI",
+  "prezime" : "SREBRNI",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-07-26",
+  "uloga" : "KUPAC",
+  "tipKupca" : {
+    "imeTipa" : "SREBRNI",
+    "popust" : 0.0,
+    "trazeniBrojBodova" : 0
+  },
+  "korpa" : null,
+  "brojBodova" : 0,
+  "svePorudzbine" : null
 } ]

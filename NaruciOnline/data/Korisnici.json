@@ -78,4 +78,12 @@
   "pol" : "zenski",
   "datumRodjenja" : "2021-07-26",
   "uloga" : "MENADZER"
+}, {
+  "korisnickoIme" : "srebrni",
+  "lozinka" : "srebrni",
+  "ime" : "SREBRNI",
+  "prezime" : "SREBRNI",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-07-26",
+  "uloga" : "KUPAC"
 } ]
