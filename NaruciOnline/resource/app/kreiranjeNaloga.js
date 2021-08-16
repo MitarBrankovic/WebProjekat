@@ -7,7 +7,8 @@ Vue.component("kreiranjeNaloga", {
 			prezime:"",
 			pol:"",
 			datumRodjenja:"",
-			uloga:""
+			uloga:"",
+			kreirajMenadzera:false
         }
     },
     template:`  
@@ -37,10 +38,17 @@ Vue.component("kreiranjeNaloga", {
 				<br>
 
                 <label for="uloga"><b>Uloga</b></label>
-				<select v-model="uloga">
-					<option value="Menadzer">Menadzer</option>
-				    <option value="Dostavljac">Dostavljac</option>
-				</select>
+				<div v-if="!kreirajMenadzera">
+					<select v-model="uloga">
+						<option value="Menadzer">Menadzer</option>
+						<option value="Dostavljac">Dostavljac</option>
+					</select>
+				</div>
+				<div v-else>
+					<select v-model="uloga">
+						<option value="Menadzer">Menadzer</option>
+					</select>
+				</div>
 				<br>
 				
 				<label for="korisnickoIme"><b>Korisnicko ime</b></label>
@@ -61,7 +69,10 @@ Vue.component("kreiranjeNaloga", {
 	</div>
     `       
         ,
-	 methods:{
+	mounted(){
+		//this.kreirajMenadzera=JSON.parse(localStorage.getItem('kreiranjeMenadzera'))
+	},
+	methods:{
         submitForm:function(){
 			
             const user = {
@@ -79,13 +90,8 @@ Vue.component("kreiranjeNaloga", {
             .then(response=>{
                 this.$router.push('/')
             })
-			/*.catch(error=>{
-				console.log("Greska.")	
-				alert("Vec postoji korisnik sa tim korisnickim imenom.")
-				window.location.reload()
-
-			})*/
-        }
+        },
+		
     }
 
 });

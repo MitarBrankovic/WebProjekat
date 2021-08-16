@@ -59,16 +59,14 @@ Vue.component("kreiranjeRestorana", {
 				<option disabled value="">Please select one</option>
 				<option v-for="m in menadzeri" :value="m.korisnickoIme">{{m.korisnickoIme}}</option>
 				</select>
-				<br>
-
-
-
-
-                
-			
-			    <button type="submit" class="kreiranjebtn">Kreiraj</button>
-		  	</div>
+				<a target="_blank" href="#/kreiranjeNaloga">Kreiraj novog menadzera</a>
+				
+				<br>                
+				<button type="submit" class="kreiranjebtn">Kreiraj</button>
+			</div>
 		</form>
+		
+	
 	</div>
     `       
         ,
@@ -76,6 +74,8 @@ Vue.component("kreiranjeRestorana", {
 			axios
 			.get('/pregledMenadzera')
 			.then(response=>{this.menadzeri=response.data;})
+
+
 		},
 
 
@@ -107,7 +107,10 @@ Vue.component("kreiranjeRestorana", {
 				window.location.reload()
 
 			})*/
-        }
+        }/*,
+		kreirajMenadzera : function(){
+			localStorage.setItem('kreiranjeMenadzera', true)
+		}*/
     }
 
 });

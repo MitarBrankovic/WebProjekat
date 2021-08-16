@@ -43,4 +43,13 @@
   "datumRodjenja" : "2021-07-26",
   "uloga" : "MENADZER",
   "idRestorana" : "BF0EQ"
+}, {
+  "korisnickoIme" : "mit",
+  "lozinka" : "mit",
+  "ime" : "Mitar",
+  "prezime" : "Miric",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-04-29",
+  "uloga" : "MENADZER",
+  "idRestorana" : null
 } ]

@@ -86,4 +86,12 @@
   "pol" : "muski",
   "datumRodjenja" : "2021-07-26",
   "uloga" : "KUPAC"
+}, {
+  "korisnickoIme" : "mit",
+  "lozinka" : "mit",
+  "ime" : "Mitar",
+  "prezime" : "Miric",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-04-29",
+  "uloga" : "MENADZER"
 } ]

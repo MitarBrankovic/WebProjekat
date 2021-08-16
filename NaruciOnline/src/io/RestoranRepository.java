@@ -8,6 +8,7 @@ import java.util.List;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import model.Artikal;
 import model.Korisnik;
 import model.Restoran;
 
@@ -49,6 +50,7 @@ public class RestoranRepository {
 					k.slika = restoran.slika;
 					k.status = restoran.status;
 					k.tip = restoran.tip;
+					k.artikli = restoran.artikli;
 				}			
 			}
 			return saveAll(restorani);
@@ -84,5 +86,11 @@ public class RestoranRepository {
 			}
 		}
 		return null;
+	}
+	
+	public void DodajArtikal(String idRestorana, Artikal artikal) {
+		Restoran restoran = getObj(idRestorana);
+		restoran.artikli.add(artikal);
+		edit(restoran);
 	}
 }

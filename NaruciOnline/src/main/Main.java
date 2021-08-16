@@ -22,6 +22,7 @@ import io.KupacRepository;
 import io.MenadzerRepository;
 import io.RestoranRepository;
 import io.KorisnikRepository;
+import model.Artikal;
 import model.Dostavljac;
 import model.ImeTipaKupca;
 import model.Korisnik;
@@ -29,6 +30,7 @@ import model.Kupac;
 import model.Lokacija;
 import model.Menadzer;
 import model.Restoran;
+import model.TipArtikla;
 import model.TipKupca;
 import model.UlogaKorisnika;
 
@@ -209,10 +211,28 @@ public class Main {
 		
 		post("/pregledRestoranaMenadzer", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			System.out.println(mapa);
 			Menadzer menadzer = menadzerRepository.getObj(mapa.get("korisnickoIme"));
 			Restoran restoran = restoranRepository.getObj(menadzer.idRestorana);
 			return g.toJson(restoran);
 		});
+		
+		post("/pregledRestoranaMenadzerAddArtikal", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			System.out.println(mapa);
+			Restoran restoran = restoranRepository.getObj(mapa.get("idRestorana"));
+			TipArtikla tip;
+			if(mapa.get("tip").equals("jelo")) {
+				tip = TipArtikla.jelo;
+			}else {
+				tip = TipArtikla.pice;
+			}
+			Artikal artikal = new Artikal(mapa.get("naziv"), Integer.parseInt(mapa.get("cena")), restoran,
+					mapa.get("kolicina"), mapa.get("opis"), tip);
+			restoranRepository.DodajArtikal(restoran.id, artikal);
+			return "OK";
+		});
+		
 		post("/pretragaRestor", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
 			HashMap<String, Boolean> mapaBool = g.fromJson(req.body(), HashMap.class);
