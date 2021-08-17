@@ -1,6 +1,7 @@
 Vue.component("pregledRestoranaMenadzer",{
     data: function(){
         return{
+          uloga:null,
           korisnik:null,
           restoran:null,
           statusRestorana:null,
@@ -82,16 +83,18 @@ Vue.component("pregledRestoranaMenadzer",{
     mounted(){
         this.korisnik = JSON.parse(localStorage.getItem('korisnik'))
         console.log(this.korisnik)
-        axios
-        .post('/pregledRestoranaMenadzer', this.korisnik)
-        .then(response=>{
-            console.log(response)
-            console.log(response.data)
-            this.restoran=response.data;
-            this.artikli=this.restoran.artikli;
-        })
-        
-        },
+        this.uloga = this.korisnik.uloga
+        if(this.uloga == 'MENADZER'){
+            axios
+            .post('/pregledRestoranaMenadzer', this.korisnik)
+            .then(response=>{
+                console.log(response)
+                console.log(response.data)
+                this.restoran=response.data;
+                this.artikli=this.restoran.artikli;
+            })
+        }
+    },
     methods:{
         dodajArtikalClick:function(){
             this.dodajArtikalVisible = !dodajArtikalVisible

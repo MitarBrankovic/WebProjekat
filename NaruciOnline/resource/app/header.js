@@ -1,7 +1,9 @@
 Vue.component("header-comp", {
     data: function() {
         return {
-			korisnik:null
+			korisnik:null,
+			restoran:null
+			//naziv_restorana:null
         }
     },
     template:`  
@@ -43,8 +45,9 @@ Vue.component("header-comp", {
 		  	<div v-if="(korisnik.uloga==='KUPAC') ||(korisnik.uloga==='MENADZER')||(korisnik.uloga==='ADMIN')||(korisnik.uloga==='DOSTAVLJAC')">
 			  <a href="/#/edit">Izmena podataka</a>
 			  <div v-if="(korisnik.uloga==='MENADZER')">
-			  <a href="/#/pregledRestoranaMenadzer">Pregled restorana</a>
-  			</div>
+				<!--<a href="/#/pregledRestoranaMenadzer">Pregled restorana</a>-->
+				<button type="button" v-on:click="pregledRestorana()">Pregled restorana</button>
+				</div>
   			</div>
 			<a href="/#/logout">Logout</a>
 		  </div>
@@ -77,5 +80,28 @@ Vue.component("header-comp", {
         ,
     mounted(){
         this.korisnik=JSON.parse(localStorage.getItem('korisnik'))
-    }
+		if(this.korisnik.uloga == 'MENADZER'){
+			axios
+			.post('/pregledRestoranaMenadzer', this.korisnik)
+			.then(response=>{
+				console.log(response.data)
+				this.restoran=response.data
+				//this.naziv_restorana = this.restoran.naziv.replace(/ /g, "-")
+			})
+		}
+		
+    },
+	methods:{
+		pregledRestorana:function(){
+			if(this.restoran!=null){
+				axios
+				.get(`/restoran/${this.restoran.naziv}`)
+				.then(response=>{
+					const rest = response.data
+					localStorage.setItem('rest', JSON.stringify(rest))
+					this.$router.push(`/restoran/${this.restoran.naziv}`)
+				})
+			}
+		}
+	}
 });
