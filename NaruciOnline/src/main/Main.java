@@ -226,7 +226,7 @@ public class Main {
 			}else {
 				tip = TipArtikla.pice;
 			}
-			Artikal artikal = new Artikal(mapa.get("naziv"), Integer.parseInt(mapa.get("cena")), restoran,
+			Artikal artikal = new Artikal(mapa.get("naziv"), Integer.parseInt(mapa.get("cena")), mapa.get("idRestorana"),
 					mapa.get("kolicina"), mapa.get("opis"), tip);
 			restoranRepository.DodajArtikal(restoran.id, artikal);
 			return artikal;

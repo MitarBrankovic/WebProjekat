@@ -1,6 +1,7 @@
 Vue.component("restoran",{
     data: function(){
         return{
+            korisnik:null,
             restoran:null,
             uloga:null,
             artikal:null,
@@ -45,35 +46,36 @@ Vue.component("restoran",{
                 </p>
             </div>
             
-            
-            <div v-if="dodajArtikalVisible">
-                <button v-on:click="dodajArtikalVisible=false">Dodaj artikal</button>
-            </div>
-            <div v-else>
-                <form method ="POST" @submit.prevent = "dodajArtikal()">
-                    <div>    
-                        <label for="naziv"><b>Naziv</b></label>
-                        <input type="text" v-model="naziv" required>
-                        <br>
-                        <label for="cena"><b>Cena</b></label>
-                        <input type="number" v-model="cena" required>
-                        <br>
-                        <label for="tip"><b>Tip</b></label>
-                        <select v-model="tip">
-                            <option value="jelo">Jelo</option>
-                            <option value="pice">Pice</option>
-                        </select>
-                        <br>
-                        <label for="kolicina"><b>Kolicina</b></label>
-                        <input type="text" v-model="kolicina" required>
-                        <br>
-                        <label for="opis"><b>Opis</b></label>
-                        <input type="text" v-model="opis" required>
-                        <br>
-                        <button type="submit" v-on:click="dodajArtikalVisible=true">Dodaj</button>
-                    </div>
-                </form>
-                <button v-on:click="dodajArtikalVisible=true">Cancle</button>
+            <div v-if="vlasnikRestorana()">
+                <div v-if="dodajArtikalVisible">
+                    <button v-on:click="dodajArtikalVisible=false">Dodaj artikal</button>
+                </div>
+                <div v-else>
+                    <form method ="POST" @submit.prevent = "dodajArtikal()">
+                        <div>    
+                            <label for="naziv"><b>Naziv</b></label>
+                            <input type="text" v-model="naziv" required>
+                            <br>
+                            <label for="cena"><b>Cena</b></label>
+                            <input type="number" v-model="cena" required>
+                            <br>
+                            <label for="tip"><b>Tip</b></label>
+                            <select v-model="tip">
+                                <option value="jelo">Jelo</option>
+                                <option value="pice">Pice</option>
+                            </select>
+                            <br>
+                            <label for="kolicina"><b>Kolicina</b></label>
+                            <input type="text" v-model="kolicina" required>
+                            <br>
+                            <label for="opis"><b>Opis</b></label>
+                            <input type="text" v-model="opis" required>
+                            <br>
+                            <button type="submit" v-on:click="dodajArtikalVisible=true">Dodaj</button>
+                        </div>
+                    </form>
+                    <button v-on:click="dodajArtikalVisible=true">Cancle</button>
+                </div>
             </div>
         </div> 
     `,
@@ -109,6 +111,13 @@ Vue.component("restoran",{
                 this.artikal = response.data
                 this.artikli.push(artikal)
             })
+        },
+        vlasnikRestorana:function(){
+            if(this.restoran.menadzer.korisnickoIme == this.korisnik.korisnickoIme){
+                return true;
+            }else{
+                return false
+            }
         }
     }
 })

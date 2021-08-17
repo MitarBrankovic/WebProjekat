@@ -80,24 +80,28 @@ Vue.component("header-comp", {
         ,
     mounted(){
         this.korisnik=JSON.parse(localStorage.getItem('korisnik'))
-		axios
-		.post('/pregledRestoranaMenadzer', this.korisnik)
-            .then(response=>{
+		if(this.korisnik.uloga == 'MENADZER'){
+			axios
+			.post('/pregledRestoranaMenadzer', this.korisnik)
+			.then(response=>{
 				console.log(response.data)
-                this.restoran=response.data
+				this.restoran=response.data
 				//this.naziv_restorana = this.restoran.naziv.replace(/ /g, "-")
-            })
+			})
+		}
 		
     },
 	methods:{
 		pregledRestorana:function(){
-			axios
-			.get(`/restoran/${this.restoran.naziv}`)
-			.then(response=>{
-				const rest = response.data
-				localStorage.setItem('rest', JSON.stringify(rest))
-				this.$router.push(`/restoran/${this.restoran.naziv}`)
-			})
+			if(this.restoran!=null){
+				axios
+				.get(`/restoran/${this.restoran.naziv}`)
+				.then(response=>{
+					const rest = response.data
+					localStorage.setItem('rest', JSON.stringify(rest))
+					this.$router.push(`/restoran/${this.restoran.naziv}`)
+				})
+			}
 		}
 	}
 });

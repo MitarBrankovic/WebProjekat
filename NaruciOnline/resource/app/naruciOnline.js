@@ -82,12 +82,20 @@ Vue.component("NaruciOnline", {
         methods:{
             prikazRestorana:function(m){
                 axios
-                .get(`prikazRestorana/${m.naziv}`)
-                .then(response=>{
-                    const restor = response.data
-                    localStorage.setItem('restor',JSON.stringify(restor))
-                    this.$router.push('/prikazRestorana')
-                })
+                .get(`/restoran/${m.naziv}`)
+				.then(response=>{
+					const rest = response.data
+					localStorage.setItem('rest', JSON.stringify(rest))
+					this.$router.push(`/restoran/${m.naziv}`)
+				})
+                
+                
+                // .get(`prikazRestorana/${m.naziv}`)
+                // .then(response=>{
+                //     const restor = response.data
+                //     localStorage.setItem('restor',JSON.stringify(restor))
+                //     this.$router.push('/prikazRestorana')
+                // })
             },
             onSearchClick:function(search){
                 console.log(search)
