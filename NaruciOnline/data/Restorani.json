@@ -100,6 +100,4098 @@
     "kolicina" : "200ml",
     "opis" : "cedjeni sok",
     "slika" : null
+  }, {
+    "naziv" : "Pileca supa",
+    "cena" : 500,
+    "tip" : "jelo",
+    "restoran" : {
+      "naziv" : "Dva stapica",
+      "tip" : "kineska",
+      "artikli" : [ {
+        "naziv" : "Teletina",
+        "cena" : 600,
+        "tip" : "jelo",
+        "restoran" : {
+          "naziv" : "Dva stapica",
+          "tip" : "kineska",
+          "artikli" : [ ],
+          "status" : false,
+          "lokacija" : {
+            "geoDuzina" : 21.01101,
+            "geoSirina" : 23.21203,
+            "grad" : "Novi Sad",
+            "ulica" : "Bulevar Oslobodjenja",
+            "broj" : "25",
+            "postanskiBroj" : 21000
+          },
+          "slika" : "sponge",
+          "menadzer" : {
+            "korisnickoIme" : "m",
+            "lozinka" : "m",
+            "ime" : "m",
+            "prezime" : "matori",
+            "pol" : "zenski",
+            "datumRodjenja" : "2021-07-28",
+            "uloga" : "MENADZER",
+            "idRestorana" : "FLT87"
+          },
+          "id" : "FLT87"
+        },
+        "kolicina" : "300g",
+        "opis" : "Teletina u sosu",
+        "slika" : null
+      }, {
+        "naziv" : "Sok od nane",
+        "cena" : 200,
+        "tip" : "pice",
+        "restoran" : {
+          "naziv" : "Dva stapica",
+          "tip" : "kineska",
+          "artikli" : [ {
+            "naziv" : "aaa",
+            "cena" : 323,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "sads",
+            "opis" : "asdasd",
+            "slika" : null
+          } ],
+          "status" : false,
+          "lokacija" : {
+            "geoDuzina" : 21.01101,
+            "geoSirina" : 23.21203,
+            "grad" : "Novi Sad",
+            "ulica" : "Bulevar Oslobodjenja",
+            "broj" : "25",
+            "postanskiBroj" : 21000
+          },
+          "slika" : "sponge",
+          "menadzer" : {
+            "korisnickoIme" : "m",
+            "lozinka" : "m",
+            "ime" : "m",
+            "prezime" : "matori",
+            "pol" : "zenski",
+            "datumRodjenja" : "2021-07-28",
+            "uloga" : "MENADZER",
+            "idRestorana" : "FLT87"
+          },
+          "id" : "FLT87"
+        },
+        "kolicina" : "200ml",
+        "opis" : "cedjeni sok",
+        "slika" : null
+      } ],
+      "status" : false,
+      "lokacija" : {
+        "geoDuzina" : 21.01101,
+        "geoSirina" : 23.21203,
+        "grad" : "Novi Sad",
+        "ulica" : "Bulevar Oslobodjenja",
+        "broj" : "25",
+        "postanskiBroj" : 21000
+      },
+      "slika" : "sponge",
+      "menadzer" : {
+        "korisnickoIme" : "m",
+        "lozinka" : "m",
+        "ime" : "m",
+        "prezime" : "matori",
+        "pol" : "zenski",
+        "datumRodjenja" : "2021-07-28",
+        "uloga" : "MENADZER",
+        "idRestorana" : "FLT87"
+      },
+      "id" : "FLT87"
+    },
+    "kolicina" : "tanjir",
+    "opis" : "supa ko supa",
+    "slika" : null
+  }, {
+    "naziv" : "Sok od breskve",
+    "cena" : 200,
+    "tip" : "pice",
+    "restoran" : {
+      "naziv" : "Dva stapica",
+      "tip" : "kineska",
+      "artikli" : [ {
+        "naziv" : "Teletina",
+        "cena" : 600,
+        "tip" : "jelo",
+        "restoran" : {
+          "naziv" : "Dva stapica",
+          "tip" : "kineska",
+          "artikli" : [ ],
+          "status" : false,
+          "lokacija" : {
+            "geoDuzina" : 21.01101,
+            "geoSirina" : 23.21203,
+            "grad" : "Novi Sad",
+            "ulica" : "Bulevar Oslobodjenja",
+            "broj" : "25",
+            "postanskiBroj" : 21000
+          },
+          "slika" : "sponge",
+          "menadzer" : {
+            "korisnickoIme" : "m",
+            "lozinka" : "m",
+            "ime" : "m",
+            "prezime" : "matori",
+            "pol" : "zenski",
+            "datumRodjenja" : "2021-07-28",
+            "uloga" : "MENADZER",
+            "idRestorana" : "FLT87"
+          },
+          "id" : "FLT87"
+        },
+        "kolicina" : "300g",
+        "opis" : "Teletina u sosu",
+        "slika" : null
+      }, {
+        "naziv" : "Sok od nane",
+        "cena" : 200,
+        "tip" : "pice",
+        "restoran" : {
+          "naziv" : "Dva stapica",
+          "tip" : "kineska",
+          "artikli" : [ {
+            "naziv" : "aaa",
+            "cena" : 323,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "sads",
+            "opis" : "asdasd",
+            "slika" : null
+          } ],
+          "status" : false,
+          "lokacija" : {
+            "geoDuzina" : 21.01101,
+            "geoSirina" : 23.21203,
+            "grad" : "Novi Sad",
+            "ulica" : "Bulevar Oslobodjenja",
+            "broj" : "25",
+            "postanskiBroj" : 21000
+          },
+          "slika" : "sponge",
+          "menadzer" : {
+            "korisnickoIme" : "m",
+            "lozinka" : "m",
+            "ime" : "m",
+            "prezime" : "matori",
+            "pol" : "zenski",
+            "datumRodjenja" : "2021-07-28",
+            "uloga" : "MENADZER",
+            "idRestorana" : "FLT87"
+          },
+          "id" : "FLT87"
+        },
+        "kolicina" : "200ml",
+        "opis" : "cedjeni sok",
+        "slika" : null
+      }, {
+        "naziv" : "Pileca supa",
+        "cena" : 500,
+        "tip" : "jelo",
+        "restoran" : {
+          "naziv" : "Dva stapica",
+          "tip" : "kineska",
+          "artikli" : [ {
+            "naziv" : "Teletina",
+            "cena" : 600,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "300g",
+            "opis" : "Teletina u sosu",
+            "slika" : null
+          }, {
+            "naziv" : "Sok od nane",
+            "cena" : 200,
+            "tip" : "pice",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ {
+                "naziv" : "aaa",
+                "cena" : 323,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "sads",
+                "opis" : "asdasd",
+                "slika" : null
+              } ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "200ml",
+            "opis" : "cedjeni sok",
+            "slika" : null
+          } ],
+          "status" : false,
+          "lokacija" : {
+            "geoDuzina" : 21.01101,
+            "geoSirina" : 23.21203,
+            "grad" : "Novi Sad",
+            "ulica" : "Bulevar Oslobodjenja",
+            "broj" : "25",
+            "postanskiBroj" : 21000
+          },
+          "slika" : "sponge",
+          "menadzer" : {
+            "korisnickoIme" : "m",
+            "lozinka" : "m",
+            "ime" : "m",
+            "prezime" : "matori",
+            "pol" : "zenski",
+            "datumRodjenja" : "2021-07-28",
+            "uloga" : "MENADZER",
+            "idRestorana" : "FLT87"
+          },
+          "id" : "FLT87"
+        },
+        "kolicina" : "tanjir",
+        "opis" : "supa ko supa",
+        "slika" : null
+      } ],
+      "status" : false,
+      "lokacija" : {
+        "geoDuzina" : 21.01101,
+        "geoSirina" : 23.21203,
+        "grad" : "Novi Sad",
+        "ulica" : "Bulevar Oslobodjenja",
+        "broj" : "25",
+        "postanskiBroj" : 21000
+      },
+      "slika" : "sponge",
+      "menadzer" : {
+        "korisnickoIme" : "m",
+        "lozinka" : "m",
+        "ime" : "m",
+        "prezime" : "matori",
+        "pol" : "zenski",
+        "datumRodjenja" : "2021-07-28",
+        "uloga" : "MENADZER",
+        "idRestorana" : "FLT87"
+      },
+      "id" : "FLT87"
+    },
+    "kolicina" : "200ml",
+    "opis" : "cedjeni sok",
+    "slika" : null
+  }, {
+    "naziv" : "Rizoto",
+    "cena" : 450,
+    "tip" : "jelo",
+    "restoran" : {
+      "naziv" : "Dva stapica",
+      "tip" : "kineska",
+      "artikli" : [ {
+        "naziv" : "Teletina",
+        "cena" : 600,
+        "tip" : "jelo",
+        "restoran" : {
+          "naziv" : "Dva stapica",
+          "tip" : "kineska",
+          "artikli" : [ ],
+          "status" : false,
+          "lokacija" : {
+            "geoDuzina" : 21.01101,
+            "geoSirina" : 23.21203,
+            "grad" : "Novi Sad",
+            "ulica" : "Bulevar Oslobodjenja",
+            "broj" : "25",
+            "postanskiBroj" : 21000
+          },
+          "slika" : "sponge",
+          "menadzer" : {
+            "korisnickoIme" : "m",
+            "lozinka" : "m",
+            "ime" : "m",
+            "prezime" : "matori",
+            "pol" : "zenski",
+            "datumRodjenja" : "2021-07-28",
+            "uloga" : "MENADZER",
+            "idRestorana" : "FLT87"
+          },
+          "id" : "FLT87"
+        },
+        "kolicina" : "300g",
+        "opis" : "Teletina u sosu",
+        "slika" : null
+      }, {
+        "naziv" : "Sok od nane",
+        "cena" : 200,
+        "tip" : "pice",
+        "restoran" : {
+          "naziv" : "Dva stapica",
+          "tip" : "kineska",
+          "artikli" : [ {
+            "naziv" : "aaa",
+            "cena" : 323,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "sads",
+            "opis" : "asdasd",
+            "slika" : null
+          } ],
+          "status" : false,
+          "lokacija" : {
+            "geoDuzina" : 21.01101,
+            "geoSirina" : 23.21203,
+            "grad" : "Novi Sad",
+            "ulica" : "Bulevar Oslobodjenja",
+            "broj" : "25",
+            "postanskiBroj" : 21000
+          },
+          "slika" : "sponge",
+          "menadzer" : {
+            "korisnickoIme" : "m",
+            "lozinka" : "m",
+            "ime" : "m",
+            "prezime" : "matori",
+            "pol" : "zenski",
+            "datumRodjenja" : "2021-07-28",
+            "uloga" : "MENADZER",
+            "idRestorana" : "FLT87"
+          },
+          "id" : "FLT87"
+        },
+        "kolicina" : "200ml",
+        "opis" : "cedjeni sok",
+        "slika" : null
+      }, {
+        "naziv" : "Pileca supa",
+        "cena" : 500,
+        "tip" : "jelo",
+        "restoran" : {
+          "naziv" : "Dva stapica",
+          "tip" : "kineska",
+          "artikli" : [ {
+            "naziv" : "Teletina",
+            "cena" : 600,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "300g",
+            "opis" : "Teletina u sosu",
+            "slika" : null
+          }, {
+            "naziv" : "Sok od nane",
+            "cena" : 200,
+            "tip" : "pice",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ {
+                "naziv" : "aaa",
+                "cena" : 323,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "sads",
+                "opis" : "asdasd",
+                "slika" : null
+              } ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "200ml",
+            "opis" : "cedjeni sok",
+            "slika" : null
+          } ],
+          "status" : false,
+          "lokacija" : {
+            "geoDuzina" : 21.01101,
+            "geoSirina" : 23.21203,
+            "grad" : "Novi Sad",
+            "ulica" : "Bulevar Oslobodjenja",
+            "broj" : "25",
+            "postanskiBroj" : 21000
+          },
+          "slika" : "sponge",
+          "menadzer" : {
+            "korisnickoIme" : "m",
+            "lozinka" : "m",
+            "ime" : "m",
+            "prezime" : "matori",
+            "pol" : "zenski",
+            "datumRodjenja" : "2021-07-28",
+            "uloga" : "MENADZER",
+            "idRestorana" : "FLT87"
+          },
+          "id" : "FLT87"
+        },
+        "kolicina" : "tanjir",
+        "opis" : "supa ko supa",
+        "slika" : null
+      }, {
+        "naziv" : "Sok od breskve",
+        "cena" : 200,
+        "tip" : "pice",
+        "restoran" : {
+          "naziv" : "Dva stapica",
+          "tip" : "kineska",
+          "artikli" : [ {
+            "naziv" : "Teletina",
+            "cena" : 600,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "300g",
+            "opis" : "Teletina u sosu",
+            "slika" : null
+          }, {
+            "naziv" : "Sok od nane",
+            "cena" : 200,
+            "tip" : "pice",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ {
+                "naziv" : "aaa",
+                "cena" : 323,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "sads",
+                "opis" : "asdasd",
+                "slika" : null
+              } ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "200ml",
+            "opis" : "cedjeni sok",
+            "slika" : null
+          }, {
+            "naziv" : "Pileca supa",
+            "cena" : 500,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ {
+                "naziv" : "Teletina",
+                "cena" : 600,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "300g",
+                "opis" : "Teletina u sosu",
+                "slika" : null
+              }, {
+                "naziv" : "Sok od nane",
+                "cena" : 200,
+                "tip" : "pice",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ {
+                    "naziv" : "aaa",
+                    "cena" : 323,
+                    "tip" : "jelo",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "sads",
+                    "opis" : "asdasd",
+                    "slika" : null
+                  } ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "200ml",
+                "opis" : "cedjeni sok",
+                "slika" : null
+              } ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "tanjir",
+            "opis" : "supa ko supa",
+            "slika" : null
+          } ],
+          "status" : false,
+          "lokacija" : {
+            "geoDuzina" : 21.01101,
+            "geoSirina" : 23.21203,
+            "grad" : "Novi Sad",
+            "ulica" : "Bulevar Oslobodjenja",
+            "broj" : "25",
+            "postanskiBroj" : 21000
+          },
+          "slika" : "sponge",
+          "menadzer" : {
+            "korisnickoIme" : "m",
+            "lozinka" : "m",
+            "ime" : "m",
+            "prezime" : "matori",
+            "pol" : "zenski",
+            "datumRodjenja" : "2021-07-28",
+            "uloga" : "MENADZER",
+            "idRestorana" : "FLT87"
+          },
+          "id" : "FLT87"
+        },
+        "kolicina" : "200ml",
+        "opis" : "cedjeni sok",
+        "slika" : null
+      } ],
+      "status" : false,
+      "lokacija" : {
+        "geoDuzina" : 21.01101,
+        "geoSirina" : 23.21203,
+        "grad" : "Novi Sad",
+        "ulica" : "Bulevar Oslobodjenja",
+        "broj" : "25",
+        "postanskiBroj" : 21000
+      },
+      "slika" : "sponge",
+      "menadzer" : {
+        "korisnickoIme" : "m",
+        "lozinka" : "m",
+        "ime" : "m",
+        "prezime" : "matori",
+        "pol" : "zenski",
+        "datumRodjenja" : "2021-07-28",
+        "uloga" : "MENADZER",
+        "idRestorana" : "FLT87"
+      },
+      "id" : "FLT87"
+    },
+    "kolicina" : "500g",
+    "opis" : "rizoto sa piletinom",
+    "slika" : null
+  }, {
+    "naziv" : "Vege rizoto",
+    "cena" : 350,
+    "tip" : "jelo",
+    "restoran" : {
+      "naziv" : "Dva stapica",
+      "tip" : "kineska",
+      "artikli" : [ {
+        "naziv" : "Teletina",
+        "cena" : 600,
+        "tip" : "jelo",
+        "restoran" : {
+          "naziv" : "Dva stapica",
+          "tip" : "kineska",
+          "artikli" : [ ],
+          "status" : false,
+          "lokacija" : {
+            "geoDuzina" : 21.01101,
+            "geoSirina" : 23.21203,
+            "grad" : "Novi Sad",
+            "ulica" : "Bulevar Oslobodjenja",
+            "broj" : "25",
+            "postanskiBroj" : 21000
+          },
+          "slika" : "sponge",
+          "menadzer" : {
+            "korisnickoIme" : "m",
+            "lozinka" : "m",
+            "ime" : "m",
+            "prezime" : "matori",
+            "pol" : "zenski",
+            "datumRodjenja" : "2021-07-28",
+            "uloga" : "MENADZER",
+            "idRestorana" : "FLT87"
+          },
+          "id" : "FLT87"
+        },
+        "kolicina" : "300g",
+        "opis" : "Teletina u sosu",
+        "slika" : null
+      }, {
+        "naziv" : "Sok od nane",
+        "cena" : 200,
+        "tip" : "pice",
+        "restoran" : {
+          "naziv" : "Dva stapica",
+          "tip" : "kineska",
+          "artikli" : [ {
+            "naziv" : "aaa",
+            "cena" : 323,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "sads",
+            "opis" : "asdasd",
+            "slika" : null
+          } ],
+          "status" : false,
+          "lokacija" : {
+            "geoDuzina" : 21.01101,
+            "geoSirina" : 23.21203,
+            "grad" : "Novi Sad",
+            "ulica" : "Bulevar Oslobodjenja",
+            "broj" : "25",
+            "postanskiBroj" : 21000
+          },
+          "slika" : "sponge",
+          "menadzer" : {
+            "korisnickoIme" : "m",
+            "lozinka" : "m",
+            "ime" : "m",
+            "prezime" : "matori",
+            "pol" : "zenski",
+            "datumRodjenja" : "2021-07-28",
+            "uloga" : "MENADZER",
+            "idRestorana" : "FLT87"
+          },
+          "id" : "FLT87"
+        },
+        "kolicina" : "200ml",
+        "opis" : "cedjeni sok",
+        "slika" : null
+      }, {
+        "naziv" : "Pileca supa",
+        "cena" : 500,
+        "tip" : "jelo",
+        "restoran" : {
+          "naziv" : "Dva stapica",
+          "tip" : "kineska",
+          "artikli" : [ {
+            "naziv" : "Teletina",
+            "cena" : 600,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "300g",
+            "opis" : "Teletina u sosu",
+            "slika" : null
+          }, {
+            "naziv" : "Sok od nane",
+            "cena" : 200,
+            "tip" : "pice",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ {
+                "naziv" : "aaa",
+                "cena" : 323,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "sads",
+                "opis" : "asdasd",
+                "slika" : null
+              } ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "200ml",
+            "opis" : "cedjeni sok",
+            "slika" : null
+          } ],
+          "status" : false,
+          "lokacija" : {
+            "geoDuzina" : 21.01101,
+            "geoSirina" : 23.21203,
+            "grad" : "Novi Sad",
+            "ulica" : "Bulevar Oslobodjenja",
+            "broj" : "25",
+            "postanskiBroj" : 21000
+          },
+          "slika" : "sponge",
+          "menadzer" : {
+            "korisnickoIme" : "m",
+            "lozinka" : "m",
+            "ime" : "m",
+            "prezime" : "matori",
+            "pol" : "zenski",
+            "datumRodjenja" : "2021-07-28",
+            "uloga" : "MENADZER",
+            "idRestorana" : "FLT87"
+          },
+          "id" : "FLT87"
+        },
+        "kolicina" : "tanjir",
+        "opis" : "supa ko supa",
+        "slika" : null
+      }, {
+        "naziv" : "Sok od breskve",
+        "cena" : 200,
+        "tip" : "pice",
+        "restoran" : {
+          "naziv" : "Dva stapica",
+          "tip" : "kineska",
+          "artikli" : [ {
+            "naziv" : "Teletina",
+            "cena" : 600,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "300g",
+            "opis" : "Teletina u sosu",
+            "slika" : null
+          }, {
+            "naziv" : "Sok od nane",
+            "cena" : 200,
+            "tip" : "pice",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ {
+                "naziv" : "aaa",
+                "cena" : 323,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "sads",
+                "opis" : "asdasd",
+                "slika" : null
+              } ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "200ml",
+            "opis" : "cedjeni sok",
+            "slika" : null
+          }, {
+            "naziv" : "Pileca supa",
+            "cena" : 500,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ {
+                "naziv" : "Teletina",
+                "cena" : 600,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "300g",
+                "opis" : "Teletina u sosu",
+                "slika" : null
+              }, {
+                "naziv" : "Sok od nane",
+                "cena" : 200,
+                "tip" : "pice",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ {
+                    "naziv" : "aaa",
+                    "cena" : 323,
+                    "tip" : "jelo",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "sads",
+                    "opis" : "asdasd",
+                    "slika" : null
+                  } ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "200ml",
+                "opis" : "cedjeni sok",
+                "slika" : null
+              } ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "tanjir",
+            "opis" : "supa ko supa",
+            "slika" : null
+          } ],
+          "status" : false,
+          "lokacija" : {
+            "geoDuzina" : 21.01101,
+            "geoSirina" : 23.21203,
+            "grad" : "Novi Sad",
+            "ulica" : "Bulevar Oslobodjenja",
+            "broj" : "25",
+            "postanskiBroj" : 21000
+          },
+          "slika" : "sponge",
+          "menadzer" : {
+            "korisnickoIme" : "m",
+            "lozinka" : "m",
+            "ime" : "m",
+            "prezime" : "matori",
+            "pol" : "zenski",
+            "datumRodjenja" : "2021-07-28",
+            "uloga" : "MENADZER",
+            "idRestorana" : "FLT87"
+          },
+          "id" : "FLT87"
+        },
+        "kolicina" : "200ml",
+        "opis" : "cedjeni sok",
+        "slika" : null
+      }, {
+        "naziv" : "Rizoto",
+        "cena" : 450,
+        "tip" : "jelo",
+        "restoran" : {
+          "naziv" : "Dva stapica",
+          "tip" : "kineska",
+          "artikli" : [ {
+            "naziv" : "Teletina",
+            "cena" : 600,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "300g",
+            "opis" : "Teletina u sosu",
+            "slika" : null
+          }, {
+            "naziv" : "Sok od nane",
+            "cena" : 200,
+            "tip" : "pice",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ {
+                "naziv" : "aaa",
+                "cena" : 323,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "sads",
+                "opis" : "asdasd",
+                "slika" : null
+              } ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "200ml",
+            "opis" : "cedjeni sok",
+            "slika" : null
+          }, {
+            "naziv" : "Pileca supa",
+            "cena" : 500,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ {
+                "naziv" : "Teletina",
+                "cena" : 600,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "300g",
+                "opis" : "Teletina u sosu",
+                "slika" : null
+              }, {
+                "naziv" : "Sok od nane",
+                "cena" : 200,
+                "tip" : "pice",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ {
+                    "naziv" : "aaa",
+                    "cena" : 323,
+                    "tip" : "jelo",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "sads",
+                    "opis" : "asdasd",
+                    "slika" : null
+                  } ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "200ml",
+                "opis" : "cedjeni sok",
+                "slika" : null
+              } ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "tanjir",
+            "opis" : "supa ko supa",
+            "slika" : null
+          }, {
+            "naziv" : "Sok od breskve",
+            "cena" : 200,
+            "tip" : "pice",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ {
+                "naziv" : "Teletina",
+                "cena" : 600,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "300g",
+                "opis" : "Teletina u sosu",
+                "slika" : null
+              }, {
+                "naziv" : "Sok od nane",
+                "cena" : 200,
+                "tip" : "pice",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ {
+                    "naziv" : "aaa",
+                    "cena" : 323,
+                    "tip" : "jelo",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "sads",
+                    "opis" : "asdasd",
+                    "slika" : null
+                  } ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "200ml",
+                "opis" : "cedjeni sok",
+                "slika" : null
+              }, {
+                "naziv" : "Pileca supa",
+                "cena" : 500,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ {
+                    "naziv" : "Teletina",
+                    "cena" : 600,
+                    "tip" : "jelo",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "300g",
+                    "opis" : "Teletina u sosu",
+                    "slika" : null
+                  }, {
+                    "naziv" : "Sok od nane",
+                    "cena" : 200,
+                    "tip" : "pice",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ {
+                        "naziv" : "aaa",
+                        "cena" : 323,
+                        "tip" : "jelo",
+                        "restoran" : {
+                          "naziv" : "Dva stapica",
+                          "tip" : "kineska",
+                          "artikli" : [ ],
+                          "status" : false,
+                          "lokacija" : {
+                            "geoDuzina" : 21.01101,
+                            "geoSirina" : 23.21203,
+                            "grad" : "Novi Sad",
+                            "ulica" : "Bulevar Oslobodjenja",
+                            "broj" : "25",
+                            "postanskiBroj" : 21000
+                          },
+                          "slika" : "sponge",
+                          "menadzer" : {
+                            "korisnickoIme" : "m",
+                            "lozinka" : "m",
+                            "ime" : "m",
+                            "prezime" : "matori",
+                            "pol" : "zenski",
+                            "datumRodjenja" : "2021-07-28",
+                            "uloga" : "MENADZER",
+                            "idRestorana" : "FLT87"
+                          },
+                          "id" : "FLT87"
+                        },
+                        "kolicina" : "sads",
+                        "opis" : "asdasd",
+                        "slika" : null
+                      } ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "200ml",
+                    "opis" : "cedjeni sok",
+                    "slika" : null
+                  } ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "tanjir",
+                "opis" : "supa ko supa",
+                "slika" : null
+              } ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "200ml",
+            "opis" : "cedjeni sok",
+            "slika" : null
+          } ],
+          "status" : false,
+          "lokacija" : {
+            "geoDuzina" : 21.01101,
+            "geoSirina" : 23.21203,
+            "grad" : "Novi Sad",
+            "ulica" : "Bulevar Oslobodjenja",
+            "broj" : "25",
+            "postanskiBroj" : 21000
+          },
+          "slika" : "sponge",
+          "menadzer" : {
+            "korisnickoIme" : "m",
+            "lozinka" : "m",
+            "ime" : "m",
+            "prezime" : "matori",
+            "pol" : "zenski",
+            "datumRodjenja" : "2021-07-28",
+            "uloga" : "MENADZER",
+            "idRestorana" : "FLT87"
+          },
+          "id" : "FLT87"
+        },
+        "kolicina" : "500g",
+        "opis" : "rizoto sa piletinom",
+        "slika" : null
+      } ],
+      "status" : false,
+      "lokacija" : {
+        "geoDuzina" : 21.01101,
+        "geoSirina" : 23.21203,
+        "grad" : "Novi Sad",
+        "ulica" : "Bulevar Oslobodjenja",
+        "broj" : "25",
+        "postanskiBroj" : 21000
+      },
+      "slika" : "sponge",
+      "menadzer" : {
+        "korisnickoIme" : "m",
+        "lozinka" : "m",
+        "ime" : "m",
+        "prezime" : "matori",
+        "pol" : "zenski",
+        "datumRodjenja" : "2021-07-28",
+        "uloga" : "MENADZER",
+        "idRestorana" : "FLT87"
+      },
+      "id" : "FLT87"
+    },
+    "kolicina" : "500g",
+    "opis" : "pirinac sa povrcem",
+    "slika" : null
+  }, {
+    "naziv" : "aaaa",
+    "cena" : 12313,
+    "tip" : "jelo",
+    "restoran" : {
+      "naziv" : "Dva stapica",
+      "tip" : "kineska",
+      "artikli" : [ {
+        "naziv" : "Teletina",
+        "cena" : 600,
+        "tip" : "jelo",
+        "restoran" : {
+          "naziv" : "Dva stapica",
+          "tip" : "kineska",
+          "artikli" : [ ],
+          "status" : false,
+          "lokacija" : {
+            "geoDuzina" : 21.01101,
+            "geoSirina" : 23.21203,
+            "grad" : "Novi Sad",
+            "ulica" : "Bulevar Oslobodjenja",
+            "broj" : "25",
+            "postanskiBroj" : 21000
+          },
+          "slika" : "sponge",
+          "menadzer" : {
+            "korisnickoIme" : "m",
+            "lozinka" : "m",
+            "ime" : "m",
+            "prezime" : "matori",
+            "pol" : "zenski",
+            "datumRodjenja" : "2021-07-28",
+            "uloga" : "MENADZER",
+            "idRestorana" : "FLT87"
+          },
+          "id" : "FLT87"
+        },
+        "kolicina" : "300g",
+        "opis" : "Teletina u sosu",
+        "slika" : null
+      }, {
+        "naziv" : "Sok od nane",
+        "cena" : 200,
+        "tip" : "pice",
+        "restoran" : {
+          "naziv" : "Dva stapica",
+          "tip" : "kineska",
+          "artikli" : [ {
+            "naziv" : "aaa",
+            "cena" : 323,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "sads",
+            "opis" : "asdasd",
+            "slika" : null
+          } ],
+          "status" : false,
+          "lokacija" : {
+            "geoDuzina" : 21.01101,
+            "geoSirina" : 23.21203,
+            "grad" : "Novi Sad",
+            "ulica" : "Bulevar Oslobodjenja",
+            "broj" : "25",
+            "postanskiBroj" : 21000
+          },
+          "slika" : "sponge",
+          "menadzer" : {
+            "korisnickoIme" : "m",
+            "lozinka" : "m",
+            "ime" : "m",
+            "prezime" : "matori",
+            "pol" : "zenski",
+            "datumRodjenja" : "2021-07-28",
+            "uloga" : "MENADZER",
+            "idRestorana" : "FLT87"
+          },
+          "id" : "FLT87"
+        },
+        "kolicina" : "200ml",
+        "opis" : "cedjeni sok",
+        "slika" : null
+      }, {
+        "naziv" : "Pileca supa",
+        "cena" : 500,
+        "tip" : "jelo",
+        "restoran" : {
+          "naziv" : "Dva stapica",
+          "tip" : "kineska",
+          "artikli" : [ {
+            "naziv" : "Teletina",
+            "cena" : 600,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "300g",
+            "opis" : "Teletina u sosu",
+            "slika" : null
+          }, {
+            "naziv" : "Sok od nane",
+            "cena" : 200,
+            "tip" : "pice",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ {
+                "naziv" : "aaa",
+                "cena" : 323,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "sads",
+                "opis" : "asdasd",
+                "slika" : null
+              } ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "200ml",
+            "opis" : "cedjeni sok",
+            "slika" : null
+          } ],
+          "status" : false,
+          "lokacija" : {
+            "geoDuzina" : 21.01101,
+            "geoSirina" : 23.21203,
+            "grad" : "Novi Sad",
+            "ulica" : "Bulevar Oslobodjenja",
+            "broj" : "25",
+            "postanskiBroj" : 21000
+          },
+          "slika" : "sponge",
+          "menadzer" : {
+            "korisnickoIme" : "m",
+            "lozinka" : "m",
+            "ime" : "m",
+            "prezime" : "matori",
+            "pol" : "zenski",
+            "datumRodjenja" : "2021-07-28",
+            "uloga" : "MENADZER",
+            "idRestorana" : "FLT87"
+          },
+          "id" : "FLT87"
+        },
+        "kolicina" : "tanjir",
+        "opis" : "supa ko supa",
+        "slika" : null
+      }, {
+        "naziv" : "Sok od breskve",
+        "cena" : 200,
+        "tip" : "pice",
+        "restoran" : {
+          "naziv" : "Dva stapica",
+          "tip" : "kineska",
+          "artikli" : [ {
+            "naziv" : "Teletina",
+            "cena" : 600,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "300g",
+            "opis" : "Teletina u sosu",
+            "slika" : null
+          }, {
+            "naziv" : "Sok od nane",
+            "cena" : 200,
+            "tip" : "pice",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ {
+                "naziv" : "aaa",
+                "cena" : 323,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "sads",
+                "opis" : "asdasd",
+                "slika" : null
+              } ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "200ml",
+            "opis" : "cedjeni sok",
+            "slika" : null
+          }, {
+            "naziv" : "Pileca supa",
+            "cena" : 500,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ {
+                "naziv" : "Teletina",
+                "cena" : 600,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "300g",
+                "opis" : "Teletina u sosu",
+                "slika" : null
+              }, {
+                "naziv" : "Sok od nane",
+                "cena" : 200,
+                "tip" : "pice",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ {
+                    "naziv" : "aaa",
+                    "cena" : 323,
+                    "tip" : "jelo",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "sads",
+                    "opis" : "asdasd",
+                    "slika" : null
+                  } ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "200ml",
+                "opis" : "cedjeni sok",
+                "slika" : null
+              } ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "tanjir",
+            "opis" : "supa ko supa",
+            "slika" : null
+          } ],
+          "status" : false,
+          "lokacija" : {
+            "geoDuzina" : 21.01101,
+            "geoSirina" : 23.21203,
+            "grad" : "Novi Sad",
+            "ulica" : "Bulevar Oslobodjenja",
+            "broj" : "25",
+            "postanskiBroj" : 21000
+          },
+          "slika" : "sponge",
+          "menadzer" : {
+            "korisnickoIme" : "m",
+            "lozinka" : "m",
+            "ime" : "m",
+            "prezime" : "matori",
+            "pol" : "zenski",
+            "datumRodjenja" : "2021-07-28",
+            "uloga" : "MENADZER",
+            "idRestorana" : "FLT87"
+          },
+          "id" : "FLT87"
+        },
+        "kolicina" : "200ml",
+        "opis" : "cedjeni sok",
+        "slika" : null
+      }, {
+        "naziv" : "Rizoto",
+        "cena" : 450,
+        "tip" : "jelo",
+        "restoran" : {
+          "naziv" : "Dva stapica",
+          "tip" : "kineska",
+          "artikli" : [ {
+            "naziv" : "Teletina",
+            "cena" : 600,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "300g",
+            "opis" : "Teletina u sosu",
+            "slika" : null
+          }, {
+            "naziv" : "Sok od nane",
+            "cena" : 200,
+            "tip" : "pice",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ {
+                "naziv" : "aaa",
+                "cena" : 323,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "sads",
+                "opis" : "asdasd",
+                "slika" : null
+              } ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "200ml",
+            "opis" : "cedjeni sok",
+            "slika" : null
+          }, {
+            "naziv" : "Pileca supa",
+            "cena" : 500,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ {
+                "naziv" : "Teletina",
+                "cena" : 600,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "300g",
+                "opis" : "Teletina u sosu",
+                "slika" : null
+              }, {
+                "naziv" : "Sok od nane",
+                "cena" : 200,
+                "tip" : "pice",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ {
+                    "naziv" : "aaa",
+                    "cena" : 323,
+                    "tip" : "jelo",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "sads",
+                    "opis" : "asdasd",
+                    "slika" : null
+                  } ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "200ml",
+                "opis" : "cedjeni sok",
+                "slika" : null
+              } ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "tanjir",
+            "opis" : "supa ko supa",
+            "slika" : null
+          }, {
+            "naziv" : "Sok od breskve",
+            "cena" : 200,
+            "tip" : "pice",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ {
+                "naziv" : "Teletina",
+                "cena" : 600,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "300g",
+                "opis" : "Teletina u sosu",
+                "slika" : null
+              }, {
+                "naziv" : "Sok od nane",
+                "cena" : 200,
+                "tip" : "pice",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ {
+                    "naziv" : "aaa",
+                    "cena" : 323,
+                    "tip" : "jelo",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "sads",
+                    "opis" : "asdasd",
+                    "slika" : null
+                  } ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "200ml",
+                "opis" : "cedjeni sok",
+                "slika" : null
+              }, {
+                "naziv" : "Pileca supa",
+                "cena" : 500,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ {
+                    "naziv" : "Teletina",
+                    "cena" : 600,
+                    "tip" : "jelo",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "300g",
+                    "opis" : "Teletina u sosu",
+                    "slika" : null
+                  }, {
+                    "naziv" : "Sok od nane",
+                    "cena" : 200,
+                    "tip" : "pice",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ {
+                        "naziv" : "aaa",
+                        "cena" : 323,
+                        "tip" : "jelo",
+                        "restoran" : {
+                          "naziv" : "Dva stapica",
+                          "tip" : "kineska",
+                          "artikli" : [ ],
+                          "status" : false,
+                          "lokacija" : {
+                            "geoDuzina" : 21.01101,
+                            "geoSirina" : 23.21203,
+                            "grad" : "Novi Sad",
+                            "ulica" : "Bulevar Oslobodjenja",
+                            "broj" : "25",
+                            "postanskiBroj" : 21000
+                          },
+                          "slika" : "sponge",
+                          "menadzer" : {
+                            "korisnickoIme" : "m",
+                            "lozinka" : "m",
+                            "ime" : "m",
+                            "prezime" : "matori",
+                            "pol" : "zenski",
+                            "datumRodjenja" : "2021-07-28",
+                            "uloga" : "MENADZER",
+                            "idRestorana" : "FLT87"
+                          },
+                          "id" : "FLT87"
+                        },
+                        "kolicina" : "sads",
+                        "opis" : "asdasd",
+                        "slika" : null
+                      } ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "200ml",
+                    "opis" : "cedjeni sok",
+                    "slika" : null
+                  } ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "tanjir",
+                "opis" : "supa ko supa",
+                "slika" : null
+              } ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "200ml",
+            "opis" : "cedjeni sok",
+            "slika" : null
+          } ],
+          "status" : false,
+          "lokacija" : {
+            "geoDuzina" : 21.01101,
+            "geoSirina" : 23.21203,
+            "grad" : "Novi Sad",
+            "ulica" : "Bulevar Oslobodjenja",
+            "broj" : "25",
+            "postanskiBroj" : 21000
+          },
+          "slika" : "sponge",
+          "menadzer" : {
+            "korisnickoIme" : "m",
+            "lozinka" : "m",
+            "ime" : "m",
+            "prezime" : "matori",
+            "pol" : "zenski",
+            "datumRodjenja" : "2021-07-28",
+            "uloga" : "MENADZER",
+            "idRestorana" : "FLT87"
+          },
+          "id" : "FLT87"
+        },
+        "kolicina" : "500g",
+        "opis" : "rizoto sa piletinom",
+        "slika" : null
+      }, {
+        "naziv" : "Vege rizoto",
+        "cena" : 350,
+        "tip" : "jelo",
+        "restoran" : {
+          "naziv" : "Dva stapica",
+          "tip" : "kineska",
+          "artikli" : [ {
+            "naziv" : "Teletina",
+            "cena" : 600,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "300g",
+            "opis" : "Teletina u sosu",
+            "slika" : null
+          }, {
+            "naziv" : "Sok od nane",
+            "cena" : 200,
+            "tip" : "pice",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ {
+                "naziv" : "aaa",
+                "cena" : 323,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "sads",
+                "opis" : "asdasd",
+                "slika" : null
+              } ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "200ml",
+            "opis" : "cedjeni sok",
+            "slika" : null
+          }, {
+            "naziv" : "Pileca supa",
+            "cena" : 500,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ {
+                "naziv" : "Teletina",
+                "cena" : 600,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "300g",
+                "opis" : "Teletina u sosu",
+                "slika" : null
+              }, {
+                "naziv" : "Sok od nane",
+                "cena" : 200,
+                "tip" : "pice",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ {
+                    "naziv" : "aaa",
+                    "cena" : 323,
+                    "tip" : "jelo",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "sads",
+                    "opis" : "asdasd",
+                    "slika" : null
+                  } ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "200ml",
+                "opis" : "cedjeni sok",
+                "slika" : null
+              } ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "tanjir",
+            "opis" : "supa ko supa",
+            "slika" : null
+          }, {
+            "naziv" : "Sok od breskve",
+            "cena" : 200,
+            "tip" : "pice",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ {
+                "naziv" : "Teletina",
+                "cena" : 600,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "300g",
+                "opis" : "Teletina u sosu",
+                "slika" : null
+              }, {
+                "naziv" : "Sok od nane",
+                "cena" : 200,
+                "tip" : "pice",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ {
+                    "naziv" : "aaa",
+                    "cena" : 323,
+                    "tip" : "jelo",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "sads",
+                    "opis" : "asdasd",
+                    "slika" : null
+                  } ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "200ml",
+                "opis" : "cedjeni sok",
+                "slika" : null
+              }, {
+                "naziv" : "Pileca supa",
+                "cena" : 500,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ {
+                    "naziv" : "Teletina",
+                    "cena" : 600,
+                    "tip" : "jelo",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "300g",
+                    "opis" : "Teletina u sosu",
+                    "slika" : null
+                  }, {
+                    "naziv" : "Sok od nane",
+                    "cena" : 200,
+                    "tip" : "pice",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ {
+                        "naziv" : "aaa",
+                        "cena" : 323,
+                        "tip" : "jelo",
+                        "restoran" : {
+                          "naziv" : "Dva stapica",
+                          "tip" : "kineska",
+                          "artikli" : [ ],
+                          "status" : false,
+                          "lokacija" : {
+                            "geoDuzina" : 21.01101,
+                            "geoSirina" : 23.21203,
+                            "grad" : "Novi Sad",
+                            "ulica" : "Bulevar Oslobodjenja",
+                            "broj" : "25",
+                            "postanskiBroj" : 21000
+                          },
+                          "slika" : "sponge",
+                          "menadzer" : {
+                            "korisnickoIme" : "m",
+                            "lozinka" : "m",
+                            "ime" : "m",
+                            "prezime" : "matori",
+                            "pol" : "zenski",
+                            "datumRodjenja" : "2021-07-28",
+                            "uloga" : "MENADZER",
+                            "idRestorana" : "FLT87"
+                          },
+                          "id" : "FLT87"
+                        },
+                        "kolicina" : "sads",
+                        "opis" : "asdasd",
+                        "slika" : null
+                      } ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "200ml",
+                    "opis" : "cedjeni sok",
+                    "slika" : null
+                  } ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "tanjir",
+                "opis" : "supa ko supa",
+                "slika" : null
+              } ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "200ml",
+            "opis" : "cedjeni sok",
+            "slika" : null
+          }, {
+            "naziv" : "Rizoto",
+            "cena" : 450,
+            "tip" : "jelo",
+            "restoran" : {
+              "naziv" : "Dva stapica",
+              "tip" : "kineska",
+              "artikli" : [ {
+                "naziv" : "Teletina",
+                "cena" : 600,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "300g",
+                "opis" : "Teletina u sosu",
+                "slika" : null
+              }, {
+                "naziv" : "Sok od nane",
+                "cena" : 200,
+                "tip" : "pice",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ {
+                    "naziv" : "aaa",
+                    "cena" : 323,
+                    "tip" : "jelo",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "sads",
+                    "opis" : "asdasd",
+                    "slika" : null
+                  } ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "200ml",
+                "opis" : "cedjeni sok",
+                "slika" : null
+              }, {
+                "naziv" : "Pileca supa",
+                "cena" : 500,
+                "tip" : "jelo",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ {
+                    "naziv" : "Teletina",
+                    "cena" : 600,
+                    "tip" : "jelo",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "300g",
+                    "opis" : "Teletina u sosu",
+                    "slika" : null
+                  }, {
+                    "naziv" : "Sok od nane",
+                    "cena" : 200,
+                    "tip" : "pice",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ {
+                        "naziv" : "aaa",
+                        "cena" : 323,
+                        "tip" : "jelo",
+                        "restoran" : {
+                          "naziv" : "Dva stapica",
+                          "tip" : "kineska",
+                          "artikli" : [ ],
+                          "status" : false,
+                          "lokacija" : {
+                            "geoDuzina" : 21.01101,
+                            "geoSirina" : 23.21203,
+                            "grad" : "Novi Sad",
+                            "ulica" : "Bulevar Oslobodjenja",
+                            "broj" : "25",
+                            "postanskiBroj" : 21000
+                          },
+                          "slika" : "sponge",
+                          "menadzer" : {
+                            "korisnickoIme" : "m",
+                            "lozinka" : "m",
+                            "ime" : "m",
+                            "prezime" : "matori",
+                            "pol" : "zenski",
+                            "datumRodjenja" : "2021-07-28",
+                            "uloga" : "MENADZER",
+                            "idRestorana" : "FLT87"
+                          },
+                          "id" : "FLT87"
+                        },
+                        "kolicina" : "sads",
+                        "opis" : "asdasd",
+                        "slika" : null
+                      } ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "200ml",
+                    "opis" : "cedjeni sok",
+                    "slika" : null
+                  } ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "tanjir",
+                "opis" : "supa ko supa",
+                "slika" : null
+              }, {
+                "naziv" : "Sok od breskve",
+                "cena" : 200,
+                "tip" : "pice",
+                "restoran" : {
+                  "naziv" : "Dva stapica",
+                  "tip" : "kineska",
+                  "artikli" : [ {
+                    "naziv" : "Teletina",
+                    "cena" : 600,
+                    "tip" : "jelo",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "300g",
+                    "opis" : "Teletina u sosu",
+                    "slika" : null
+                  }, {
+                    "naziv" : "Sok od nane",
+                    "cena" : 200,
+                    "tip" : "pice",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ {
+                        "naziv" : "aaa",
+                        "cena" : 323,
+                        "tip" : "jelo",
+                        "restoran" : {
+                          "naziv" : "Dva stapica",
+                          "tip" : "kineska",
+                          "artikli" : [ ],
+                          "status" : false,
+                          "lokacija" : {
+                            "geoDuzina" : 21.01101,
+                            "geoSirina" : 23.21203,
+                            "grad" : "Novi Sad",
+                            "ulica" : "Bulevar Oslobodjenja",
+                            "broj" : "25",
+                            "postanskiBroj" : 21000
+                          },
+                          "slika" : "sponge",
+                          "menadzer" : {
+                            "korisnickoIme" : "m",
+                            "lozinka" : "m",
+                            "ime" : "m",
+                            "prezime" : "matori",
+                            "pol" : "zenski",
+                            "datumRodjenja" : "2021-07-28",
+                            "uloga" : "MENADZER",
+                            "idRestorana" : "FLT87"
+                          },
+                          "id" : "FLT87"
+                        },
+                        "kolicina" : "sads",
+                        "opis" : "asdasd",
+                        "slika" : null
+                      } ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "200ml",
+                    "opis" : "cedjeni sok",
+                    "slika" : null
+                  }, {
+                    "naziv" : "Pileca supa",
+                    "cena" : 500,
+                    "tip" : "jelo",
+                    "restoran" : {
+                      "naziv" : "Dva stapica",
+                      "tip" : "kineska",
+                      "artikli" : [ {
+                        "naziv" : "Teletina",
+                        "cena" : 600,
+                        "tip" : "jelo",
+                        "restoran" : {
+                          "naziv" : "Dva stapica",
+                          "tip" : "kineska",
+                          "artikli" : [ ],
+                          "status" : false,
+                          "lokacija" : {
+                            "geoDuzina" : 21.01101,
+                            "geoSirina" : 23.21203,
+                            "grad" : "Novi Sad",
+                            "ulica" : "Bulevar Oslobodjenja",
+                            "broj" : "25",
+                            "postanskiBroj" : 21000
+                          },
+                          "slika" : "sponge",
+                          "menadzer" : {
+                            "korisnickoIme" : "m",
+                            "lozinka" : "m",
+                            "ime" : "m",
+                            "prezime" : "matori",
+                            "pol" : "zenski",
+                            "datumRodjenja" : "2021-07-28",
+                            "uloga" : "MENADZER",
+                            "idRestorana" : "FLT87"
+                          },
+                          "id" : "FLT87"
+                        },
+                        "kolicina" : "300g",
+                        "opis" : "Teletina u sosu",
+                        "slika" : null
+                      }, {
+                        "naziv" : "Sok od nane",
+                        "cena" : 200,
+                        "tip" : "pice",
+                        "restoran" : {
+                          "naziv" : "Dva stapica",
+                          "tip" : "kineska",
+                          "artikli" : [ {
+                            "naziv" : "aaa",
+                            "cena" : 323,
+                            "tip" : "jelo",
+                            "restoran" : {
+                              "naziv" : "Dva stapica",
+                              "tip" : "kineska",
+                              "artikli" : [ ],
+                              "status" : false,
+                              "lokacija" : {
+                                "geoDuzina" : 21.01101,
+                                "geoSirina" : 23.21203,
+                                "grad" : "Novi Sad",
+                                "ulica" : "Bulevar Oslobodjenja",
+                                "broj" : "25",
+                                "postanskiBroj" : 21000
+                              },
+                              "slika" : "sponge",
+                              "menadzer" : {
+                                "korisnickoIme" : "m",
+                                "lozinka" : "m",
+                                "ime" : "m",
+                                "prezime" : "matori",
+                                "pol" : "zenski",
+                                "datumRodjenja" : "2021-07-28",
+                                "uloga" : "MENADZER",
+                                "idRestorana" : "FLT87"
+                              },
+                              "id" : "FLT87"
+                            },
+                            "kolicina" : "sads",
+                            "opis" : "asdasd",
+                            "slika" : null
+                          } ],
+                          "status" : false,
+                          "lokacija" : {
+                            "geoDuzina" : 21.01101,
+                            "geoSirina" : 23.21203,
+                            "grad" : "Novi Sad",
+                            "ulica" : "Bulevar Oslobodjenja",
+                            "broj" : "25",
+                            "postanskiBroj" : 21000
+                          },
+                          "slika" : "sponge",
+                          "menadzer" : {
+                            "korisnickoIme" : "m",
+                            "lozinka" : "m",
+                            "ime" : "m",
+                            "prezime" : "matori",
+                            "pol" : "zenski",
+                            "datumRodjenja" : "2021-07-28",
+                            "uloga" : "MENADZER",
+                            "idRestorana" : "FLT87"
+                          },
+                          "id" : "FLT87"
+                        },
+                        "kolicina" : "200ml",
+                        "opis" : "cedjeni sok",
+                        "slika" : null
+                      } ],
+                      "status" : false,
+                      "lokacija" : {
+                        "geoDuzina" : 21.01101,
+                        "geoSirina" : 23.21203,
+                        "grad" : "Novi Sad",
+                        "ulica" : "Bulevar Oslobodjenja",
+                        "broj" : "25",
+                        "postanskiBroj" : 21000
+                      },
+                      "slika" : "sponge",
+                      "menadzer" : {
+                        "korisnickoIme" : "m",
+                        "lozinka" : "m",
+                        "ime" : "m",
+                        "prezime" : "matori",
+                        "pol" : "zenski",
+                        "datumRodjenja" : "2021-07-28",
+                        "uloga" : "MENADZER",
+                        "idRestorana" : "FLT87"
+                      },
+                      "id" : "FLT87"
+                    },
+                    "kolicina" : "tanjir",
+                    "opis" : "supa ko supa",
+                    "slika" : null
+                  } ],
+                  "status" : false,
+                  "lokacija" : {
+                    "geoDuzina" : 21.01101,
+                    "geoSirina" : 23.21203,
+                    "grad" : "Novi Sad",
+                    "ulica" : "Bulevar Oslobodjenja",
+                    "broj" : "25",
+                    "postanskiBroj" : 21000
+                  },
+                  "slika" : "sponge",
+                  "menadzer" : {
+                    "korisnickoIme" : "m",
+                    "lozinka" : "m",
+                    "ime" : "m",
+                    "prezime" : "matori",
+                    "pol" : "zenski",
+                    "datumRodjenja" : "2021-07-28",
+                    "uloga" : "MENADZER",
+                    "idRestorana" : "FLT87"
+                  },
+                  "id" : "FLT87"
+                },
+                "kolicina" : "200ml",
+                "opis" : "cedjeni sok",
+                "slika" : null
+              } ],
+              "status" : false,
+              "lokacija" : {
+                "geoDuzina" : 21.01101,
+                "geoSirina" : 23.21203,
+                "grad" : "Novi Sad",
+                "ulica" : "Bulevar Oslobodjenja",
+                "broj" : "25",
+                "postanskiBroj" : 21000
+              },
+              "slika" : "sponge",
+              "menadzer" : {
+                "korisnickoIme" : "m",
+                "lozinka" : "m",
+                "ime" : "m",
+                "prezime" : "matori",
+                "pol" : "zenski",
+                "datumRodjenja" : "2021-07-28",
+                "uloga" : "MENADZER",
+                "idRestorana" : "FLT87"
+              },
+              "id" : "FLT87"
+            },
+            "kolicina" : "500g",
+            "opis" : "rizoto sa piletinom",
+            "slika" : null
+          } ],
+          "status" : false,
+          "lokacija" : {
+            "geoDuzina" : 21.01101,
+            "geoSirina" : 23.21203,
+            "grad" : "Novi Sad",
+            "ulica" : "Bulevar Oslobodjenja",
+            "broj" : "25",
+            "postanskiBroj" : 21000
+          },
+          "slika" : "sponge",
+          "menadzer" : {
+            "korisnickoIme" : "m",
+            "lozinka" : "m",
+            "ime" : "m",
+            "prezime" : "matori",
+            "pol" : "zenski",
+            "datumRodjenja" : "2021-07-28",
+            "uloga" : "MENADZER",
+            "idRestorana" : "FLT87"
+          },
+          "id" : "FLT87"
+        },
+        "kolicina" : "500g",
+        "opis" : "pirinac sa povrcem",
+        "slika" : null
+      } ],
+      "status" : false,
+      "lokacija" : {
+        "geoDuzina" : 21.01101,
+        "geoSirina" : 23.21203,
+        "grad" : "Novi Sad",
+        "ulica" : "Bulevar Oslobodjenja",
+        "broj" : "25",
+        "postanskiBroj" : 21000
+      },
+      "slika" : "sponge",
+      "menadzer" : {
+        "korisnickoIme" : "m",
+        "lozinka" : "m",
+        "ime" : "m",
+        "prezime" : "matori",
+        "pol" : "zenski",
+        "datumRodjenja" : "2021-07-28",
+        "uloga" : "MENADZER",
+        "idRestorana" : "FLT87"
+      },
+      "id" : "FLT87"
+    },
+    "kolicina" : "asasd",
+    "opis" : "asdasd",
+    "slika" : null
   } ],
   "status" : false,
   "lokacija" : {

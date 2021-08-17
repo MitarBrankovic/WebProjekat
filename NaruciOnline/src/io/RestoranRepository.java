@@ -88,6 +88,16 @@ public class RestoranRepository {
 		return null;
 	}
 	
+	public Restoran getObjViaName(String naziv) {
+		List<Restoran> restorani = getAll();
+		for(Restoran k : restorani) {
+			if(k.naziv.equals(naziv)) {
+				return k;
+			}
+		}
+		return null;
+	}
+	
 	public void DodajArtikal(String idRestorana, Artikal artikal) {
 		Restoran restoran = getObj(idRestorana);
 		restoran.artikli.add(artikal);

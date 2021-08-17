@@ -211,13 +211,12 @@ public class Main {
 		
 		post("/pregledRestoranaMenadzer", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
-			System.out.println(mapa);
 			Menadzer menadzer = menadzerRepository.getObj(mapa.get("korisnickoIme"));
 			Restoran restoran = restoranRepository.getObj(menadzer.idRestorana);
 			return g.toJson(restoran);
 		});
 		
-		post("/pregledRestoranaMenadzerAddArtikal", (req, res) -> {
+		post("/restoran/add/artikal", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
 			System.out.println(mapa);
 			Restoran restoran = restoranRepository.getObj(mapa.get("idRestorana"));
@@ -230,7 +229,23 @@ public class Main {
 			Artikal artikal = new Artikal(mapa.get("naziv"), Integer.parseInt(mapa.get("cena")), restoran,
 					mapa.get("kolicina"), mapa.get("opis"), tip);
 			restoranRepository.DodajArtikal(restoran.id, artikal);
+			return artikal;
+		});
+		
+		get("/restoran/:naziv", (req,res)->{
+			//return  req.params(":naziv");
+			String naziv = req.params(":naziv");
+			//System.out.println(naziv);
 			return "OK";
+		});
+		
+		get("/restoran/get/:naziv", (req,res)->{
+			//return  req.params(":naziv");
+			String nazivRestorana = req.params(":naziv");
+			//System.out.println(nazivRestorana);
+			Restoran restoran = restoranRepository.getObjViaName(nazivRestorana);
+			//System.out.println(restoran.naziv);
+			return g.toJson(restoran);
 		});
 		
 		post("/pretragaRestor", (req, res) -> {

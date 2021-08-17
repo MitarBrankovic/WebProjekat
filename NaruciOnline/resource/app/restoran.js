@@ -1,25 +1,22 @@
-Vue.component("pregledRestoranaMenadzer",{
+Vue.component("restoran",{
     data: function(){
         return{
-          uloga:null,
-          korisnik:null,
-          restoran:null,
-          statusRestorana:null,
-          dodajArtikalVisible:true,
-
-          naziv:null,
-          cena:null,
-          tip:null,
-          kolicina:null,
-          opis:null,
-          slika:null,
-
-          artikli:null
+            restoran:null,
+            uloga:null,
+            artikal:null,
+            artikli:null,
+            naziv:null,
+            cena:null,
+            tip:null,
+            kolicina:null,
+            opis:null,
+            slika:null,
+            dodajArtikalVisible:true
         }
     },
 
     template:`
-        <div>
+        <div v-if="restoran">
             <h2>{{restoran.naziv}}</h2>
             <p>
                 <b>Tip:</b> {{restoran.tip}} <br>
@@ -53,7 +50,7 @@ Vue.component("pregledRestoranaMenadzer",{
                 <button v-on:click="dodajArtikalVisible=false">Dodaj artikal</button>
             </div>
             <div v-else>
-                <form method ="POST" @submit.prevent = "dodajArtikal">
+                <form method ="POST" @submit.prevent = "dodajArtikal()">
                     <div>    
                         <label for="naziv"><b>Naziv</b></label>
                         <input type="text" v-model="naziv" required>
@@ -65,7 +62,7 @@ Vue.component("pregledRestoranaMenadzer",{
                         <select v-model="tip">
                             <option value="jelo">Jelo</option>
                             <option value="pice">Pice</option>
-				        </select>
+                        </select>
                         <br>
                         <label for="kolicina"><b>Kolicina</b></label>
                         <input type="text" v-model="kolicina" required>
@@ -78,28 +75,23 @@ Vue.component("pregledRestoranaMenadzer",{
                 </form>
                 <button v-on:click="dodajArtikalVisible=true">Cancle</button>
             </div>
-        </div>    
+        </div> 
     `,
     mounted(){
         this.korisnik = JSON.parse(localStorage.getItem('korisnik'))
-        console.log(this.korisnik)
         this.uloga = this.korisnik.uloga
-        if(this.uloga == 'MENADZER'){
-            axios
-            .post('/pregledRestoranaMenadzer', this.korisnik)
-            .then(response=>{
-                console.log(response)
-                console.log(response.data)
-                this.restoran=response.data;
-                this.artikli=this.restoran.artikli;
-            })
-        }
+        axios
+        .get(`/restoran/get/${this.$route.params.naziv}`)
+        .then(response=>{
+            this.restoran = response.data
+            this.artikli = this.restoran.artikli
+            console.log(this.artikli)
+        })
     },
     methods:{
         dodajArtikalClick:function(){
             this.dodajArtikalVisible = !dodajArtikalVisible
         },
-
         dodajArtikal:function(){
             const artikal = {
                 naziv:this.naziv,
@@ -110,10 +102,13 @@ Vue.component("pregledRestoranaMenadzer",{
                 idRestorana: this.restoran.id
             }
             axios
-            .post('/pregledRestoranaMenadzerAddArtikal', artikal)
+            .post('/restoran/add/artikal', artikal)
+            .then(response=>{
+                console.log(response)
+                console.log(response.data)
+                this.artikal = response.data
+                this.artikli.push(artikal)
+            })
         }
-
-
     }
-
 })
