@@ -1,10 +1,10 @@
 [ {
-  "korisnickoIme" : "sadsadasdasd",
-  "lozinka" : "sadsadas",
-  "ime" : "sadasdasd",
-  "prezime" : "sadsadsad",
+  "korisnickoIme" : "k1",
+  "lozinka" : "k1",
+  "ime" : "Kupac1",
+  "prezime" : "Kupac1",
   "pol" : "muski",
-  "datumRodjenja" : "2021-07-29",
+  "datumRodjenja" : "2021-07-28",
   "uloga" : "KUPAC",
   "tipKupca" : {
     "imeTipa" : "BRONZANI",
@@ -15,15 +15,15 @@
   "brojBodova" : 0,
   "svePorudzbine" : null
 }, {
-  "korisnickoIme" : "srebrni",
-  "lozinka" : "srebrni",
-  "ime" : "SREBRNI",
-  "prezime" : "SREBRNI",
+  "korisnickoIme" : "k2",
+  "lozinka" : "k2",
+  "ime" : "Kupac2",
+  "prezime" : "Kupac2",
   "pol" : "muski",
-  "datumRodjenja" : "2021-07-26",
+  "datumRodjenja" : "2021-07-31",
   "uloga" : "KUPAC",
   "tipKupca" : {
-    "imeTipa" : "SREBRNI",
+    "imeTipa" : "BRONZANI",
     "popust" : 0.0,
     "trazeniBrojBodova" : 0
   },

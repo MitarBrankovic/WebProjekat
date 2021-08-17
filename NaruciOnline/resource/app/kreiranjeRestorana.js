@@ -51,7 +51,7 @@ Vue.component("kreiranjeRestorana", {
 				<br>
 				<hr>
 			    <label for="slika"><b>Slika</b></label>
-			    <input type="file" v-model="slika" required @change=imageAdded>
+			    <input type="file"  required @change=imageAdded>
 				<br>
 
 			    <label for="menadzer"><b>Menadzer</b></label>

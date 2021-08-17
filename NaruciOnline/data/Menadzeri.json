@@ -1,64 +1,73 @@
 [ {
-  "korisnickoIme" : "n",
-  "lozinka" : "n",
-  "ime" : "novi",
-  "prezime" : "novi",
-  "pol" : "muski",
-  "datumRodjenja" : "2021-07-28",
-  "uloga" : "MENADZER",
-  "idRestorana" : "B5TSI"
-}, {
-  "korisnickoIme" : "m",
-  "lozinka" : "m",
-  "ime" : "m",
-  "prezime" : "matori",
-  "pol" : "zenski",
-  "datumRodjenja" : "2021-07-28",
-  "uloga" : "MENADZER",
-  "idRestorana" : "7ULWO"
-}, {
-  "korisnickoIme" : "w",
-  "lozinka" : "w",
-  "ime" : "WW",
-  "prezime" : "WW",
+  "korisnickoIme" : "a",
+  "lozinka" : "a",
+  "ime" : "a",
+  "prezime" : "a",
   "pol" : "muski",
   "datumRodjenja" : "2021-07-27",
   "uloga" : "MENADZER",
-  "idRestorana" : null
+  "idRestorana" : "Q2F8L"
 }, {
-  "korisnickoIme" : "y",
-  "lozinka" : "y",
-  "ime" : "y",
-  "prezime" : "y",
+  "korisnickoIme" : "v",
+  "lozinka" : "v",
+  "ime" : "v",
+  "prezime" : "v",
   "pol" : "muski",
   "datumRodjenja" : "2021-07-27",
   "uloga" : "MENADZER",
-  "idRestorana" : null
+  "idRestorana" : "PZKVL"
 }, {
-  "korisnickoIme" : "j",
-  "lozinka" : "j",
-  "ime" : "jjjjj",
-  "prezime" : "jjjj",
-  "pol" : "zenski",
+  "korisnickoIme" : "m1",
+  "lozinka" : "m1",
+  "ime" : "Menadzer1",
+  "prezime" : "Menadzer1",
+  "pol" : "muski",
   "datumRodjenja" : "2021-07-26",
   "uloga" : "MENADZER",
-  "idRestorana" : null
+  "idRestorana" : "QW5UZ"
 }, {
-  "korisnickoIme" : "mit",
-  "lozinka" : "mit",
-  "ime" : "Mitar",
-  "prezime" : "Miric",
-  "pol" : "muski",
-  "datumRodjenja" : "2021-04-29",
+  "korisnickoIme" : "m2",
+  "lozinka" : "m2",
+  "ime" : "Menadzer2",
+  "prezime" : "Menadzer1",
+  "pol" : "zenski",
+  "datumRodjenja" : "2021-08-02",
   "uloga" : "MENADZER",
-  "idRestorana" : "RF8BQ"
+  "idRestorana" : "NNU7I"
 }, {
-  "korisnickoIme" : "o",
-  "lozinka" : "o",
-  "ime" : "o",
-  "prezime" : "o",
+  "korisnickoIme" : "m3",
+  "lozinka" : "m3",
+  "ime" : "Menadzer3",
+  "prezime" : "Menadzer3",
   "pol" : "muski",
-  "datumRodjenja" : "2021-07-29",
+  "datumRodjenja" : "2021-07-26",
+  "uloga" : "MENADZER",
+  "idRestorana" : "71B6T"
+}, {
+  "korisnickoIme" : "m4",
+  "lozinka" : "m4",
+  "ime" : "Menadzer4",
+  "prezime" : "Menadzer4",
+  "pol" : "zenski",
+  "datumRodjenja" : "2021-07-27",
+  "uloga" : "MENADZER",
+  "idRestorana" : "NZ3MH"
+}, {
+  "korisnickoIme" : "m5",
+  "lozinka" : "m5",
+  "ime" : "Menadzer5",
+  "prezime" : "Menadzer5",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-07-27",
+  "uloga" : "MENADZER",
+  "idRestorana" : "7SRVE"
+}, {
+  "korisnickoIme" : "m6",
+  "lozinka" : "m6",
+  "ime" : "Menadzer6",
+  "prezime" : "Menadzer6",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-07-30",
   "uloga" : "MENADZER",
   "idRestorana" : null
 } ]

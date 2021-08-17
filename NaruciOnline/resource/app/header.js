@@ -14,7 +14,7 @@ Vue.component("header-comp", {
 			<a href="#restorani">Restorani</a>
 		</div>
 
-	  <div class="topnav-right" v-if="(korisnik !== null)" class="dropdown">
+	  <div class="topnav-right dropdown" v-if="(korisnik !== null)">
 	  <button class="dropbtn">Restorani
 		<i class="fa fa-caret-down"></i>
 	  </button>
@@ -37,7 +37,7 @@ Vue.component("header-comp", {
   		</div>
 
 
-		<div class="topnav-right" v-if="(korisnik !== null)" class="dropdown">
+		<div class="topnav-right dropdown" v-if="(korisnik !== null)">
 		  <button class="dropbtn">Profil
 			<i class="fa fa-caret-down"></i>
 		  </button>
@@ -46,7 +46,7 @@ Vue.component("header-comp", {
 			  <a href="/#/edit">Izmena podataka</a>
 			  <div v-if="(korisnik.uloga==='MENADZER')">
 				<!--<a href="/#/pregledRestoranaMenadzer">Pregled restorana</a>-->
-				<button type="button" v-on:click="pregledRestorana()">Pregled restorana</button>
+				<a href="#" v-on:click="pregledRestorana()">Pregled restorana</a>
 				</div>
   			</div>
 			<a href="/#/logout">Logout</a>
@@ -60,7 +60,7 @@ Vue.component("header-comp", {
 
 
 
-		<div class="topnav-right" v-if="(korisnik !== null)" class="dropdown">
+		<div class="topnav-right dropdown" v-if="(korisnik !== null)">
 		<button class="dropbtn">Korisnici
 		  <i class="fa fa-caret-down"></i>
 		</button>

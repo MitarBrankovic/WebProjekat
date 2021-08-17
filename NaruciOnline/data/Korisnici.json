@@ -1,105 +1,89 @@
 [ {
-  "korisnickoIme" : "sadsadasdasd",
-  "lozinka" : "sadsadas",
-  "ime" : "sadasdasd",
-  "prezime" : "sadsadsad",
-  "pol" : "muski",
-  "datumRodjenja" : "2021-07-29",
-  "uloga" : "KUPAC"
-}, {
-  "korisnickoIme" : "sad",
-  "lozinka" : "sad",
-  "ime" : "sad",
-  "prezime" : "sad",
-  "pol" : "muski",
-  "datumRodjenja" : "2021-07-26",
-  "uloga" : "DOSTAVLJAC"
-}, {
-  "korisnickoIme" : "das",
-  "lozinka" : "das",
-  "ime" : "das",
-  "prezime" : "das",
-  "pol" : "muski",
-  "datumRodjenja" : "2021-07-27",
-  "uloga" : "MENADZER"
-}, {
   "korisnickoIme" : "aa",
   "lozinka" : "aa",
-  "ime" : "AA",
-  "prezime" : "aa",
+  "ime" : "Admin",
+  "prezime" : "Admin",
   "pol" : "muski",
-  "datumRodjenja" : "2021-07-30",
+  "datumRodjenja" : "2021-07-27",
   "uloga" : "ADMIN"
 }, {
-  "korisnickoIme" : "t",
-  "lozinka" : "t",
-  "ime" : "TTT",
-  "prezime" : "T",
-  "pol" : "zenski",
+  "korisnickoIme" : "m1",
+  "lozinka" : "m1",
+  "ime" : "Menadzer1",
+  "prezime" : "Menadzer1",
+  "pol" : "muski",
   "datumRodjenja" : "2021-07-26",
+  "uloga" : "MENADZER"
+}, {
+  "korisnickoIme" : "m2",
+  "lozinka" : "m2",
+  "ime" : "Menadzer2",
+  "prezime" : "Menadzer1",
+  "pol" : "zenski",
+  "datumRodjenja" : "2021-08-02",
+  "uloga" : "MENADZER"
+}, {
+  "korisnickoIme" : "m3",
+  "lozinka" : "m3",
+  "ime" : "Menadzer3",
+  "prezime" : "Menadzer3",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-07-26",
+  "uloga" : "MENADZER"
+}, {
+  "korisnickoIme" : "m4",
+  "lozinka" : "m4",
+  "ime" : "Menadzer4",
+  "prezime" : "Menadzer4",
+  "pol" : "zenski",
+  "datumRodjenja" : "2021-07-27",
+  "uloga" : "MENADZER"
+}, {
+  "korisnickoIme" : "m5",
+  "lozinka" : "m5",
+  "ime" : "Menadzer5",
+  "prezime" : "Menadzer5",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-07-27",
+  "uloga" : "MENADZER"
+}, {
+  "korisnickoIme" : "m6",
+  "lozinka" : "m6",
+  "ime" : "Menadzer6",
+  "prezime" : "Menadzer6",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-07-30",
+  "uloga" : "MENADZER"
+}, {
+  "korisnickoIme" : "d1",
+  "lozinka" : "d1",
+  "ime" : "Dostavljac1",
+  "prezime" : "Dostavljac1",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-07-30",
   "uloga" : "DOSTAVLJAC"
 }, {
-  "korisnickoIme" : "n",
-  "lozinka" : "n",
-  "ime" : "novi",
-  "prezime" : "novi",
-  "pol" : "muski",
-  "datumRodjenja" : "2021-07-28",
-  "uloga" : "MENADZER"
-}, {
-  "korisnickoIme" : "m",
-  "lozinka" : "m",
-  "ime" : "m",
-  "prezime" : "matori",
+  "korisnickoIme" : "d2",
+  "lozinka" : "d2",
+  "ime" : "Dostavljac2",
+  "prezime" : "Dostavljac2",
   "pol" : "zenski",
   "datumRodjenja" : "2021-07-28",
-  "uloga" : "MENADZER"
+  "uloga" : "DOSTAVLJAC"
 }, {
-  "korisnickoIme" : "w",
-  "lozinka" : "w",
-  "ime" : "WW",
-  "prezime" : "WW",
+  "korisnickoIme" : "k1",
+  "lozinka" : "k1",
+  "ime" : "Kupac1",
+  "prezime" : "Kupac1",
   "pol" : "muski",
-  "datumRodjenja" : "2021-07-27",
-  "uloga" : "MENADZER"
-}, {
-  "korisnickoIme" : "y",
-  "lozinka" : "y",
-  "ime" : "y",
-  "prezime" : "y",
-  "pol" : "muski",
-  "datumRodjenja" : "2021-07-27",
-  "uloga" : "MENADZER"
-}, {
-  "korisnickoIme" : "j",
-  "lozinka" : "j",
-  "ime" : "jjjjj",
-  "prezime" : "jjjj",
-  "pol" : "zenski",
-  "datumRodjenja" : "2021-07-26",
-  "uloga" : "MENADZER"
-}, {
-  "korisnickoIme" : "srebrni",
-  "lozinka" : "srebrni",
-  "ime" : "SREBRNI",
-  "prezime" : "SREBRNI",
-  "pol" : "muski",
-  "datumRodjenja" : "2021-07-26",
+  "datumRodjenja" : "2021-07-28",
   "uloga" : "KUPAC"
 }, {
-  "korisnickoIme" : "mit",
-  "lozinka" : "mit",
-  "ime" : "Mitar",
-  "prezime" : "Miric",
+  "korisnickoIme" : "k2",
+  "lozinka" : "k2",
+  "ime" : "Kupac2",
+  "prezime" : "Kupac2",
   "pol" : "muski",
-  "datumRodjenja" : "2021-04-29",
-  "uloga" : "MENADZER"
-}, {
-  "korisnickoIme" : "o",
-  "lozinka" : "o",
-  "ime" : "o",
-  "prezime" : "o",
-  "pol" : "muski",
-  "datumRodjenja" : "2021-07-29",
-  "uloga" : "MENADZER"
+  "datumRodjenja" : "2021-07-31",
+  "uloga" : "KUPAC"
 } ]

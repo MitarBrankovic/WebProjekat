@@ -1,19 +1,19 @@
 [ {
-  "korisnickoIme" : "sad",
-  "lozinka" : "sad",
-  "ime" : "sad",
-  "prezime" : "sad",
+  "korisnickoIme" : "d1",
+  "lozinka" : "d1",
+  "ime" : "Dostavljac1",
+  "prezime" : "Dostavljac1",
   "pol" : "muski",
-  "datumRodjenja" : "2021-07-26",
+  "datumRodjenja" : "2021-07-30",
   "uloga" : "DOSTAVLJAC",
   "porudzbineZaDostavu" : [ ]
 }, {
-  "korisnickoIme" : "t",
-  "lozinka" : "t",
-  "ime" : "TTT",
-  "prezime" : "T",
+  "korisnickoIme" : "d2",
+  "lozinka" : "d2",
+  "ime" : "Dostavljac2",
+  "prezime" : "Dostavljac2",
   "pol" : "zenski",
-  "datumRodjenja" : "2021-07-26",
+  "datumRodjenja" : "2021-07-28",
   "uloga" : "DOSTAVLJAC",
   "porudzbineZaDostavu" : [ ]
 } ]
