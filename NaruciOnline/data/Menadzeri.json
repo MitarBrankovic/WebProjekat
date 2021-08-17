@@ -51,5 +51,14 @@
   "pol" : "muski",
   "datumRodjenja" : "2021-04-29",
   "uloga" : "MENADZER",
+  "idRestorana" : "RF8BQ"
+}, {
+  "korisnickoIme" : "o",
+  "lozinka" : "o",
+  "ime" : "o",
+  "prezime" : "o",
+  "pol" : "muski",
+  "datumRodjenja" : "2021-07-29",
+  "uloga" : "MENADZER",
   "idRestorana" : null
 } ]

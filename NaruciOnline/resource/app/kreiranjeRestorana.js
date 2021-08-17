@@ -51,7 +51,7 @@ Vue.component("kreiranjeRestorana", {
 				<br>
 				<hr>
 			    <label for="slika"><b>Slika</b></label>
-			    <input type="text" v-model="slika" required>
+			    <input type="file" v-model="slika" required @change=imageAdded>
 				<br>
 
 			    <label for="menadzer"><b>Menadzer</b></label>
@@ -107,7 +107,29 @@ Vue.component("kreiranjeRestorana", {
 				window.location.reload()
 
 			})*/
-        }/*,
+        },
+        imageAdded(e){
+            var files = e.target.files;
+
+			if(!files.length)
+				return;
+			
+				this.createImage(files[0]);
+        },
+        createImage(file){
+			var image = new Image();
+            var reader = new FileReader();
+			var vm = this;
+
+			reader.onload = (e) =>{
+				vm.slika = e.target.result;
+
+			};
+			reader.readAsDataURL(file);
+        }
+		
+		
+		/*,
 		kreirajMenadzera : function(){
 			localStorage.setItem('kreiranjeMenadzera', true)
 		}*/
