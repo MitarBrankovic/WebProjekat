@@ -13,7 +13,9 @@ Vue.component("restoran",{
             opis:null,
             slika:null,
             dodajArtikalVisible:true,
-            izmeniClick:false
+            izmeniClick:false,
+            izmeniArtikalClick:false,
+            artikalZaIzmenu:null
         }
     },
 
@@ -25,7 +27,7 @@ Vue.component("restoran",{
             </div>
             <div v-else>
                 <button type="button" v-on:click="sacuvajIzmene()">Sacuvaj</button>
-                <button type="button" v-on:click="izmeniInformacije()">Cancle</button>
+                <button type="button" v-on:click="izmeniInformacije()">Otkazi</button>
             </div>
             <div v-if="!izmeniClick">
                 <p>
@@ -66,18 +68,37 @@ Vue.component("restoran",{
             
             <h3>Artikli:</h3><hr>
             <div v-for = "a in artikli">
-                <p>
-                    <b>Naziv: </b> {{a.naziv}}<br>
-                    <b>Cena: </b> {{a.cena}} din<br>
-                    <b>Tip: </b> {{a.tip}}<br>
-                    <b>Kolicina: </b> {{a.kolicina}}<br>
-                    <b>Opis: </b> {{a.opis}}<br>
-                    <button type="button">Izmeni</button>
-                    <button type="button" v-on:click="izbrisiArtikal(a)">Izbrisi</button>
-                    <hr>
-                </p>
+                <div v-if="izmeniArtikalClick && a===artikalZaIzmenu">
+                    <p>
+                        <b>Naziv: </b> <input type="text" v-model="a.naziv"><br>
+                        <b>Cena: </b> <input type="text" v-model="a.cena"> din<br>
+                        <b>Tip: </b> 
+                        <select v-model="a.tip">
+                        <option value="jelo">Jelo</option>
+                        <option value="pice">Pice</option>
+                        </select>
+                        <br>
+                        <b>Kolicina: </b> <input type="text" v-model="a.kolicina"><br>
+                        <b>Opis: </b> <input type="text" v-model="a.opis"><br>
+                        <button type="button" v-on:click="sacuvajIzmenuArtikla(a)">Sacuvaj</button>
+                        <button type="button" v-on:click="izmeniInformacijeArtikla(a)">Otkazi</button>
+                        <hr>
+                    </p>
+                </div>
+                <div v-else>
+                    <p>
+                        <b>Naziv: </b> {{a.naziv}}<br>
+                        <b>Cena: </b> {{a.cena}} din<br>
+                        <b>Tip: </b> {{a.tip}}<br>
+                        <b>Kolicina: </b> {{a.kolicina}}<br>
+                        <b>Opis: </b> {{a.opis}}<br>
+                        <button type="button" v-on:click="izmeniInformacijeArtikla(a)">Izmeni</button>
+                        <button type="button" v-on:click="izbrisiArtikal(a)">Izbrisi</button>
+                        <hr>
+                        
+                    </p>
+                </div>
             </div>
-            
             <div v-if="vlasnikRestorana()">
                 <div v-if="dodajArtikalVisible">
                     <button v-on:click="dodajArtikalVisible=false">Dodaj artikal</button>
@@ -106,7 +127,7 @@ Vue.component("restoran",{
                             <button type="submit">Dodaj</button>    
                         </div>
                     </form>
-                    <button v-on:click="dodajArtikalVisible=true">Cancle</button>
+                    <button v-on:click="dodajArtikalVisible=true">Otkazi</button>
                 </div>
             </div>
         </div> 
@@ -187,7 +208,6 @@ Vue.component("restoran",{
             this.opis = null
         },
         izbrisiArtikal:function(a){
-            console.log(a)
             axios
             .post('/izbrisiArtikal', a)
             .then(response=>{
@@ -198,6 +218,22 @@ Vue.component("restoran",{
                         this.artikli.splice(i,1)
                     }
                 }
+            })
+        },
+        izmeniInformacijeArtikla:function(a){
+            this.izmeniArtikalClick = !this.izmeniArtikalClick
+            this.artikalZaIzmenu = a
+        },
+        promeniStanjeDugmetaIzmenaArtikla:function(){
+            this.izmeniArtikalClick = !this.izmeniArtikalClick
+            this.artikalZaIzmenu = null
+        },
+        sacuvajIzmenuArtikla:function(artikal){
+            artikal.cena.toString()
+            axios
+            .post('/izmenaArtikla', artikal)
+            .then(response=>{
+                this.promeniStanjeDugmetaIzmenaArtikla()
             })
         }
 

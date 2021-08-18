@@ -115,4 +115,15 @@ public class RestoranRepository {
 		restoran.artikli.add(artikal);
 		edit(restoran);
 	}
+	
+	public void izmeniArtikal(Artikal artikal) {
+		Restoran restoran = getObj(artikal.idRestorana);
+		for(Artikal a: restoran.artikli) {
+			if(a.naziv.equals(artikal.naziv)) {
+				restoran.artikli.set(restoran.artikli.indexOf(a), artikal);
+				edit(restoran);
+				return;
+			}
+		}
+	}
 }

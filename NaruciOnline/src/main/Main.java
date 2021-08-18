@@ -165,6 +165,23 @@ public class Main {
 			return "OK";
 		});
 		
+		post("/izmenaArtikla", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			HashMap<String, Double> mapaDouble = g.fromJson(req.body(), HashMap.class);
+
+			System.out.println(mapa);
+			TipArtikla tip = null;
+			if(mapa.get("tip").equals("jelo")) {
+				tip = TipArtikla.jelo;
+			}else if(mapa.get("tip").equals("pice")) {
+				tip = TipArtikla.pice;
+			}
+			Artikal artikal = new Artikal(mapa.get("naziv"), mapaDouble.get("cena").intValue(), 
+					mapa.get("idRestorana"), mapa.get("kolicina"), mapa.get("opis"), tip);
+			restoranRepository.izmeniArtikal(artikal);
+			return "OK";
+		});
+		
 		post("/kreiranjeNaloga", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
 			
