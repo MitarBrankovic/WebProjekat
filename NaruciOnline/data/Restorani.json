@@ -34,13 +34,53 @@
 }, {
   "naziv" : "Tortilla casa",
   "tip" : "Meksicka hrana",
-  "artikli" : [ ],
+  "artikli" : [ {
+    "naziv" : "Burito piletina",
+    "cena" : 380,
+    "tip" : "jelo",
+    "idRestorana" : "7ULWO",
+    "kolicina" : "400g",
+    "opis" : "meso u tortilji",
+    "slika" : null
+  }, {
+    "naziv" : "Burito svinjetina",
+    "cena" : 360,
+    "tip" : "jelo",
+    "idRestorana" : "7ULWO",
+    "kolicina" : "400g",
+    "opis" : "meso u tortilji",
+    "slika" : null
+  }, {
+    "naziv" : "Limunada",
+    "cena" : 160,
+    "tip" : "pice",
+    "idRestorana" : "7ULWO",
+    "kolicina" : "200ml",
+    "opis" : "Prirodni cedjeni sok",
+    "slika" : null
+  }, {
+    "naziv" : "Sok od nane",
+    "cena" : 160,
+    "tip" : "pice",
+    "idRestorana" : "7ULWO",
+    "kolicina" : null,
+    "opis" : null,
+    "slika" : null
+  }, {
+    "naziv" : "Sok od breskve",
+    "cena" : 169,
+    "tip" : "pice",
+    "idRestorana" : "7ULWO",
+    "kolicina" : null,
+    "opis" : null,
+    "slika" : null
+  } ],
   "status" : true,
   "lokacija" : {
     "geoDuzina" : 21.11111,
     "geoSirina" : 23.2233,
     "grad" : "Novi Sad",
-    "ulica" : "Bulevar Oslobodjenja",
+    "ulica" : "Braca Ribnikara",
     "broj" : "223",
     "postanskiBroj" : 21000
   },

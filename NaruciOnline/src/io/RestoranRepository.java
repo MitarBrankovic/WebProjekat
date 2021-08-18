@@ -57,6 +57,18 @@ public class RestoranRepository {
 		}
 		return false;
 	}
+	
+	public boolean izbrisiArtikal(String artikalNaziv, String idRestoran) {
+		Restoran restoran = getObj(idRestoran);
+		for(Artikal a: restoran.artikli) {
+			if(a.naziv.equals(artikalNaziv)) {
+				restoran.artikli.remove(a);
+				edit(restoran);
+				return true;
+			}
+		}
+		return false;
+	}
 
 	public List<Restoran> getAll(){
 		try {
