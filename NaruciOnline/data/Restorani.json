@@ -74,6 +74,22 @@
     "kolicina" : null,
     "opis" : null,
     "slika" : null
+  }, {
+    "naziv" : "Cimicange",
+    "cena" : 380,
+    "tip" : "jelo",
+    "idRestorana" : "7ULWO",
+    "kolicina" : "3 komada",
+    "opis" : "Meksicki specijalitet",
+    "slika" : null
+  }, {
+    "naziv" : "Sok od borovnice",
+    "cena" : 200,
+    "tip" : "pice",
+    "idRestorana" : "7ULWO",
+    "kolicina" : "200ml",
+    "opis" : "Prirodni sok",
+    "slika" : null
   } ],
   "status" : true,
   "lokacija" : {

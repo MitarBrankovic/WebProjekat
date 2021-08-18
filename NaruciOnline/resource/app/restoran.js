@@ -80,8 +80,10 @@ Vue.component("restoran",{
                         <br>
                         <b>Kolicina: </b> <input type="text" v-model="a.kolicina"><br>
                         <b>Opis: </b> <input type="text" v-model="a.opis"><br>
-                        <button type="button" v-on:click="sacuvajIzmenuArtikla(a)">Sacuvaj</button>
-                        <button type="button" v-on:click="izmeniInformacijeArtikla(a)">Otkazi</button>
+                        <div v-if="vlasnikRestorana()">
+                            <button type="button" v-on:click="sacuvajIzmenuArtikla(a)">Sacuvaj</button>
+                            <button type="button" v-on:click="izmeniInformacijeArtikla(a)">Otkazi</button>
+                        </div>    
                         <hr>
                     </p>
                 </div>
@@ -92,8 +94,10 @@ Vue.component("restoran",{
                         <b>Tip: </b> {{a.tip}}<br>
                         <b>Kolicina: </b> {{a.kolicina}}<br>
                         <b>Opis: </b> {{a.opis}}<br>
-                        <button type="button" v-on:click="izmeniInformacijeArtikla(a)">Izmeni</button>
-                        <button type="button" v-on:click="izbrisiArtikal(a)">Izbrisi</button>
+                        <div v-if="vlasnikRestorana()">
+                            <button type="button" v-on:click="izmeniInformacijeArtikla(a)">Izmeni</button>
+                            <button type="button" v-on:click="izbrisiArtikal(a)">Izbrisi</button>
+                        </div>    
                         <hr>
                         
                     </p>
@@ -229,7 +233,7 @@ Vue.component("restoran",{
             this.artikalZaIzmenu = null
         },
         sacuvajIzmenuArtikla:function(artikal){
-            artikal.cena.toString()
+            artikal.cena = artikal.cena.toString()
             axios
             .post('/izmenaArtikla', artikal)
             .then(response=>{

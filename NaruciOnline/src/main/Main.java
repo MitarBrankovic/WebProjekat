@@ -176,7 +176,9 @@ public class Main {
 			}else if(mapa.get("tip").equals("pice")) {
 				tip = TipArtikla.pice;
 			}
-			Artikal artikal = new Artikal(mapa.get("naziv"), mapaDouble.get("cena").intValue(), 
+			
+			//Artikal artikal = new Artikal(mapa.get("naziv"), mapaDouble.get("cena").intValue(), 
+			Artikal artikal = new Artikal(mapa.get("naziv"), Integer.parseInt(mapa.get("cena")), 
 					mapa.get("idRestorana"), mapa.get("kolicina"), mapa.get("opis"), tip);
 			restoranRepository.izmeniArtikal(artikal);
 			return "OK";
