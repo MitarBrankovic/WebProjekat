@@ -95,6 +95,38 @@ public class Main {
 			return null;
 		});
 		
+		post("/editRestoran", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			HashMap<String, Double> mapaDouble = g.fromJson(req.body(), HashMap.class);
+			HashMap<String, Boolean> mapaBoolean = g.fromJson(req.body(), HashMap.class);
+			HashMap<String, Integer> mapaInteger = g.fromJson(req.body(), HashMap.class);
+
+
+			System.out.println(mapa);
+
+			Restoran restoran = restoranRepository.getObj(mapa.get("idRestorana"));
+			
+			restoran.tip = mapa.get("tip");
+			restoran.status = mapaBoolean.get("status");
+			restoran.lokacija.geoSirina = mapaDouble.get("geoSirina");
+			restoran.lokacija.geoDuzina = mapaDouble.get("geoDuzina");
+			restoran.lokacija.grad = mapa.get("grad");
+			restoran.lokacija.ulica = mapa.get("ulica");
+			restoran.lokacija.broj = mapa.get("broj");
+			restoran.lokacija.postanskiBroj = mapaDouble.get("postanskiBroj").intValue();
+			
+			restoranRepository.edit(restoran);
+
+			return "OK";
+		});
+		
+		post("/izbrisiArtikal", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			System.out.println(mapa);
+			restoranRepository.izbrisiArtikal(mapa.get("naziv"), mapa.get("idRestorana"));
+
+			return "OK";
+		});
 		
 		post("/edit", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
@@ -130,6 +162,25 @@ public class Main {
 					break;
 				}
 			}
+			return "OK";
+		});
+		
+		post("/izmenaArtikla", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			HashMap<String, Double> mapaDouble = g.fromJson(req.body(), HashMap.class);
+
+			System.out.println(mapa);
+			TipArtikla tip = null;
+			if(mapa.get("tip").equals("jelo")) {
+				tip = TipArtikla.jelo;
+			}else if(mapa.get("tip").equals("pice")) {
+				tip = TipArtikla.pice;
+			}
+			
+			//Artikal artikal = new Artikal(mapa.get("naziv"), mapaDouble.get("cena").intValue(), 
+			Artikal artikal = new Artikal(mapa.get("naziv"), Integer.parseInt(mapa.get("cena")), 
+					mapa.get("idRestorana"), mapa.get("kolicina"), mapa.get("opis"), tip);
+			restoranRepository.izmeniArtikal(artikal);
 			return "OK";
 		});
 		
