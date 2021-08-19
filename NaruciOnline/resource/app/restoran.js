@@ -22,6 +22,8 @@ Vue.component("restoran",{
     template:`
         <div v-if="restoran">
             <h2>{{restoran.naziv}}</h2>
+            <img :src="restoran.slika" width = "200px" heigth = "300">
+
             <div v-if="!izmeniClick">
                 <button type="button" v-on:click="izmeniInformacije()">Izmeni</button>
             </div>
@@ -74,8 +76,8 @@ Vue.component("restoran",{
                         <b>Cena: </b> <input type="text" v-model="a.cena"> din<br>
                         <b>Tip: </b> 
                         <select v-model="a.tip">
-                        <option value="jelo">Jelo</option>
-                        <option value="pice">Pice</option>
+                            <option value="jelo">Jelo</option>
+                            <option value="pice">Pice</option>
                         </select>
                         <br>
                         <b>Kolicina: </b> <input type="text" v-model="a.kolicina"><br>
@@ -138,6 +140,12 @@ Vue.component("restoran",{
     `,
     mounted(){
         this.korisnik = JSON.parse(localStorage.getItem('korisnik'))
+        if(this.korisnik === null){
+            this.korisnik = {
+                uloga:'GUEST',
+                korisnickoIme:"GUEST"
+            }
+        }
         this.uloga = this.korisnik.uloga
         axios
         .get(`/restoran/get/${this.$route.params.naziv}`)

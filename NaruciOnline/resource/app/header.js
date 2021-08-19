@@ -80,16 +80,17 @@ Vue.component("header-comp", {
         ,
     mounted(){
         this.korisnik=JSON.parse(localStorage.getItem('korisnik'))
-		if(this.korisnik.uloga == 'MENADZER'){
-			axios
-			.post('/pregledRestoranaMenadzer', this.korisnik)
-			.then(response=>{
-				console.log(response.data)
-				this.restoran=response.data
-				//this.naziv_restorana = this.restoran.naziv.replace(/ /g, "-")
-			})
+		if(this.korisnik != null){
+			if(this.korisnik.uloga == 'MENADZER'){
+				axios
+				.post('/pregledRestoranaMenadzer', this.korisnik)
+				.then(response=>{
+					console.log(response.data)
+					this.restoran=response.data
+					//this.naziv_restorana = this.restoran.naziv.replace(/ /g, "-")
+				})
+			}
 		}
-		
     },
 	methods:{
 		pregledRestorana:function(){

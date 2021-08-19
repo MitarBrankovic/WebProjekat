@@ -3,77 +3,38 @@ Vue.component("NaruciOnline", {
         return {
             restorani:null,
             korisnik:null,
-            uloga:""
+            uloga:"",
+            sortiraniRestorani:[]
         }
     },
     template:`  
     <div>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" style="margin-left: 50px" >
-            <pretragaRestorana id="search" @clicked="onSearchClick"></pretragaRestorana>    
-            <div v-for = "m in restorani" >
-                <div class="row" v-if="(m.status===true)">
-                    <div class="card shadow-sm" id="manifest" style="width: 400px">
-                        <img :src="m.slika" width = "200px" heigth = "300">
-                        <div class="card-body">
-                            <p id="man"class="card-text">{{m.naziv}}, {{m.tip}} trenutno je
-                            <div v-if="(m.status===true)">
-                            <p style="color:green">otvoren</p>
-                            </div>
-                            <div v-if="(m.status===false)">
-                            <p style="color:red">zatvoren</p>
-                            </div>
-                            na lokaciji {{m.lokacija.grad}}
-                            {{m.lokacija.ulica}} {{m.lokacija.broj}}</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type = "button" v-on:click="prikazRestorana(m)" class="btn btn-sm btn-outline-primary">Detalji</button> 
-                                    <div v-if="(korisnik!==null)">
-                                        <button  v-if="(korisnik.uloga==='Kupac')" type= "button" class="btn btn-sm btn-outline-secondary" v-on:click="rezervisiKartu(m)">Rezervisi karte</button>
-                                    </div>
-                                    <div v-if="(korisnik!==null)">
-                                        <button  v-if="(korisnik.uloga==='Administrator')" type= "button" class="btn btn-sm btn-outline-secondary" v-on:click="aktivirajManif(m)">Aktiviraj</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                
-            </div>
-
-
-            <div v-for = "m in restorani" >
-            <div class="row" v-if="(m.status===false)">
-                <div class="card shadow-sm" id="manifest" style="width: 400px">
-                    <img :src="m.slika"  width = "200px" heigth = "300">
-                    <div class="card-body">
-                        <p id="man"class="card-text">{{m.naziv}}, {{m.tip}} trenutno je
+        <div style="margin-left: 50px" >
+            <pretragaRestorana id="search" @clicked="onSearchClick"></pretragaRestorana>
+            <br>    
+            <div v-for = "m in sortiraniRestorani" >
+                <div id="manifest" style="width: 400px">
+                    <img :src="m.slika" width = "200px" heigth = "300">
+                    <div>
+                        <p>
+                            <b>{{m.naziv}}<b><br>
+                        </p>    
+                        <p>
+                            {{m.tip}}<br>
+                            {{m.lokacija.grad}} {{m.lokacija.ulica}} {{m.lokacija.broj}}
+                        </p>
                         <div v-if="(m.status===true)">
-                        <p style="color:green">otvoren</p>
+                            <p style="color:green">otvoren</p>
                         </div>
                         <div v-if="(m.status===false)">
-                        <p style="color:red">zatvoren</p>
+                            <p style="color:red">zatvoren</p>
                         </div>
-                        na lokaciji {{m.lokacija.grad}}
-                            {{m.lokacija.ulica}} {{m.lokacija.broj}}</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type = "button" v-on:click="prikazRestorana(m)" class="btn btn-sm btn-outline-primary">Detalji</button> 
-                                <div v-if="(korisnik!==null)">
-                                    <button  v-if="(korisnik.uloga==='Kupac')" type= "button" class="btn btn-sm btn-outline-secondary" v-on:click="rezervisiKartu(m)">Rezervisi karte</button>
-                                </div>
-                                <div v-if="(korisnik!==null)">
-                                    <button  v-if="(korisnik.uloga==='Administrator')" type= "button" class="btn btn-sm btn-outline-secondary" v-on:click="aktivirajManif(m)">Aktiviraj</button>
-                                </div>
-                            </div>
-                        </div>
+                        <button type = "button" v-on:click="prikazRestorana(m)">Detalji</button> 
+                        <hr>
+                                
                     </div>
                 </div>
-            </div>
-
-            
-        </div>
+            </div>    
         </div>
     </div>
     `      
@@ -102,6 +63,18 @@ Vue.component("NaruciOnline", {
                 axios
                 .post('/pretragaRestor',search)
                 .then(response=>{this.restorani= response.data})
+            },
+            sortiranjeRestorana:function(){
+                for(var i = 0; i < this.restorani.length; i++){
+                    if(this.restorani[i].status===true)
+                        this.sortiraniRestorani.push(this.restorani[i])
+                }
+                for(var i = 0; i < this.restorani.length; i++){
+                    console.log(this.restorani[i].status)
+                    if(this.restorani[i].status===false)
+                        this.sortiraniRestorani.push(this.restorani[i])
+                }
+                
             }
         },
         mounted(){
@@ -111,7 +84,10 @@ Vue.component("NaruciOnline", {
             }
             axios
             .get('/pregledRestorana')
-            .then(response=>{this.restorani=response.data;})
+            .then(response=>{
+                this.restorani=response.data;
+                this.sortiranjeRestorana()
+            })
             localStorage.removeItem('restor')
         }
 
