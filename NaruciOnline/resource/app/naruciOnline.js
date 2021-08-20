@@ -17,7 +17,7 @@ Vue.component("NaruciOnline", {
                     <img :src="m.slika" width = "200px" heigth = "300">
                     <div>
                         <p>
-                            <b>{{m.naziv}}<b><br>
+                            <b>{{m.naziv}}</b><br>
                         </p>    
                         <p>
                             {{m.tip}}<br>
@@ -62,7 +62,7 @@ Vue.component("NaruciOnline", {
                 console.log(search)
                 axios
                 .post('/pretragaRestor',search)
-                .then(response=>{this.restorani= response.data})
+                .then(response=>{this.sortiraniRestorani= response.data})
             },
             sortiranjeRestorana:function(){
                 for(var i = 0; i < this.restorani.length; i++){
@@ -70,7 +70,6 @@ Vue.component("NaruciOnline", {
                         this.sortiraniRestorani.push(this.restorani[i])
                 }
                 for(var i = 0; i < this.restorani.length; i++){
-                    console.log(this.restorani[i].status)
                     if(this.restorani[i].status===false)
                         this.sortiraniRestorani.push(this.restorani[i])
                 }

@@ -262,8 +262,14 @@ public class Main {
 		
 		post("/pregledRestoranaMenadzer", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			System.out.println(mapa);
 			Menadzer menadzer = menadzerRepository.getObj(mapa.get("korisnickoIme"));
-			Restoran restoran = restoranRepository.getObj(menadzer.idRestorana);
+			Restoran restoran;
+			if(menadzer.idRestorana != null) {
+				restoran = restoranRepository.getObj(menadzer.idRestorana);
+			}else {
+				restoran = null;
+			}
 			return g.toJson(restoran);
 		});
 		
