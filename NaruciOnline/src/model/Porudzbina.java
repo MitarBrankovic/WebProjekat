@@ -14,6 +14,8 @@ public class Porudzbina {
 	public enum status{Obrada, UPripremi, UTransportu, Dostavljena, Otkazana};
 	
 	
+	public Porudzbina() {}
+	
 	public Porudzbina(String id, List<Artikal> artikli, String idRestorana, LocalDateTime datum, double cena, String korisnickoImeKupca) {
 		super();
 		this.id = id;

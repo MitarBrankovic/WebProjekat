@@ -20,6 +20,7 @@ import com.google.gson.Gson;
 import io.DostavljacRepository;
 import io.KupacRepository;
 import io.MenadzerRepository;
+import io.PorudzbinaRepository;
 import io.RestoranRepository;
 import io.KorisnikRepository;
 import model.Artikal;
@@ -29,6 +30,7 @@ import model.Korisnik;
 import model.Kupac;
 import model.Lokacija;
 import model.Menadzer;
+import model.Porudzbina;
 import model.Restoran;
 import model.TipArtikla;
 import model.TipKupca;
@@ -48,6 +50,7 @@ public class Main {
 		MenadzerRepository menadzerRepository = new MenadzerRepository();
 		DostavljacRepository dostavljacRepository = new DostavljacRepository();
 		RestoranRepository restoranRepository = new RestoranRepository();
+		PorudzbinaRepository porudzbinaRepository = new PorudzbinaRepository();
 		
 		post("/register", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
@@ -114,6 +117,7 @@ public class Main {
 			restoran.lokacija.ulica = mapa.get("ulica");
 			restoran.lokacija.broj = mapa.get("broj");
 			restoran.lokacija.postanskiBroj = mapaDouble.get("postanskiBroj").intValue();
+			restoran.slika = mapa.get("slika");
 			
 			restoranRepository.edit(restoran);
 
@@ -179,7 +183,7 @@ public class Main {
 			
 			//Artikal artikal = new Artikal(mapa.get("naziv"), mapaDouble.get("cena").intValue(), 
 			Artikal artikal = new Artikal(mapa.get("naziv"), Integer.parseInt(mapa.get("cena")), 
-					mapa.get("idRestorana"), mapa.get("kolicina"), mapa.get("opis"), tip);
+					mapa.get("idRestorana"), mapa.get("kolicina"), mapa.get("opis"), tip, mapa.get("slika"));
 			restoranRepository.izmeniArtikal(artikal);
 			return "OK";
 		});
@@ -284,7 +288,7 @@ public class Main {
 				tip = TipArtikla.pice;
 			}
 			Artikal artikal = new Artikal(mapa.get("naziv"), Integer.parseInt(mapa.get("cena")), mapa.get("idRestorana"),
-					mapa.get("kolicina"), mapa.get("opis"), tip);
+					mapa.get("kolicina"), mapa.get("opis"), tip, mapa.get("slika"));
 			restoranRepository.DodajArtikal(restoran.id, artikal);
 			return artikal;
 		});
@@ -610,6 +614,33 @@ public class Main {
 			return g.toJson(korisnici);
 		});
 		
+		post("/potvrdiPorudzbinu", (req, res) -> {
+			HashMap<String, Double> mapa = g.fromJson(req.body(), HashMap.class);
+			HashMap<ArrayList, ArrayList> mapa2 = g.fromJson(req.body(), HashMap.class);
+			HashMap<String, String> mapa3 = g.fromJson(req.body(), HashMap.class);
+			
+			List<Artikal> artikli = mapa2.get("artikli");
+			String idRestorana = null;
+			System.out.println(artikli);
+			for(Artikal a: artikli){
+				idRestorana =  a.idRestorana;
+				break;
+			}
+
+			StringBuilder sb = IDgeneratorPorudzbine();
+		    String generisanID = sb.toString();
+
+		    //Porudzbina porudzbina = new Porudzbina();
+			Porudzbina porudzbina = new Porudzbina(generisanID, artikli, idRestorana, LocalDateTime.now(), mapa.get("cena"), mapa3.get("korisnickoIme"));
+			if(!porudzbinaRepository.create(porudzbina)) {
+				res.status(400);
+				return "Greska";
+			}
+
+			res.status(200);
+			return "OK";
+		});
+		
 	}
 
 	private static StringBuilder IDgenerator() {
@@ -617,6 +648,18 @@ public class Main {
 		StringBuilder sb = new StringBuilder();
 		Random random = new Random();
 		for(int i = 0; i < 5; i++) {
+		  int index = random.nextInt(alphabet.length());
+		  char randomChar = alphabet.charAt(index);
+		  sb.append(randomChar);
+		}
+		return sb;
+	}
+	
+	private static StringBuilder IDgeneratorPorudzbine() {
+		String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		StringBuilder sb = new StringBuilder();
+		Random random = new Random();
+		for(int i = 0; i < 10; i++) {
 		  int index = random.nextInt(alphabet.length());
 		  char randomChar = alphabet.charAt(index);
 		  sb.append(randomChar);

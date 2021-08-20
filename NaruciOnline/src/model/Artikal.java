@@ -10,7 +10,7 @@ public class Artikal {
 	public String slika;
 	
 	
-	public Artikal(String naziv, int cena, String idRestorana, String kolicina, String opis, TipArtikla tip) {
+	public Artikal(String naziv, int cena, String idRestorana, String kolicina, String opis, TipArtikla tip, String slika) {
 		super();
 		this.naziv = naziv;
 		this.cena = cena;
@@ -18,6 +18,7 @@ public class Artikal {
 		this.kolicina = kolicina;
 		this.opis = opis;
 		this.tip = tip;
+		this.slika = slika;
 	}
 	
 	public Artikal() {

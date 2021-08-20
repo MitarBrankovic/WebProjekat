@@ -2,20 +2,24 @@ Vue.component("korpa",{
     data: function(){
         return{
           korpa:null,
-          count:0
+          count:0,
+          artikli:[],
+          cena:null,
+          korisnickoIme:""
         }
     },
 
     template:`
         <div style="margin-left: 50px" >  
+            <h2>Artikli koji se nalaze u korpi:</h2>    
             <div v-if="korpa">
-                <h2>Artikli koji se nalaze u korpi:</h2>
             
                 <div v-for = "a in korpa.listaArtikala">
                     
                     <div style="width: 300px">
 
-                            <p class="card-text">
+                            <p>
+                            <img :src="a.slika" width = "200px" heigth = "200"><br>
                             <b>Naziv:</b> {{a.naziv}}</br>
                             <b>Cena:</b>{{a.cena}}</br>
                             <button type = "button" v-on:click="ukloniIzKorpe(a)">Ukloni</button>
@@ -27,10 +31,14 @@ Vue.component("korpa",{
                 <h4>Ukupna cena: {{ukupnaCena()}}</h4>
 
             </div>
+            
+            <button type = "button" v-on:click="potvrdiPorudzbinu()">Potvrdi porudzbinu</button>
+
         </div>
     `,
     mounted(){
         this.korpa = JSON.parse(localStorage.getItem('Korpa'))
+        this.korisnik=JSON.parse(localStorage.getItem('korisnik'))
 
         
         //axios
@@ -62,6 +70,22 @@ Vue.component("korpa",{
       
            return sum;
 
+        },     
+        potvrdiPorudzbinu:function(){
+            const porudzbina = {
+                artikli:this.korpa.listaArtikala,
+                cena:this.ukupnaCena(),
+                korisnickoIme:this.korisnik.korisnickoIme
+                
+            }
+			
+            axios
+            .post('/potvrdiPorudzbinu',porudzbina)
+            .then(response=>{
+                this.$router.push('/')
+            })
+
         }
+        
     }
 })

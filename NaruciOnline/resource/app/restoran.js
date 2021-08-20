@@ -11,7 +11,7 @@ Vue.component("restoran",{
             tip:null,
             kolicina:null,
             opis:null,
-            slika:null,
+            slika:"",
             dodajArtikalVisible:true,
             izmeniClick:false,
             izmeniArtikalClick:false,
@@ -63,6 +63,8 @@ Vue.component("restoran",{
                     <b>Ulica:</b> <input type="text" v-model="restoran.lokacija.ulica"> <br>
                     <b>Broj:</b> <input type="text" v-model="restoran.lokacija.broj"> <br>
                     <b>Postanski broj:</b> <input type="number" v-model="restoran.lokacija.postanskiBroj"> <br>
+                    <label for="slika"><b>Slika</b></label>
+                    <input type="file"  required @change=imageAdded>
                     <hr>
                     <b>Menadzer:</b> {{restoran.menadzer.ime}} {{restoran.menadzer.prezime}} <br>
                     <hr>    
@@ -73,6 +75,7 @@ Vue.component("restoran",{
             <div v-for = "a in artikli">
                 <div v-if="izmeniArtikalClick && a===artikalZaIzmenu">
                     <p>
+                        <img :src="a.slika" width = "200px" heigth = "200"><br>
                         <b>Naziv: </b> <input type="text" v-model="a.naziv"><br>
                         <b>Cena: </b> <input type="text" v-model="a.cena"> din<br>
                         <b>Tip: </b> 
@@ -83,6 +86,9 @@ Vue.component("restoran",{
                         <br>
                         <b>Kolicina: </b> <input type="text" v-model="a.kolicina"><br>
                         <b>Opis: </b> <input type="text" v-model="a.opis"><br>
+                        <label for="slika"><b>Slika</b></label>
+                        <input type="file"  required @change=imageAdded>
+                        <br>
                         <div v-if="vlasnikRestorana()">
                             <button type="button" v-on:click="sacuvajIzmenuArtikla(a)">Sacuvaj</button>
                             <button type="button" v-on:click="izmeniInformacijeArtikla(a)">Otkazi</button>
@@ -92,6 +98,7 @@ Vue.component("restoran",{
                 </div>
                 <div v-else>
                     <p>
+                        <img :src="a.slika" width = "200px" heigth = "200"><br>
                         <b>Naziv: </b> {{a.naziv}}<br>
                         <b>Cena: </b> {{a.cena}} din<br>
                         <b>Tip: </b> {{a.tip}}<br>
@@ -137,6 +144,9 @@ Vue.component("restoran",{
                             <label for="opis"><b>Opis</b></label>
                             <input type="text" v-model="opis">
                             <br>
+                            <label for="slika"><b>Slika</b></label>
+                            <input type="file"  required @change=imageAdded>
+                            <br>
                             <button type="submit">Dodaj</button>    
                         </div>
                     </form>
@@ -176,7 +186,8 @@ Vue.component("restoran",{
                 tip:this.tip,
                 kolicina:this.kolicina,
                 opis:this.opis,
-                idRestorana: this.restoran.id
+                idRestorana: this.restoran.id,
+                slika:this.slika
             }
             axios
             .post('/restoran/add/artikal', artikal)
@@ -209,6 +220,7 @@ Vue.component("restoran",{
                 ulica:this.restoran.lokacija.ulica,
                 broj:this.restoran.lokacija.broj,
                 postanskiBroj:this.restoran.lokacija.postanskiBroj,
+                slika:this.slika
             }
             axios
             .post('/editRestoran', slanje)
@@ -245,6 +257,7 @@ Vue.component("restoran",{
         izmeniInformacijeArtikla:function(a){
             this.izmeniArtikalClick = !this.izmeniArtikalClick
             this.artikalZaIzmenu = a
+            this.artikalZaIzmenu.slika = this.slika
         },
         promeniStanjeDugmetaIzmenaArtikla:function(){
             this.izmeniArtikalClick = !this.izmeniArtikalClick
@@ -252,6 +265,7 @@ Vue.component("restoran",{
         },
         sacuvajIzmenuArtikla:function(artikal){
             artikal.cena = artikal.cena.toString()
+            artikal.slika = this.slika
             axios
             .post('/izmenaArtikla', artikal)
             .then(response=>{
@@ -276,6 +290,25 @@ Vue.component("restoran",{
 
             swal("Uspesno ste dodali artikal u korpu!", "", "success");
 
+        },
+        imageAdded(e){
+            var files = e.target.files;
+
+			if(!files.length)
+				return;
+			
+				this.createImage(files[0]);
+        },
+        createImage(file){
+			var image = new Image();
+            var reader = new FileReader();
+			var vm = this;
+
+			reader.onload = (e) =>{
+				vm.slika = e.target.result;
+
+			};
+			reader.readAsDataURL(file);
         }
 
     }

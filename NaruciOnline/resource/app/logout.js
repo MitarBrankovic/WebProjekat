@@ -14,6 +14,7 @@ Vue.component("logout",{
         created(){
            
             localStorage.removeItem('korisnik')
+            localStorage.removeItem('Korpa')
             this.$router.push("/")
             window.location.reload()
         }
