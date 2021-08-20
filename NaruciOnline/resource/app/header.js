@@ -58,6 +58,10 @@ Vue.component("header-comp", {
 		<a id="logout" class="nav-link" href="/#/logout">Logout</a>
 		</div>
 
+		<div class="topnav-right" v-if="(korisnik !== null) && (korisnik.uloga==='KUPAC')">
+		<a id="korpa" class="nav-link" href="/#/korpa">Korpa</a>
+		</div>
+
 
 
 		<div class="topnav-right dropdown" v-if="(korisnik !== null)">

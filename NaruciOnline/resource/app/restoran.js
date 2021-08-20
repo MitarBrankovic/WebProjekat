@@ -15,7 +15,8 @@ Vue.component("restoran",{
             dodajArtikalVisible:true,
             izmeniClick:false,
             izmeniArtikalClick:false,
-            artikalZaIzmenu:null
+            artikalZaIzmenu:null,
+            Korpa:null
         }
     },
 
@@ -99,7 +100,13 @@ Vue.component("restoran",{
                         <div v-if="vlasnikRestorana()">
                             <button type="button" v-on:click="izmeniInformacijeArtikla(a)">Izmeni</button>
                             <button type="button" v-on:click="izbrisiArtikal(a)">Izbrisi</button>
-                        </div>    
+                        </div>
+                        
+                        <div v-if="(korisnik.uloga==='KUPAC')">
+                            <!-- <input type="number" v-model="kolicinaZaKorpu" required> -->
+                            <button type="button" v-on:click="dodajUKorpu(a)">Dodaj u korpu</button>
+                        </div>
+
                         <hr>
                         
                     </p>
@@ -139,6 +146,9 @@ Vue.component("restoran",{
         </div> 
     `,
     mounted(){
+        if(JSON.parse(localStorage.getItem('Korpa')) !== null){
+            this.Korpa = JSON.parse(localStorage.getItem('Korpa'))
+        }
         this.korisnik = JSON.parse(localStorage.getItem('korisnik'))
         if(this.korisnik === null){
             this.korisnik = {
@@ -247,6 +257,25 @@ Vue.component("restoran",{
             .then(response=>{
                 this.promeniStanjeDugmetaIzmenaArtikla()
             })
+        },
+        dodajUKorpu:function(a){
+            if(this.Korpa == null){
+                this.Korpa = {
+                    idRestorana: this.restoran.id,
+                    korisnickoIme: this.korisnik.korisnickoIme,
+                    listaArtikala: []
+                }
+            }
+            this.Korpa.listaArtikala.push(a)
+            if(localStorage.getItem('Korpa') !== null){
+                localStorage.removeItem('Korpa')
+
+            }
+            localStorage.setItem('Korpa', JSON.stringify(this.Korpa))
+            console.log(this.Korpa.listaArtikala)
+
+            swal("Uspesno ste dodali artikal u korpu!", "", "success");
+
         }
 
     }
