@@ -5,7 +5,8 @@ Vue.component("korpa",{
           count:0,
           artikli:[],
           cena:null,
-          korisnickoIme:""
+          korisnickoIme:"",
+          pomocnaLista:[]
         }
     },
 
@@ -30,9 +31,10 @@ Vue.component("korpa",{
 
                 <h4>Ukupna cena: {{ukupnaCena()}}</h4>
 
+                <button type = "button" v-on:click="potvrdiPorudzbinu()">Potvrdi porudzbinu</button>
             </div>
             
-            <button type = "button" v-on:click="potvrdiPorudzbinu()">Potvrdi porudzbinu</button>
+            
 
         </div>
     `,
@@ -72,8 +74,16 @@ Vue.component("korpa",{
 
         },     
         potvrdiPorudzbinu:function(){
+            /*for(let i = 0; i < this.korpa.listaArtikala.length; i++){
+                pomocnaLista.push();
+            }*/
+
+            this.korpa.listaArtikala.forEach(element => {
+                this.pomocnaLista.push(element.naziv);
+            });
+
             const porudzbina = {
-                artikli:this.korpa.listaArtikala,
+                artikli:this.pomocnaLista,
                 cena:this.ukupnaCena(),
                 korisnickoIme:this.korisnik.korisnickoIme
                 
@@ -85,6 +95,7 @@ Vue.component("korpa",{
                 this.$router.push('/')
             })
 
+            localStorage.removeItem('Korpa')
         }
         
     }

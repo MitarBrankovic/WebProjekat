@@ -16,7 +16,7 @@ public class PorudzbinaRepository {
 
 	public PorudzbinaRepository() {
 		mapper = new ObjectMapper();
-		file = new File("data" + File.separator + "Korisnici.json");
+		file = new File("data" + File.separator + "Porudzbine.json");
 		if(!file.exists()) {
 			try {
 				file.createNewFile();

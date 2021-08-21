@@ -32,6 +32,7 @@ import model.Lokacija;
 import model.Menadzer;
 import model.Porudzbina;
 import model.Restoran;
+import model.StatusPorudzbine;
 import model.TipArtikla;
 import model.TipKupca;
 import model.UlogaKorisnika;
@@ -616,22 +617,39 @@ public class Main {
 		
 		post("/potvrdiPorudzbinu", (req, res) -> {
 			HashMap<String, Double> mapa = g.fromJson(req.body(), HashMap.class);
-			HashMap<ArrayList, ArrayList> mapa2 = g.fromJson(req.body(), HashMap.class);
 			HashMap<String, String> mapa3 = g.fromJson(req.body(), HashMap.class);
+			HashMap<ArrayList<String>, ArrayList<String>> mapa4 = g.fromJson(req.body(), HashMap.class);
 			
-			List<Artikal> artikli = mapa2.get("artikli");
+			List<String> naziviArtikala = mapa4.get("artikli");
+			
+			
+			List<Artikal> artikli = new ArrayList<Artikal>();
+			List<Restoran> sviRestorani = restoranRepository.getAll();
+			for(Restoran r: sviRestorani) {
+				for(Artikal a: r.artikli) {
+					for(String s : naziviArtikala) {
+						if(a.naziv.equals(s)) {
+							artikli.add(a);
+						}
+					}
+					
+				}
+				
+			}
 			String idRestorana = null;
-			System.out.println(artikli);
-			for(Artikal a: artikli){
-				idRestorana =  a.idRestorana;
+			for(Artikal a: artikli) {
+				idRestorana = a.idRestorana;
 				break;
 			}
+
 
 			StringBuilder sb = IDgeneratorPorudzbine();
 		    String generisanID = sb.toString();
 
-		    //Porudzbina porudzbina = new Porudzbina();
-			Porudzbina porudzbina = new Porudzbina(generisanID, artikli, idRestorana, LocalDateTime.now(), mapa.get("cena"), mapa3.get("korisnickoIme"));
+			Porudzbina porudzbina = new Porudzbina(generisanID, artikli, idRestorana, LocalDateTime.now(), mapa.get("cena"), mapa3.get("korisnickoIme"), StatusPorudzbine.Obrada);
+			Kupac kupac = kupacRepository.getObj(mapa3.get("korisnickoIme"));
+			kupac.brojBodova +=  Math.round((mapa.get("cena")/1000*133) * 100.0) / 100.0 ;
+			
 			if(!porudzbinaRepository.create(porudzbina)) {
 				res.status(400);
 				return "Greska";

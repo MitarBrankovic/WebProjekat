@@ -11,19 +11,21 @@ public class Porudzbina {
 	public LocalDateTime datum; // treba i vreme
 	public double cena;
 	public String korisnickoImeKupca; //ime i prezime
-	public enum status{Obrada, UPripremi, UTransportu, Dostavljena, Otkazana};
+	public StatusPorudzbine status;
 	
 	
 	public Porudzbina() {}
 	
-	public Porudzbina(String id, List<Artikal> artikli, String idRestorana, LocalDateTime datum, double cena, String korisnickoImeKupca) {
+	public Porudzbina(String id, List<Artikal> artikli, String idRestorana, LocalDateTime datum, double cena,
+			String korisnickoImeKupca, StatusPorudzbine status) {
 		super();
 		this.id = id;
-		this.artikli = artikli;
+		this.artikli = new ArrayList<Artikal>();
 		this.idRestorana = idRestorana;
 		this.datum = datum;
 		this.cena = cena;
 		this.korisnickoImeKupca = korisnickoImeKupca;
-		this.artikli = new ArrayList<Artikal>();
+		this.artikli = artikli;
+		this.status = status;
 	};
 }
