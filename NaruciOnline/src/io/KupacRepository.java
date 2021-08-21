@@ -50,7 +50,7 @@ public class KupacRepository {
 		if(korisnici != null && getObj(kupac.korisnickoIme) != null) {
 			ArrayList<Kupac> pomocna = new ArrayList<Kupac>();
 			pomocna.addAll(korisnici);
-			for(Korisnik k: pomocna) {
+			for(Kupac k: pomocna) {
 				if(k.korisnickoIme.equals(kupac.korisnickoIme)) {
 					k.ime = kupac.ime;
 					k.prezime = kupac.prezime;
@@ -58,6 +58,7 @@ public class KupacRepository {
 					k.lozinka = kupac.lozinka;
 					k.pol = kupac.pol;
 					k.uloga = kupac.uloga;
+					k.brojBodova = kupac.brojBodova;
 				}			
 			}
 			return saveAll(korisnici);

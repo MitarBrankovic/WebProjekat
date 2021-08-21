@@ -231,6 +231,10 @@ public class Main {
 			return g.toJson(korisnikRepository.getAll());
 		});
 		
+		get("/pregledPorudzbina", (req, res) -> {
+			return g.toJson(porudzbinaRepository.getAll());
+		});
+		
 		get("/pregledMenadzera", (req, res) -> {
 			return g.toJson(menadzerRepository.vratiSlobodne());
 		});
@@ -646,9 +650,11 @@ public class Main {
 			StringBuilder sb = IDgeneratorPorudzbine();
 		    String generisanID = sb.toString();
 
+		    
 			Porudzbina porudzbina = new Porudzbina(generisanID, artikli, idRestorana, LocalDateTime.now(), mapa.get("cena"), mapa3.get("korisnickoIme"), StatusPorudzbine.Obrada);
 			Kupac kupac = kupacRepository.getObj(mapa3.get("korisnickoIme"));
 			kupac.brojBodova +=  Math.round((mapa.get("cena")/1000*133) * 100.0) / 100.0 ;
+			kupacRepository.edit(kupac);
 			
 			if(!porudzbinaRepository.create(porudzbina)) {
 				res.status(400);

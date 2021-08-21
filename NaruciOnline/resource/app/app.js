@@ -8,9 +8,10 @@ const Logout = {template:'<logout></logout>'}
 const Korpa = {template:'<korpa></korpa>'}
 const Edit = {template:'<edit></edit>'}
 const KreiranjeNaloga = {template:'<kreiranjeNaloga></kreiranjeNaloga>'}
+const KreiranjeRestorana = {template:'<kreiranjeRestorana></kreiranjeRestorana>'}
 const PregledKorisnika = {template:'<pregledKorisnika></pregledKorisnika>'}
 const PregledMenadzera = {template:'<pregledMenadzera></pregledMenadzera>'}
-const KreiranjeRestorana = {template:'<kreiranjeRestorana></kreiranjeRestorana>'}
+const PregledPorudzbina = {template:'<pregledPorudzbina></pregledPorudzbina>'}
 const PretragaRestorana = {template:'<pretragaRestorana></pretragaRestorana>'}
 const PretragaKorisnika = {template:'<pretragaKorisnika></pretragaKorisnika>'}
 const Restoran = {template:'<restoran></restoran>'}
@@ -27,12 +28,13 @@ const router = new VueRouter({
 		{path:'/korpa',component: Korpa},
 		{path:'/edit',component: Edit},
 		{path:'/kreiranjeNaloga',component: KreiranjeNaloga},
+		{path:'/kreiranjeRestorana',component: KreiranjeRestorana},
 		{path:'/pregledKorisnika',component: PregledKorisnika},
 		{path:'/pregledMenadzera',component: PregledMenadzera},
+		{path:'/pregledPorudzbina',component: PregledPorudzbina},
 		{path:'/kreiranjeRestorana',component: KreiranjeRestorana},
 		{path:'/pretragaRestorana',component: PretragaRestorana},
 		{path:'/pretragaKorisnika',component: PretragaKorisnika},
-		{path:'/kreiranjeRestorana',component: KreiranjeRestorana},
 		{path:'/restoran/:naziv',component: Restoran}
 		
 

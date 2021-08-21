@@ -15,16 +15,23 @@ Vue.component("header-comp", {
 		</div>
 
 	  <div class="topnav-right dropdown" v-if="(korisnik !== null)">
-	  <button class="dropbtn">Restorani
+	  <button class="dropbtn">Restoran
 		<i class="fa fa-caret-down"></i>
 	  </button>
 	  <div class="dropdown-content" >
 		  <div v-if="(korisnik.uloga==='ADMIN')">
-		  <a class="nav-link" href="/#/kreiranjeRestorana">Kreiranje restorana</a>
+		  	<a href="/#/kreiranjeRestorana">Kreiranje restorana</a>
 		  </div>
 		  <div v-if="(korisnik.uloga==='ADMIN')">
-		  <a href="#restorani">Restorani</a>
+		  	<a href="#restorani">Restorani</a>
 		  </div>
+		  	<div v-if="(korisnik.uloga==='MENADZER')">
+				<!--<a href="/#/pregledRestoranaMenadzer">Pregled restorana</a>-->
+				<a href="#" v-on:click="pregledRestorana()">Pregled restorana</a>
+	  		</div>
+			<div v-if="(korisnik.uloga==='MENADZER')">
+			  <a href="/#/pregledPorudzbina">Pregled porudzbina</a>
+			</div>
 	  </div>
 		</div>
 
@@ -44,10 +51,6 @@ Vue.component("header-comp", {
 		  <div class="dropdown-content" >
 		  	<div v-if="(korisnik.uloga==='KUPAC') ||(korisnik.uloga==='MENADZER')||(korisnik.uloga==='ADMIN')||(korisnik.uloga==='DOSTAVLJAC')">
 			  <a href="/#/edit">Izmena podataka</a>
-			  <div v-if="(korisnik.uloga==='MENADZER')">
-				<!--<a href="/#/pregledRestoranaMenadzer">Pregled restorana</a>-->
-				<a href="#" v-on:click="pregledRestorana()">Pregled restorana</a>
-				</div>
   			</div>
 			<a href="/#/logout">Logout</a>
 		  </div>
