@@ -29,7 +29,7 @@ Vue.component("header-comp", {
 				<!--<a href="/#/pregledRestoranaMenadzer">Pregled restorana</a>-->
 				<a href="#" v-on:click="pregledRestorana()">Pregled restorana</a>
 	  		</div>
-			<div v-if="(korisnik.uloga==='MENADZER')">
+			<div v-if="(korisnik.uloga==='MENADZER') || (korisnik.uloga==='KUPAC')">
 			  <a href="/#/pregledPorudzbina">Pregled porudzbina</a>
 			</div>
 	  </div>

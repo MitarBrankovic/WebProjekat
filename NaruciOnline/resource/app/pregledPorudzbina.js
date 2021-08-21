@@ -17,12 +17,7 @@ Vue.component("pregledPorudzbina",{
                                 
                         <p>
                         Sifra: {{p.id}} <br/>
-                        Lozinka: {{m.lozinka}} <br/>
-                        Ime: {{m.ime}} <br/>
-                        Prezime: {{m.prezime}} <br/>
-                        Pol: {{m.pol}} <br/>
-                        Datum: {{m.datum}} <br/>
-                        Uloga: {{m.uloga}} <br/>
+
                         </p>
                                 
                             
