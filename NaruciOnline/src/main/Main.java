@@ -22,6 +22,7 @@ import io.KupacRepository;
 import io.MenadzerRepository;
 import io.PorudzbinaRepository;
 import io.RestoranRepository;
+import io.ZahtevPorudzbineRepository;
 import io.KorisnikRepository;
 import model.Artikal;
 import model.Dostavljac;
@@ -36,6 +37,7 @@ import model.StatusPorudzbine;
 import model.TipArtikla;
 import model.TipKupca;
 import model.UlogaKorisnika;
+import model.ZahtevPorudzbine;
 
 public class Main {
 	public static void main(String[] args) throws IOException{
@@ -52,6 +54,7 @@ public class Main {
 		DostavljacRepository dostavljacRepository = new DostavljacRepository();
 		RestoranRepository restoranRepository = new RestoranRepository();
 		PorudzbinaRepository porudzbinaRepository = new PorudzbinaRepository();
+		ZahtevPorudzbineRepository zahtevPorudzbineRepository = new ZahtevPorudzbineRepository();
 		
 		post("/register", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
@@ -239,8 +242,16 @@ public class Main {
 			return g.toJson(menadzerRepository.vratiSlobodne());
 		});
 		
+		get("/pregledDostavljaca", (req, res) -> {
+			return g.toJson(dostavljacRepository.getAll());
+		});
+		
 		get("/pregledRestorana", (req, res) -> {
 			return g.toJson(restoranRepository.getAll());
+		});
+		
+		get("/pregledZahteva", (req, res) -> {
+			return g.toJson(zahtevPorudzbineRepository.getAll());
 		});
 		
 		post("/kreiranjeRestorana", (req, res) -> {
@@ -730,7 +741,28 @@ public class Main {
 			return "OK";
 		});
 		
-		
+		post("/zahtevIzCekaDostavljacaUTransport", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			
+			String sifraPorudzbine = mapa.get("sifraPorudzbine");
+			String korisnickoIme = mapa.get("korisnickoIme");
+			Porudzbina porudzbina = porudzbinaRepository.getObj(sifraPorudzbine);
+			Dostavljac dostavljac = dostavljacRepository.getObj(korisnickoIme);
+
+			StringBuilder sb = IDgenerator();
+		    String generisanID = sb.toString();
+		    Restoran restoran = restoranRepository.getObj(porudzbina.idRestorana);
+		    String menadzerId = restoran.menadzer.korisnickoIme;
+			ZahtevPorudzbine zahtev = new ZahtevPorudzbine(generisanID, menadzerId, dostavljac, porudzbina);
+
+			if(!zahtevPorudzbineRepository.create(zahtev)) {
+				res.status(400);
+				return "Greska";
+			}
+
+			res.status(200);
+			return "OK";
+		});
 		
 		
 		

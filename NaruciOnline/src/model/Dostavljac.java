@@ -22,4 +22,12 @@ public class Dostavljac extends Korisnik {
 		super(korisnickoIme, lozinka, ime, prezime, pol, datumRodjenja);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Dostavljac(String korisnickoIme, String lozinka, String ime, String prezime, String pol,
+			String datumRodjenja, UlogaKorisnika uloga, ArrayList<Porudzbina> porudzbineZaDostavu) {
+		super(korisnickoIme, lozinka, ime, prezime, pol, datumRodjenja, uloga);
+		// TODO Auto-generated constructor stub
+		this.porudzbineZaDostavu = new ArrayList<Porudzbina>();
+		this.porudzbineZaDostavu = porudzbineZaDostavu;
+	}
 }
