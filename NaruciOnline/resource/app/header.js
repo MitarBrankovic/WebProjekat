@@ -29,7 +29,7 @@ Vue.component("header-comp", {
 				<!--<a href="/#/pregledRestoranaMenadzer">Pregled restorana</a>-->
 				<a href="#" v-on:click="pregledRestorana()">Pregled restorana</a>
 	  		</div>
-			<div v-if="(korisnik.uloga==='MENADZER') || (korisnik.uloga==='KUPAC')">
+			<div v-if="(korisnik.uloga==='MENADZER') || (korisnik.uloga==='DOSTAVLJAC') || (korisnik.uloga==='ADMIN')">
 			  <a href="/#/pregledPorudzbina">Pregled porudzbina</a>
 			</div>
 	  </div>
@@ -52,6 +52,9 @@ Vue.component("header-comp", {
 		  	<div v-if="(korisnik.uloga==='KUPAC') ||(korisnik.uloga==='MENADZER')||(korisnik.uloga==='ADMIN')||(korisnik.uloga==='DOSTAVLJAC')">
 			  <a href="/#/edit">Izmena podataka</a>
   			</div>
+			<div v-if="(korisnik.uloga==='KUPAC')">
+			  <a href="/#/pregledPorudzbina">Pregled porudzbina</a>
+			</div>
 			<a href="/#/logout">Logout</a>
 		  </div>
 		</div>

@@ -665,6 +665,23 @@ public class Main {
 			return "OK";
 		});
 		
+		
+		post("/izObradeUPripremu", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			
+			String sifraPorudzbine = mapa.get("sifraPorudzbine");
+			Porudzbina porudzbina = porudzbinaRepository.getObj(sifraPorudzbine);
+			porudzbina.status = StatusPorudzbine.UPripremi;
+
+			if(!porudzbinaRepository.edit(porudzbina)) {
+				res.status(400);
+				return "Greska";
+			}
+
+			res.status(200);
+			return "OK";
+		});
+		
 	}
 
 	private static StringBuilder IDgenerator() {

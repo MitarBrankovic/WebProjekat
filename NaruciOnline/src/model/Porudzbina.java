@@ -13,7 +13,7 @@ public class Porudzbina {
 	public String id;
 	public List<Artikal> artikli;
 	public String idRestorana;
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "dd.MM.yyyy. HH:mm:ss")
 	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
 	@JsonSerialize(using = LocalDateTimeSerializer.class)
 	public LocalDateTime datum; // treba i vreme

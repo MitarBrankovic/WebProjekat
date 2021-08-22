@@ -8,6 +8,7 @@ import java.util.List;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import model.Kupac;
 import model.Porudzbina;
 
 public class PorudzbinaRepository {
@@ -27,10 +28,10 @@ public class PorudzbinaRepository {
 
 	}
 	
-	public boolean create(Porudzbina Porudzbina){
+	public boolean create(Porudzbina porudzbina){
 		List<Porudzbina> porudzbine = getAll();
-		if(porudzbine != null && getObj(Porudzbina.id) == null) {
-			porudzbine.add(Porudzbina);
+		if(porudzbine != null && getObj(porudzbina.id) == null) {
+			porudzbine.add(porudzbina);
 			return saveAll(porudzbine);
 		}
 		return false;
@@ -42,6 +43,27 @@ public class PorudzbinaRepository {
 //			e.printStackTrace();
 //			return false;
 //		}
+	}
+	
+	public boolean edit(Porudzbina porudzbina) {
+		List<Porudzbina> porudzbine = getAll();
+		if(porudzbine != null && getObj(porudzbina.id) != null) {
+			ArrayList<Porudzbina> pomocna = new ArrayList<Porudzbina>();
+			pomocna.addAll(porudzbine);
+			for(Porudzbina p: pomocna) {
+				if(p.id.equals(porudzbina.id)) {
+					p.id = porudzbina.id;
+					p.idRestorana = porudzbina.idRestorana;
+					p.datum = porudzbina.datum;
+					p.cena = porudzbina.cena;
+					p.korisnickoImeKupca = porudzbina.korisnickoImeKupca;
+					p.status = porudzbina.status;
+
+				}			
+			}
+			return saveAll(porudzbine);
+		}
+		return false;
 	}
 	
 
