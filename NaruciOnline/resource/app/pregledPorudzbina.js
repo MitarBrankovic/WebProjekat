@@ -16,9 +16,7 @@ Vue.component("pregledPorudzbina",{
             <h2>PORUDZBINE:</h2>      
             <div v-for = "p in porudzbine">
             
-                <div v-if="(korisnik.uloga==='MENADZER') && (vlasnikRestorana(p))">
-
-                            
+                <div v-if="(korisnik.uloga==='MENADZER') && (vlasnikRestorana(p))">                           
                     <p>
                     <b>Sifra porudzbine:</b> {{p.id}} <br>
                     <b>Datum i vreme porucivanja:</b> {{p.datum}} <br>
@@ -32,10 +30,28 @@ Vue.component("pregledPorudzbina",{
                     <b>Ukupna cena:</b> {{p.cena}} <br>
                     <br>
                     <button v-if="p.status==='Obrada'" type = "button" v-on:click="izObradeUPripremu(p)">U pripremi</button>
+                    <button v-if="p.status==='UPripremi'" type = "button" v-on:click="izPripremeUCekaDostavljaca(p)">Ceka dostavljaca</button>
                     </p>
-                            
-                        
+                                                
                 </div>
+
+                <div v-if="(korisnik.uloga==='KUPAC') && (trenutniKupac(p))">                           
+                <p>
+                <b>Sifra porudzbine:</b> {{p.id}} <br>
+                <b>Datum i vreme porucivanja:</b> {{p.datum}} <br>
+                <b>Artikli:</b><br>
+                <label v-for = "a in p.artikli">
+                    {{a.naziv}} {{a.cena}} <br>
+                </label>
+                <b>Restoran:</b> {{vratiRestoran(p)}} <br>
+                <b>Kupac:</b> {{ vratiImePrezimeKupca(p) }} <br>
+                <b>Status:</b> {{p.status}} <br>
+                <b>Ukupna cena:</b> {{p.cena}} <br>
+                <br>
+                <button v-if="p.status==='Obrada'" type = "button" v-on:click="otkaziPorudzbinu(p)">Otkazi</button>
+                </p>
+                                            
+            </div>
             </div>
         </div>
     `,
@@ -60,6 +76,14 @@ Vue.component("pregledPorudzbina",{
               }
               return this.imePrezime;
         },
+        vratiRestoran(p){
+            for (let restoran of this.restorani) {
+                if(p.idRestorana === restoran.id){
+                    this.restoran = restoran.naziv;
+                }
+            }
+            return this.restoran;
+        },
         vlasnikRestorana(p){
             for (let restoran of this.restorani) {
                 if(p.idRestorana === restoran.id){
@@ -71,14 +95,14 @@ Vue.component("pregledPorudzbina",{
                 }
             }
         },
-        vratiRestoran(p){
-            for (let restoran of this.restorani) {
-                if(p.idRestorana === restoran.id){
-                    this.restoran = restoran.naziv;
-                }
+        trenutniKupac(p){
+            if(p.korisnickoImeKupca == this.korisnik.korisnickoIme){
+                return true;
+            }else{
+                return false
             }
-            return this.restoran;
-        },
+
+        },  
         izObradeUPripremu(p){
             const sifra = {
                 sifraPorudzbine:p.id          
@@ -89,8 +113,29 @@ Vue.component("pregledPorudzbina",{
             .then(response=>{
                 window.location.reload()
             })
-            
+        },
+        izPripremeUCekaDostavljaca(p){
+            const sifra = {
+                sifraPorudzbine:p.id          
+            }
 
+            axios
+            .post('/izPripremeUCekaDostavljaca',sifra)
+            .then(response=>{
+                window.location.reload()
+            })
+        },
+        otkaziPorudzbinu(p){
+            const sifra = {
+                sifraPorudzbine:p.id          
+            }
+
+            axios
+            .post('/otkaziPorudzbinu',sifra)
+            .then(response=>{
+                window.location.reload()
+            })
         }
+
     }
 })

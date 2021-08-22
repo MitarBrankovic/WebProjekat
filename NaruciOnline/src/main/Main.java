@@ -654,6 +654,7 @@ public class Main {
 			Porudzbina porudzbina = new Porudzbina(generisanID, artikli, idRestorana, LocalDateTime.now(), mapa.get("cena"), mapa3.get("korisnickoIme"), StatusPorudzbine.Obrada);
 			Kupac kupac = kupacRepository.getObj(mapa3.get("korisnickoIme"));
 			kupac.brojBodova +=  Math.round((mapa.get("cena")/1000*133) * 100.0) / 100.0 ;
+			kupac.brojBodova = Math.round((kupac.brojBodova) * 100.0) / 100.0;
 			kupacRepository.edit(kupac);
 			
 			if(!porudzbinaRepository.create(porudzbina)) {
@@ -682,7 +683,63 @@ public class Main {
 			return "OK";
 		});
 		
+		post("/izPripremeUCekaDostavljaca", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			
+			String sifraPorudzbine = mapa.get("sifraPorudzbine");
+			Porudzbina porudzbina = porudzbinaRepository.getObj(sifraPorudzbine);
+			porudzbina.status = StatusPorudzbine.CekaDostavljaca;
+
+			if(!porudzbinaRepository.edit(porudzbina)) {
+				res.status(400);
+				return "Greska";
+			}
+
+			res.status(200);
+			return "OK";
+		});
+		
+		
+		post("/otkaziPorudzbinu", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			
+			String sifraPorudzbine = mapa.get("sifraPorudzbine");
+			Porudzbina porudzbina = porudzbinaRepository.getObj(sifraPorudzbine);
+			List<Porudzbina> porudzbine = porudzbinaRepository.getAll();
+			Kupac kupac = kupacRepository.getObj(porudzbina.korisnickoImeKupca);		
+			kupac.brojBodova -= Math.round((porudzbina.cena/1000 * 133 * 4) * 100.0) / 100.0;
+			kupac.brojBodova = Math.round((kupac.brojBodova) * 100.0) / 100.0;
+			if(kupac.brojBodova < 0) {
+				kupac.brojBodova = 0;
+			}
+			kupacRepository.edit(kupac);
+						
+			for(Porudzbina p : porudzbine) {
+				if(p.id.equals(porudzbina.id)) {
+					porudzbine.remove(p);
+					break;
+				}			
+			}
+			
+			if(!porudzbinaRepository.saveAll(porudzbine)) {
+				res.status(400);
+				return "Greska";
+			}
+
+			res.status(200);
+			return "OK";
+		});
+		
+		
+		
+		
+		
+		
+		
 	}
+	
+	
+	
 
 	private static StringBuilder IDgenerator() {
 		String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
