@@ -59,6 +59,7 @@ public class DostavljacRepository {
 					k.lozinka = dostavljac.lozinka;
 					k.pol = dostavljac.pol;
 					k.uloga = dostavljac.uloga;
+					k.porudzbineZaDostavu = dostavljac.porudzbineZaDostavu;
 				}			
 			}
 			return saveAll(korisnici);

@@ -18,7 +18,7 @@ Vue.component("pregledPorudzbina",{
             <h2>PORUDZBINE:</h2>      
             <div v-for = "p in porudzbine">
             
-                <div v-if="(korisnik.uloga==='MENADZER') && (vlasnikRestorana(p))">                           
+                <div v-if="(korisnik.uloga==='MENADZER') && (vlasnikRestorana(p)) && ((p.status==='Obrada') || (p.status==='UPripremi'))">                           
                     <p>
                     <b>Sifra porudzbine:</b> {{p.id}} <br>
                     <b>Datum i vreme porucivanja:</b> {{p.datum}} <br>
@@ -127,15 +127,14 @@ Vue.component("pregledPorudzbina",{
             }
 
         },
-        proveraZahteva(p){                          //ovo ne radi. Na neki drugi nacin treba sakriti dugme na 71.liniji nakon klika
-            if(this.zahtevi != null){
-                for(let zahtev of this.zahtevi){
-                    if(zahtev.porudzbina.id === p.id){
-                        return true;
-                    }
+        proveraZahteva(p){
+            for(let zahtev of this.zahtevi){
+                if(zahtev.porudzbina.id === p.id && zahtev.dostavljac.korisnickoIme === this.korisnik.korisnickoIme){
+                    return true;
                 }
-                return false;
             }
+            return false;
+
         },
         porudzbineDostavljaca(p){
             for (let dostavljac of this.dostavljaci) {

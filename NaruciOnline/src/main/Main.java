@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -771,7 +772,79 @@ public class Main {
 		});
 		
 		
+		post("/izCekaDostavljacaUTransport", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			
+			String sifraPorudzbine = mapa.get("sifraPorudzbine");
+			Porudzbina porudzbina = porudzbinaRepository.getObj(sifraPorudzbine);
+			porudzbina.status = StatusPorudzbine.UTransportu;
+
+			String dostavljacId = mapa.get("dostavljac");
+			Dostavljac dostavljac = dostavljacRepository.getObj(dostavljacId);
+			dostavljac.porudzbineZaDostavu.add(porudzbina);
+			dostavljacRepository.edit(dostavljac);
+			
+			List<ZahtevPorudzbine> zahtevi = zahtevPorudzbineRepository.getAll();
+			List<ZahtevPorudzbine> zahtevi2 = new ArrayList<ZahtevPorudzbine>();
+			for(ZahtevPorudzbine z: zahtevi) {
+				zahtevi2.add(z);
+			}
+			for(ZahtevPorudzbine z: zahtevi) {
+				if(z.porudzbina.id.equals(porudzbina.id)) {
+					zahtevi2.remove(z);
+				}
+			}
+			zahtevPorudzbineRepository.saveAll(zahtevi2);
+			
+			if(!porudzbinaRepository.edit(porudzbina)) {
+				res.status(400);
+				return "Greska";
+			}
+
+			res.status(200);
+			return "OK";
+		});
 		
+		post("/odbijZahtev", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			
+			String sifraZahteva = mapa.get("sifraZahteva");
+			List<ZahtevPorudzbine> zahtevi = zahtevPorudzbineRepository.getAll();
+			List<ZahtevPorudzbine> zahtevi2 = new ArrayList<ZahtevPorudzbine>();
+			for(ZahtevPorudzbine z: zahtevi) {
+				zahtevi2.add(z);
+			}
+			for(ZahtevPorudzbine z: zahtevi) {
+				if(z.id.equals(sifraZahteva)) {
+					zahtevi2.remove(z);
+				}
+			}
+			
+			if(!zahtevPorudzbineRepository.saveAll(zahtevi2)) {
+				res.status(400);
+				return "Greska";
+			}
+
+			res.status(200);
+			return "OK";
+		});
+		
+		
+		post("/izTransportUDostavljena", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			
+			String sifraPorudzbine = mapa.get("sifraPorudzbine");
+			Porudzbina porudzbina = porudzbinaRepository.getObj(sifraPorudzbine);
+			porudzbina.status = StatusPorudzbine.Dostavljena;
+
+			if(!porudzbinaRepository.edit(porudzbina)) {
+				res.status(400);
+				return "Greska";
+			}
+
+			res.status(200);
+			return "OK";
+		});
 		
 		
 	}

@@ -10,13 +10,15 @@ Vue.component("zahteviDostavljaca",{
 
     template:`
         <div>
+            <h2>Zahtevi porudzbina: </h2>
             <div v-for="z in zahtevi">
                     <p>
-                        Id porudzbine: {{z.id}}<br>
-                        Dostavljac: {{z.dostavljac.korisnickoIme}}<br>
+                        Id zahteva: {{z.id}}<br>
+                        Dostavljac: {{z.dostavljac.ime}} {{z.dostavljac.prezime}}<br>
+                        Sifra porudzbine: {{z.porudzbina.id}}
                     </p>
-                    <button type="button">Potvrdi</button>
-                    <button type="button">Odbij</button>
+                    <button type="button" v-on:click="izCekaDostavljacaUTransport(z)">Potvrdi</button>
+                    <button type="button" v-on:click="odbijZahtev(z)">Odbij</button>
 
             </div>
         </div>
@@ -28,7 +30,6 @@ Vue.component("zahteviDostavljaca",{
         .post('/pregledRestoranaMenadzer', this.korisnik)
         .then(response=>{
             this.restoran=response.data
-            console.log(this.restoran.naziv)
             this.dobaviZahteve()
             //this.naziv_restorana = this.restoran.naziv.replace(/ /g, "-")
         })
@@ -41,6 +42,29 @@ Vue.component("zahteviDostavljaca",{
             .then(response=>{
                 this.zahtevi = response.data
                 console.log(this.zahtevi)
+            })
+        }, 
+        izCekaDostavljacaUTransport(z){
+            const sifra = {
+                sifraPorudzbine:z.porudzbina.id,
+                dostavljac:z.dostavljac.korisnickoIme          
+            }
+
+            axios
+            .post('/izCekaDostavljacaUTransport',sifra)
+            .then(response=>{
+                window.location.reload()
+            })
+        }, 
+        odbijZahtev(z){
+            const sifra = {
+                sifraZahteva:z.id          
+            }
+
+            axios
+            .post('/odbijZahtev',sifra)
+            .then(response=>{
+                window.location.reload()
             })
         }
     }
