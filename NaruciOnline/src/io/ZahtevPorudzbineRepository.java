@@ -85,4 +85,15 @@ public class ZahtevPorudzbineRepository {
 		}
 		return null;
 	}
+	
+	public List<ZahtevPorudzbine> getObjRestorana(String idRestorana) {
+		List<ZahtevPorudzbine> zahtevi = getAll();
+		List<ZahtevPorudzbine> listaPorudzbina = new ArrayList<ZahtevPorudzbine>();
+		for(ZahtevPorudzbine p : zahtevi) {
+			if(p.porudzbina.idRestorana.equals(idRestorana)) {
+				listaPorudzbina.add(p);
+			}
+		}
+		return listaPorudzbina;
+	}
 }

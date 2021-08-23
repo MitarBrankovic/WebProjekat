@@ -254,6 +254,12 @@ public class Main {
 			return g.toJson(zahtevPorudzbineRepository.getAll());
 		});
 		
+		get("/pregledZahtevaRestorana/:id", (req,res)->{
+			String id = req.params(":id");
+			System.out.println("id restorana: " + id);
+			return g.toJson(zahtevPorudzbineRepository.getObjRestorana(id));
+		});
+		
 		post("/kreiranjeRestorana", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
 			String status1 = mapa.get("status");		

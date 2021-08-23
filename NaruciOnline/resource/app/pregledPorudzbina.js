@@ -68,7 +68,7 @@ Vue.component("pregledPorudzbina",{
                     <b>Status:</b> {{p.status}} <br>
                     <b>Ukupna cena:</b> {{p.cena}} <br>
                     <br>
-                    <button v-if="(p.status==='CekaDostavljaca') && (!proveraZahteva(p))" type = "button" v-on:click="zahtevIzCekaDostavljacaUTransport(p)">U transportu</button>
+                    <button v-if="(p.status==='CekaDostavljaca') && (!proveraZahteva(p))" type = "button" v-on:click="zahtevIzCekaDostavljacaUTransport(p)">Zahtev za porudzbinu</button>
                     <button v-if="p.status==='UTransportu'" type = "button" v-on:click="izTransportUDostavljena(p)">Dostavljeno</button>
                     </p>
                                             
@@ -85,7 +85,7 @@ Vue.component("pregledPorudzbina",{
             this.korisnici = responses[1].data
             this.porudzbine = responses[2].data
             this.dostavljaci = responses[3].data
-            this.zahtevi = response[4].data
+            this.zahtevi = responses[4].data
         }))
         
     },
