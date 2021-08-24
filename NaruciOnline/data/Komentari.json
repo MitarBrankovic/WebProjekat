@@ -1,0 +1,19 @@
+[ {
+  "idKorisnika" : "k1",
+  "idRestorana" : "QW5UZ",
+  "tekst" : "govnjivo mesto",
+  "ocena" : 1,
+  "odobren" : false
+}, {
+  "idKorisnika" : "k1",
+  "idRestorana" : "QW5UZ",
+  "tekst" : "odlicna hrana",
+  "ocena" : 5,
+  "odobren" : false
+}, {
+  "idKorisnika" : "k1",
+  "idRestorana" : "QW5UZ",
+  "tekst" : "smece",
+  "ocena" : 2,
+  "odobren" : false
+} ]

@@ -1,17 +1,23 @@
 package model;
 
 public class Komentar {
-	public Korisnik korisnik; // treba kupac, tjt vljd
-	public Restoran restoran;
+	public String idKorisnika; // treba kupac, tjt vljd
+	public String idRestorana;
 	public String tekst;
 	public int ocena;
+	public boolean odobren;
 	
 	
-	public Komentar(Korisnik korisnik, Restoran restoran, String tekst, int ocena) {
+	public Komentar(String idKorisnika, String idRestorana, String tekst, int ocena) {
 		super();
-		this.korisnik = korisnik;
-		this.restoran = restoran;
+		this.idKorisnika = idKorisnika;
+		this.idRestorana = idRestorana;
 		this.tekst = tekst;
 		this.ocena = ocena;
+		this.odobren = false;
+	}
+	
+	public Komentar() {
+		
 	}
 }

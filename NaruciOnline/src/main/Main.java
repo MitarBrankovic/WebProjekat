@@ -21,6 +21,7 @@ import com.google.gson.Gson;
 
 import io.BlokiraniRepository;
 import io.DostavljacRepository;
+import io.KomentarRepository;
 import io.KupacRepository;
 import io.MenadzerRepository;
 import io.PorudzbinaRepository;
@@ -30,6 +31,7 @@ import io.KorisnikRepository;
 import model.Artikal;
 import model.Dostavljac;
 import model.ImeTipaKupca;
+import model.Komentar;
 import model.Korisnik;
 import model.Kupac;
 import model.Lokacija;
@@ -59,7 +61,8 @@ public class Main {
 		PorudzbinaRepository porudzbinaRepository = new PorudzbinaRepository();
 		ZahtevPorudzbineRepository zahtevPorudzbineRepository = new ZahtevPorudzbineRepository();
 		BlokiraniRepository blokiraniRepository = new BlokiraniRepository();
-		
+		KomentarRepository komentarRepository = new KomentarRepository();
+
 		post("/register", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
 			
@@ -271,6 +274,15 @@ public class Main {
 			String id = req.params(":id");
 			System.out.println("id restorana: " + id);
 			return g.toJson(zahtevPorudzbineRepository.getObjRestorana(id));
+		});
+		
+		post("/ocenaKorisnika", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			System.out.println(mapa);
+			Komentar komentar = new Komentar(mapa.get("idKorisnika"), mapa.get("idRestorana"),
+					mapa.get("kom"),Integer.parseInt(mapa.get("oce")));
+			komentarRepository.create(komentar);
+			return "OK";
 		});
 		
 		post("/kreiranjeRestorana", (req, res) -> {

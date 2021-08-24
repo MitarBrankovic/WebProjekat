@@ -9,7 +9,9 @@ Vue.component("pregledPorudzbina",{
             zahtevi:null,   
             datum:null,
             imePrezime:"",
-            restoran:""
+            restoran:"",
+            oceniClick:false,
+            idRestoranaKomentar:null
         }
     },
 
@@ -51,6 +53,13 @@ Vue.component("pregledPorudzbina",{
                     <b>Ukupna cena:</b> {{p.cena}} <br>
                     <br>
                     <button v-if="p.status==='Obrada'" type = "button" v-on:click="otkaziPorudzbinu(p)">Otkazi</button>
+                    <div v-if="!oceniClick">
+                        <button v-if="p.status==='Dostavljena'" type="button" v-on:click="(oceniClick = true) && getRestoran(p)">Oceni</button>
+                    </div>
+                    <div v-else>
+                        <oceni id="ocena" @clicked="PosaljiOcenu"></oceni>
+                        <button type="button" v-on:click="oceniClick = false">Otkazi</button>
+                    </div>
                     </p>
                                                 
                 </div>
@@ -204,6 +213,24 @@ Vue.component("pregledPorudzbina",{
             .then(response=>{
                 window.location.reload()
             })
+        },
+        PosaljiOcenu:function(feedback){
+            const Komentar = {
+                kom:feedback.komentar,
+                oce:feedback.ocena,
+                idKorisnika:this.korisnik.korisnickoIme,
+                idRestorana:this.idRestoranaKomentar
+            }
+            console.log(Komentar)
+            axios
+            .post("/ocenaKorisnika", Komentar)
+            .then(response=>{
+                console.log('uspesno ocenjeno')
+                this.oceniClick = false
+            })
+        },
+        getRestoran:function(p){
+            this.idRestoranaKomentar = p.idRestorana
         }
 
     }

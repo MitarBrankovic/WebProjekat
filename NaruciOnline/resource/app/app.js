@@ -16,6 +16,8 @@ const PretragaRestorana = {template:'<pretragaRestorana></pretragaRestorana>'}
 const PretragaKorisnika = {template:'<pretragaKorisnika></pretragaKorisnika>'}
 const Restoran = {template:'<restoran></restoran>'}
 const ZahteviDostavljaca = {template:'<zahteviDostavljaca></zahteviDostavljaca>'}
+const Oceni = {template:'<oceni></oceni>'}
+
 
 
 
@@ -38,7 +40,9 @@ const router = new VueRouter({
 		{path:'/pretragaRestorana',component: PretragaRestorana},
 		{path:'/pretragaKorisnika',component: PretragaKorisnika},
 		{path:'/restoran/:naziv',component: Restoran},
-		{path:'/zahteviDostavljaca',component: ZahteviDostavljaca}
+		{path:'/zahteviDostavljaca',component: ZahteviDostavljaca},
+		{path:'/oceni',component: Oceni}
+
 		
 
 	]
