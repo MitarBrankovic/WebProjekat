@@ -8,6 +8,7 @@ import java.util.List;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import model.ImeTipaKupca;
 import model.Korisnik;
 import model.Kupac;
 
@@ -59,6 +60,17 @@ public class KupacRepository {
 					k.pol = kupac.pol;
 					k.uloga = kupac.uloga;
 					k.brojBodova = kupac.brojBodova;
+					
+					if(k.brojBodova < 3000) {
+						k.tipKupca.imeTipa = ImeTipaKupca.BRONZANI;
+						k.tipKupca.popust = 0;
+					}else if(k.brojBodova >= 3000 && k.brojBodova < 4000) {
+						k.tipKupca.imeTipa = ImeTipaKupca.SREBRNI;
+						k.tipKupca.popust = 3;
+					}else if(k.brojBodova > 4000) {
+						k.tipKupca.imeTipa = ImeTipaKupca.ZLATNI;
+						k.tipKupca.popust = 5;
+					}
 				}			
 			}
 			return saveAll(korisnici);

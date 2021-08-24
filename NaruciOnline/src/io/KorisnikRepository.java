@@ -18,7 +18,7 @@ import model.Korisnik;
 public class KorisnikRepository {
 	private ObjectMapper mapper;
 	private File file;
-
+	BlokiraniRepository blokiraniRepository = new BlokiraniRepository();
 	public KorisnikRepository() {
 		mapper = new ObjectMapper();
 		file = new File("data" + File.separator + "Korisnici.json");
@@ -103,7 +103,9 @@ public class KorisnikRepository {
 		Korisnik korisnik = getObj(username);
 		if(korisnik != null) {
 			if(korisnik.lozinka.equals(password)) {
-				return true;
+				if(blokiraniRepository.getObj(username) == null) {
+					return true;
+				}
 			}
 		}
 		return false;

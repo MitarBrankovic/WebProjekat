@@ -18,6 +18,8 @@ import java.util.Map;
 import java.util.Random;
 import java.util.stream.Collectors;
 import com.google.gson.Gson;
+
+import io.BlokiraniRepository;
 import io.DostavljacRepository;
 import io.KupacRepository;
 import io.MenadzerRepository;
@@ -56,6 +58,7 @@ public class Main {
 		RestoranRepository restoranRepository = new RestoranRepository();
 		PorudzbinaRepository porudzbinaRepository = new PorudzbinaRepository();
 		ZahtevPorudzbineRepository zahtevPorudzbineRepository = new ZahtevPorudzbineRepository();
+		BlokiraniRepository blokiraniRepository = new BlokiraniRepository();
 		
 		post("/register", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
@@ -253,6 +256,11 @@ public class Main {
 		
 		get("/pregledZahteva", (req, res) -> {
 			return g.toJson(zahtevPorudzbineRepository.getAll());
+		});
+		
+		get("/pregledBlokiranih", (req, res) -> {
+			System.out.println(blokiraniRepository.getAll());
+			return g.toJson(blokiraniRepository.getAll());
 		});
 		
 		get("/pregledZahtevaRestorana/:id", (req,res)->{
@@ -838,6 +846,19 @@ public class Main {
 			porudzbina.status = StatusPorudzbine.Dostavljena;
 
 			if(!porudzbinaRepository.edit(porudzbina)) {
+				res.status(400);
+				return "Greska";
+			}
+
+			res.status(200);
+			return "OK";
+		});
+		
+		
+		post("/blokirajKorisnika", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);			
+			String korisnickoIme = mapa.get("korisnickoIme");			
+			if(!blokiraniRepository.create(korisnickoIme)) {
 				res.status(400);
 				return "Greska";
 			}
