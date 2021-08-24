@@ -6,6 +6,7 @@ Vue.component("korpa",{
           artikli:[],
           cena:null,
           korisnickoIme:"",
+          kupci:null,
           pomocnaLista:[]
         }
     },
@@ -30,6 +31,9 @@ Vue.component("korpa",{
                 </div>
 
                 <h4>Ukupna cena: {{ukupnaCena()}}</h4>
+                <div v-if="kupci" v-for = "k in this.kupci">
+                    <h4 v-if="(k.korisnickoIme === korisnik.korisnickoIme)">Cena sa popustom: {{cenaSaPopustom(k)}}</h4>
+                </div>
 
                 <button type = "button" v-on:click="potvrdiPorudzbinu()">Potvrdi porudzbinu</button>
             </div>
@@ -39,13 +43,14 @@ Vue.component("korpa",{
         </div>
     `,
     mounted(){
+        axios
+        .get('/pregledKupaca')
+        .then(response=>{this.kupci = response.data;})
+
         this.korpa = JSON.parse(localStorage.getItem('Korpa'))
         this.korisnik=JSON.parse(localStorage.getItem('korisnik'))
+       
 
-        
-        //axios
-        //.get('/pregledKorisnika')
-        //.then(response=>{this.korisnici=response.data;})
     },
     methods:{
         increment(){
@@ -62,8 +67,7 @@ Vue.component("korpa",{
             }
             localStorage.setItem('Korpa', JSON.stringify(this.korpa))
 
-        },
-        
+        },       
         ukupnaCena:function(){
             let sum = 0;
             for(let i = 0; i < this.korpa.listaArtikala.length; i++){
@@ -72,12 +76,27 @@ Vue.component("korpa",{
       
            return sum;
 
-        },     
+        },      
+        cenaSaPopustom(k){
+            let sum = 0;
+            for(let i = 0; i < this.korpa.listaArtikala.length; i++){
+              sum += (parseFloat(this.korpa.listaArtikala[i].cena));
+            }
+            if(k.korisnickoIme === this.korisnik.korisnickoIme){
+                sum = sum * (100 - k.tipKupca.popust)/100;
+            }       
+            return sum;
+        },
+        kupac(){
+            let nesto = null;
+            for(let k of this.kupci){
+                if(k.korisnickoIme === this.korisnik){
+                    nesto = k;
+                }
+            }
+            return nesto;
+        },
         potvrdiPorudzbinu:function(){
-            /*for(let i = 0; i < this.korpa.listaArtikala.length; i++){
-                pomocnaLista.push();
-            }*/
-
             this.korpa.listaArtikala.forEach(element => {
                 this.pomocnaLista.push(element.naziv);
             });

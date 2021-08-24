@@ -238,6 +238,10 @@ public class Main {
 			return g.toJson(korisnikRepository.getAll());
 		});
 		
+		get("/pregledKupaca", (req, res) -> {
+			return g.toJson(kupacRepository.getAll());
+		});
+		
 		get("/pregledPorudzbina", (req, res) -> {
 			return g.toJson(porudzbinaRepository.getAll());
 		});
@@ -650,9 +654,7 @@ public class Main {
 			HashMap<String, String> mapa3 = g.fromJson(req.body(), HashMap.class);
 			HashMap<ArrayList<String>, ArrayList<String>> mapa4 = g.fromJson(req.body(), HashMap.class);
 			
-			List<String> naziviArtikala = mapa4.get("artikli");
-			
-			
+			List<String> naziviArtikala = mapa4.get("artikli");						
 			List<Artikal> artikli = new ArrayList<Artikal>();
 			List<Restoran> sviRestorani = restoranRepository.getAll();
 			for(Restoran r: sviRestorani) {
@@ -661,10 +663,8 @@ public class Main {
 						if(a.naziv.equals(s)) {
 							artikli.add(a);
 						}
-					}
-					
-				}
-				
+					}				
+				}			
 			}
 			String idRestorana = null;
 			for(Artikal a: artikli) {
@@ -672,13 +672,11 @@ public class Main {
 				break;
 			}
 
-
 			StringBuilder sb = IDgeneratorPorudzbine();
-		    String generisanID = sb.toString();
-
-		    
-			Porudzbina porudzbina = new Porudzbina(generisanID, artikli, idRestorana, LocalDateTime.now(), mapa.get("cena"), mapa3.get("korisnickoIme"), StatusPorudzbine.Obrada);
-			Kupac kupac = kupacRepository.getObj(mapa3.get("korisnickoIme"));
+		    String generisanID = sb.toString();	
+		    Kupac kupac = kupacRepository.getObj(mapa3.get("korisnickoIme"));
+			Porudzbina porudzbina = new Porudzbina(generisanID, artikli, idRestorana, LocalDateTime.now(),
+				mapa.get("cena") * (100 - kupac.tipKupca.popust)/100, mapa3.get("korisnickoIme"), StatusPorudzbine.Obrada);		
 			kupac.brojBodova +=  Math.round((mapa.get("cena")/1000*133) * 100.0) / 100.0 ;
 			kupac.brojBodova = Math.round((kupac.brojBodova) * 100.0) / 100.0;
 			kupacRepository.edit(kupac);
@@ -687,7 +685,6 @@ public class Main {
 				res.status(400);
 				return "Greska";
 			}
-
 			res.status(200);
 			return "OK";
 		});
