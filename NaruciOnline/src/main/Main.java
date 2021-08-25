@@ -24,6 +24,7 @@ import io.DostavljacRepository;
 import io.KomentarRepository;
 import io.KupacRepository;
 import io.MenadzerRepository;
+import io.OtkazivanjeRepository;
 import io.PorudzbinaRepository;
 import io.RestoranRepository;
 import io.ZahtevPorudzbineRepository;
@@ -36,6 +37,7 @@ import model.Korisnik;
 import model.Kupac;
 import model.Lokacija;
 import model.Menadzer;
+import model.OtkazivanjePorudzbine;
 import model.Porudzbina;
 import model.Restoran;
 import model.StatusPorudzbine;
@@ -62,6 +64,7 @@ public class Main {
 		ZahtevPorudzbineRepository zahtevPorudzbineRepository = new ZahtevPorudzbineRepository();
 		BlokiraniRepository blokiraniRepository = new BlokiraniRepository();
 		KomentarRepository komentarRepository = new KomentarRepository();
+		OtkazivanjeRepository otkazivanjeRepository = new OtkazivanjeRepository();
 
 		post("/register", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
@@ -266,8 +269,11 @@ public class Main {
 		});
 		
 		get("/pregledBlokiranih", (req, res) -> {
-			System.out.println(blokiraniRepository.getAll());
 			return g.toJson(blokiraniRepository.getAll());
+		});
+		
+		get("/pregledOtkazanihPorudzbina", (req, res) -> {
+			return g.toJson(otkazivanjeRepository.getAll());
 		});
 		
 		get("/pregledZahtevaRestorana/:id", (req,res)->{
@@ -797,7 +803,22 @@ public class Main {
 				kupac.brojBodova = 0;
 			}
 			kupacRepository.edit(kupac);
-						
+			OtkazivanjePorudzbine otkazivanje = new OtkazivanjePorudzbine(porudzbina.korisnickoImeKupca, porudzbina.id, LocalDateTime.now());
+			otkazivanjeRepository.create(otkazivanje);
+			LocalDateTime ovajMesec = LocalDateTime.now().minusMonths(1);
+			List<OtkazivanjePorudzbine> otkazivanja = otkazivanjeRepository.getAll();
+			List<OtkazivanjePorudzbine> otkazivanja2 = new ArrayList<OtkazivanjePorudzbine>();
+			for(OtkazivanjePorudzbine z: otkazivanja) {
+				otkazivanja2.add(z);
+			}
+			for (OtkazivanjePorudzbine o : otkazivanja) {
+				if(o.datumOtkazivanja.isBefore(ovajMesec)) {
+					otkazivanja2.remove(o);
+				}
+				
+			}
+			otkazivanjeRepository.saveAll(otkazivanja2);
+			
 			for(Porudzbina p : porudzbine) {
 				if(p.id.equals(porudzbina.id)) {
 					porudzbine.remove(p);

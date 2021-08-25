@@ -1,0 +1,25 @@
+[ {
+  "kupacId" : "k1",
+  "sifraPorudzbine" : "BZTMISSW9J",
+  "datumOtkazivanja" : "25.08.2021. 15:12:25"
+}, {
+  "kupacId" : "k2",
+  "sifraPorudzbine" : "G0F4K9S7S6",
+  "datumOtkazivanja" : "25.08.2021. 15:12:54"
+}, {
+  "kupacId" : "k1",
+  "sifraPorudzbine" : "5OK5LZ0T0E",
+  "datumOtkazivanja" : "25.08.2021. 15:29:30"
+}, {
+  "kupacId" : "k1",
+  "sifraPorudzbine" : "AK4EVBPBY0",
+  "datumOtkazivanja" : "25.08.2021. 16:17:10"
+}, {
+  "kupacId" : "k1",
+  "sifraPorudzbine" : "5PT5SLEZOV",
+  "datumOtkazivanja" : "25.08.2021. 16:17:23"
+}, {
+  "kupacId" : "k1",
+  "sifraPorudzbine" : "RB4FIR5XMD",
+  "datumOtkazivanja" : "25.08.2021. 16:17:34"
+} ]
