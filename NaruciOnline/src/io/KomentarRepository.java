@@ -2,6 +2,7 @@ package io;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -53,5 +54,47 @@ public class KomentarRepository {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	public List<Komentar> getNeodobreniKomentariZaRestoran(String idRestorana){
+		List<Komentar> lista = getAll();
+		List<Komentar> listaNeodobrenihKomentara = new ArrayList<Komentar>();
+		for(Komentar k: lista) {
+			if(k.idRestorana.equals(idRestorana) && !k.odobren) {
+				listaNeodobrenihKomentara.add(k);
+			}
+		}
+		return listaNeodobrenihKomentara;
+	}
+	
+	/*public boolean edit(Komentar komentar) {
+		List<Komentar> komentari = getAll();
+		if(komentari != null) {
+			for(Komentar k: komentari) {
+				if(k.idKomentara.equals(komentar.idKomentara)) {
+					k.odobren = komentar.odobren;
+				}			
+			}
+			return saveAll(komentari);
+		}
+		return false;
+	}*/
+	
+	public boolean OdobravanjeOdbijanjeKomentara(Komentar komentar) {
+		List<Komentar> komentari = getAll();
+		if(komentari != null) {
+			for(Komentar k: komentari) {
+				if(k.idKomentara.equals(komentar.idKomentara)) {
+					if(k.odobren != komentar.odobren) {
+						k.odobren = komentar.odobren;
+						return saveAll(komentari);
+					}else {
+						komentari.remove(k);
+						return saveAll(komentari);
+					}
+				}			
+			}
+		}
+		return false;
 	}
 }

@@ -1,19 +1,15 @@
 [ {
+  "idKomentara" : "CQI2Z",
   "idKorisnika" : "k1",
   "idRestorana" : "QW5UZ",
-  "tekst" : "govnjivo mesto",
+  "tekst" : "Prilicno dobro",
+  "ocena" : 4,
+  "odobren" : true
+}, {
+  "idKomentara" : "7X457",
+  "idKorisnika" : "k1",
+  "idRestorana" : "QW5UZ",
+  "tekst" : "Smece",
   "ocena" : 1,
-  "odobren" : false
-}, {
-  "idKorisnika" : "k1",
-  "idRestorana" : "QW5UZ",
-  "tekst" : "odlicna hrana",
-  "ocena" : 5,
-  "odobren" : false
-}, {
-  "idKorisnika" : "k1",
-  "idRestorana" : "QW5UZ",
-  "tekst" : "smece",
-  "ocena" : 2,
   "odobren" : false
 } ]

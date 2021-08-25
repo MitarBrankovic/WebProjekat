@@ -278,11 +278,44 @@ public class Main {
 		
 		post("/ocenaKorisnika", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
-			System.out.println(mapa);
-			Komentar komentar = new Komentar(mapa.get("idKorisnika"), mapa.get("idRestorana"),
+			StringBuilder sb = IDgenerator();
+		    String generisanID = sb.toString();
+			Komentar komentar = new Komentar(generisanID, mapa.get("idKorisnika"), mapa.get("idRestorana"),
 					mapa.get("kom"),Integer.parseInt(mapa.get("oce")));
 			komentarRepository.create(komentar);
 			return "OK";
+		});
+		
+		get("/ZahteviZaKomentare/:id", (req,res)->{
+			//return  req.params(":naziv");
+			String idRestorana = req.params(":id");
+			//System.out.println(nazivRestorana);
+			//System.out.println(restoran.naziv);
+			return g.toJson(komentarRepository.getNeodobreniKomentariZaRestoran(idRestorana));
+		});
+		
+		post("/odobriKomentar", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			HashMap<String, Double> mapaDouble = g.fromJson(req.body(), HashMap.class);
+
+			System.out.println("odobreno " + mapa);
+			Komentar komentar = new Komentar(mapa.get("idKomentara"), mapa.get("idKorisnika"),
+					mapa.get("idRestorana"), mapa.get("tekst"), mapaDouble.get("ocena").intValue());
+			komentar.odobren = true;
+			komentarRepository.OdobravanjeOdbijanjeKomentara(komentar);
+			return g.toJson(komentarRepository.getNeodobreniKomentariZaRestoran(mapa.get("idRestorana")));
+		});
+		
+		post("/odbijKomentar", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			HashMap<String, Double> mapaDouble = g.fromJson(req.body(), HashMap.class);
+
+			System.out.println("odobreno " + mapa);
+			Komentar komentar = new Komentar(mapa.get("idKomentara"), mapa.get("idKorisnika"),
+					mapa.get("idRestorana"), mapa.get("tekst"), mapaDouble.get("ocena").intValue());
+			komentar.odobren = false;
+			komentarRepository.OdobravanjeOdbijanjeKomentara(komentar);
+			return g.toJson(komentarRepository.getNeodobreniKomentariZaRestoran(mapa.get("idRestorana")));
 		});
 		
 		post("/kreiranjeRestorana", (req, res) -> {

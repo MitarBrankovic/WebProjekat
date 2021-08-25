@@ -34,6 +34,7 @@ Vue.component("header-comp", {
 			</div>
 			<div v-if="(korisnik.uloga==='MENADZER')">
 			  <a href="/#/zahteviDostavljaca">Zahtevi dostavljaca</a>
+			  <a href="/#/zahteviKomentara">Zahtevi komentara</a>
 			</div>
 	  </div>
 		</div>

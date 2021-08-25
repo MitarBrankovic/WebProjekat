@@ -26,7 +26,7 @@ Vue.component("restoran",{
             <img :src="restoran.slika" width = "200px" heigth = "300">
 
             <div v-if="!izmeniClick">
-                <button type="button" v-on:click="izmeniInformacije()">Izmeni</button>
+                <button v-if="uloga==='ADMIN'" type="button" v-on:click="izmeniInformacije()">Izmeni</button>
             </div>
             <div v-else>
                 <button type="button" v-on:click="sacuvajIzmene()">Sacuvaj</button>
