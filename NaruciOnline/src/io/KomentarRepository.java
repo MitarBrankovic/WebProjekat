@@ -67,6 +67,17 @@ public class KomentarRepository {
 		return listaNeodobrenihKomentara;
 	}
 	
+	public List<Komentar> getOdobreniKomentariZaRestoran(String idRestorana){
+		List<Komentar> lista = getAll();
+		List<Komentar> listaNeodobrenihKomentara = new ArrayList<Komentar>();
+		for(Komentar k: lista) {
+			if(k.idRestorana.equals(idRestorana) && k.odobren) {
+				listaNeodobrenihKomentara.add(k);
+			}
+		}
+		return listaNeodobrenihKomentara;
+	}
+	
 	/*public boolean edit(Komentar komentar) {
 		List<Komentar> komentari = getAll();
 		if(komentari != null) {

@@ -24,7 +24,8 @@ Vue.component("restoran",{
         <div v-if="restoran">
             <h2>{{restoran.naziv}}</h2>
             <img :src="restoran.slika" width = "200px" heigth = "300">
-
+            <br>
+            <button type="button" v-on:click="otvoriRecenzije()">Recenzije</button>
             <div v-if="!izmeniClick">
                 <button v-if="uloga==='ADMIN'" type="button" v-on:click="izmeniInformacije()">Izmeni</button>
             </div>
@@ -309,6 +310,15 @@ Vue.component("restoran",{
 
 			};
 			reader.readAsDataURL(file);
+        },
+        otvoriRecenzije:function(){
+            axios
+            .get(`/recenzije/${this.restoran.naziv}`)
+            .then(response=>{
+                const rest = response.data
+                localStorage.setItem('rest', JSON.stringify(rest))
+                this.$router.push(`/recenzije/${this.restoran.naziv}`)
+            })
         }
 
     }

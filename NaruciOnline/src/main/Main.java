@@ -380,6 +380,22 @@ public class Main {
 			return "OK";
 		});
 		
+		get("/recenzije/:naziv", (req,res)->{
+			//return  req.params(":naziv");
+			String naziv = req.params(":naziv");
+			//System.out.println(naziv);
+			return "OK";
+		});
+		
+		get("/recenzije/get/:naziv", (req,res)->{
+			//return  req.params(":naziv");
+			String nazivRestorana = req.params(":naziv");
+			//System.out.println(nazivRestorana);
+			Restoran restoran = restoranRepository.getObjViaName(nazivRestorana);
+			//System.out.println(restoran.naziv);
+			return g.toJson(komentarRepository.getOdobreniKomentariZaRestoran(restoran.id));
+		});
+		
 		get("/restoran/get/:naziv", (req,res)->{
 			//return  req.params(":naziv");
 			String nazivRestorana = req.params(":naziv");
