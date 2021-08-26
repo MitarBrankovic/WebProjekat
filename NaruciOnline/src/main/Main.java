@@ -573,6 +573,8 @@ public class Main {
 			}
 			
 			List<Kupac> kupci = kupacRepository.getAll();
+			List<Kupac> kupci2 = kupacRepository.getAll();
+			List<Kupac> sortiraniKupci = new ArrayList<Kupac>();
 			List<Kupac> bronzani = new ArrayList<Kupac>();
 			List<Kupac> srebrni = new ArrayList<Kupac>();
 			List<Kupac> zlatni = new ArrayList<Kupac>();
@@ -611,6 +613,8 @@ public class Main {
 			boolean prezimeOpad = mapaBool.get("prezimeOpad");
 			boolean korisnickoImeRast = mapaBool.get("korisnickoImeRast");
 			boolean korisnickoImeOpad = mapaBool.get("korisnickoImeOpad");
+			boolean bodoviRast = mapaBool.get("bodoviRast");
+			boolean bodoviOpad = mapaBool.get("bodoviOpad");
 
 			if (imeRast) {
 				int n = korisnici.size();
@@ -709,10 +713,54 @@ public class Main {
 					}
 				}
 			}
-
-			//TODO: SORTIRANJE BODOVA
-
-			//res.type("application/json");
+			
+			if (bodoviRast) {
+				int n = kupci2.size();
+				Kupac temp = null;
+				for (int i = 0; i < n; i++) {
+					for (int j = 1; j < (n - i); j++) {
+						if (kupci2.get(j - 1).brojBodova < kupci2.get(j).brojBodova) {
+							// swap elements
+							temp = kupci2.get(j - 1);
+							kupci2.set(j - 1, kupci2.get(j));
+							kupci2.set(j, temp);
+						}
+					}
+				}
+				List<Korisnik> sortirani = new ArrayList<Korisnik>();
+				for(Kupac k : kupci2) {
+					for(Korisnik kor : korisnici) {
+						if(k.korisnickoIme.equals(kor.korisnickoIme)) {
+							sortirani.add(kor);
+						}
+					}				
+				}
+				korisnici = sortirani;
+			}			
+			if (bodoviOpad) {
+				int n = kupci2.size();
+				Kupac temp = null;
+				for (int i = 0; i < n; i++) {
+					for (int j = 1; j < (n - i); j++) {
+						if (kupci2.get(j - 1).brojBodova > kupci2.get(j).brojBodova) {
+							// swap elements
+							temp = kupci2.get(j - 1);
+							kupci2.set(j - 1, kupci2.get(j));
+							kupci2.set(j, temp);
+						}
+					}
+				}
+				List<Korisnik> sortirani = new ArrayList<Korisnik>();
+				for(Kupac k : kupci2) {
+					for(Korisnik kor : korisnici) {
+						if(k.korisnickoIme.equals(kor.korisnickoIme)) {
+							sortirani.add(kor);
+						}
+					}				
+				}
+				korisnici = sortirani;
+			}
+			
 			return g.toJson(korisnici);
 		});
 		

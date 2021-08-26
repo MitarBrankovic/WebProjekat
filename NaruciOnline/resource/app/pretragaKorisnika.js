@@ -8,6 +8,8 @@ Vue.component("pretragaKorisnika",{
                 prezimeOpad:false,
                 korisnickoImeRast:false,
                 korisnickoImeOpad:false,
+                bodoviRast:false,
+                bodoviOpad:false,
                 ime:"",
                 prezime:"",
                 korisnickoIme:"",
@@ -49,7 +51,8 @@ Vue.component("pretragaKorisnika",{
                 <button type="button" v-on:click="prezimeOpadFun()">Prezime Opadajuce</button>
                 <button type="button" v-on:click="korisnickoImeRastFun()">Korisnicko Ime Rastuce</button>
                 <button type="button" v-on:click="korisnickoImeOpadFun()">Korisnicko Ime Opadajuce</button>
-                
+                <button type="button" v-on:click="bodoviRastFun()">Bodovi Rastuce</button>
+                <button type="button" v-on:click="bodoviOpadFun()">Bodovi Opadajuce</button>
             </div>
         
         
@@ -68,6 +71,8 @@ Vue.component("pretragaKorisnika",{
             this.search.prezimeOpad = false
             this.search.korisnickoImeRast = false
             this.search.korisnickoImeOpad = false
+            this.search.bodoviRast = false
+            this.search.bodoviOpad = false
             console.log("Klik!")
             this.$emit('clicked', this.search)
         },
@@ -78,6 +83,8 @@ Vue.component("pretragaKorisnika",{
             this.search.prezimeOpad = false
             this.search.korisnickoImeRast = false
             this.search.korisnickoImeOpad = false
+            this.search.bodoviRast = false
+            this.search.bodoviOpad = false
             console.log("Klik!")
             this.$emit('clicked', this.search)
         },
@@ -88,6 +95,8 @@ Vue.component("pretragaKorisnika",{
             this.search.prezimeOpad = false
             this.search.korisnickoImeRast = false
             this.search.korisnickoImeOpad = false
+            this.search.bodoviRast = false
+            this.search.bodoviOpad = false
             console.log("Klik!")
             this.$emit('clicked', this.search)
         },
@@ -98,6 +107,8 @@ Vue.component("pretragaKorisnika",{
             this.search.prezimeOpad = true
             this.search.korisnickoImeRast = false
             this.search.korisnickoImeOpad = false
+            this.search.bodoviRast = false
+            this.search.bodoviOpad = false
             console.log("Klik!")
             this.$emit('clicked', this.search)
         },
@@ -108,6 +119,8 @@ Vue.component("pretragaKorisnika",{
             this.search.prezimeOpad = false
             this.search.korisnickoImeRast = true
             this.search.korisnickoImeOpad = false
+            this.search.bodoviRast = false
+            this.search.bodoviOpad = false
             console.log("Klik!")
             this.$emit('clicked', this.search)
         },
@@ -118,6 +131,34 @@ Vue.component("pretragaKorisnika",{
             this.search.prezimeOpad = false
             this.search.korisnickoImeRast = false
             this.search.korisnickoImeOpad = true
+            this.search.bodoviRast = false
+            this.search.bodoviOpad = false
+            console.log("Klik!")
+            this.$emit('clicked', this.search)
+        }
+        ,
+        bodoviRastFun: function(){
+            this.search.imeRast = false
+            this.search.imeOpad = false
+            this.search.prezimeRast = false
+            this.search.prezimeOpad = false
+            this.search.korisnickoImeRast = false
+            this.search.korisnickoImeOpad = false
+            this.search.bodoviRast = true
+            this.search.bodoviOpad = false
+            console.log("Klik!")
+            this.$emit('clicked', this.search)
+        }
+        ,
+        bodoviOpadFun: function(){
+            this.search.imeRast = false
+            this.search.imeOpad = false
+            this.search.prezimeRast = false
+            this.search.prezimeOpad = false
+            this.search.korisnickoImeRast = false
+            this.search.korisnickoImeOpad = false
+            this.search.bodoviRast = false
+            this.search.bodoviOpad = true
             console.log("Klik!")
             this.$emit('clicked', this.search)
         }
