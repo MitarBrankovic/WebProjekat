@@ -35,8 +35,8 @@ Vue.component("pretragaRestorana",{
             <br>
         
             <div>
-                <button type="button" v-on:click="nazivRastFun()">Naziv (Rastuce)</button>
-                <button type="button" v-on:click="nazivOpadFun()">Naziv (Opadajuce)</button>
+                <button type="button" v-on:click="nazivRastFun()">Naziv Rastuce</button>
+                <button type="button" v-on:click="nazivOpadFun()">Naziv Opadajuce</button>
                 <button type="button" v-on:click="lokacRastFun()">Lokacija Rastuce</button>
                 <button type="button" v-on:click="lokacOpadFun()">Lokacija Opadajuce</button>
                 <button type="button" v-on:click="ocenaRastFun()">Ocena Rastuce</button>

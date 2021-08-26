@@ -14,6 +14,7 @@ const PregledMenadzera = {template:'<pregledMenadzera></pregledMenadzera>'}
 const PregledPorudzbina = {template:'<pregledPorudzbina></pregledPorudzbina>'}
 const PretragaRestorana = {template:'<pretragaRestorana></pretragaRestorana>'}
 const PretragaKorisnika = {template:'<pretragaKorisnika></pretragaKorisnika>'}
+const PretragaPorudzbina = {template:'<pretragaPorudzbina></pretragaPorudzbina>'}
 const Restoran = {template:'<restoran></restoran>'}
 const ZahteviDostavljaca = {template:'<zahteviDostavljaca></zahteviDostavljaca>'}
 const Oceni = {template:'<oceni></oceni>'}
@@ -42,6 +43,7 @@ const router = new VueRouter({
 		{path:'/kreiranjeRestorana',component: KreiranjeRestorana},
 		{path:'/pretragaRestorana',component: PretragaRestorana},
 		{path:'/pretragaKorisnika',component: PretragaKorisnika},
+		{path:'/pretragaPorudzbina',component: PretragaPorudzbina},
 		{path:'/restoran/:naziv',component: Restoran},
 		{path:'/recenzije/:naziv',component: Recenzije},
 		{path:'/zahteviDostavljaca',component: ZahteviDostavljaca},

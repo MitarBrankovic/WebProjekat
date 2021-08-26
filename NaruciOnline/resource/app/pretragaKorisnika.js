@@ -45,8 +45,8 @@ Vue.component("pretragaKorisnika",{
             </div>
         
             <div>
-                <button type="button" v-on:click="imeRastFun()">Ime (Rastuce)</button>
-                <button type="button" v-on:click="imeOpadFun()">Ime (Opadajuce)</button>
+                <button type="button" v-on:click="imeRastFun()">Ime Rastuce</button>
+                <button type="button" v-on:click="imeOpadFun()">Ime Opadajuce</button>
                 <button type="button" v-on:click="prezimeRastFun()">Prezime Rastuce</button>
                 <button type="button" v-on:click="prezimeOpadFun()">Prezime Opadajuce</button>
                 <button type="button" v-on:click="korisnickoImeRastFun()">Korisnicko Ime Rastuce</button>

@@ -995,6 +995,232 @@ public class Main {
 		});
 		
 		
+		post("/pretragaPorudzbina", (req, res) -> {
+			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
+			HashMap<String, Boolean> mapaBool = g.fromJson(req.body(), HashMap.class);
+
+			String nazivRestorana = mapa.get("naziv");
+			String cenaOd = mapa.get("cenaOd");
+			String cenaDo = mapa.get("cenaDo");
+			String datumOd = mapa.get("datumOd");
+			String datumDo = mapa.get("datumDo");
+			String status = mapa.get("status");
+			DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+			List<Porudzbina> porudzbine = porudzbinaRepository.getAll();
+			List<Restoran> restorani = restoranRepository.getAll();
+			List<Restoran> restorani2 = restoranRepository.getAll();
+			List<Restoran> pomocna = new ArrayList<Restoran>();
+
+			if (nazivRestorana.equals("") && cenaOd.equals("") && cenaDo.equals("") && datumOd.equals("") && datumDo.equals(""))
+				porudzbine = porudzbinaRepository.getAll();
+				//return g.toJson(restoranRepository.getAll());
+			
+			if (!nazivRestorana.equals("")) {
+				for(Restoran r: restorani) {
+					if(r.naziv.toLowerCase().contains(nazivRestorana)) {
+						pomocna.add(r);
+					}
+				}
+				for(Restoran r: pomocna) {
+					porudzbine =  porudzbine.stream().filter(m -> m.idRestorana.equals(r.id))
+							.collect(Collectors.toList());
+				}
+
+			}
+			if (!cenaOd.equals("")) {
+				porudzbine = porudzbine.stream().filter(m -> (m.cena > Double.parseDouble(cenaOd)))
+						.collect(Collectors.toList());
+			}
+			if (!cenaDo.equals("")) {
+				porudzbine = porudzbine.stream().filter(m -> (m.cena < Double.parseDouble(cenaDo)))
+						.collect(Collectors.toList());
+			}
+			if (!datumOd.equals("")) {
+				//LocalDateTime lf = LocalDateTime.parse(datumOd, df);
+				porudzbine = porudzbine.stream().filter(m -> (m.datum.isAfter(LocalDate.parse(datumOd, df).atStartOfDay())))
+						.collect(Collectors.toList());
+			}
+			if (!datumDo.equals("")) {
+				porudzbine = porudzbine.stream().filter(m -> (m.datum.isBefore(LocalDate.parse(datumDo, df).atStartOfDay())))
+						.collect(Collectors.toList());
+			}
+			
+			List<Porudzbina> obrada = new ArrayList<Porudzbina>();
+			List<Porudzbina> uPripremi	 = new ArrayList<Porudzbina>();
+			List<Porudzbina> cekaDostavljaca = new ArrayList<Porudzbina>();
+			List<Porudzbina> uTransportu = new ArrayList<Porudzbina>();
+			List<Porudzbina> dostavljena = new ArrayList<Porudzbina>();
+			List<Porudzbina> otkazana = new ArrayList<Porudzbina>();
+			for(Porudzbina p : porudzbine) {
+				if(p.status == StatusPorudzbine.Obrada) {
+					obrada.add(p);				
+				}else if(p.status  == StatusPorudzbine.UPripremi) {
+					uPripremi.add(p);								
+				}else if(p.status  == StatusPorudzbine.CekaDostavljaca) {
+					cekaDostavljaca.add(p);								
+				}else if(p.status  == StatusPorudzbine.UTransportu) {
+					uTransportu.add(p);								
+				}else if(p.status  == StatusPorudzbine.Dostavljena) {
+					dostavljena.add(p);								
+				}else if(p.status  == StatusPorudzbine.Otkazana) {
+					otkazana.add(p);								
+				};												
+			}
+				
+							
+			if (status.equals("Obrada")) {				
+				for(Porudzbina k : obrada) {
+					porudzbine = porudzbine.stream().filter(m -> m.id.equals(k.id))
+							.collect(Collectors.toList());					
+				}
+			}else if(status.equals("UPripremi")) {
+				for(Porudzbina k : uPripremi) {
+					porudzbine = porudzbine.stream().filter(m -> m.id.equals(k.id))
+							.collect(Collectors.toList());					
+				}
+			}else if(status.equals("CekaDostavljaca")) {
+				for(Porudzbina k : cekaDostavljaca) {
+					porudzbine = porudzbine.stream().filter(m -> m.id.equals(k.id))
+							.collect(Collectors.toList());					
+				}
+			}else if(status.equals("UTransportu")) {
+				for(Porudzbina k : uTransportu) {
+					porudzbine = porudzbine.stream().filter(m -> m.id.equals(k.id))
+							.collect(Collectors.toList());					
+				}
+			}else if(status.equals("Dostavljena")) {
+				for(Porudzbina k : dostavljena) {
+					porudzbine = porudzbine.stream().filter(m -> m.id.equals(k.id))
+							.collect(Collectors.toList());					
+				}
+			}else if(status.equals("Otkazana")) {
+				for(Porudzbina k : otkazana) {
+					porudzbine = porudzbine.stream().filter(m -> m.id.equals(k.id))
+							.collect(Collectors.toList());					
+				}
+			}
+			
+				
+			boolean nazivRast = mapaBool.get("nazivRast");
+			boolean nazivOpad = mapaBool.get("nazivOpad");
+			boolean cenaRast = mapaBool.get("cenaRast");
+			boolean cenaOpad = mapaBool.get("cenaOpad");
+			boolean datumRast = mapaBool.get("datumRast");
+			boolean datumOpad = mapaBool.get("datumOpad");
+
+			if (nazivRast) {
+				int n = restorani2.size();
+				Restoran temp = null;
+				for (int i = 0; i < n; i++) {
+					for (int j = 1; j < (n - i); j++) {
+						if (restorani2.get(j - 1).naziv
+								.compareTo(restorani2.get(j).naziv) > 0) {
+							// swap elements
+							temp = restorani2.get(j - 1);
+							restorani2.set(j - 1, restorani2.get(j));
+							restorani2.set(j, temp);
+						}
+					}
+				}
+				List<Porudzbina> sortirane = new ArrayList<Porudzbina>();
+				for(Restoran r : restorani2) {
+					for(Porudzbina p: porudzbine) {
+						if(p.idRestorana.equals(r.id)) {
+							sortirane.add(p);
+						}
+					}
+				}
+				porudzbine = sortirane;
+			}			
+			if (nazivOpad) {
+				int n = restorani2.size();
+				Restoran temp = null;
+				for (int i = 0; i < n; i++) {
+					for (int j = 1; j < (n - i); j++) {
+						if (restorani2.get(j - 1).naziv
+								.compareTo(restorani2.get(j).naziv) < 0) {
+							// swap elements
+							temp = restorani2.get(j - 1);
+							restorani2.set(j - 1, restorani2.get(j));
+							restorani2.set(j, temp);
+						}
+					}
+				}
+				List<Porudzbina> sortirane = new ArrayList<Porudzbina>();
+				for(Restoran r : restorani2) {
+					for(Porudzbina p: porudzbine) {
+						if(p.idRestorana.equals(r.id)) {
+							sortirane.add(p);
+						}
+					}
+				}
+				porudzbine = sortirane;
+			}
+			if (cenaRast) {
+				int n = porudzbine.size();
+				Porudzbina temp = null;
+				for (int i = 0; i < n; i++) {
+					for (int j = 1; j < (n - i); j++) {
+						if (porudzbine.get(j - 1).cena > porudzbine.get(j).cena) {
+							// swap elements
+							temp = porudzbine.get(j - 1);
+							porudzbine.set(j - 1, porudzbine.get(j));
+							porudzbine.set(j, temp);
+						}
+
+					}
+				}
+			}			
+			if (cenaOpad) {
+				int n = porudzbine.size();
+				Porudzbina temp = null;
+				for (int i = 0; i < n; i++) {
+					for (int j = 1; j < (n - i); j++) {
+						if (porudzbine.get(j - 1).cena < porudzbine.get(j).cena) {
+							// swap elements
+							temp = porudzbine.get(j - 1);
+							porudzbine.set(j - 1, porudzbine.get(j));
+							porudzbine.set(j, temp);
+						}
+
+					}
+				}
+			}
+			if (datumRast) {
+				int n = porudzbine.size();
+				Porudzbina temp = null;
+				for (int i = 0; i < n; i++) {
+					for (int j = 1; j < (n - i); j++) {
+						if (porudzbine.get(j - 1).datum.isAfter(porudzbine.get(j).datum)) {
+							// swap elements
+							temp = porudzbine.get(j - 1);
+							porudzbine.set(j - 1, porudzbine.get(j));
+							porudzbine.set(j, temp);
+						}
+
+					}
+				}
+			}
+			if (datumOpad) {
+				int n = porudzbine.size();
+				Porudzbina temp = null;
+				for (int i = 0; i < n; i++) {
+					for (int j = 1; j < (n - i); j++) {
+						if (porudzbine.get(j - 1).datum.isBefore(porudzbine.get(j).datum)) {
+							// swap elements
+							temp = porudzbine.get(j - 1);
+							porudzbine.set(j - 1, porudzbine.get(j));
+							porudzbine.set(j, temp);
+						}
+
+					}
+				}
+			}
+			return g.toJson(porudzbine);
+		});
+		
+		
 	}
 	
 	

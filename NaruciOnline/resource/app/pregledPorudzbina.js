@@ -17,7 +17,8 @@ Vue.component("pregledPorudzbina",{
 
     template:`
         <div>
-            <h2>PORUDZBINE:</h2>      
+            <h2>PORUDZBINE:</h2>  
+            <pretragaPorudzbina id="search" @clicked="onSearch2Click"></pretragaPorudzbina>    
             <div v-for = "p in porudzbine">
             
                 <div v-if="(korisnik.uloga==='MENADZER') && (vlasnikRestorana(p)) && ((p.status==='Obrada') || (p.status==='UPripremi'))">                           
@@ -99,6 +100,12 @@ Vue.component("pregledPorudzbina",{
         
     },
     methods:{
+        onSearch2Click:function(search){
+            console.log(search)
+            axios
+            .post('/pretragaPorudzbina',search)
+            .then(response=>{this.porudzbine= response.data})
+        },
         vratiImePrezimeKupca(p){
             for (let el of this.korisnici) {
                 if(el.korisnickoIme === p.korisnickoImeKupca){
