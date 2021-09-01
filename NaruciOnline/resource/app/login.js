@@ -6,23 +6,34 @@ Vue.component("login", {
         }
     },
     template:`  
-	<div>    
-		<form method="POST" @submit.prevent = "submitForm">
-		  <div class="container">
-		    <h1>Prijavljivanje</h1>
-		    <hr>
+	<div id="login-pozadina">
+		<div>
+			<form method="POST" @submit.prevent = "submitForm">
+			<div class="forma container">
+				<h1>Prijavljivanje</h1>
+				<hr>
 
-		    <label for="korisnickoIme"><b>Username</b></label>
-		    <input type="text" v-model="korisnickoIme" required>
-			<br>
-		    <label for="lozinka"><b>Password</b></label>
-		    <input type="password" v-model="lozinka" required>
-		    <hr>
+				<label class="col-sm-2 col-form-label" for="korisnickoIme"><b>Korisnicko ime</b></label>
+				<input class="col-sm-2 col-form-control" type="text" v-model="korisnickoIme" required>
+				<br>
+				<label class="col-sm-2 col-form-label" for="lozinka"><b>Lozinka</b></label>
+				<input class="col-sm-2 col-form-control" type="password" v-model="lozinka" required>
+				<br><br><br>
 
-		    <button type="submit">Login</button>
-		  </div>
-		
-		</form>
+				<button class="button" type="submit">Login</button>
+				<br>
+				<div class="container signin">
+					<p>Nemate nalog? <a href="#/register">Registrujte se</a>.</p>
+			  	</div>
+			</div>
+			
+			</form>
+		</div>
+
+		<footer class="footer">
+			<p>Contact: &nbsp; brankovic.ra198.2018@uns.ac.rs <br>&emsp;&emsp; beric.ra191.2018@uns.ac.rs</p> &emsp;&emsp;&emsp;&emsp;
+			<p>Studentarija, Copyright &copy; 2021</p>  
+		</footer>
 	</div>
     `       
         ,

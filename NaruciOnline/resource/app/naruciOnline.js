@@ -34,7 +34,7 @@ Vue.component("NaruciOnline", {
                         <div v-if="(m.status===false)">
                             <p style="color:red">zatvoren</p>
                         </div>
-                        <button type = "button" class="button" v-on:click="prikazRestorana(m)">Detalji</button> 
+                        <button type="button" class="button" v-on:click="prikazRestorana(m)">Detalji</button> 
                                 
                     </div>
                 </div>

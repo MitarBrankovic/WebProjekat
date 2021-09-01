@@ -71,7 +71,7 @@ Vue.component("header-comp", {
 
 
 
-		<div class="topnav-right dropdown" v-if="(korisnik !== null)">
+		<div class="topnav-right dropdown" v-if="(korisnik !== null) && (korisnik.uloga==='ADMIN')">
 		<button class="dropbtn">Korisnici
 		  <i class="fa fa-caret-down"></i>
 		</button>
