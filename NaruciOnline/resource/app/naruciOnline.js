@@ -9,13 +9,18 @@ Vue.component("NaruciOnline", {
     },
     template:`  
     <div>
-        <div style="margin-left: 50px" >
+        <section id="restoran-slika">
+            <h1>Naruci Online</h1>
+            <h2>Sajt za narucivanje hrane</h2>
+        </section>
+
+        <div style="margin-left: 12%"   >
             <pretragaRestorana id="search" @clicked="onSearchClick"></pretragaRestorana>
             <br>    
             <div v-for = "m in sortiraniRestorani" >
-                <div id="manifest" style="width: 400px">
-                    <img :src="m.slika" width = "200px" heigth = "300">
-                    <div>
+                <div class="restoran">
+                    <img :src="m.slika">
+                    <div class="restoran-tekst">
                         <p>
                             <b>{{m.naziv}}</b><br>
                         </p>    
@@ -29,13 +34,17 @@ Vue.component("NaruciOnline", {
                         <div v-if="(m.status===false)">
                             <p style="color:red">zatvoren</p>
                         </div>
-                        <button type = "button" v-on:click="prikazRestorana(m)">Detalji</button> 
-                        <hr>
+                        <button type = "button" class="button" v-on:click="prikazRestorana(m)">Detalji</button> 
                                 
                     </div>
                 </div>
             </div>    
         </div>
+
+        <footer class="footer">
+            <p>Contact: &nbsp; brankovic.ra198.2018@uns.ac.rs <br>&emsp;&emsp; beric.ra191.2018@uns.ac.rs</p> &emsp;&emsp;&emsp;&emsp;
+            <p>Studentarija, Copyright &copy; 2021</p>  
+        </footer>
     </div>
     `      
         ,
