@@ -14,11 +14,11 @@ Vue.component("header-comp", {
 			<a href="#restorani">Restorani</a>
 		</div>
 
-	  <div class="topnav-right dropdown" v-if="(korisnik !== null)">
-	  <button class="dropbtn">Restoran
+	  <div class="topnav-right dropdown1" v-if="(korisnik !== null)">
+	  <button class="dropbtn1">Restoran
 		<i class="fa fa-caret-down"></i>
 	  </button>
-	  <div class="dropdown-content" >
+	  <div class="dropdown-content1" >
 		  <div v-if="(korisnik.uloga==='ADMIN')">
 		  	<a href="/#/kreiranjeRestorana">Kreiranje restorana</a>
 		  </div>
@@ -48,11 +48,11 @@ Vue.component("header-comp", {
   		</div>
 
 
-		<div class="topnav-right dropdown" v-if="(korisnik !== null)">
-		  <button class="dropbtn">Profil
+		<div class="topnav-right dropdown1" v-if="(korisnik !== null)">
+		  <button class="dropbtn1">Profil
 			<i class="fa fa-caret-down"></i>
 		  </button>
-		  <div class="dropdown-content" >
+		  <div class="dropdown-content1" >
 		  	<div v-if="(korisnik.uloga==='KUPAC') ||(korisnik.uloga==='MENADZER')||(korisnik.uloga==='ADMIN')||(korisnik.uloga==='DOSTAVLJAC')">
 			  <a href="/#/edit">Izmena podataka</a>
   			</div>
@@ -71,11 +71,11 @@ Vue.component("header-comp", {
 
 
 
-		<div class="topnav-right dropdown" v-if="(korisnik !== null) && (korisnik.uloga==='ADMIN')">
-		<button class="dropbtn">Korisnici
+		<div class="topnav-right dropdown1" v-if="(korisnik !== null) && (korisnik.uloga==='ADMIN')">
+		<button class="dropbtn1">Korisnici
 		  <i class="fa fa-caret-down"></i>
 		</button>
-		<div class="dropdown-content" >
+		<div class="dropdown-content1" >
 			<div v-if="(korisnik.uloga==='ADMIN')">
 			<a class="nav-link" href="/#/kreiranjeNaloga">Kreiranje naloga</a>
 			</div>
