@@ -21,7 +21,8 @@ Vue.component("restoran",{
     },
 
     template:`
-        <div v-if="restoran">
+        <div v-if="restoran" >
+            <div class="container-xl" id="moj-restoran">
             <h2>{{restoran.naziv}}</h2>
             <img :src="restoran.slika" width = "200px" heigth = "300">
             <br>
@@ -71,62 +72,64 @@ Vue.component("restoran",{
                     <hr>    
                 </p>
             </div>
-            
-            <h3>Artikli:</h3><hr>
-            <div v-for = "a in artikli">
-                <div v-if="izmeniArtikalClick && a===artikalZaIzmenu">
-                    <p>
-                        <img :src="a.slika" width = "200px" heigth = "200"><br>
-                        <b>Naziv: </b> <input type="text" v-model="a.naziv"><br>
-                        <b>Cena: </b> <input type="text" v-model="a.cena"> din<br>
-                        <b>Tip: </b> 
-                        <select v-model="a.tip">
-                            <option value="jelo">Jelo</option>
-                            <option value="pice">Pice</option>
-                        </select>
-                        <br>
-                        <b>Kolicina: </b> <input type="text" v-model="a.kolicina"><br>
-                        <b>Opis: </b> <input type="text" v-model="a.opis"><br>
-                        <label for="slika"><b>Slika</b></label>
-                        <input type="file"  required @change=imageAdded>
-                        <br>
-                        <div v-if="vlasnikRestorana()">
-                            <button type="button" v-on:click="sacuvajIzmenuArtikla(a)">Sacuvaj</button>
-                            <button type="button" v-on:click="izmeniInformacijeArtikla(a)">Otkazi</button>
-                        </div>    
-                        <hr>
-                    </p>
-                </div>
-                <div v-else>
-                    <p>
-                        <img :src="a.slika" width = "200px" heigth = "200"><br>
-                        <b>Naziv: </b> {{a.naziv}}<br>
-                        <b>Cena: </b> {{a.cena}} din<br>
-                        <b>Tip: </b> {{a.tip}}<br>
-                        <b>Kolicina: </b> {{a.kolicina}}<br>
-                        <b>Opis: </b> {{a.opis}}<br>
-                        <div v-if="vlasnikRestorana()">
-                            <button type="button" v-on:click="izmeniInformacijeArtikla(a)">Izmeni</button>
-                            <button type="button" v-on:click="izbrisiArtikal(a)">Izbrisi</button>
-                        </div>
-                        
-                        <div v-if="(korisnik.uloga==='KUPAC')">
-                            <!-- <input type="number" v-model="kolicinaZaKorpu" required> -->
-                            <button type="button" v-on:click="dodajUKorpu(a)">Dodaj u korpu</button>
-                        </div>
+            </div>
 
-                        <hr>
-                        
-                    </p>
+            <div class="container-xxl">
+                <h3>Artikli:</h3><hr>
+                <div v-for = "a in artikli">
+                    <div v-if="izmeniArtikalClick && a===artikalZaIzmenu" class="artikal">
+                        <p class="artikal-tekst">
+                            <img :src="a.slika"><br>
+                            <b>Naziv: </b> <input type="text" v-model="a.naziv"><br>
+                            <b>Cena: </b> <input type="text" v-model="a.cena"> din<br>
+                            <b>Tip: </b> 
+                            <select v-model="a.tip">
+                                <option value="jelo">Jelo</option>
+                                <option value="pice">Pice</option>
+                            </select>
+                            <br>
+                            <b>Kolicina: </b> <input type="text" v-model="a.kolicina"><br>
+                            <b>Opis: </b> <input type="text" v-model="a.opis"><br>
+                            <label for="slika"><b>Slika</b></label>
+                            <input type="file"  required @change=imageAdded>
+                            <br>
+                            <div v-if="vlasnikRestorana()">
+                                <button class="btn btn-primary" type="button" v-on:click="sacuvajIzmenuArtikla(a)">Sacuvaj</button>
+                                <button class="btn btn-danger" type="button" v-on:click="izmeniInformacijeArtikla(a)">Otkazi</button>
+                            </div>    
+                            <hr>
+                        </p>
+                    </div>
+                    <div v-else class="artikal">
+                        <p class="artikal-tekst">
+                            <img :src="a.slika"><br>
+                            <b>Naziv: </b> {{a.naziv}}<br>
+                            <b>Cena: </b> {{a.cena}} din<br>
+                            <b>Tip: </b> {{a.tip}}<br>
+                            <b>Kolicina: </b> {{a.kolicina}}<br>
+                            <b>Opis: </b> {{a.opis}}<br>
+                            <div v-if="vlasnikRestorana()">
+                                <button class="btn btn-primary" type="button" v-on:click="izmeniInformacijeArtikla(a)">Izmeni</button>
+                                <button class="btn btn-danger" type="button" v-on:click="izbrisiArtikal(a)">Izbrisi</button>
+                            </div>
+                            
+                            <div v-if="(korisnik.uloga==='KUPAC')">
+                                <!-- <input type="number" v-model="kolicinaZaKorpu" required> -->
+                                <button type="button" v-on:click="dodajUKorpu(a)">Dodaj u korpu</button>
+                            </div>
+                            <hr>                            
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div v-if="vlasnikRestorana()">
+
+            <div v-if="vlasnikRestorana()" class="dodaj-artikal container">
                 <div v-if="dodajArtikalVisible">
-                    <button v-on:click="dodajArtikalVisible=false">Dodaj artikal</button>
+                    <button  v-on:click="dodajArtikalVisible=false">Dodaj artikal</button>
                 </div>
                 <div v-else>
                     <form method ="POST" @submit.prevent = "dodajArtikal()">
-                        <div>    
+                        <div class="artikal-tekst">    
                             <label for="naziv"><b>Naziv</b></label>
                             <input type="text" v-model="naziv" required>
                             <br>
@@ -145,13 +148,13 @@ Vue.component("restoran",{
                             <label for="opis"><b>Opis</b></label>
                             <input type="text" v-model="opis">
                             <br>
-                            <label for="slika"><b>Slika</b></label>
-                            <input type="file"  required @change=imageAdded>
+                            <label for="slika"><b>Slika:</b></label>
+                            <input type="file" required @change=imageAdded>
                             <br>
-                            <button type="submit">Dodaj</button>    
+                            <button class="btn btn-success" type="submit">Dodaj</button>    
                         </div>
                     </form>
-                    <button v-on:click="dodajArtikalVisible=true">Otkazi</button>
+                    <button class="btn btn-danger" v-on:click="dodajArtikalVisible=true">Otkazi</button>
                 </div>
             </div>
         </div> 

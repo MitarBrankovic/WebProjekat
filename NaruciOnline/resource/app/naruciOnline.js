@@ -9,7 +9,7 @@ Vue.component("NaruciOnline", {
     },
     template:`  
     <div>
-        <section id="restoran-slika">
+        <section id="pocetna-slika">
             <h1>Naruci Online</h1>
             <h2>Sajt za narucivanje hrane</h2>
         </section>

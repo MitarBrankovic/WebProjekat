@@ -129,7 +129,40 @@ body {
   margin-left: 3%;
 }
 
-#restoran-slika{
+.artikal{
+  float:left;
+  width: 20%;
+  border: 1px solid #333;
+  padding:40px;
+  height: 520px;
+  margin:30px;
+  border-radius:2%;
+  background-color: ghostwhite;
+}
+
+.artikal-tekst{
+  font-size: 16tpx;
+  text-align: left;
+}
+
+.artikal img{
+  height: 200px;
+  width: 100%;
+  margin-left: 3%;
+}
+
+.dodaj-artikal{
+  margin-bottom:-100px;
+}
+
+#moj-restoran img{
+  height: 250px;
+  width: 25%;
+}
+
+
+
+#pocetna-slika{
   margin:auto;
   overflow:hidden;
   background:url('../images/restoran.jpg') no-repeat -800px;
@@ -137,7 +170,7 @@ body {
   width: 100%;
 }
 
-#restoran-slika h1{
+#pocetna-slika h1{
   margin-top: 5%;
   text-align: center;
   color: white;
@@ -145,7 +178,7 @@ body {
   font-size: 60px;
 }
 
-#restoran-slika h2{
+#pocetna-slika h2{
 
   text-align: center;
   color: white;

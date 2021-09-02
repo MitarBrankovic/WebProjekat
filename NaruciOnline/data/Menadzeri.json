@@ -1,22 +1,4 @@
 [ {
-  "korisnickoIme" : "a",
-  "lozinka" : "a",
-  "ime" : "a",
-  "prezime" : "a",
-  "pol" : "muski",
-  "datumRodjenja" : "2021-07-27",
-  "uloga" : "MENADZER",
-  "idRestorana" : "Q2F8L"
-}, {
-  "korisnickoIme" : "v",
-  "lozinka" : "v",
-  "ime" : "v",
-  "prezime" : "v",
-  "pol" : "muski",
-  "datumRodjenja" : "2021-07-27",
-  "uloga" : "MENADZER",
-  "idRestorana" : "PZKVL"
-}, {
   "korisnickoIme" : "m1",
   "lozinka" : "m1",
   "ime" : "Menadzer1",
@@ -33,7 +15,7 @@
   "pol" : "zenski",
   "datumRodjenja" : "2021-08-02",
   "uloga" : "MENADZER",
-  "idRestorana" : "NNU7I"
+  "idRestorana" : "7ULWO"
 }, {
   "korisnickoIme" : "m3",
   "lozinka" : "m3",
