@@ -869,7 +869,7 @@ public class Main {
 			
 			for(Porudzbina p : porudzbine) {
 				if(p.id.equals(porudzbina.id)) {
-					porudzbine.remove(p);
+					p.status=StatusPorudzbine.Otkazana;
 					break;
 				}			
 			}
