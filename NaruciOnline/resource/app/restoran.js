@@ -23,58 +23,58 @@ Vue.component("restoran",{
     template:`
         <div v-if="restoran" >
             <div class="container-xl" id="moj-restoran">
-            <h2>{{restoran.naziv}}</h2>
-            <img :src="restoran.slika" width = "200px" heigth = "300">
-            <br>
-            <button type="button" v-on:click="otvoriRecenzije()">Recenzije</button>
-            <div v-if="!izmeniClick">
-                <button v-if="uloga==='ADMIN'" type="button" v-on:click="izmeniInformacije()">Izmeni</button>
-            </div>
-            <div v-else>
-                <button type="button" v-on:click="sacuvajIzmene()">Sacuvaj</button>
-                <button type="button" v-on:click="izmeniInformacije()">Otkazi</button>
-            </div>
-            <div v-if="!izmeniClick">
-                <p>
-                    <b>Tip:</b> {{restoran.tip}} <br>
-                    <b>Status:</b> {{ restoran.status ? 'Otvoreno' : 'Zatvoreno' }} <br>
-                    <hr>
-                    <b>Geografska sirina:</b> {{restoran.lokacija.geoSirina}} <br>
-                    <b>Geografska duzina:</b> {{restoran.lokacija.geoDuzina}} <br>
-                    <b>Grad:</b> {{restoran.lokacija.grad}} <br>
-                    <b>Ulica:</b> {{restoran.lokacija.ulica}} <br>
-                    <b>Broj:</b> {{restoran.lokacija.broj}} <br>
-                    <b>Postanski broj:</b> {{restoran.lokacija.postanskiBroj}} <br>
-                    <hr>
-                    <b>Menadzer:</b> {{restoran.menadzer.ime}} {{restoran.menadzer.prezime}} <br>
-                    <hr>    
-                </p>
-            </div>
-            <div v-else>
-                <p>
-                    <b>Tip:</b> <input type="text" v-model="restoran.tip"> <br>
-                    <b>Status:</b> {{ restoran.status ? 'Otvoreno' : 'Zatvoreno' }} <br>
-                    <!--<select v-model="restoran.status">
-                        <option :value="true">Otvoreno</option>
-                        <option :value="false">Zatvoreno</option>
-                    </select> <br>-->
-                    <hr>
-                    <b>Geografska sirina:</b> <input type="text" v-model="restoran.lokacija.geoSirina"> <br>
-                    <b>Geografska duzina:</b> <input type="text" v-model="restoran.lokacija.geoDuzina"> <br>
-                    <b>Grad:</b> <input type="text" v-model="restoran.lokacija.grad"> <br>
-                    <b>Ulica:</b> <input type="text" v-model="restoran.lokacija.ulica"> <br>
-                    <b>Broj:</b> <input type="text" v-model="restoran.lokacija.broj"> <br>
-                    <b>Postanski broj:</b> <input type="number" v-model="restoran.lokacija.postanskiBroj"> <br>
-                    <label for="slika"><b>Slika</b></label>
-                    <input type="file"  required @change=imageAdded>
-                    <hr>
-                    <b>Menadzer:</b> {{restoran.menadzer.ime}} {{restoran.menadzer.prezime}} <br>
-                    <hr>    
-                </p>
-            </div>
+                <h2>{{restoran.naziv}}</h2>
+                <img :src="restoran.slika" width = "200px" heigth = "300">
+                <br><br>
+                <button class="btn btn-primary" type="button" v-on:click="otvoriRecenzije()">Recenzije</button><br><br>
+                <div v-if="!izmeniClick">
+                    <button v-if="uloga==='ADMIN'" type="button" v-on:click="izmeniInformacije()">Izmeni</button>
+                </div>
+                <div v-else>
+                    <button type="button" v-on:click="sacuvajIzmene()">Sacuvaj</button>
+                    <button type="button" v-on:click="izmeniInformacije()">Otkazi</button>
+                </div>
+                <div v-if="!izmeniClick">
+                    <p>
+                        <b>Tip:</b> {{restoran.tip}} <br>
+                        <b>Status:</b> {{ restoran.status ? 'Otvoreno' : 'Zatvoreno' }} <br>
+                        <hr>
+                        <b>Geografska sirina:</b> {{restoran.lokacija.geoSirina}} <br>
+                        <b>Geografska duzina:</b> {{restoran.lokacija.geoDuzina}} <br>
+                        <b>Grad:</b> {{restoran.lokacija.grad}} <br>
+                        <b>Ulica:</b> {{restoran.lokacija.ulica}} <br>
+                        <b>Broj:</b> {{restoran.lokacija.broj}} <br>
+                        <b>Postanski broj:</b> {{restoran.lokacija.postanskiBroj}} <br>
+                        <hr>
+                        <b>Menadzer:</b> {{restoran.menadzer.ime}} {{restoran.menadzer.prezime}} <br>
+                        <hr>    
+                    </p>
+                </div>
+                <div v-else>
+                    <p>
+                        <b>Tip:</b> <input type="text" v-model="restoran.tip"> <br>
+                        <b>Status:</b> {{ restoran.status ? 'Otvoreno' : 'Zatvoreno' }} <br>
+                        <!--<select v-model="restoran.status">
+                            <option :value="true">Otvoreno</option>
+                            <option :value="false">Zatvoreno</option>
+                        </select> <br>-->
+                        <hr>
+                        <b>Geografska sirina:</b> <input type="text" v-model="restoran.lokacija.geoSirina"> <br>
+                        <b>Geografska duzina:</b> <input type="text" v-model="restoran.lokacija.geoDuzina"> <br>
+                        <b>Grad:</b> <input type="text" v-model="restoran.lokacija.grad"> <br>
+                        <b>Ulica:</b> <input type="text" v-model="restoran.lokacija.ulica"> <br>
+                        <b>Broj:</b> <input type="text" v-model="restoran.lokacija.broj"> <br>
+                        <b>Postanski broj:</b> <input type="number" v-model="restoran.lokacija.postanskiBroj"> <br>
+                        <label for="slika"><b>Slika</b></label>
+                        <input type="file"  required @change=imageAdded>
+                        <hr>
+                        <b>Menadzer:</b> {{restoran.menadzer.ime}} {{restoran.menadzer.prezime}} <br>
+                        <hr>    
+                    </p>
+                </div>
             </div>
 
-            <div class="container-xxl">
+            <div class="container-xxl ">
                 <h3>Artikli:</h3><hr>
                 <div v-for = "a in artikli">
                     <div v-if="izmeniArtikalClick && a===artikalZaIzmenu" class="artikal">
@@ -115,7 +115,7 @@ Vue.component("restoran",{
                             
                             <div v-if="(korisnik.uloga==='KUPAC')">
                                 <!-- <input type="number" v-model="kolicinaZaKorpu" required> -->
-                                <button type="button" v-on:click="dodajUKorpu(a)">Dodaj u korpu</button>
+                                <button class="button" type="button" v-on:click="dodajUKorpu(a)">Dodaj u korpu</button>
                             </div>
                             <hr>                            
                         </p>
@@ -125,7 +125,7 @@ Vue.component("restoran",{
 
             <div v-if="vlasnikRestorana()" class="dodaj-artikal container">
                 <div v-if="dodajArtikalVisible">
-                    <button  v-on:click="dodajArtikalVisible=false">Dodaj artikal</button>
+                    <button class="btn btn-success" v-on:click="dodajArtikalVisible=false">Dodaj artikal</button>
                 </div>
                 <div v-else>
                     <form method ="POST" @submit.prevent = "dodajArtikal()">

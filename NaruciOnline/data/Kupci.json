@@ -7,12 +7,12 @@
   "datumRodjenja" : "2021-07-28",
   "uloga" : "KUPAC",
   "tipKupca" : {
-    "imeTipa" : "BRONZANI",
-    "popust" : 0.0,
+    "imeTipa" : "SREBRNI",
+    "popust" : 3.0,
     "trazeniBrojBodova" : 0
   },
   "korpa" : null,
-  "brojBodova" : 2507.31,
+  "brojBodova" : 3320.47,
   "svePorudzbine" : null
 }, {
   "korisnickoIme" : "k2",

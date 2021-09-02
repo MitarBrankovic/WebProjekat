@@ -12,35 +12,36 @@ Vue.component("korpa",{
     },
 
     template:`
-        <div style="margin-left: 50px" >  
-            <h2>Artikli koji se nalaze u korpi:</h2>    
-            <div v-if="korpa">
-            
-                <div v-for = "a in korpa.listaArtikala">
-                    
-                    <div style="width: 300px">
-
-                            <p>
-                            <img :src="a.slika" width = "200px" heigth = "200"><br>
-                            <b>Naziv:</b> {{a.naziv}}</br>
-                            <b>Cena:</b>{{a.cena}}</br>
-                            <button type = "button" v-on:click="ukloniIzKorpe(a)">Ukloni</button>
-                            </p>
-                
-                    </div>
+    <div style="margin-left: 100px; margin-top: 30px" class="whole-content">  
+    <h2  class="flex title-div bigtitle">Artikli koji se nalaze u korpi:</h2><hr>    
+    <div v-if="korpa">    
+        <div class="artikli">
+            <div v-for = "a in korpa.listaArtikala">         
+                <div class="mojArtikal">
+                        <p>
+                        <img class="mojImg spacing" :src="a.slika"><br>
+                        <b>Naziv:</b> {{a.naziv}}</br>                          
+                        <b>Tip: </b> {{a.tip}}<br>
+                        <b>Kolicina: </b> {{a.kolicina}}<br>
+                        <b>Opis: </b> {{a.opis}}<br>
+                        <b>Cena:</b> {{a.cena}}</br>
+                        <button class="btn btn-danger" type = "button" v-on:click="ukloniIzKorpe(a)">Ukloni</button>
+                        </p>           
                 </div>
-
+            </div>
+                    
+            <div class="price-content">
                 <h4>Ukupna cena: {{ukupnaCena()}}</h4>
-                <div v-if="kupci" v-for = "k in this.kupci">
+                <div v-if="kupci" v-for = "k in this.kupci" class="price-parts flex flex-row">
                     <h4 v-if="(k.korisnickoIme === korisnik.korisnickoIme)">Cena sa popustom: {{cenaSaPopustom(k)}}</h4>
                 </div>
-
-                <button type = "button" v-on:click="potvrdiPorudzbinu()">Potvrdi porudzbinu</button>
+                <div class="price-parts">
+                    <button class="button" type="button" v-on:click="potvrdiPorudzbinu()">Potvrdi porudzbinu</button>
+                </div>
             </div>
-            
-            
-
         </div>
+    </div>
+</div>
     `,
     mounted(){
         axios
@@ -65,8 +66,10 @@ Vue.component("korpa",{
             if(localStorage.getItem('Korpa') !== null){
                 localStorage.removeItem('Korpa')
             }
-            localStorage.setItem('Korpa', JSON.stringify(this.korpa))
-
+            if(this.korpa.listaArtikala.length !== 0){
+                localStorage.setItem('Korpa', JSON.stringify(this.korpa))
+            }else{ window.location.reload(); }
+            
         },       
         ukupnaCena:function(){
             let sum = 0;

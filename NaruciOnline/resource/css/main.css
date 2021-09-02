@@ -152,7 +152,7 @@ body {
 }
 
 .dodaj-artikal{
-  margin-bottom:-100px;
+  margin-top:150px;
 }
 
 #moj-restoran img{
@@ -160,7 +160,86 @@ body {
   width: 25%;
 }
 
+.whole-content{
+  width: 100%;
+  height: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 50px;
+}
 
+div {
+  margin: 0;
+}
+
+.mojImg {
+  height: 200px;
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.artikli {
+  display: flex;
+  width: auto;
+  flex-flow: row wrap;
+}
+
+.mojArtikal {
+  height: 520px;
+  width: 350px;
+  border-radius:2%;
+  border: 1px solid #333;
+  margin:30px;
+  padding: 40px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background-color: ghostwhite;
+}
+
+.spacing {
+  margin-bottom: 10px;
+}
+
+.title-div {
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.price-content{
+  margin-top: 20px;
+  width: 100vw;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+}
+.price-parts {
+  width: auto;
+}
+
+.bigtitle {
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  width: auto;
+  align-self: center;
+  justify-self: center;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.bordered {
+  border-radius: 5px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 #pocetna-slika{
   margin:auto;
@@ -232,6 +311,4 @@ body {
   background-color: azure;
   border-radius:1%;*/
 }
-
-
 
