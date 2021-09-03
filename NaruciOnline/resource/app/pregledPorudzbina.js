@@ -158,11 +158,9 @@ Vue.component("pregledPorudzbina",{
                     for(let porudzbina of dostavljac.porudzbineZaDostavu){
                         if(porudzbina.id === p.id){
                             return true;
-                        }else{
-                            return false;
                         }
-
                     }
+                    return false;
                 }
             } 
         }, 
@@ -212,7 +210,8 @@ Vue.component("pregledPorudzbina",{
         },
         izTransportUDostavljena(p){
             const sifra = {
-                sifraPorudzbine:p.id          
+                sifraPorudzbine:p.id,
+                korisnickoIme:this.korisnik.korisnickoIme       
             }
 
             axios

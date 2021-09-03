@@ -974,11 +974,16 @@ public class Main {
 		
 		post("/izTransportUDostavljena", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
-			
-			String sifraPorudzbine = mapa.get("sifraPorudzbine");
-			Porudzbina porudzbina = porudzbinaRepository.getObj(sifraPorudzbine);
-			porudzbina.status = StatusPorudzbine.Dostavljena;
-
+			Porudzbina porudzbina = porudzbinaRepository.getObj(mapa.get("sifraPorudzbine"));
+			porudzbina.status = StatusPorudzbine.Dostavljena;	
+			Dostavljac dostavljac = dostavljacRepository.getObj(mapa.get("korisnickoIme"));
+			for(Porudzbina p : dostavljac.porudzbineZaDostavu) {
+				if(p.id.equals(porudzbina.id)) {
+					dostavljac.porudzbineZaDostavu.remove(p);
+					dostavljac.porudzbineZaDostavu.add(porudzbina);
+				}
+			}
+			dostavljacRepository.edit(dostavljac);		
 			if(!porudzbinaRepository.edit(porudzbina)) {
 				res.status(400);
 				return "Greska";
