@@ -5,35 +5,85 @@ Vue.component("pregledKorisnika",{
           blokirani:null,
           otkazane:null,
           kupci:null,
-          count:0
+          count:0// 
         }
     },
 
     template:`
         <div>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" style="margin-left: 50px" >
+            <div  style="margin-left: 70px; margin-top: 70px">
+                <h1 style="text-align:center;">Pregled svih korisnika</h1>
                 <pretragaKorisnika id="search" @clicked="onSearch2Click"></pretragaKorisnika>    
-                <div v-for = "k in korisnici">
+                <hr><br><br>
+                <div class="col-md-10 panel panel-default">
+                    <div panel-heading>
+                        <h3 class="panel-title">Broj korisnika</h3>
+                    </div>
 
-                    <div style="width: 300px">
+                    <div class="panel-body row">
+                        <div class="col-md-2 razmak-card card" style="width: 50px;">
+                        <div>
+                            <h2><span class="bi bi-people"></span>Korisnici</h2>
+                            <h3 style="text-align:center;">{{brojKorisnika()}}</h3>
+                        </div>
+                        </div>
 
-                            
-                            <p class="card-text">
-                            <h3  v-if="k.uloga === 'KUPAC' && (proveraSumnjivihKupaca(k) > 4) && !proveraBlokiran(k)" style="color:red">Sumnjiv korisnik</h3>
-                            <label v-if="k.uloga === 'KUPAC' && (proveraSumnjivihKupaca(k) > 4) && !proveraBlokiran(k)" style="color:red"><b>Broj otkazivanja porudzbina : {{proveraSumnjivihKupaca(k)}}</b></label> <br>
-                            Korisnicko ime: {{k.korisnickoIme}} <br/>
-                            Lozinka: {{k.lozinka}} <br/>
-                            Ime: {{k.ime}} <br/>
-                            Prezime: {{k.prezime}} <br/>
-                            Pol: {{k.pol}} <br/>
-                            Datum: {{k.datum}} <br/>
-                            Uloga: {{k.uloga}} <br/>       
-                            </p>
-                            
-                            <label v-if="k.uloga!=='ADMIN' && proveraBlokiran(k)" style="color:red"><b>Blokiran</b></label> <br>
-                            <button v-if="k.uloga!=='ADMIN' && !proveraBlokiran(k)" type = "button" v-on:click="blokirajKorisnika(k)">Blokiraj</button>
+                        <div class="col-md-2 razmak-card card">
+                            <h2><span class="bi bi-person-fill"></span>Kupci</h2>
+                            <h3 style="text-align:center;">{{brojKupaca()}}</h3>
+                        </div>
+
+                        <div class="col-md-2 razmak-card card">
+                            <h2><span class="bi bi-person-circle"></span>Menadzeri</h2>
+                            <h3 style="text-align:center;">{{brojMenadzera()}}</h3>
+                        </div>
+
+                        <div class="col-md-2 razmak-card card">
+                            <h2><span class="bi bi-minecart"></span>Dostavljaci</h2>
+                            <h3 style="text-align:center;">{{brojDostavljaca()}}</h3>
+                        </div>
+
+                        <div class="col-md-2 razmak-card card">
+                            <h2><span class="bi bi-dash-circle-fill"></span>Blokirani</h2>
+                            <h3 style="text-align:center;">{{brojBlokiranih()}}</h3>
+                        </div>
                     </div>
                 </div>
+        
+                <div>
+                    <table class="table table-success table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Korisnicko ime</th>
+                                <th scope="col">Lozinka</th>
+                                <th scope="col">Ime</th>
+                                <th scope="col">Prezime</th>
+                                <th scope="col">Pol</th>
+                                <th scope="col">Datum</th>
+                                <th scope="col">Uloga</th>
+                                <th scope="col">Sumnjiv korisnik</th>
+                                <th scope="col">Blokiraj</th>
+                            </tr>
+                        </thead>
+                        <tbody v-for = "k in korisnici">
+
+                                <tr>
+                                <td>{{k.korisnickoIme}}</td>
+                                <td>{{k.lozinka}}</td>
+                                <td>{{k.ime}}</td>
+                                <td>{{k.prezime}}</td>
+                                <td>{{k.pol}}</td>
+                                <td>{{k.datumRodjenja}}</td>
+                                <td>{{k.uloga}}</td>
+                                <td v-if="k.uloga === 'KUPAC' && (proveraSumnjivihKupaca(k) > 4) && !proveraBlokiran(k)" style="color:red"><b>DA</b> (Otkazane porudzbine: {{proveraSumnjivihKupaca(k)}})</td>
+                                <td v-else>Ne</td>
+                                <td><button v-if="k.uloga!=='ADMIN' && !proveraBlokiran(k)" type="button" class="btn btn-danger" v-on:click="blokirajKorisnika(k)">Blokiraj</button></td>
+                                </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
         </div>
     `,
@@ -88,6 +138,42 @@ Vue.component("pregledKorisnika",{
                 }
             }
             return brojac;
+        },        
+        brojKorisnika(){
+            let brojac=0;
+            for(let korsnik of this.korisnici){
+                brojac++;
+            }
+            return brojac;
+        },
+        brojKupaca(){
+            let brojac=0;
+            for(let korisnik of this.korisnici){
+                if(korisnik.uloga==='KUPAC'){brojac++;}
+            }
+            return brojac;
+        },
+        brojDostavljaca(){
+            let brojac=0;
+            for(let korisnik of this.korisnici){
+                if(korisnik.uloga==='DOSTAVLJAC'){brojac++;}
+            }
+            return brojac;
+        },
+        brojMenadzera(){
+            let brojac=0;
+            for(let korisnik of this.korisnici){
+                if(korisnik.uloga==='MENADZER'){brojac++;}
+            }
+            return brojac;
+        },
+        brojBlokiranih(){
+            let brojac=0;
+            for(let blokiran of this.blokirani){
+                brojac++;
+            }
+            return brojac;
         }
+
     }
 })
