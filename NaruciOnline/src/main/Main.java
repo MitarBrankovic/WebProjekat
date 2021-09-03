@@ -282,6 +282,13 @@ public class Main {
 			return g.toJson(zahtevPorudzbineRepository.getObjRestorana(id));
 		});
 		
+		get("/ocenaRestorana/:id", (req,res)->{
+			String id = req.params(":id");
+			System.out.println("id restorana: " + id);
+			System.out.println(komentarRepository.getOcenaRestorana(id));
+			return komentarRepository.getOcenaRestorana(id);
+		});
+		
 		post("/ocenaKorisnika", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
 			StringBuilder sb = IDgenerator();

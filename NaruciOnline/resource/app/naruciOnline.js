@@ -4,7 +4,8 @@ Vue.component("NaruciOnline", {
             restorani:null,
             korisnik:null,
             uloga:"",
-            sortiraniRestorani:[]
+            sortiraniRestorani:[],
+            ocena:""
         }
     },
     template:`  
@@ -26,7 +27,8 @@ Vue.component("NaruciOnline", {
                         </p>    
                         <p>
                             {{m.tip}}<br>
-                            {{m.lokacija.grad}} {{m.lokacija.ulica}} {{m.lokacija.broj}}
+                            {{m.lokacija.grad}} {{m.lokacija.ulica}} {{m.lokacija.broj}}<br>
+                            ({{m.ocena}})
                         </p>
                         <div v-if="(m.status===true)">
                             <p style="color:green">otvoren</p>
@@ -82,8 +84,32 @@ Vue.component("NaruciOnline", {
                     if(this.restorani[i].status===false)
                         this.sortiraniRestorani.push(this.restorani[i])
                 }
-                
-            }
+
+            },
+            getOcena:function(){
+                for(var i = 0; i < this.restorani.length; i++){
+                    var restoran = this.restorani[i]
+                    axios
+                    .get(`/ocenaRestorana/${this.restorani[i].id}`)
+                    .then(response=>{
+                        const ocena = response.data
+                        //console.log(ocena)
+                        //console.log(restoran)//['ocena'] = ocena
+                        restoran['ocena'] = ocena
+                        this.restorani[i] = restoran
+                        console.log(this.restorani[i].ocena)
+                    })
+                }
+                this.sortiranjeRestorana()
+            },
+            getProsecnaOcena:function(m){
+                    axios
+                    .get(`/ocenaRestorana/${m.id}`)
+                    .then(response=>{
+                        return response.data
+                    })
+                }
+            
         },
         mounted(){
             this.korisnik = JSON.parse(localStorage.getItem('korisnik'))
@@ -94,9 +120,8 @@ Vue.component("NaruciOnline", {
             .get('/pregledRestorana')
             .then(response=>{
                 this.restorani=response.data;
-                this.sortiranjeRestorana()
+                this.getOcena()
             })
             localStorage.removeItem('restor')
         }
-
 });

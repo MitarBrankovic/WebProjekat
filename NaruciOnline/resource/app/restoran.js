@@ -151,7 +151,7 @@ Vue.component("restoran",{
                             <input type="text" v-model="opis">
                             <br>
                             <label for="slika"><b>Slika:</b></label>
-                            <input type="file" required @change=imageAdded>
+                            <input type="file" @change=imageAdded>
                             <br>
                             <button class="btn btn-success" type="submit">Dodaj</button>    
                         </div>
@@ -194,6 +194,13 @@ Vue.component("restoran",{
                 opis:this.opis,
                 idRestorana: this.restoran.id,
                 slika:this.slika
+            }
+            for(var i = 0; i < this.artikli.length; i++){
+                if(this.artikli[i].naziv == artikal.naziv){
+                    alert('Artikal sa tim imenom vec postoji!')
+                    console.log('greska')
+                    return
+                }
             }
             axios
             .post('/restoran/add/artikal', artikal)

@@ -108,4 +108,17 @@ public class KomentarRepository {
 		}
 		return false;
 	}
+	
+	public Double getOcenaRestorana(String id) {
+		Double ocena = 0.0;
+		int count = 0;
+		List<Komentar> komentari = getAll();
+		for(Komentar k: komentari) {
+			if(k.idRestorana.equals(id)) {
+				count++;
+				ocena = (ocena + k.ocena)/count;
+			}
+		}
+		return ocena;
+	}
 }
