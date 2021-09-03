@@ -116,7 +116,14 @@ Vue.component("restoran",{
                                 
                                 <div v-if="(korisnik.uloga==='KUPAC')">
                                     <!-- <input type="number" v-model="kolicinaZaKorpu" required> -->
-                                    <button class="button" type="button" v-on:click="dodajUKorpu(a)">Dodaj u korpu</button>
+                                    <div v-if="restoran.status==true">
+                                        <button v-if="artikalJeUKorpi(a)" class="buttonDecrease" type="button" v-on:click="ukloniIzKorpe(a)">-</button>
+                                        <button class="button" type="button" v-on:click="dodajUKorpu(a)">+</button>
+                                    </div>
+                                    <div v-else>
+                                        <p>Restoran je zatvoren</p>
+                                    </div>
+
                                 </div>
                                 <hr>                            
                             </p>
@@ -304,6 +311,20 @@ Vue.component("restoran",{
             swal("Uspesno ste dodali artikal u korpu!", "", "success");
 
         },
+        ukloniIzKorpe:function(a){
+            this.Korpa.listaArtikala.pop(a)
+            if(localStorage.getItem('Korpa') !== null){
+                localStorage.removeItem('Korpa')
+
+            }
+            localStorage.setItem('Korpa', JSON.stringify(this.Korpa))
+            console.log(this.Korpa.listaArtikala)
+            if(this.Korpa.listaArtikala.length == 0){
+                localStorage.removeItem('Korpa')
+            }
+            swal("Uspesno ste obrisali artikal iz korpe!", "", "success");
+
+        },
         imageAdded(e){
             var files = e.target.files;
 
@@ -331,6 +352,19 @@ Vue.component("restoran",{
                 localStorage.setItem('rest', JSON.stringify(rest))
                 this.$router.push(`/recenzije/${this.restoran.naziv}`)
             })
+        },
+        artikalJeUKorpi:function(p){
+            if(this.Korpa === null){
+                return false
+            }
+            var postoji = false
+            for(var i = 0; i < this.Korpa.listaArtikala.length; i++){
+                if(p.naziv == this.Korpa.listaArtikala[i].naziv){
+                    postoji = true
+                    break
+                }
+            }
+            return postoji
         }
 
     }

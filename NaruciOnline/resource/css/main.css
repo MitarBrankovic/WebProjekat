@@ -100,6 +100,15 @@ body {
   font-size: 15px;
 }
 
+.buttonDecrease {
+  background-color: #ec1313;
+  color: white;
+  transition-duration: 0.3s;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-size: 15px;
+}
+
 .button:hover{
   background-color: #ddd;
   color: #04AA6D;

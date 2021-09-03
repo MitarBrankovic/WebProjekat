@@ -115,7 +115,15 @@
 }, {
   "naziv" : "Sis cevap",
   "tip" : "srpska",
-  "artikli" : [ ],
+  "artikli" : [ {
+    "naziv" : "Pseca hrana u kifli",
+    "cena" : 200,
+    "tip" : "jelo",
+    "idRestorana" : "71B6T",
+    "kolicina" : "300g",
+    "opis" : "Kifla",
+    "slika" : ""
+  } ],
   "status" : false,
   "lokacija" : {
     "geoDuzina" : 12.0,
