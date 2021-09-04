@@ -123,6 +123,10 @@ Vue.component("restoran",{
                                     <div v-else>
                                         <p>Restoran je zatvoren</p>
                                     </div>
+                                    <div v-if="kolicinaArtikala(a) != 0">
+                                        <hr>
+                                        <b><p>Kolicina: {{kolicinaArtikala(a)}}</p></b>
+                                    </div>
 
                                 </div>
                                 <hr>                            
@@ -308,7 +312,7 @@ Vue.component("restoran",{
             localStorage.setItem('Korpa', JSON.stringify(this.Korpa))
             console.log(this.Korpa.listaArtikala)
 
-            swal("Uspesno ste dodali artikal u korpu!", "", "success");
+            //swal("Uspesno ste dodali artikal u korpu!", "", "success");
 
         },
         ukloniIzKorpe:function(a){
@@ -322,7 +326,7 @@ Vue.component("restoran",{
             if(this.Korpa.listaArtikala.length == 0){
                 localStorage.removeItem('Korpa')
             }
-            swal("Uspesno ste obrisali artikal iz korpe!", "", "success");
+            //swal("Uspesno ste obrisali artikal iz korpe!", "", "success");
 
         },
         imageAdded(e){
@@ -365,6 +369,16 @@ Vue.component("restoran",{
                 }
             }
             return postoji
+        },
+        kolicinaArtikala(a){
+            if(this.Korpa == null || this.Korpa.listaArtikala == 0){ return 0 }
+            var count = 0 
+            for(var i = 0; i < this.Korpa.listaArtikala.length; i++){
+                if(a.naziv == this.Korpa.listaArtikala[i].naziv){
+                    count++
+                }
+            }
+            return count;
         }
 
     }
