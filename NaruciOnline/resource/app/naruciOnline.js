@@ -5,7 +5,8 @@ Vue.component("NaruciOnline", {
             korisnik:null,
             uloga:"",
             sortiraniRestorani:[],
-            ocena:""
+            ocena:"",
+            komentari:[]
         }
     },
     template:`  
@@ -28,7 +29,12 @@ Vue.component("NaruciOnline", {
                         <p>
                             {{m.tip}}<br>
                             {{m.lokacija.grad}} {{m.lokacija.ulica}} {{m.lokacija.broj}}<br>
-                            ({{m.ocena}})
+                            <div v-if="m.ocena!=0">
+                                ({{m.ocena}})
+                            </div>
+                            <div v-else>
+                                (nema ocena)
+                            </div>
                         </p>
                         <div v-if="(m.status===true)">
                             <p style="color:green">otvoren</p>
@@ -73,7 +79,11 @@ Vue.component("NaruciOnline", {
                 console.log(search)
                 axios
                 .post('/pretragaRestor',search)
-                .then(response=>{this.sortiraniRestorani= response.data})
+                .then(response=>{
+                    this.sortiraniRestorani = response.data
+                    console.log(response.data)
+                    this.dodeliOcene(this.sortiraniRestorani)
+                })
             },
             sortiranjeRestorana:function(){
                 for(var i = 0; i < this.restorani.length; i++){
@@ -86,29 +96,30 @@ Vue.component("NaruciOnline", {
                 }
 
             },
-            getOcena:function(){
-                for(var i = 0; i < this.restorani.length; i++){
-                    var restoran = this.restorani[i]
-                    axios
-                    .get(`/ocenaRestorana/${this.restorani[i].id}`)
-                    .then(response=>{
-                        const ocena = response.data
-                        //console.log(ocena)
-                        //console.log(restoran)//['ocena'] = ocena
-                        restoran['ocena'] = ocena
-                        this.restorani[i] = restoran
-                        console.log(this.restorani[i].ocena)
-                    })
-                }
-                this.sortiranjeRestorana()
+            getProsecnaOcena:function(restorani){
+                
+                axios
+                .get('/sviKomentari')
+                .then(response=>{
+                    this.komentari = response.data
+                    this.dodeliOcene(restorani)
+                    this.sortiranjeRestorana()
+                })
             },
-            getProsecnaOcena:function(m){
-                    axios
-                    .get(`/ocenaRestorana/${m.id}`)
-                    .then(response=>{
-                        return response.data
-                    })
+            dodeliOcene:function(restorani){
+                for(var i = 0; i < restorani.length; i++){
+                    restorani[i]['ocena'] = 0
                 }
+                for(var i = 0; i < restorani.length; i++){
+                    let count = 0;
+                    for(let j = 0; j < this.komentari.length; j++){
+                        if(restorani[i].id == this.komentari[j].idRestorana){
+                            count++
+                            restorani[i].ocena = (restorani[i].ocena + this.komentari[j].ocena)/count
+                        }
+                    }
+                }
+            }
             
         },
         mounted(){
@@ -120,7 +131,7 @@ Vue.component("NaruciOnline", {
             .get('/pregledRestorana')
             .then(response=>{
                 this.restorani=response.data;
-                this.getOcena()
+                this.getProsecnaOcena(this.restorani)
             })
             localStorage.removeItem('restor')
         }

@@ -119,7 +119,6 @@ public class Main {
 			HashMap<String, Integer> mapaInteger = g.fromJson(req.body(), HashMap.class);
 
 
-			System.out.println(mapa);
 
 			Restoran restoran = restoranRepository.getObj(mapa.get("idRestorana"));
 			
@@ -140,7 +139,6 @@ public class Main {
 		
 		post("/izbrisiArtikal", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
-			System.out.println(mapa);
 			restoranRepository.izbrisiArtikal(mapa.get("naziv"), mapa.get("idRestorana"));
 
 			return "OK";
@@ -187,7 +185,6 @@ public class Main {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
 			HashMap<String, Double> mapaDouble = g.fromJson(req.body(), HashMap.class);
 
-			System.out.println(mapa);
 			TipArtikla tip = null;
 			if(mapa.get("tip").equals("jelo")) {
 				tip = TipArtikla.jelo;
@@ -278,15 +275,17 @@ public class Main {
 		
 		get("/pregledZahtevaRestorana/:id", (req,res)->{
 			String id = req.params(":id");
-			System.out.println("id restorana: " + id);
 			return g.toJson(zahtevPorudzbineRepository.getObjRestorana(id));
 		});
 		
 		get("/ocenaRestorana/:id", (req,res)->{
 			String id = req.params(":id");
-			System.out.println("id restorana: " + id);
-			System.out.println(komentarRepository.getOcenaRestorana(id));
 			return komentarRepository.getOcenaRestorana(id);
+		});
+		
+		get("/sviKomentari", (req,res)->{
+			List<Komentar> komentari = komentarRepository.getAllOdobreni();
+			return g.toJson(komentari);
 		});
 		
 		post("/ocenaKorisnika", (req, res) -> {
@@ -311,7 +310,6 @@ public class Main {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
 			HashMap<String, Double> mapaDouble = g.fromJson(req.body(), HashMap.class);
 
-			System.out.println("odobreno " + mapa);
 			Komentar komentar = new Komentar(mapa.get("idKomentara"), mapa.get("idKorisnika"),
 					mapa.get("idRestorana"), mapa.get("tekst"), mapaDouble.get("ocena").intValue());
 			komentar.odobren = true;
@@ -323,7 +321,6 @@ public class Main {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
 			HashMap<String, Double> mapaDouble = g.fromJson(req.body(), HashMap.class);
 
-			System.out.println("odobreno " + mapa);
 			Komentar komentar = new Komentar(mapa.get("idKomentara"), mapa.get("idKorisnika"),
 					mapa.get("idRestorana"), mapa.get("tekst"), mapaDouble.get("ocena").intValue());
 			komentar.odobren = false;
@@ -359,7 +356,6 @@ public class Main {
 		
 		post("/pregledRestoranaMenadzer", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
-			System.out.println(mapa);
 			Menadzer menadzer = menadzerRepository.getObj(mapa.get("korisnickoIme"));
 			Restoran restoran;
 			if(menadzer.idRestorana != null) {
@@ -372,7 +368,6 @@ public class Main {
 		
 		post("/restoran/add/artikal", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
-			System.out.println(mapa);
 			Restoran restoran = restoranRepository.getObj(mapa.get("idRestorana"));
 			TipArtikla tip;
 			if(mapa.get("tip").equals("jelo")) {
@@ -432,7 +427,6 @@ public class Main {
 		post("/pretragaRestor", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
 			HashMap<String, Boolean> mapaBool = g.fromJson(req.body(), HashMap.class);
-			System.out.println(mapa);
 			String naziv = mapa.get("naziv");
 			String tip = mapa.get("tip");
 			String lokacija = mapa.get("lokacija");
@@ -541,6 +535,9 @@ public class Main {
 			//TODO: SORTIRANJE OCENA
 
 			//res.type("application/json");
+			for(Restoran r: restorani) {
+				System.out.println(r.naziv);
+			}
 			return g.toJson(restorani);
 		});
 		

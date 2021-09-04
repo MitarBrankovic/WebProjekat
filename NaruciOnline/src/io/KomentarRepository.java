@@ -56,6 +56,17 @@ public class KomentarRepository {
 		}
 	}
 	
+	public List<Komentar> getAllOdobreni(){
+		List<Komentar> komentari = getAll();
+		List<Komentar> odobreni = new ArrayList<Komentar>();
+		for(Komentar k: komentari) {
+			if(k.odobren) {
+				odobreni.add(k);
+			}
+		}
+		return odobreni;
+	}
+	
 	public List<Komentar> getNeodobreniKomentariZaRestoran(String idRestorana){
 		List<Komentar> lista = getAll();
 		List<Komentar> listaNeodobrenihKomentara = new ArrayList<Komentar>();
