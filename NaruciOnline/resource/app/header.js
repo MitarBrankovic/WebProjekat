@@ -54,7 +54,7 @@ Vue.component("header-comp", {
 		  </button>
 		  <div class="dropdown-content1" >
 		  	<div v-if="(korisnik.uloga==='KUPAC') ||(korisnik.uloga==='MENADZER')||(korisnik.uloga==='ADMIN')||(korisnik.uloga==='DOSTAVLJAC')">
-			  <a href="/#/edit">Izmena podataka</a>
+			  <a href="/#/edit">Pogledaj profil</a>
   			</div>
 			<a href="/#/logout">Logout</a>
 		  </div>

@@ -29,13 +29,15 @@ Vue.component("pretragaRestorana",{
 			</select>
             <input type="text" v-model="search.lokacija" placeholder="lokacija"/>
             <select v-model="search.ocena">
-                <option selected disabled value="">Sve ocene</option>
+                <option selected value="">Sve ocene</option>
                 <option value="3">3+</option>
                 <option value="4">4+</option>
                 <option value="4.5">4.5+</option>
             </select>
             <input type="checkbox" v-model="search.checkOtvoren">Otvoreno</input>
             <button type="button" v-on:click="pretrazi()" class="btn btn-sm btn-outline-primary">Pretrazi</button>
+            <button type="button" v-on:click="ponistiPretragu()" class="btn btn-sm btn-outline-primary">Ponisti pretragu</button>
+
             <br>
         
             <div>
@@ -114,6 +116,20 @@ Vue.component("pretragaRestorana",{
             this.search.lokacOpad = false
             this.search.ocenaRast = false
             this.search.ocenaOpad = true
+            console.log("Klik!")
+            this.$emit('clicked', this.search)
+        },
+        ponistiPretragu:function(){
+            this.search.nazivRast = false
+            this.search.nazivOpad = false
+            this.search.lokacRast = false
+            this.search.lokacOpad = false
+            this.search.ocenaRast = false
+            this.search.ocenaOpad = false
+            this.search.naziv="",
+            this.search.tip="",
+            this.search.lokacija="",
+            this.search.ocena=""
             console.log("Klik!")
             this.$emit('clicked', this.search)
         }

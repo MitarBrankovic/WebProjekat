@@ -125,7 +125,7 @@ public class KomentarRepository {
 		int count = 0;
 		List<Komentar> komentari = getAll();
 		for(Komentar k: komentari) {
-			if(k.idRestorana.equals(id)) {
+			if(k.idRestorana.equals(id) && k.odobren) {
 				count++;
 				ocena = (ocena + k.ocena)/count;
 			}

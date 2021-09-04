@@ -427,6 +427,8 @@ public class Main {
 		post("/pretragaRestor", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
 			HashMap<String, Boolean> mapaBool = g.fromJson(req.body(), HashMap.class);
+			System.out.println(mapa);
+			
 			String naziv = mapa.get("naziv");
 			String tip = mapa.get("tip");
 			String lokacija = mapa.get("lokacija");
@@ -533,7 +535,36 @@ public class Main {
 			}
 			
 			//TODO: SORTIRANJE OCENA
+			List<Restoran> tmpRestorani = new ArrayList<Restoran>();
+			switch(mapa.get("ocena")) {
+				case "3":
+					for(Restoran r: restorani) {
+						System.out.println(r.naziv + komentarRepository.getOcenaRestorana(r.id));
+						if(komentarRepository.getOcenaRestorana(r.id) > 3 || komentarRepository.getOcenaRestorana(r.id) == 0) {
+							tmpRestorani.add(r);
+						}
+					}
+					break;
+				case "4":
+					for(Restoran r: restorani) {
+						if(komentarRepository.getOcenaRestorana(r.id) > 4 || komentarRepository.getOcenaRestorana(r.id) == 0) {
+							tmpRestorani.add(r);
+						}
+					}
+					break;
 
+				case "4.5":
+					for(Restoran r: restorani) {
+						if(komentarRepository.getOcenaRestorana(r.id) >= 4.5 || komentarRepository.getOcenaRestorana(r.id) == 0) {
+							tmpRestorani.add(r);
+						}
+					}
+					break;
+				default:
+					tmpRestorani = restorani;
+			}
+			restorani = tmpRestorani;
+		
 			//res.type("application/json");
 			for(Restoran r: restorani) {
 				System.out.println(r.naziv);
