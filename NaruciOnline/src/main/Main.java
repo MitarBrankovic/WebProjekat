@@ -418,10 +418,21 @@ public class Main {
 			return g.toJson(restoran);
 		});
 		
+		get("/getTipoveRestorana", (req,res)->{
+			List<String> tipovi = new ArrayList<String>();
+			for(Restoran r: restoranRepository.getAll()) {
+				if(!tipovi.contains(r.tip.toString())) {
+					tipovi.add(r.tip.toString().toLowerCase());
+				}
+			}
+			
+			return g.toJson(tipovi);
+		});
+		
 		post("/pretragaRestor", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
 			HashMap<String, Boolean> mapaBool = g.fromJson(req.body(), HashMap.class);
-
+			System.out.println(mapa);
 			String naziv = mapa.get("naziv");
 			String tip = mapa.get("tip");
 			String lokacija = mapa.get("lokacija");

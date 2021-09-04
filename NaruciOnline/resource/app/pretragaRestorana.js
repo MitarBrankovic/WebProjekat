@@ -14,7 +14,8 @@ Vue.component("pretragaRestorana",{
                 lokacija:"",
                 ocena:""
 
-            }
+            },
+            tipoviRestorana:[]
         }
     },
     template:`
@@ -22,7 +23,10 @@ Vue.component("pretragaRestorana",{
             <h3 id="search2">Pretraga</h3>
 
             <input type="text" v-model="search.naziv" placeholder="naziv"/>
-            <input type="text" v-model="search.tip" placeholder="tip"/>
+            <select v-model="search.tip">
+                <option value="" selected>Bilo koji tip</option>
+				<option v-for="t in tipoviRestorana" :value="t">{{t}}</option>
+			</select>
             <input type="text" v-model="search.lokacija" placeholder="lokacija"/>
             <select v-model="search.ocena">
                 <option selected disabled value="">Sve ocene</option>
@@ -113,5 +117,12 @@ Vue.component("pretragaRestorana",{
             console.log("Klik!")
             this.$emit('clicked', this.search)
         }
+    },
+    mounted(){
+        axios
+        .get('/getTipoveRestorana')
+        .then(response=>{
+            this.tipoviRestorana=response.data
+        })
     }
 })
