@@ -16,7 +16,7 @@ Vue.component("kreiranjeRestorana", {
         }
     },
     template:`  
-	<div id="login-pozadina">    
+	<div>    
 		<form id="kreiranjeForm" method ="POST" @submit.prevent = "submitForm">
 		  	<div class="forma container">
 			    <h1>Kreiranje novog restorana</h1>
@@ -50,6 +50,7 @@ Vue.component("kreiranjeRestorana", {
 				<input class="col-sm-2 col-form-control" type="text" placeholder="Postanski broj" v-model="postanskiBroj" required>
 
 				<br>
+				<div id="js-map" style="height:500px; width:50%;"></div>
 				<hr>
 			    <label class="col-sm-2 col-form-label" for="slika"><b>Slika</b></label>
 			    <input class="col-sm-2 col-form-control" type="file"  required @change=imageAdded>
@@ -66,7 +67,6 @@ Vue.component("kreiranjeRestorana", {
 				<button type="submit" class="button">Kreiraj</button>
 			</div>
 		</form>
-		
 		<footer class="footer">
 			<p>Contact: &nbsp; brankovic.ra198.2018@uns.ac.rs <br>&emsp;&emsp; beric.ra191.2018@uns.ac.rs</p> &emsp;&emsp;&emsp;&emsp;
 			<p>Studentarija, Copyright &copy; 2021</p>  
@@ -78,7 +78,7 @@ Vue.component("kreiranjeRestorana", {
 			axios
 			.get('/pregledMenadzera')
 			.then(response=>{this.menadzeri=response.data;})
-
+			init()
 
 		},
 
@@ -130,7 +130,7 @@ Vue.component("kreiranjeRestorana", {
 
 			};
 			reader.readAsDataURL(file);
-        }
+        },
 		
 		
 		/*,
@@ -140,3 +140,39 @@ Vue.component("kreiranjeRestorana", {
     }
 
 });
+
+function init(){
+	const map = new ol.Map({
+		view: new ol.View({
+			center: [2208254.0327390945,5661276.834908611],
+			zoom: 15
+		}),
+		layers: [
+			new ol.layer.Tile({
+				source: new ol.source.OSM()
+			})
+		],
+		target: 'js-map'
+	})
+	var previousLayer = null;
+	map.on('click', function(e){
+		map.removeLayer(previousLayer)
+		var latLong = ol.proj.transform(e.coordinate, 'EPSG:3857', 'EPSG:4326');
+		console.log(latLong);
+		this.geografskaDuzina = latLong[0]
+		this.geografskaSirina = latLong[1]
+		
+		var layer = new ol.layer.Vector({
+			source: new ol.source.Vector({
+				features: [
+					new ol.Feature({
+						geometry: new ol.geom.Point(ol.proj.fromLonLat(latLong))
+					})
+				]
+			})
+		});
+
+		previousLayer = layer;
+		map.addLayer(layer);
+	})
+}
