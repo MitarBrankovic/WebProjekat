@@ -49,10 +49,9 @@ Vue.component("kreiranjeRestorana", {
 			    <br>
 				<input class="col-sm-2 col-form-control" type="text" placeholder="Broj" id="broj" v-model="broj" required>
 				<input class="col-sm-2 col-form-control" type="text" placeholder="Postanski broj" id="postanskiBroj" v-model="postanskiBroj" required>
-				<br>
-				<button type="button" v-on:click="anulirajAdresu()">Ponisti adresu</button>
-				<br>
-				<div id="js-map" style="height:500px; width:50%;"></div>
+				<br><br>
+				<div id="js-map" style="height:500px; width:50%;"></div><br><br>
+				<button class="btn btn-primary" type="button" v-on:click="sacuvajLokaciju()">Sacuvaj lokaciju</button>
 				<hr>
 			    <label class="col-sm-2 col-form-label" for="slika"><b>Slika</b></label>
 			    <input class="col-sm-2 col-form-control" type="file"  required @change=imageAdded>
@@ -69,7 +68,7 @@ Vue.component("kreiranjeRestorana", {
 				<button type="submit" class="button">Kreiraj</button>
 			</div>
 		</form>
-		<footer class="footer">
+		<footer class="footer" style="margin-top:20px;">
 			<p>Contact: &nbsp; brankovic.ra198.2018@uns.ac.rs <br>&emsp;&emsp; beric.ra191.2018@uns.ac.rs</p> &emsp;&emsp;&emsp;&emsp;
 			<p>Studentarija, Copyright &copy; 2021</p>  
 		</footer>
@@ -107,12 +106,6 @@ Vue.component("kreiranjeRestorana", {
             .then(response=>{
                 this.$router.push('/')
             })
-			/*.catch(error=>{
-				console.log("Greska.")	
-				alert("Vec postoji korisnik sa tim korisnickim imenom.")
-				window.location.reload()
-
-			})*/
         },
         imageAdded(e){
             var files = e.target.files;
@@ -133,13 +126,13 @@ Vue.component("kreiranjeRestorana", {
 			};
 			reader.readAsDataURL(file);
         },
-		anulirajAdresu(){
-			this.geografskaDuzina=""
-			this.geografskaSirina=""
-			this.grad=""
-			this.ulica=""
-			this.broj=""
-			this.postanskiBroj=""
+		sacuvajLokaciju(){
+			this.geografskaDuzina = document.getElementById("geoDuz").value;
+			this.geografskaSirina = document.getElementById("geoSir").value;
+			this.grad = document.getElementById("grad").value;
+			this.ulica = document.getElementById("ulica").value;
+			this.broj = document.getElementById("broj").value;
+			this.postanskiBroj = document.getElementById("postanskiBroj").value;
 
 			document.getElementById("geoDuz").value = this.geografskaDuzina;
 			document.getElementById("geoSir").value = this.geografskaSirina;
@@ -147,12 +140,7 @@ Vue.component("kreiranjeRestorana", {
 			document.getElementById("ulica").value = this.ulica;
 			document.getElementById("broj").value = this.broj;
 			document.getElementById("postanskiBroj").value = this.postanskiBroj;
-		},
-
-		/*,
-		kreirajMenadzera : function(){
-			localStorage.setItem('kreiranjeMenadzera', true)
-		}*/
+		}
     }
 
 });
@@ -186,8 +174,7 @@ function init(){
 					})
 				]
 			})
-		});
-		
+		});	
 		previousLayer = layer;
 		map.addLayer(layer);
 		simpleReverseGeocoding(this.geografskaDuzina, this.geografskaSirina)
@@ -198,8 +185,6 @@ function simpleReverseGeocoding(lon, lat) {
 	fetch('http://nominatim.openstreetmap.org/reverse?format=json&lon=' + lon + '&lat=' + lat).then(function(response) {
 	  	return response.json();
 	}).then(function(json) {
-		//document.getElementById('address').innerHTML = json.display_name;
-		console.log(json.display_name)
 		ispisAdrese(json, lon, lat);
 	})
   }
@@ -218,22 +203,5 @@ function ispisAdrese(json, lon, lat) {
 	document.getElementById("ulica").value = adresa.road;
 	document.getElementById("broj").value = adresa.house_number;
 	document.getElementById("postanskiBroj").value = adresa.postcode;
-
-	dodelaVrednostiAdresi(lon, lat, grad, adresa);
-	console.log(this.geografskaDuzina)
-	console.log(this.geografskaSirina)
-	console.log(this.grad)
-	console.log(this.ulica)
-	console.log(this.broj)
-	console.log(this.postanskiBroj)
-
-}
-function dodelaVrednostiAdresi(lon, lat, grad, adresa) {
-	this.geografskaDuzina = lon;
-	this.geografskaSirina = lat;
-	this.grad = grad;
-	this.ulica = adresa.road;
-	this.broj = adresa.house_number;
-	this.postanskiBroj = adresa.postcode;
 }
 
