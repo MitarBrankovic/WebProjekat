@@ -28,10 +28,7 @@ Vue.component("restoran",{
     },
 
     template:`
-        <div >
-        <div id="js-map1" style="height:500px; width:50%;"></div><br><br>
-        <div v-if="restoran" >
-
+    <div v-if="restoran" >
             <div class="container-xl" id="moj-restoran">
                 <h2>{{restoran.naziv}}</h2>
                 
@@ -58,6 +55,8 @@ Vue.component("restoran",{
                         <b>Postanski broj:</b> {{restoran.lokacija.postanskiBroj}} <br>
                         <hr>
                         <b>Menadzer:</b> {{restoran.menadzer.ime}} {{restoran.menadzer.prezime}} <br>
+                        <div id="js-map1" style="height:500px; width:50%;"></div>
+
                         <hr>    
                     </p>
                 </div>
@@ -82,7 +81,7 @@ Vue.component("restoran",{
                                 <input type="file"  required @change=imageAdded>
                             </div>
                             
-                        
+
                         </div>
                         <hr>
                         <b>Menadzer:</b> {{restoran.menadzer.ime}} {{restoran.menadzer.prezime}} <br>
@@ -188,10 +187,8 @@ Vue.component("restoran",{
                 </div>
             </div>
         </div> 
-        </div>
     `,
     mounted(){
-        init1()
         if(JSON.parse(localStorage.getItem('Korpa')) !== null){
             this.Korpa = JSON.parse(localStorage.getItem('Korpa'))
         }
@@ -209,8 +206,9 @@ Vue.component("restoran",{
             this.restoran = response.data
             this.artikli = this.restoran.artikli
             console.log(this.artikli)
+            //init1()
         })
-        
+        setTimeout(init1,50)
     },
     methods:{
         dodajArtikalClick:function(){
@@ -418,7 +416,7 @@ Vue.component("restoran",{
 
     }
 });
-
+//window.onload = init1;
 function init1(){
 	const map1 = new ol.Map({
 		view: new ol.View({
