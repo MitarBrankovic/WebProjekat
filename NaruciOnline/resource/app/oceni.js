@@ -20,9 +20,9 @@ Vue.component("oceni",{
             <label for="star1" title="text">1 star</label>
         </div>
         <div>
-            <input type="text" v-model="komentar" placeholder="Vas komentar:">
+            <textarea v-model="komentar" placeholder="Vas komentar:"></textarea>
         </div>
-        <button type="button" v-on:click="posaljiOcenu()">Posalji</button>
+        <button class="btn btn-primary" type="button" v-on:click="posaljiOcenu()">Posalji</button>
     </div>
     `,
     methods:{

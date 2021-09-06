@@ -9,17 +9,20 @@ Vue.component("zahteviDostavljaca",{
     },
 
     template:`
-        <div>
-            <h2>Zahtevi porudzbina: </h2>
-            <div v-for="z in zahtevi">
-                    <p>
-                        Id zahteva: {{z.id}}<br>
-                        Dostavljac: {{z.dostavljac.ime}} {{z.dostavljac.prezime}}<br>
-                        Sifra porudzbine: {{z.porudzbina.id}}
-                    </p>
-                    <button type="button" v-on:click="izCekaDostavljacaUTransport(z)">Potvrdi</button>
-                    <button type="button" v-on:click="odbijZahtev(z)">Odbij</button>
-
+        <div style="margin-top: 30px">
+            <h2 class="flex title-div bigtitle">Zahtevi porudzbina: </h2>
+            <div class="list-group container">
+                <div v-for="z in zahtevi">
+                        <div class="list-item">
+                            <p>
+                                <b>Id zahteva:</b> {{z.id}}<br>
+                                <b>Dostavljac:</b> {{z.dostavljac.ime}} {{z.dostavljac.prezime}}<br>
+                                <b>Sifra porudzbine:</b> {{z.porudzbina.id}}
+                            </p><br>
+                            <button class="btn btn-primary" type="button" v-on:click="izCekaDostavljacaUTransport(z)">Potvrdi</button>
+                            <button class="btn btn-danger" type="button" v-on:click="odbijZahtev(z)">Odbij</button>
+                        </div>
+                </div>
             </div>
         </div>
     `,

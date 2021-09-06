@@ -16,10 +16,13 @@ Vue.component("pregledPorudzbina",{
     },
 
     template:`
-        <div>
-            <h2>PORUDZBINE:</h2>  
-            <pretragaPorudzbina id="search" @clicked="onSearch2Click"></pretragaPorudzbina>    
-            <div v-for = "p in porudzbine">
+        <div style="margin-top: 30px" class="whole-content">
+            <h2 class="flex title-div bigtitle">PORUDZBINE:</h2>  <hr>
+            <pretragaPorudzbina style="margin-left: 60px" id="search" @clicked="onSearch2Click"></pretragaPorudzbina>    
+            
+            <div class="artikli">
+            
+            <div v-for = "p in porudzbine" >
             
                 <div v-if="(korisnik.uloga==='MENADZER') && (vlasnikRestorana(p)) && ((p.status==='Obrada') || (p.status==='UPripremi'))">                           
                     <p>
@@ -40,10 +43,10 @@ Vue.component("pregledPorudzbina",{
                                                 
                 </div>
 
-                <div v-if="(korisnik.uloga==='KUPAC') && (trenutniKupac(p))">                           
+                <div v-if="(korisnik.uloga==='KUPAC') && (trenutniKupac(p))" div class="mojArtikal">                           
                     <p>
                     <b>Sifra porudzbine:</b> {{p.id}} <br>
-                    <b>Datum i vreme porucivanja:</b> {{p.datum}} <br>
+                    <b>Datum i vreme porucivanja:</b> {{vratiFormatiranDatum(p)}} <br>
                     <b>Artikli:</b><br>
                     <label v-for = "a in p.artikli">
                         {{a.naziv}} {{a.cena}} <br>
@@ -55,11 +58,11 @@ Vue.component("pregledPorudzbina",{
                     <br>
                     <button v-if="p.status==='Obrada'" type = "button" v-on:click="otkaziPorudzbinu(p)">Otkazi</button>
                     <div v-if="!oceniClick">
-                        <button v-if="p.status==='Dostavljena'" type="button" v-on:click="(oceniClick = true) && getRestoran(p)">Oceni</button>
+                        <button class="btn btn-primary" v-if="p.status==='Dostavljena'" type="button" v-on:click="(oceniClick = true) && getRestoran(p)">Oceni</button>
                     </div>
                     <div v-else>
                         <oceni id="ocena" @clicked="PosaljiOcenu"></oceni>
-                        <button type="button" v-on:click="oceniClick = false">Otkazi</button>
+                        <button class="btn btn-danger" type="button" v-on:click="oceniClick = false">Otkazi</button>
                     </div>
                     </p>
                                                 
@@ -83,6 +86,7 @@ Vue.component("pregledPorudzbina",{
                     </p>
                                             
                 </div>
+            </div>
             </div>
         </div>
     `,
@@ -115,6 +119,17 @@ Vue.component("pregledPorudzbina",{
                 }
               }
               return this.imePrezime;
+        },
+        vratiFormatiranDatum(p){
+            var minut = "";
+            if(p.datum.time.minute < 10){
+                minut = "0"+p.datum.time.minute;
+            }else{minut = p.datum.time.minute;}
+
+            var datum = p.datum.date.day.toLocaleString()+"."+ p.datum.date.month.toLocaleString()+"."+ p.datum.date.year.toString() +".";
+            var vreme = p.datum.time.hour.toLocaleString()+":"+ minut+":"+ p.datum.time.second.toLocaleString();
+            var formatiran = datum +" "+ vreme;
+            return formatiran;
         },
         vratiRestoran(p){
             for (let restoran of this.restorani) {

@@ -7,18 +7,22 @@ Vue.component("zahteviKomentara", {
         }
     },
     template:`  
-        <div>
-            <h2>Zahtevi za komentare</h2>
+        <div style="margin-top: 30px">
+            <h2 class="flex title-div bigtitle">Zahtevi za komentare</h2>
             <hr>
-            <div v-for="k in komentari">
-                <p>
-                    {{k.idKorisnika}}<br>
-                    Ocena: {{k.ocena}}<br>
-                    {{k.tekst}}<br>
-                    <button type="button" v-on:click="odbijKomentar(k)">Odbij</button>
-                    <button type="button" v-on:click="odobriKomentar(k)">Potvrdi</button>
-                    <hr>
-                </p>
+            <div class="list-group container">
+                <div v-for="k in komentari">
+                    <div class="list-item">
+                        <p>
+                            <b>Kupac:</b>{{k.idKorisnika}}<br>
+                            <b>Ocena:</b> {{k.ocena}}<br>
+                            <b>Tekst:</b>{{k.tekst}}<br><br>
+                            <button class="btn btn-danger" type="button" v-on:click="odbijKomentar(k)">Odbij</button>
+                            <button class="btn btn-success" type="button" v-on:click="odobriKomentar(k)">Potvrdi</button>
+                            <hr>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     `       
