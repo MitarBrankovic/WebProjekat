@@ -1049,7 +1049,9 @@ public class Main {
 		post("/pretragaPorudzbina", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
 			HashMap<String, Boolean> mapaBool = g.fromJson(req.body(), HashMap.class);
-
+			
+			boolean checkNedostavljene = mapaBool.get("checkNedostavljene");
+			String tipRestorana = mapa.get("tipRestorana");
 			String nazivRestorana = mapa.get("naziv");
 			String cenaOd = mapa.get("cenaOd");
 			String cenaDo = mapa.get("cenaDo");
@@ -1058,12 +1060,13 @@ public class Main {
 			String status = mapa.get("status");
 			DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
+
 			List<Porudzbina> porudzbine = porudzbinaRepository.getAll();
 			List<Restoran> restorani = restoranRepository.getAll();
 			List<Restoran> restorani2 = restoranRepository.getAll();
 			List<Restoran> pomocna = new ArrayList<Restoran>();
 
-			if (nazivRestorana.equals("") && cenaOd.equals("") && cenaDo.equals("") && datumOd.equals("") && datumDo.equals(""))
+			if (nazivRestorana.equals("") && cenaOd.equals("") && cenaDo.equals("") && datumOd.equals("") && datumDo.equals("") && tipRestorana.equals(""))
 				porudzbine = porudzbinaRepository.getAll();
 				//return g.toJson(restoranRepository.getAll());
 			
@@ -1096,6 +1099,25 @@ public class Main {
 				porudzbine = porudzbine.stream().filter(m -> (m.datum.isBefore(LocalDate.parse(datumDo, df).atStartOfDay())))
 						.collect(Collectors.toList());
 			}
+			if (checkNedostavljene) {
+				porudzbine = porudzbine.stream().filter(m -> ((m.status == StatusPorudzbine.UPripremi) || (m.status == StatusPorudzbine.CekaDostavljaca)
+						|| (m.status == StatusPorudzbine.Obrada) || (m.status == StatusPorudzbine.UTransportu)))
+						.collect(Collectors.toList());
+			}
+			
+			if (!tipRestorana.equals("")) {
+				for(Restoran r: restorani) {
+					if(r.tip.equals(tipRestorana)) {
+						pomocna.add(r);
+					}
+				}
+				for(Restoran r: pomocna) {
+					porudzbine =  porudzbine.stream().filter(m -> m.idRestorana.equals(r.id))
+							.collect(Collectors.toList());
+				}
+			}
+			
+			
 			
 			List<Porudzbina> obrada = new ArrayList<Porudzbina>();
 			List<Porudzbina> uPripremi	 = new ArrayList<Porudzbina>();

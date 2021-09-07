@@ -66,7 +66,7 @@ Vue.component("header-comp", {
 		</div>
 
 		<div class="topnav-right" v-if="(korisnik !== null) && (korisnik.uloga==='KUPAC')">
-		<a id="korpa" class="nav-link" href="/#/korpa">Korpa</a>
+		<a id="korpa" class="nav-link bi bi-bag" href="/#/korpa">Korpa</a>
 		</div>
 
 

@@ -2,6 +2,7 @@ Vue.component("pretragaPorudzbina",{
     data:function(){
         return{
             search:{
+                checkNedostavljene:false,
                 nazivRast:false,
                 nazivOpad:false,
                 cenaRast:false,
@@ -15,7 +16,9 @@ Vue.component("pretragaPorudzbina",{
                 datumDo:"",
                 status:""
 
-            }
+            },
+            tipoviRestorana:[],
+            korisnik:null
         }
     },
     template:`
@@ -27,12 +30,12 @@ Vue.component("pretragaPorudzbina",{
             <input type="number" v-model="search.cenaDo" placeholder="cenaDo"/>
             <input type="date" v-model="search.datumOd" placeholder="datumOd"/>
             <input type="date" v-model="search.datumDo" placeholder="datumDo"/>
-            <button type="button" v-on:click="pretrazi()">Pretrazi</button>
+            <button class="btn btn-sm btn-primary bi bi-search" type="button" v-on:click="pretrazi()">Pretrazi</button>
             <br>
 
-            <div>
+            <div v-if="korisnik">
                 <select v-model="search.status">
-                    <option selected  value="">Svi statusi</option>
+                    <option selected value="">Svi statusi</option>
                     <option value="Obrada">Obrada</option>
                     <option value="UPripremi">U pripremi</option>
                     <option value="CekaDostavljaca">Ceka dostavljaca</option>
@@ -40,15 +43,23 @@ Vue.component("pretragaPorudzbina",{
                     <option value="Dostavljena">Dostavljena</option>
                     <option value="Otkazana">Otkazana</option>
                 </select>
+
+                <select v-model="search.tipRestorana">
+                    <option value="" selected>Svi tipovi</option>
+                    <option v-for="t in tipoviRestorana" :value="t">{{t}}</option>
+                </select>
+
+                <input v-if="(korisnik.uloga==='KUPAC') || (korisnik.uloga==='DOSTAVLJAC')" type="checkbox" v-model="search.checkNedostavljene"></input>
+                <label v-if="(korisnik.uloga==='KUPAC') || (korisnik.uloga==='DOSTAVLJAC')">Nedostavljene</label>
             </div>
         
             <div>
-                <button type="button" v-on:click="nazivRastFun()">Naziv Rastuce</button>
-                <button type="button" v-on:click="nazivOpadFun()">Naziv Opadajuce</button>
-                <button type="button" v-on:click="cenaRastFun()">Cena Rastuce</button>
-                <button type="button" v-on:click="cenaOpadFun()">Cena Opadajuce</button>
-                <button type="button" v-on:click="datumRastFun()">Datum Rastuce</button>
-                <button type="button" v-on:click="datumOpadFun()">Datum Opadajuce</button>
+                <button class="bi bi-arrow-up btn btn-info" type="button" v-on:click="nazivRastFun()">Naziv Rastuce</button>
+                <button class="bi bi-arrow-down btn btn-info" type="button" v-on:click="nazivOpadFun()">Naziv Opadajuce</button>
+                <button class="bi bi-arrow-up btn btn-info" type="button" v-on:click="cenaRastFun()">Cena Rastuce</button>
+                <button class="bi bi-arrow-down btn btn-info" type="button" v-on:click="cenaOpadFun()">Cena Opadajuce</button>
+                <button class="bi bi-arrow-up btn btn-info" type="button" v-on:click="datumRastFun()">Datum Rastuce</button>
+                <button class="bi bi-arrow-down btn btn-info" type="button" v-on:click="datumOpadFun()">Datum Opadajuce</button>
              </div>
         
         
@@ -120,5 +131,13 @@ Vue.component("pretragaPorudzbina",{
             console.log("Klik!")
             this.$emit('clicked', this.search)
         }
+    },
+    mounted(){
+        this.korisnik = JSON.parse(localStorage.getItem('korisnik'))
+        axios
+        .get('/getTipoveRestorana')
+        .then(response=>{
+            this.tipoviRestorana=response.data
+        })
     }
 })

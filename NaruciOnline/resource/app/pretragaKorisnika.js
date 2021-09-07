@@ -26,7 +26,7 @@ Vue.component("pretragaKorisnika",{
             <input type="text" v-model="search.ime" placeholder="ime"/>
             <input type="text" v-model="search.prezime" placeholder="prezime"/>
             <input type="text" v-model="search.korisnickoIme" placeholder="korisnickoIme"/>
-            <button type="button" v-on:click="pretrazi()" class="btn btn-sm btn-outline-primary">Pretrazi</button>
+            <button type="button" v-on:click="pretrazi()" class="btn btn-sm btn-primary bi bi-search">Pretrazi</button>
             <br>
 
             <div>
@@ -45,14 +45,14 @@ Vue.component("pretragaKorisnika",{
             </div>
         
             <div>
-                <button type="button" v-on:click="imeRastFun()">Ime Rastuce</button>
-                <button type="button" v-on:click="imeOpadFun()">Ime Opadajuce</button>
-                <button type="button" v-on:click="prezimeRastFun()">Prezime Rastuce</button>
-                <button type="button" v-on:click="prezimeOpadFun()">Prezime Opadajuce</button>
-                <button type="button" v-on:click="korisnickoImeRastFun()">Korisnicko Ime Rastuce</button>
-                <button type="button" v-on:click="korisnickoImeOpadFun()">Korisnicko Ime Opadajuce</button>
-                <button type="button" v-on:click="bodoviRastFun()">Bodovi Rastuce</button>
-                <button type="button" v-on:click="bodoviOpadFun()">Bodovi Opadajuce</button>
+                <button class="bi bi-arrow-up btn btn-info" type="button" v-on:click="imeRastFun()">Ime Rastuce</button>
+                <button class="bi bi-arrow-down btn btn-info" type="button" v-on:click="imeOpadFun()">Ime Opadajuce</button>
+                <button class="bi bi-arrow-up btn btn-info" type="button" v-on:click="prezimeRastFun()">Prezime Rastuce</button>
+                <button class="bi bi-arrow-down btn btn-info" type="button" v-on:click="prezimeOpadFun()">Prezime Opadajuce</button>
+                <button class="bi bi-arrow-up btn btn-info" type="button" v-on:click="korisnickoImeRastFun()">Korisnicko Ime Rastuce</button>
+                <button class="bi bi-arrow-down btn btn-info" type="button" v-on:click="korisnickoImeOpadFun()">Korisnicko Ime Opadajuce</button>
+                <button class="bi bi-arrow-up btn btn-info" type="button" v-on:click="bodoviRastFun()">Bodovi Rastuce</button>
+                <button class="bi bi-arrow-down btn btn-info" type="button" v-on:click="bodoviOpadFun()">Bodovi Opadajuce</button>
             </div>
         
         

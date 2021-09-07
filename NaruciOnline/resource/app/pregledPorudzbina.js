@@ -19,44 +19,62 @@ Vue.component("pregledPorudzbina",{
         <div style="margin-top: 30px" class="whole-content">
             <h2 class="flex title-div bigtitle">PORUDZBINE:</h2>  <hr>
             <pretragaPorudzbina style="margin-left: 60px" id="search" @clicked="onSearch2Click"></pretragaPorudzbina>    
-            
             <div class="artikli">
             
             <div v-for = "p in porudzbine" >
-            
-                <div v-if="(korisnik.uloga==='MENADZER') && (vlasnikRestorana(p)) && ((p.status==='Obrada') || (p.status==='UPripremi'))">                           
-                    <p>
-                    <b>Sifra porudzbine:</b> {{p.id}} <br>
-                    <b>Datum i vreme porucivanja:</b> {{p.datum}} <br>
-                    <b>Artikli:</b><br>
-                    <label v-for = "a in p.artikli">
-                        {{a.naziv}} {{a.cena}} <br>
-                    </label>
-                    <b>Restoran:</b> {{vratiRestoran(p)}} <br>
-                    <b>Kupac:</b> {{ vratiImePrezimeKupca(p) }} <br>
-                    <b>Status:</b> {{p.status}} <br>
-                    <b>Ukupna cena:</b> {{p.cena}} <br>
-                    <br>
-                    <button v-if="p.status==='Obrada'" type = "button" v-on:click="izObradeUPripremu(p)">U pripremi</button>
-                    <button v-if="p.status==='UPripremi'" type = "button" v-on:click="izPripremeUCekaDostavljaca(p)">Ceka dostavljaca</button>
-                    </p>
-                                                
-                </div>
 
-                <div v-if="(korisnik.uloga==='KUPAC') && (trenutniKupac(p))" div class="mojArtikal">                           
+                <div v-if="(korisnik.uloga==='ADMIN')" class="mojArtikal">                           
                     <p>
                     <b>Sifra porudzbine:</b> {{p.id}} <br>
                     <b>Datum i vreme porucivanja:</b> {{vratiFormatiranDatum(p)}} <br>
                     <b>Artikli:</b><br>
                     <label v-for = "a in p.artikli">
                         {{a.naziv}} {{a.cena}} <br>
-                    </label>
+                    </label><br>                
                     <b>Restoran:</b> {{vratiRestoran(p)}} <br>
                     <b>Kupac:</b> {{ vratiImePrezimeKupca(p) }} <br>
                     <b>Status:</b> {{p.status}} <br>
                     <b>Ukupna cena:</b> {{p.cena}} <br>
                     <br>
-                    <button v-if="p.status==='Obrada'" type = "button" v-on:click="otkaziPorudzbinu(p)">Otkazi</button>
+                    <button button class="btn btn-primary" v-if="p.status==='Obrada'" type = "button" v-on:click="izObradeUPripremu(p)">U pripremi</button>
+                    <button button class="btn btn-primary" v-if="p.status==='UPripremi'" type = "button" v-on:click="izPripremeUCekaDostavljaca(p)">Ceka dostavljaca</button>
+                    </p>
+                                            
+                </div>
+            
+                <div v-if="(korisnik.uloga==='MENADZER') && (vlasnikRestorana(p))" class="mojArtikal">                           
+                    <p>
+                    <b>Sifra porudzbine:</b> {{p.id}} <br>
+                    <b>Datum i vreme porucivanja:</b> {{vratiFormatiranDatum(p)}} <br>
+                    <b>Artikli:</b><br>
+                    <label v-for = "a in p.artikli">
+                        {{a.naziv}} {{a.cena}} <br>
+                    </label><br>                
+                    <b>Restoran:</b> {{vratiRestoran(p)}} <br>
+                    <b>Kupac:</b> {{ vratiImePrezimeKupca(p) }} <br>
+                    <b>Status:</b> {{p.status}} <br>
+                    <b>Ukupna cena:</b> {{p.cena}} <br>
+                    <br>
+                    <button button class="btn btn-primary" v-if="p.status==='Obrada'" type = "button" v-on:click="izObradeUPripremu(p)">U pripremi</button>
+                    <button button class="btn btn-primary" v-if="p.status==='UPripremi'" type = "button" v-on:click="izPripremeUCekaDostavljaca(p)">Ceka dostavljaca</button>
+                    </p>
+                                                
+                </div>
+
+                <div v-if="(korisnik.uloga==='KUPAC') && (trenutniKupac(p))" class="mojArtikal">                           
+                    <p>
+                    <b>Sifra porudzbine:</b> {{p.id}} <br>
+                    <b>Datum i vreme porucivanja:</b> {{vratiFormatiranDatum(p)}} <br>
+                    <b>Artikli:</b><br>
+                    <label v-for = "a in p.artikli">
+                        {{a.naziv}} {{a.cena}} <br>
+                    </label><br>
+                    <b>Restoran:</b> {{vratiRestoran(p)}} <br>
+                    <b>Kupac:</b> {{ vratiImePrezimeKupca(p) }} <br>
+                    <b>Status:</b> {{p.status}} <br>
+                    <b>Ukupna cena:</b> {{p.cena}} <br>
+                    <br>
+                    <button class="btn btn-danger" v-if="p.status==='Obrada'" type = "button" v-on:click="otkaziPorudzbinu(p)">Otkazi</button>
                     <div v-if="!oceniClick">
                         <button class="btn btn-primary" v-if="p.status==='Dostavljena'" type="button" v-on:click="(oceniClick = true) && getRestoran(p)">Oceni</button>
                     </div>
@@ -68,21 +86,21 @@ Vue.component("pregledPorudzbina",{
                                                 
                 </div>
 
-                <div v-if="(korisnik.uloga==='DOSTAVLJAC') && ((p.status === 'CekaDostavljaca') || (porudzbineDostavljaca(p)))">                           
+                <div v-if="(korisnik.uloga==='DOSTAVLJAC') && ((p.status === 'CekaDostavljaca') || (porudzbineDostavljaca(p)))" class="mojArtikal">                           
                     <p>
                     <b>Sifra porudzbine:</b> {{p.id}} <br>
-                    <b>Datum i vreme porucivanja:</b> {{p.datum}} <br>
+                    <b>Datum i vreme porucivanja:</b> {{vratiFormatiranDatum(p)}} <br>
                     <b>Artikli:</b><br>
                     <label v-for = "a in p.artikli">
                         {{a.naziv}} {{a.cena}} <br>
-                    </label>
+                    </label><br>
                     <b>Restoran:</b> {{vratiRestoran(p)}} <br>
                     <b>Kupac:</b> {{ vratiImePrezimeKupca(p) }} <br>
                     <b>Status:</b> {{p.status}} <br>
                     <b>Ukupna cena:</b> {{p.cena}} <br>
                     <br>
-                    <button v-if="(p.status==='CekaDostavljaca') && (!proveraZahteva(p))" type = "button" v-on:click="zahtevIzCekaDostavljacaUTransport(p)">Zahtev za porudzbinu</button>
-                    <button v-if="p.status==='UTransportu'" type = "button" v-on:click="izTransportUDostavljena(p)">Dostavljeno</button>
+                    <button button class="btn btn-primary" v-if="(p.status==='CekaDostavljaca') && (!proveraZahteva(p))" type = "button" v-on:click="zahtevIzCekaDostavljacaUTransport(p)">Zahtev za porudzbinu</button>
+                    <button button class="btn btn-primary" v-if="p.status==='UTransportu'" type = "button" v-on:click="izTransportUDostavljena(p)">Dostavljeno</button>
                     </p>
                                             
                 </div>
