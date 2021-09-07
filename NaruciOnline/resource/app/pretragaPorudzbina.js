@@ -14,11 +14,13 @@ Vue.component("pretragaPorudzbina",{
                 cenaDo:"",
                 datumOd:"",
                 datumDo:"",
-                status:""
+                status:"",
+                tipRestorana:""
 
             },
             tipoviRestorana:[],
             korisnik:null
+            
         }
     },
     template:`
@@ -31,6 +33,7 @@ Vue.component("pretragaPorudzbina",{
             <input type="date" v-model="search.datumOd" placeholder="datumOd"/>
             <input type="date" v-model="search.datumDo" placeholder="datumDo"/>
             <button class="btn btn-sm btn-primary bi bi-search" type="button" v-on:click="pretrazi()">Pretrazi</button>
+            <button type="button" v-on:click="ponistiPretragu()" class="btn btn-sm btn-outline-danger bi bi-x">Ponisti pretragu</button>
             <br>
 
             <div v-if="korisnik">
@@ -44,8 +47,8 @@ Vue.component("pretragaPorudzbina",{
                     <option value="Otkazana">Otkazana</option>
                 </select>
 
-                <select v-model="search.tipRestorana">
-                    <option value="" selected>Svi tipovi</option>
+                <select v-model="search.tipRestorana" v-if="(korisnik.uloga==='KUPAC') || (korisnik.uloga==='DOSTAVLJAC')">
+                    <option value="" selected="true">Svi tipovi</option>
                     <option v-for="t in tipoviRestorana" :value="t">{{t}}</option>
                 </select>
 
@@ -128,6 +131,24 @@ Vue.component("pretragaPorudzbina",{
             this.search.cenaOpad = false
             this.search.datumRast = false
             this.search.datumOpad = true
+            console.log("Klik!")
+            this.$emit('clicked', this.search)
+        },
+        ponistiPretragu:function(){
+            this.search.nazivRast = false
+            this.search.nazivOpad = false
+            this.search.cenaRast = false
+            this.search.cenaOpad = false
+            this.search.datumRast = false
+            this.search.datumOpad = false
+            this.search.naziv="",
+            this.search.cenaOd="",
+            this.search.cenaDo="",
+            this.search.datumOd="",
+            this.search.datumDo="",
+            this.search.status="",
+            this.search.tipRestorana="",
+            this.search.checkNedostavljene=false
             console.log("Klik!")
             this.$emit('clicked', this.search)
         }

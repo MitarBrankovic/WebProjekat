@@ -27,6 +27,7 @@ Vue.component("pretragaKorisnika",{
             <input type="text" v-model="search.prezime" placeholder="prezime"/>
             <input type="text" v-model="search.korisnickoIme" placeholder="korisnickoIme"/>
             <button type="button" v-on:click="pretrazi()" class="btn btn-sm btn-primary bi bi-search">Pretrazi</button>
+            <button type="button" v-on:click="ponistiPretragu()" class="btn btn-sm btn-outline-danger bi bi-x">Ponisti pretragu</button>
             <br>
 
             <div>
@@ -159,6 +160,23 @@ Vue.component("pretragaKorisnika",{
             this.search.korisnickoImeOpad = false
             this.search.bodoviRast = false
             this.search.bodoviOpad = true
+            console.log("Klik!")
+            this.$emit('clicked', this.search)
+        },
+        ponistiPretragu: function(){
+            this.search.imeRast = false
+            this.search.imeOpad = false
+            this.search.prezimeRast = false
+            this.search.prezimeOpad = false
+            this.search.korisnickoImeRast = false
+            this.search.korisnickoImeOpad = false
+            this.search.bodoviRast = false
+            this.search.bodoviOpad = false          
+            this.search.ime="",
+            this.search.prezime="",
+            this.search.korisnickoIme="",
+            this.search.uloga=""
+            this.search.tip=""
             console.log("Klik!")
             this.$emit('clicked', this.search)
         }
