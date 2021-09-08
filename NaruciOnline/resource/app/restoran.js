@@ -426,52 +426,27 @@ function init1(geoDuzina, geoSirina){
     latLong1.push(geoDuzina)
     latLong1.push(geoSirina)
     console.log(latLong1)
+
+    const iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point(latLong1)
+      });
+
 	const map1 = new ol.Map({
 		view: new ol.View({
             projection: 'EPSG:4326',
 			center: [geoDuzina,geoSirina],
-			zoom: 19.2
+			zoom: 18.5
 		}),
 		layers: [
 			new ol.layer.Tile({
 				source: new ol.source.OSM()
-			})
+			}),
+            new ol.layer.Vector({
+                source: new ol.source.Vector({
+                  features: [iconFeature]
+                })
+            })
 		],
 		target: 'js-map1'
 	})
-    var layer1 = new ol.layer.Vector({
-        source: new ol.source.Vector({
-            features: [
-                new ol.Feature({
-                    geometry: new ol.geom.Point(ol.proj.fromLonLat(latLong1))
-                })
-            ]
-        })
-    });	
-    console.log(layer1)
-    map1.addLayer(layer1);
 }
-
-/*function simpleReverseGeocoding(lon, lat) {
-	fetch('http://nominatim.openstreetmap.org/reverse?format=json&lon=' + lon + '&lat=' + lat).then(function(response) {
-	  	return response.json();
-	}).then(function(json) {
-		ispisAdrese(json, lon, lat);
-	})
-  }
-
-function ispisAdrese(json, lon, lat) {
-	var adresa = json.address;
-	document.getElementById("geoDuz").value = lon;
-	document.getElementById("geoSir").value = lat;
-	var grad = adresa.city
-	if(grad.includes("City")){
-		grad = grad.replace(' City', "")
-	}else if(grad.includes("Municipality")){
-		grad = grad.replace(' Municipality', "")
-	}
-	document.getElementById("grad").value = grad;
-	document.getElementById("ulica").value = adresa.road;
-	document.getElementById("broj").value = adresa.house_number;
-	document.getElementById("postanskiBroj").value = adresa.postcode;
-}*/
