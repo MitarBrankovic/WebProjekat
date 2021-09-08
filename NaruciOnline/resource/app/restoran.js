@@ -207,8 +207,9 @@ Vue.component("restoran",{
             this.artikli = this.restoran.artikli
             console.log(this.artikli)
             //init1()
+            console.log(this.restoran.lokacija)
+            setTimeout(init1, 50,this.restoran.lokacija.geoDuzina, this.restoran.lokacija.geoSirina)
         })
-        setTimeout(init1,50)
     },
     methods:{
         dodajArtikalClick:function(){
@@ -417,11 +418,19 @@ Vue.component("restoran",{
     }
 });
 //window.onload = init1;
-function init1(){
+function init1(geoDuzina, geoSirina){
+    console.log(geoDuzina)
+    console.log(geoSirina)
+
+    var latLong1 =[]
+    latLong1.push(geoDuzina)
+    latLong1.push(geoSirina)
+    console.log(latLong1)
 	const map1 = new ol.Map({
 		view: new ol.View({
-			center: [2208254.0327390943,5661276.834908611],
-			zoom: 15
+            projection: 'EPSG:4326',
+			center: [geoDuzina,geoSirina],
+			zoom: 19.2
 		}),
 		layers: [
 			new ol.layer.Tile({
@@ -430,27 +439,17 @@ function init1(){
 		],
 		target: 'js-map1'
 	})
-	var previousLayer1 = null;
-	map1.on('click', function(e){
-		if(previousLayer1!=null) {map1.removeLayer(previousLayer1)}
-		var latLong1 = ol.proj.transform(e.coordinate, 'EPSG:3857', 'EPSG:4326');
-		console.log(latLong1);
-		this.geografskaDuzina = latLong1[0]
-		this.geografskaSirina = latLong1[1]
-		
-		var layer1 = new ol.layer.Vector({
-			source: new ol.source.Vector({
-				features: [
-					new ol.Feature({
-						geometry: new ol.geom.Point(ol.proj.fromLonLat(latLong1))
-					})
-				]
-			})
-		});	
-		previousLayer1 = layer1;
-		map1.addLayer(layer1);
-		//simpleReverseGeocoding(this.geografskaDuzina, this.geografskaSirina)
-	})
+    var layer1 = new ol.layer.Vector({
+        source: new ol.source.Vector({
+            features: [
+                new ol.Feature({
+                    geometry: new ol.geom.Point(ol.proj.fromLonLat(latLong1))
+                })
+            ]
+        })
+    });	
+    console.log(layer1)
+    map1.addLayer(layer1);
 }
 
 /*function simpleReverseGeocoding(lon, lat) {
