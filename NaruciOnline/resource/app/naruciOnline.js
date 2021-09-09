@@ -11,10 +11,37 @@ Vue.component("NaruciOnline", {
     },
     template:`  
     <div>
-        <section id="pocetna-slika">
-            <h1>Naruci Online</h1>
-            <h2>Sajt za narucivanje hrane</h2>
-        </section>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="height: 500px;">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner" style="height: 500px;">
+                <div class="carousel-item active">
+                    <img src="../images/restoran.jpg" style="-800px;" class="d-block w-100" alt="...">
+                    <div class=" carousel-content">
+                        <h1 style="text-align: center;">Naruci Online</h1>
+                        <h2 >Sajt za narucivanje hrane</h2>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="../images/restoran1.jpg" style="-1200px;" class="d-block w-100" alt="...">
+                    <div class=" carousel-content">
+                        <h1 style="text-align: center;">Naruci Online</h1>
+                        <h2 >Sajt za narucivanje hrane</h2>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="../images/restoran2.jpg" style="-1700px;" class="d-block w-100" alt="...">
+                    <div class=" carousel-content">
+                        <h1 style="text-align: center;">Naruci Online</h1>
+                        <h2 >Sajt za narucivanje hrane</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <div style="margin-left: 12%"   >
             <pretragaRestorana id="search" @clicked="onSearchClick"></pretragaRestorana>
