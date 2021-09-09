@@ -11,7 +11,9 @@ Vue.component("pregledPorudzbina",{
             imePrezime:"",
             restoran:"",
             oceniClick:false,
-            idRestoranaKomentar:null
+            idRestoranaKomentar:null,
+            porudzbinaOcena:null,
+            sviKomentari:[]
         }
     },
 
@@ -78,7 +80,7 @@ Vue.component("pregledPorudzbina",{
                     <div v-if="!oceniClick">
                         <button class="btn btn-primary" v-if="p.status==='Dostavljena'" type="button" v-on:click="(oceniClick = true) && getRestoran(p)">Oceni</button>
                     </div>
-                    <div v-else>
+                    <div v-else-if="p.id === porudzbinaOcena.id">
                         <oceni id="ocena" @clicked="PosaljiOcenu"></oceni>
                         <button class="btn btn-danger" type="button" v-on:click="oceniClick = false">Otkazi</button>
                     </div>
@@ -118,6 +120,7 @@ Vue.component("pregledPorudzbina",{
             this.porudzbine = responses[2].data
             this.dostavljaci = responses[3].data
             this.zahtevi = responses[4].data
+
         }))
         
     },
@@ -270,6 +273,8 @@ Vue.component("pregledPorudzbina",{
         },
         getRestoran:function(p){
             this.idRestoranaKomentar = p.idRestorana
+            this.porudzbinaOcena = p
+            console.log(this.porudzbinaOcena)
         }
 
     }

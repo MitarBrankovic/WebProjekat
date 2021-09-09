@@ -16,26 +16,34 @@ Vue.component("restoran",{
             izmeniClick:false,
             izmeniArtikalClick:false,
             artikalZaIzmenu:null,
-            Korpa:null
+            Korpa:null,
+
+            geografskaDuzina:"",
+			geografskaSirina:"",
+			grad:"",
+			ulica:"",
+			broj:"",
+			postanskiBroj:"",
         }
     },
 
     template:`
-        <div v-if="restoran" >
+    <div v-if="restoran" >
             <div class="container-xl" id="moj-restoran">
                 <h2>{{restoran.naziv}}</h2>
+                
                 <img :src="restoran.slika" width = "200px" heigth = "300">
                 <br><br>
                 <button class="btn btn-primary" type="button" v-on:click="otvoriRecenzije()">Recenzije</button><br><br>
                 <div v-if="!izmeniClick">
-                    <button v-if="uloga==='ADMIN'" type="button" v-on:click="izmeniInformacije()">Izmeni</button>
+                    <button class="btn btn-primary" v-if="uloga==='ADMIN'" type="button" v-on:click="izmeniInformacije()">Izmeni</button>
                 </div>
                 <div v-else>
-                    <button type="button" v-on:click="sacuvajIzmene()">Sacuvaj</button>
-                    <button type="button" v-on:click="izmeniInformacije()">Otkazi</button>
+                    <button class="btn btn-success" type="button" v-on:click="sacuvajIzmene()">Sacuvaj</button>
+                    <button class="btn btn-danger" type="button" v-on:click="izmeniInformacije()">Otkazi</button>
                 </div>
                 <div v-if="!izmeniClick">
-                    <p>
+                    <p><br>
                         <b>Tip:</b> {{restoran.tip}} <br>
                         <b>Status:</b> {{ restoran.status ? 'Otvoreno' : 'Zatvoreno' }} <br>
                         <hr>
@@ -47,11 +55,13 @@ Vue.component("restoran",{
                         <b>Postanski broj:</b> {{restoran.lokacija.postanskiBroj}} <br>
                         <hr>
                         <b>Menadzer:</b> {{restoran.menadzer.ime}} {{restoran.menadzer.prezime}} <br>
+                        <div id="js-map1" style="height:500px; width:50%;"></div>
+
                         <hr>    
                     </p>
                 </div>
                 <div v-else>
-                    <p>
+                    <p><br>
                         <b>Tip:</b> <input type="text" v-model="restoran.tip"> <br>
                         <b>Status:</b> {{ restoran.status ? 'Otvoreno' : 'Zatvoreno' }} <br>
                         <!--<select v-model="restoran.status">
@@ -59,14 +69,20 @@ Vue.component("restoran",{
                             <option :value="false">Zatvoreno</option>
                         </select> <br>-->
                         <hr>
-                        <b>Geografska sirina:</b> <input type="text" v-model="restoran.lokacija.geoSirina"> <br>
-                        <b>Geografska duzina:</b> <input type="text" v-model="restoran.lokacija.geoDuzina"> <br>
-                        <b>Grad:</b> <input type="text" v-model="restoran.lokacija.grad"> <br>
-                        <b>Ulica:</b> <input type="text" v-model="restoran.lokacija.ulica"> <br>
-                        <b>Broj:</b> <input type="text" v-model="restoran.lokacija.broj"> <br>
-                        <b>Postanski broj:</b> <input type="number" v-model="restoran.lokacija.postanskiBroj"> <br>
-                        <label for="slika"><b>Slika</b></label>
-                        <input type="file"  required @change=imageAdded>
+                        <div class="artikli">
+                            <div class="container">
+                                <label class="col-sm-2 col-form-label"><b>Geografska sirina:</b></label> <input class="col-sm-2 col-form-control" id="geoSir" type="text" v-model="restoran.lokacija.geoSirina"> <br>
+                                <label class="col-sm-2 col-form-label"><b>Geografska duzina:</b></label> <input class="col-sm-2 col-form-control" id="geoDuz" type="text" v-model="restoran.lokacija.geoDuzina"> <br>
+                                <label class="col-sm-2 col-form-label"><b>Grad:</b></label> <input id="grad" class="col-sm-2 col-form-control" type="text" v-model="restoran.lokacija.grad"> <br>
+                                <label class="col-sm-2 col-form-label"><b>Ulica:</b></label> <input id="ulica" class="col-sm-2 col-form-control" type="text" v-model="restoran.lokacija.ulica"> <br>
+                                <label class="col-sm-2 col-form-label"><b>Broj:</b></label> <input id="broj" class="col-sm-2 col-form-control" type="text" v-model="restoran.lokacija.broj"> <br>
+                                <label class="col-sm-2 col-form-label"><b>Postanski broj:</b></label> <input class="col-sm-2 col-form-control" id="postanskiBroj" type="number" v-model="restoran.lokacija.postanskiBroj"> <br>
+                                <label class="col-sm-2 col-form-label" for="slika"><b>Slika</b></label>
+                                <input type="file"  required @change=imageAdded>
+                            </div>
+                            
+
+                        </div>
                         <hr>
                         <b>Menadzer:</b> {{restoran.menadzer.ime}} {{restoran.menadzer.prezime}} <br>
                         <hr>    
@@ -190,6 +206,9 @@ Vue.component("restoran",{
             this.restoran = response.data
             this.artikli = this.restoran.artikli
             console.log(this.artikli)
+            //init1()
+            console.log(this.restoran.lokacija)
+            setTimeout(init1, 50,this.restoran.lokacija.geoDuzina, this.restoran.lokacija.geoSirina)
         })
     },
     methods:{
@@ -379,7 +398,55 @@ Vue.component("restoran",{
                 }
             }
             return count;
-        }
+        },
+        sacuvajLokaciju(){
+			this.geografskaDuzina = document.getElementById("geoDuz").value;
+			this.geografskaSirina = document.getElementById("geoSir").value;
+			this.grad = document.getElementById("grad").value;
+			this.ulica = document.getElementById("ulica").value;
+			this.broj = document.getElementById("broj").value;
+			this.postanskiBroj = document.getElementById("postanskiBroj").value;
+
+			document.getElementById("geoDuz").value = this.geografskaDuzina;
+			document.getElementById("geoSir").value = this.geografskaSirina;
+			document.getElementById("grad").value = this.grad;
+			document.getElementById("ulica").value = this.ulica;
+			document.getElementById("broj").value = this.broj;
+			document.getElementById("postanskiBroj").value = this.postanskiBroj;
+		}
 
     }
-})
+});
+//window.onload = init1;
+function init1(geoDuzina, geoSirina){
+    console.log(geoDuzina)
+    console.log(geoSirina)
+
+    var latLong1 =[]
+    latLong1.push(geoDuzina)
+    latLong1.push(geoSirina)
+    console.log(latLong1)
+
+    const iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point(latLong1)
+      });
+
+	const map1 = new ol.Map({
+		view: new ol.View({
+            projection: 'EPSG:4326',
+			center: [geoDuzina,geoSirina],
+			zoom: 18.5
+		}),
+		layers: [
+			new ol.layer.Tile({
+				source: new ol.source.OSM()
+			}),
+            new ol.layer.Vector({
+                source: new ol.source.Vector({
+                  features: [iconFeature]
+                })
+            })
+		],
+		target: 'js-map1'
+	})
+}
