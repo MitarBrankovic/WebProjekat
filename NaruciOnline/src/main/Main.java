@@ -11,6 +11,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -451,6 +454,31 @@ public class Main {
 			boolean ocenaRast = mapaBool.get("ocenaRast");
 			boolean ocenaOpad = mapaBool.get("ocenaOpad");
 
+			
+			if(ocenaRast) {
+				Collections.sort(restorani, new Comparator<Restoran>() {
+				    @Override
+					public int compare(Restoran o1, Restoran o2) {
+				        return komentarRepository.getOcenaRestorana(o1.id).compareTo(komentarRepository.getOcenaRestorana(o2.id));
+				    }
+				});
+			}
+			
+			
+			if(ocenaOpad) {
+				Collections.sort(restorani, new Comparator<Restoran>() {
+				    @Override
+					public int compare(Restoran o1, Restoran o2) {
+				        return komentarRepository.getOcenaRestorana(o1.id).compareTo(komentarRepository.getOcenaRestorana(o2.id));
+				    }
+				});
+				Collections.reverse(restorani);
+			}
+			
+			for(Restoran r: restorani) {
+				System.out.println(r.id);
+			}
+			
 			if (nazivRast) {
 				int n = restorani.size();
 				Restoran temp = null;
