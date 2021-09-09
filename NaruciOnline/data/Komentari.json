@@ -12,4 +12,11 @@
   "tekst" : "Smece",
   "ocena" : 1,
   "odobren" : false
+}, {
+  "idKomentara" : "HYNMG",
+  "idKorisnika" : "k2",
+  "idRestorana" : "7ULWO",
+  "tekst" : "Super",
+  "ocena" : 5,
+  "odobren" : true
 } ]

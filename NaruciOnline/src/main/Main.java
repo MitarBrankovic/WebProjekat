@@ -299,10 +299,7 @@ public class Main {
 		});
 		
 		get("/ZahteviZaKomentare/:id", (req,res)->{
-			//return  req.params(":naziv");
 			String idRestorana = req.params(":id");
-			//System.out.println(nazivRestorana);
-			//System.out.println(restoran.naziv);
 			return g.toJson(komentarRepository.getNeodobreniKomentariZaRestoran(idRestorana));
 		});
 		
@@ -382,34 +379,24 @@ public class Main {
 		});
 		
 		get("/restoran/:naziv", (req,res)->{
-			//return  req.params(":naziv");
 			String naziv = req.params(":naziv");
-			//System.out.println(naziv);
 			return "OK";
 		});
 		
 		get("/recenzije/:naziv", (req,res)->{
-			//return  req.params(":naziv");
 			String naziv = req.params(":naziv");
-			//System.out.println(naziv);
 			return "OK";
 		});
 		
 		get("/recenzije/get/:naziv", (req,res)->{
-			//return  req.params(":naziv");
 			String nazivRestorana = req.params(":naziv");
-			//System.out.println(nazivRestorana);
 			Restoran restoran = restoranRepository.getObjViaName(nazivRestorana);
-			//System.out.println(restoran.naziv);
 			return g.toJson(komentarRepository.getOdobreniKomentariZaRestoran(restoran.id));
 		});
 		
 		get("/restoran/get/:naziv", (req,res)->{
-			//return  req.params(":naziv");
 			String nazivRestorana = req.params(":naziv");
-			//System.out.println(nazivRestorana);
 			Restoran restoran = restoranRepository.getObjViaName(nazivRestorana);
-			//System.out.println(restoran.naziv);
 			return g.toJson(restoran);
 		});
 		
@@ -427,7 +414,6 @@ public class Main {
 		post("/pretragaRestor", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
 			HashMap<String, Boolean> mapaBool = g.fromJson(req.body(), HashMap.class);
-			System.out.println(mapa);
 			
 			String naziv = mapa.get("naziv");
 			String tip = mapa.get("tip");
@@ -439,7 +425,6 @@ public class Main {
 
 			if (naziv.equals("") && tip.equals("") && lokacija.equals("") && ocena.equals(""))
 				restorani = restoranRepository.getAll();
-				//return g.toJson(restoranRepository.getAll());
 			
 			if (!naziv.equals("")) {
 				restorani =  restorani.stream().filter(m -> m.naziv.toLowerCase().contains(naziv.toLowerCase()))
@@ -457,10 +442,7 @@ public class Main {
 				restorani = restorani.stream().filter(m -> m.status == true)
 						.collect(Collectors.toList());
 			}
-			/*if (!ocena.equals("")) {
-				restorani = restorani.stream().filter(m -> m.ocena.contains(ocena))
-						.collect(Collectors.toList());
-			}*/
+
 				
 			boolean nazivRast = mapaBool.get("nazivRast");
 			boolean nazivOpad = mapaBool.get("nazivOpad");
@@ -534,12 +516,10 @@ public class Main {
 				}
 			}
 			
-			//TODO: SORTIRANJE OCENA
 			List<Restoran> tmpRestorani = new ArrayList<Restoran>();
 			switch(mapa.get("ocena")) {
 				case "3":
 					for(Restoran r: restorani) {
-						System.out.println(r.naziv + komentarRepository.getOcenaRestorana(r.id));
 						if(komentarRepository.getOcenaRestorana(r.id) > 3 || komentarRepository.getOcenaRestorana(r.id) == 0) {
 							tmpRestorani.add(r);
 						}
@@ -564,11 +544,6 @@ public class Main {
 					tmpRestorani = restorani;
 			}
 			restorani = tmpRestorani;
-		
-			//res.type("application/json");
-			for(Restoran r: restorani) {
-				System.out.println(r.naziv);
-			}
 			return g.toJson(restorani);
 		});
 		
@@ -587,7 +562,6 @@ public class Main {
 
 			if (ime.equals("") && prezime.equals("") && korisnickoIme.equals(""))
 				korisnici = korisnikRepository.getAll();
-				//return g.toJson(restoranRepository.getAll());
 			
 			if (!ime.equals("")) {
 				korisnici =  korisnici.stream().filter(m -> m.ime.toLowerCase().contains(ime.toLowerCase()))
@@ -601,11 +575,6 @@ public class Main {
 				korisnici = korisnici.stream().filter(m -> m.korisnickoIme.toLowerCase().contains(korisnickoIme.toLowerCase()))
 						.collect(Collectors.toList());
 			}
-
-			/*if (!ocena.equals("")) {
-				restorani = restorani.stream().filter(m -> m.ocena.contains(ocena))
-						.collect(Collectors.toList());
-			}*/
 			
 			if (uloga.equals("MENADZER")) {
 				korisnici = korisnici.stream().filter(m -> m.uloga.toString().equals("MENADZER"))
@@ -1068,7 +1037,6 @@ public class Main {
 
 			if (nazivRestorana.equals("") && cenaOd.equals("") && cenaDo.equals("") && datumOd.equals("") && datumDo.equals("") && tipRestorana.equals(""))
 				porudzbine = porudzbinaRepository.getAll();
-				//return g.toJson(restoranRepository.getAll());
 			
 			if (!nazivRestorana.equals("")) {
 				for(Restoran r: restorani) {
@@ -1091,7 +1059,6 @@ public class Main {
 						.collect(Collectors.toList());
 			}
 			if (!datumOd.equals("")) {
-				//LocalDateTime lf = LocalDateTime.parse(datumOd, df);
 				porudzbine = porudzbine.stream().filter(m -> (m.datum.isAfter(LocalDate.parse(datumOd, df).atStartOfDay())))
 						.collect(Collectors.toList());
 			}
