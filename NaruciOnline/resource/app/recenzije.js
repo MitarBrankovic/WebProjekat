@@ -7,15 +7,17 @@ Vue.component("recenzije",{
 
     template:`
         <div>
-            <h2>Recenzije:</h2>
+            <h2 class="flex title-div bigtitle" style="margin-top: 30px;">Recenzije:</h2>
             <hr>
-            <div v-for="r in recenzije">
-                <p>
-                    <b>{{r.idKorisnika}}</b><br>
-                    Ocena: {{r.ocena}}<br>
-                    {{r.tekst}}<br>
-                    <hr>
-                </p>
+            <div class="list-group container">
+                <div v-for="r in recenzije">
+                    <p>
+                        <b>Kupac:</b><b> {{r.idKorisnika}}</b><br>
+                        <b>Ocena:</b> {{r.ocena}}<br>
+                        <b>Tekst:</b> {{r.tekst}}<br>
+                        <hr>
+                    </p>
+                </div>
             </div>
         </div>
     `,

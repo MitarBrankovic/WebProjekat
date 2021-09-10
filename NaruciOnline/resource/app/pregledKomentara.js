@@ -6,27 +6,29 @@ Vue.component("pregledKomentara", {
         }
     },
     template:`  
-        <div style="margin-top: 30px; margin-left: 30px" v-if="korisnik.uloga=='ADMIN'">
-            <div v-for="k in komentari">
+        <div style="margin-top: 30px;" v-if="korisnik.uloga=='ADMIN'">
+            <h2 class="flex title-div bigtitle">Svi komentari</h2>
+            <div v-for="k in komentari" class="list-group container">
                 <div class="list-item">
                     <p>
-                        <b>Kupac:</b>{{k.idKorisnika}}<br>
+                        <b>Kupac:</b> {{k.idKorisnika}}<br>
                         <b>Ocena:</b> {{k.ocena}}<br>
-                        <b>Tekst:</b>{{k.tekst}}<br>
-                        <b>Status:</b>{{k.status}}<br><br>
+                        <b>Tekst:</b> {{k.tekst}}<br>
+                        <b>Status:</b> {{k.status}}<br><br>
                         <hr>
                     </p>
                 </div>
             </div>
         </div>
         <div v-else-if="korisnik.uloga=='MENADZER'" style="margin-top: 30px; margin-left: 30px">
-            <div v-for="k in komentari">
+            <h2 class="flex title-div bigtitle">Svi komentari</h2>
+            <div v-for="k in komentari" class="list-group container">
                 <div class="list-item">
                     <p>
-                        <b>Kupac:</b>{{k.idKorisnika}}<br>
+                        <b>Kupac:</b> {{k.idKorisnika}}<br>
                         <b>Ocena:</b> {{k.ocena}}<br>
-                        <b>Tekst:</b>{{k.tekst}}<br>
-                        <b>Status:</b>{{k.status}}<br><br>
+                        <b>Tekst:</b> {{k.tekst}}<br>
+                        <b>Status:</b> {{k.status}}<br><br>
                         <hr>
                     </p>
                 </div>
