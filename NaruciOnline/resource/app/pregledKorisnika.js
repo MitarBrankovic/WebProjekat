@@ -1,11 +1,10 @@
 Vue.component("pregledKorisnika",{
     data: function(){
         return{
-          korisnici:null,
-          blokirani:null,
-          otkazane:null,
-          kupci:null,
-          count:0// 
+          korisnici:[],
+          blokirani:[],
+          otkazane:[],
+          kupci:[]
         }
     },
 
@@ -67,7 +66,7 @@ Vue.component("pregledKorisnika",{
                         </thead>
                         <tbody v-for = "k in korisnici">
 
-                                <tr>
+                                <tr :style="'background-color:' + boje(k)">
                                 <td>{{k.korisnickoIme}}</td>
                                 <td>{{k.lozinka}}</td>
                                 <td>{{k.ime}}</td>
@@ -98,9 +97,6 @@ Vue.component("pregledKorisnika",{
        }))
     },
     methods:{
-        increment(){
-            this.count += 1;
-        },
         onSearch2Click:function(search){
             console.log(search)
             axios
@@ -173,6 +169,11 @@ Vue.component("pregledKorisnika",{
                 brojac++;
             }
             return brojac;
+        },
+        boje(k){
+            if(this.proveraBlokiran(k)){
+                return "tomato";
+            }else{return "";}
         }
 
     }

@@ -6,7 +6,7 @@ Vue.component("pregledKomentara", {
         }
     },
     template:`  
-        <div style="margin-top: 30px" v-if="korisnik.uloga=='ADMIN'">
+        <div style="margin-top: 30px; margin-left: 30px" v-if="korisnik.uloga=='ADMIN'">
             <div v-for="k in komentari">
                 <div class="list-item">
                     <p>
@@ -19,7 +19,7 @@ Vue.component("pregledKomentara", {
                 </div>
             </div>
         </div>
-        <div v-else-if="korisnik.uloga=='MENADZER'">
+        <div v-else-if="korisnik.uloga=='MENADZER'" style="margin-top: 30px; margin-left: 30px">
             <div v-for="k in komentari">
                 <div class="list-item">
                     <p>
