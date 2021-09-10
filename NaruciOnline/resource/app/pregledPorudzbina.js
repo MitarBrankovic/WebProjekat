@@ -39,8 +39,6 @@ Vue.component("pregledPorudzbina",{
                         <b>Status:</b> {{p.status}} <br>
                         <b>Ukupna cena:</b> {{p.cena}} <br>
                         <br>
-                        <button button class="btn btn-primary" v-if="p.status==='Obrada'" type = "button" v-on:click="izObradeUPripremu(p)">U pripremi</button>
-                        <button button class="btn btn-primary" v-if="p.status==='UPripremi'" type = "button" v-on:click="izPripremeUCekaDostavljaca(p)">Ceka dostavljaca</button>
                         </p>
                                                 
                     </div>

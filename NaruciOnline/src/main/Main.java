@@ -1025,6 +1025,7 @@ public class Main {
 				if(p.id.equals(porudzbina.id)) {
 					dostavljac.porudzbineZaDostavu.remove(p);
 					dostavljac.porudzbineZaDostavu.add(porudzbina);
+					break;
 				}
 			}
 			dostavljacRepository.edit(dostavljac);		
