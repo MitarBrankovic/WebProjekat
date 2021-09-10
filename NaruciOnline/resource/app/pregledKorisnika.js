@@ -64,7 +64,7 @@ Vue.component("pregledKorisnika",{
                                 <th scope="col">Blokiraj</th>
                             </tr>
                         </thead>
-                        <tbody v-for = "k in korisnici">
+                        <tbody v-for = "k in korisnici"> 
 
                                 <tr :style="'background-color:' + boje(k)">
                                 <td>{{k.korisnickoIme}}</td>
@@ -73,7 +73,8 @@ Vue.component("pregledKorisnika",{
                                 <td>{{k.prezime}}</td>
                                 <td>{{k.pol}}</td>
                                 <td>{{k.datumRodjenja}}</td>
-                                <td>{{k.uloga}}</td>
+                                <td v-if="k.uloga === 'KUPAC'">{{k.uloga}} ({{brojBodova(k)}}bodova)</td>
+                                <td v-else>{{k.uloga}}</td>
                                 <td v-if="k.uloga === 'KUPAC' && (proveraSumnjivihKupaca(k) > 4) && !proveraBlokiran(k)" style="color:red"><b>DA</b> (Otkazane porudzbine: {{proveraSumnjivihKupaca(k)}})</td>
                                 <td v-else>Ne</td>
                                 <td><button v-if="k.uloga!=='ADMIN' && !proveraBlokiran(k)" type="button" class="btn btn-danger" v-on:click="blokirajKorisnika(k)">Blokiraj</button></td>
@@ -174,6 +175,13 @@ Vue.component("pregledKorisnika",{
             if(this.proveraBlokiran(k)){
                 return "tomato";
             }else{return "";}
+        },
+        brojBodova(k){
+            for(let kupac of this.kupci){
+                if(kupac.korisnickoIme == k.korisnickoIme){
+                    return kupac.brojBodova;
+                }
+            }
         }
 
     }

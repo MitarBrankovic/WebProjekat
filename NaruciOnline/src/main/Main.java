@@ -482,10 +482,7 @@ public class Main {
 				});
 				Collections.reverse(restorani);
 			}
-			
-			for(Restoran r: restorani) {
-				System.out.println(r.id);
-			}
+
 			
 			if (nazivRast) {
 				int n = restorani.size();
@@ -770,7 +767,7 @@ public class Main {
 				Kupac temp = null;
 				for (int i = 0; i < n; i++) {
 					for (int j = 1; j < (n - i); j++) {
-						if (kupci2.get(j - 1).brojBodova < kupci2.get(j).brojBodova) {
+						if (kupci2.get(j - 1).brojBodova > kupci2.get(j).brojBodova) {
 							// swap elements
 							temp = kupci2.get(j - 1);
 							kupci2.set(j - 1, kupci2.get(j));
@@ -793,7 +790,7 @@ public class Main {
 				Kupac temp = null;
 				for (int i = 0; i < n; i++) {
 					for (int j = 1; j < (n - i); j++) {
-						if (kupci2.get(j - 1).brojBodova > kupci2.get(j).brojBodova) {
+						if (kupci2.get(j - 1).brojBodova < kupci2.get(j).brojBodova) {
 							// swap elements
 							temp = kupci2.get(j - 1);
 							kupci2.set(j - 1, kupci2.get(j));
