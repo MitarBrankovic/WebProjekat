@@ -2,7 +2,8 @@ Vue.component("oceni",{
     data: function(){
         return{
             komentar:null,
-            ocena:null
+            ocena:null,
+            sviKomentari:[]
         }
     },
     template:`
@@ -34,5 +35,4 @@ Vue.component("oceni",{
             this.$emit('clicked', feedback)
         }
     }
-        
 })

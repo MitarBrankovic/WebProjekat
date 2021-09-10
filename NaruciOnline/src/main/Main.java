@@ -291,12 +291,17 @@ public class Main {
 			return g.toJson(komentari);
 		});
 		
+		get("/bukvalnoSviKomentari", (req,res)->{
+			List<Komentar> komentari = komentarRepository.getAll();
+			return g.toJson(komentari);
+		});
+		
 		post("/ocenaKorisnika", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
 			StringBuilder sb = IDgenerator();
 		    String generisanID = sb.toString();
 			Komentar komentar = new Komentar(generisanID, mapa.get("idKorisnika"), mapa.get("idRestorana"),
-					mapa.get("kom"),Integer.parseInt(mapa.get("oce")));
+					mapa.get("idPorudzbine"), mapa.get("kom"),Integer.parseInt(mapa.get("oce")));
 			komentarRepository.create(komentar);
 			return "OK";
 		});
@@ -311,7 +316,7 @@ public class Main {
 			HashMap<String, Double> mapaDouble = g.fromJson(req.body(), HashMap.class);
 
 			Komentar komentar = new Komentar(mapa.get("idKomentara"), mapa.get("idKorisnika"),
-					mapa.get("idRestorana"), mapa.get("tekst"), mapaDouble.get("ocena").intValue());
+					mapa.get("idRestorana"), mapa.get("idPorudzbine"), mapa.get("tekst"), mapaDouble.get("ocena").intValue());
 			komentar.odobren = true;
 			komentarRepository.OdobravanjeOdbijanjeKomentara(komentar);
 			return g.toJson(komentarRepository.getNeodobreniKomentariZaRestoran(mapa.get("idRestorana")));
@@ -322,7 +327,7 @@ public class Main {
 			HashMap<String, Double> mapaDouble = g.fromJson(req.body(), HashMap.class);
 
 			Komentar komentar = new Komentar(mapa.get("idKomentara"), mapa.get("idKorisnika"),
-					mapa.get("idRestorana"), mapa.get("tekst"), mapaDouble.get("ocena").intValue());
+					mapa.get("idRestorana"), mapa.get("idPorudzbine"), mapa.get("tekst"), mapaDouble.get("ocena").intValue());
 			komentar.odobren = false;
 			komentarRepository.OdobravanjeOdbijanjeKomentara(komentar);
 			return g.toJson(komentarRepository.getNeodobreniKomentariZaRestoran(mapa.get("idRestorana")));

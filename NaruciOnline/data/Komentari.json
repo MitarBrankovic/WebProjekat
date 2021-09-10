@@ -1,22 +1,17 @@
 [ {
-  "idKomentara" : "CQI2Z",
+  "idKomentara" : "71S6G",
   "idKorisnika" : "k1",
   "idRestorana" : "QW5UZ",
-  "tekst" : "Prilicno dobro",
+  "idPorudzbine" : "JWHPPQJFQH",
+  "tekst" : "Dobra hrana",
   "ocena" : 4,
   "odobren" : true
 }, {
-  "idKomentara" : "7X457",
-  "idKorisnika" : "k1",
-  "idRestorana" : "QW5UZ",
-  "tekst" : "Smece",
-  "ocena" : 1,
-  "odobren" : false
-}, {
-  "idKomentara" : "HYNMG",
+  "idKomentara" : "Y4LL4",
   "idKorisnika" : "k2",
   "idRestorana" : "7ULWO",
-  "tekst" : "Super",
+  "idPorudzbine" : "4FIJ0U5OR3",
+  "tekst" : "Odlicno",
   "ocena" : 5,
-  "odobren" : true
+  "odobren" : false
 } ]
