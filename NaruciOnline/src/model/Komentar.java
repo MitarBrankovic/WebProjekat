@@ -7,7 +7,7 @@ public class Komentar {
 	public String idPorudzbine;
 	public String tekst;
 	public int ocena;
-	public boolean odobren;
+	public StatusKomentara status;
 	
 	
 	public Komentar(String idKomentara, String idKorisnika, String idRestorana, String idPorudzbine, String tekst, int ocena) {
@@ -18,7 +18,7 @@ public class Komentar {
 		this.idPorudzbine = idPorudzbine;
 		this.tekst = tekst;
 		this.ocena = ocena;
-		this.odobren = false;
+		this.status = StatusKomentara.naCekanju;
 	}
 	
 	public Komentar() {

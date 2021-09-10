@@ -1,17 +1,9 @@
 [ {
-  "idKomentara" : "71S6G",
+  "idKomentara" : "393PA",
   "idKorisnika" : "k1",
   "idRestorana" : "QW5UZ",
   "idPorudzbine" : "JWHPPQJFQH",
-  "tekst" : "Dobra hrana",
-  "ocena" : 4,
-  "odobren" : true
-}, {
-  "idKomentara" : "Y4LL4",
-  "idKorisnika" : "k2",
-  "idRestorana" : "7ULWO",
-  "idPorudzbine" : "4FIJ0U5OR3",
   "tekst" : "Odlicno",
   "ocena" : 5,
-  "odobren" : false
+  "status" : "odobren"
 } ]

@@ -296,6 +296,11 @@ public class Main {
 			return g.toJson(komentari);
 		});
 		
+		get("/sviKomentariRestorana/:korisnickoIme", (req,res)->{
+			String korisnickoIme = req.params("korisnickoIme");
+			return g.toJson(komentarRepository.getSviKomentariRestorana((menadzerRepository.getObj(korisnickoIme)).idRestorana));
+		});
+		
 		post("/ocenaKorisnika", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
 			StringBuilder sb = IDgenerator();
@@ -313,23 +318,21 @@ public class Main {
 		
 		post("/odobriKomentar", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
-			HashMap<String, Double> mapaDouble = g.fromJson(req.body(), HashMap.class);
+			//HashMap<String, Double> mapaDouble = g.fromJson(req.body(), HashMap.class);
 
-			Komentar komentar = new Komentar(mapa.get("idKomentara"), mapa.get("idKorisnika"),
-					mapa.get("idRestorana"), mapa.get("idPorudzbine"), mapa.get("tekst"), mapaDouble.get("ocena").intValue());
-			komentar.odobren = true;
-			komentarRepository.OdobravanjeOdbijanjeKomentara(komentar);
+			/*Komentar komentar = new Komentar(mapa.get("idKomentara"), mapa.get("idKorisnika"),
+					mapa.get("idRestorana"), mapa.get("idPorudzbine"), mapa.get("tekst"), mapaDouble.get("ocena").intValue());*/
+			komentarRepository.OdobravanjeKomentara(mapa.get("idKomentara"));
 			return g.toJson(komentarRepository.getNeodobreniKomentariZaRestoran(mapa.get("idRestorana")));
 		});
 		
 		post("/odbijKomentar", (req, res) -> {
 			HashMap<String, String> mapa = g.fromJson(req.body(), HashMap.class);
-			HashMap<String, Double> mapaDouble = g.fromJson(req.body(), HashMap.class);
+			//HashMap<String, Double> mapaDouble = g.fromJson(req.body(), HashMap.class);
 
-			Komentar komentar = new Komentar(mapa.get("idKomentara"), mapa.get("idKorisnika"),
-					mapa.get("idRestorana"), mapa.get("idPorudzbine"), mapa.get("tekst"), mapaDouble.get("ocena").intValue());
-			komentar.odobren = false;
-			komentarRepository.OdobravanjeOdbijanjeKomentara(komentar);
+			/*Komentar komentar = new Komentar(mapa.get("idKomentara"), mapa.get("idKorisnika"),
+					mapa.get("idRestorana"), mapa.get("idPorudzbine"), mapa.get("tekst"), mapaDouble.get("ocena").intValue());*/
+			komentarRepository.OdbijanjeKomentara(mapa.get("idKomentara"));
 			return g.toJson(komentarRepository.getNeodobreniKomentariZaRestoran(mapa.get("idRestorana")));
 		});
 		

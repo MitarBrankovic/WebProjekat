@@ -20,6 +20,7 @@ const ZahteviDostavljaca = {template:'<zahteviDostavljaca></zahteviDostavljaca>'
 const Oceni = {template:'<oceni></oceni>'}
 const ZahteviKomentara = {template:'<zahteviKomentara></zahteviKomentara>'}
 const Recenzije = {template:'<recenzije></recenzije>'}
+const PregledKomentara = {template:'<pregledKomentara></pregledKomentara>'}
 
 
 
@@ -48,10 +49,8 @@ const router = new VueRouter({
 		{path:'/recenzije/:naziv',component: Recenzije},
 		{path:'/zahteviDostavljaca',component: ZahteviDostavljaca},
 		{path:'/oceni',component: Oceni},
-		{path:'/zahteviKomentara',component: ZahteviKomentara}
-
-
-		
+		{path:'/zahteviKomentara',component: ZahteviKomentara},
+		{path:'/pregledKomentara',component: PregledKomentara}
 
 	]
 });

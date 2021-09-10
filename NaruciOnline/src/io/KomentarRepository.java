@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import model.Komentar;
 import model.Korisnik;
+import model.StatusKomentara;
 
 public class KomentarRepository {
 	private ObjectMapper mapper;
@@ -60,7 +61,7 @@ public class KomentarRepository {
 		List<Komentar> komentari = getAll();
 		List<Komentar> odobreni = new ArrayList<Komentar>();
 		for(Komentar k: komentari) {
-			if(k.odobren) {
+			if(k.status == StatusKomentara.odobren) {
 				odobreni.add(k);
 			}
 		}
@@ -71,7 +72,7 @@ public class KomentarRepository {
 		List<Komentar> lista = getAll();
 		List<Komentar> listaNeodobrenihKomentara = new ArrayList<Komentar>();
 		for(Komentar k: lista) {
-			if(k.idRestorana.equals(idRestorana) && !k.odobren) {
+			if(k.idRestorana.equals(idRestorana) && k.status == StatusKomentara.naCekanju) {
 				listaNeodobrenihKomentara.add(k);
 			}
 		}
@@ -82,7 +83,7 @@ public class KomentarRepository {
 		List<Komentar> lista = getAll();
 		List<Komentar> listaNeodobrenihKomentara = new ArrayList<Komentar>();
 		for(Komentar k: lista) {
-			if(k.idRestorana.equals(idRestorana) && k.odobren) {
+			if(k.idRestorana.equals(idRestorana) && k.status == StatusKomentara.odobren) {
 				listaNeodobrenihKomentara.add(k);
 			}
 		}
@@ -102,7 +103,40 @@ public class KomentarRepository {
 		return false;
 	}*/
 	
-	public boolean OdobravanjeOdbijanjeKomentara(Komentar komentar) {
+	public void OdbijanjeKomentara(String id) {
+		List<Komentar> komentari = getAll();
+		for(Komentar k: komentari) {
+			if(k.idKomentara.equals(id)) {
+				k.status = StatusKomentara.odbijen;
+				saveAll(komentari);
+				return;
+			}
+		}
+	}
+	
+	public void OdobravanjeKomentara(String id) {
+		List<Komentar> komentari = getAll();
+		for(Komentar k: komentari) {
+			if(k.idKomentara.equals(id)) {
+				k.status = StatusKomentara.odobren;
+				saveAll(komentari);
+				return;
+			}
+		}
+	}
+	
+	public List<Komentar> getSviKomentariRestorana(String id){
+		List<Komentar> komentari = getAll();
+		List<Komentar> getKomentari = new ArrayList<Komentar>();
+		for(Komentar k: komentari) {
+			if(k.idRestorana.equals(id)) {
+				getKomentari.add(k);
+			}
+		}
+		return getKomentari;
+	}
+	
+	/*public boolean OdobravanjeOdbijanjeKomentara(Komentar komentar) {
 		List<Komentar> komentari = getAll();
 		if(komentari != null) {
 			for(Komentar k: komentari) {
@@ -118,14 +152,14 @@ public class KomentarRepository {
 			}
 		}
 		return false;
-	}
+	}*/
 	
 	public Double getOcenaRestorana(String id) {
 		Double ocena = 0.0;
 		int count = 0;
 		List<Komentar> komentari = getAll();
 		for(Komentar k: komentari) {
-			if(k.idRestorana.equals(id) && k.odobren) {
+			if(k.idRestorana.equals(id) && k.status == StatusKomentara.odobren) {
 				count++;
 				ocena = (ocena + k.ocena)/count;
 			}

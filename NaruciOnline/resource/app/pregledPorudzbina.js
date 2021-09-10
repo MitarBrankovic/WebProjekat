@@ -283,12 +283,16 @@ Vue.component("pregledPorudzbina",{
         },
         vecProkomentarisao:function(p){
             if(p.status=='Dostavljena'){
-                for(let i = 0; i < this.sviKomentari.length; i++){
-                    if(this.sviKomentari[i].idPorudzbine == p.id){
-                        return true
+                if(this.sviKomentari.length!=0){
+                    for(let i = 0; i < this.sviKomentari.length; i++){
+                        if(this.sviKomentari[i].idPorudzbine == p.id){
+                            return true
+                        }
                     }
+                    return false
+                }else{
+                    return false
                 }
-                return false
             }
             return true
         }
