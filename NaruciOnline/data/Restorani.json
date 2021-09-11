@@ -92,12 +92,12 @@
   "naziv" : "Sis cevap",
   "tip" : "srpska",
   "artikli" : [ {
-    "naziv" : "Pseca hrana u kifli",
+    "naziv" : "Sis cevap",
     "cena" : 200,
     "tip" : "jelo",
     "idRestorana" : "71B6T",
     "kolicina" : "300g",
-    "opis" : "Kifla",
+    "opis" : "Sis cevap u kifli sa premazima i salatom",
     "slika" : ""
   } ],
   "status" : false,
